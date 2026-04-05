@@ -1,9 +1,9 @@
 {
-  "name": "forjob-exam-prep",
+  "name": "jobpath-exam-prep",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://forjob.dreamitbiz.com",
+  "homepage": "https://jobpath.dreamitbiz.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -26,6 +26,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "gh-pages": "^6.3.0",
     "pdf-parse": "^2.4.5",
+    "pdfjs-dist": "^4.10.38",
     "sharp": "^0.33.0",
     "typescript": "^6.0.2",
     "vite": "^8.0.1"

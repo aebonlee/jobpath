@@ -37,7 +37,7 @@ async function generateOGImage() {
       <text x="230" y="134" font-family="Arial,sans-serif" font-size="16" fill="rgba(255,255,255,0.8)" text-anchor="middle" font-weight="500">직업상담사 2급 시험 준비</text>
 
       <!-- Main title -->
-      <text x="80" y="220" font-family="Arial,sans-serif" font-size="64" fill="white" font-weight="800">ForJob</text>
+      <text x="80" y="220" font-family="Arial,sans-serif" font-size="64" fill="white" font-weight="800">JobPath</text>
       <text x="80" y="300" font-family="Arial,sans-serif" font-size="40" fill="url(#accent)" font-weight="700">합격을 위한 최적의 학습</text>
 
       <!-- Description -->
@@ -62,7 +62,7 @@ async function generateOGImage() {
 
       <!-- Bottom bar -->
       <rect x="0" y="590" width="${width}" height="40" fill="rgba(0,0,0,0.3)"/>
-      <text x="80" y="616" font-family="Arial,sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">forjob.dreamitbiz.com</text>
+      <text x="80" y="616" font-family="Arial,sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">jobpath.dreamitbiz.com</text>
       <text x="1120" y="616" font-family="Arial,sans-serif" font-size="16" fill="rgba(255,255,255,0.4)" text-anchor="end">DreamIT Biz</text>
     </svg>
   `;

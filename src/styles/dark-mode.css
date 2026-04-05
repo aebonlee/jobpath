@@ -1,5 +1,5 @@
 /* ============================================
-   ForJob - Dark Mode
+   JobPath - Dark Mode
    ============================================ */
 
 html[data-theme="dark"] {
@@ -1425,6 +1425,79 @@ html[data-theme="dark"] .practice-result-q-num {
 /* ===== Focus Visible Dark ===== */
 html[data-theme="dark"] :focus-visible {
     outline-color: var(--primary-blue-light);
+}
+
+/* ===== Personalized Home Dark ===== */
+html[data-theme="dark"] .home-personalized {
+    background: var(--bg-light-gray);
+}
+html[data-theme="dark"] .home-greeting h1 {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .home-greeting p {
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .home-quick-card {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .home-quick-card:hover {
+    border-color: var(--primary-blue-light);
+    box-shadow: var(--shadow-lg);
+}
+html[data-theme="dark"] .home-quick-card h3 {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .home-quick-card p {
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .home-mini-stats-inner {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .home-mini-stat-label {
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .home-mini-stat-value {
+    color: var(--primary-blue-light);
+}
+
+/* ===== My Status Card Dark ===== */
+html[data-theme="dark"] .my-status-card {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .my-status-card h3 {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .my-status-stat-label {
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .my-status-stat-value {
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .my-status-weak {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .my-status-weak strong {
+    color: #FCA5A5;
+}
+html[data-theme="dark"] .my-status-login-banner {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .my-status-login-banner i {
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .my-status-login-banner a {
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .my-status-dday {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.25);
+    color: #FCA5A5;
 }
 
 /* ===== Dark Mode Font Readability ===== */

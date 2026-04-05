@@ -1,12 +1,150 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { SUBJECTS } from '../config/site';
+import { useAuth } from '../contexts/AuthContext';
+import { supabase, TABLES } from '../lib/supabase';
 
-export default function Home() {
+function LoggedInHome({ user }: { user: any }) {
+  const [stats, setStats] = useState<{
+    lastPilgiScore: number | null;
+    lastSilgiMatch: number | null;
+    totalExams: number;
+    streak: number;
+  }>({ lastPilgiScore: null, lastSilgiMatch: null, totalExams: 0, streak: 0 });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchStats() {
+      try {
+        const userId = user.id;
+
+        const [pilgiRes, silgiRes, countRes] = await Promise.all([
+          supabase
+            .from(TABLES.EXAM_SESSIONS)
+            .select('score_total')
+            .eq('user_id', userId)
+            .eq('exam_type', 'pilgi')
+            .not('completed_at', 'is', null)
+            .order('completed_at', { ascending: false })
+            .limit(1),
+          supabase
+            .from(TABLES.EXAM_SESSIONS)
+            .select('score_total')
+            .eq('user_id', userId)
+            .eq('exam_type', 'silgi_practice')
+            .not('completed_at', 'is', null)
+            .order('completed_at', { ascending: false })
+            .limit(1),
+          supabase
+            .from(TABLES.EXAM_SESSIONS)
+            .select('id', { count: 'exact', head: true })
+            .eq('user_id', userId)
+            .not('completed_at', 'is', null),
+        ]);
+
+        setStats({
+          lastPilgiScore: pilgiRes.data?.[0]?.score_total ?? null,
+          lastSilgiMatch: silgiRes.data?.[0]?.score_total ?? null,
+          totalExams: countRes.count ?? 0,
+          streak: 0,
+        });
+      } catch {
+        // fail silently
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchStats();
+  }, [user.id]);
+
+  const displayName = user.user_metadata?.name || user.user_metadata?.full_name || '학습자';
+
+  return (
+    <div className="home-personalized">
+      <div className="container">
+        {/* Greeting */}
+        <div className="home-greeting">
+          <h1>안녕하세요, <span className="highlight">{displayName}</span>님!</h1>
+          <p>오늘도 합격을 향해 한 걸음 더 가까이</p>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="home-quick-grid">
+          <Link to="/pilgi/select" className="home-quick-card">
+            <div className="home-quick-icon" style={{ background: 'rgba(59,130,246,0.1)', color: '#3B82F6' }}>
+              <i className="fa-solid fa-desktop" />
+            </div>
+            <h3>필기 CBT 시작</h3>
+            <p>실전 모의시험으로 실력 점검</p>
+          </Link>
+          <Link to="/silgi/practice" className="home-quick-card">
+            <div className="home-quick-icon" style={{ background: 'rgba(16,185,129,0.1)', color: '#10B981' }}>
+              <i className="fa-solid fa-pen" />
+            </div>
+            <h3>실기 연습 시작</h3>
+            <p>서술형 문제 풀고 모범답안 비교</p>
+          </Link>
+          <Link to="/wrong-answers" className="home-quick-card">
+            <div className="home-quick-icon" style={{ background: 'rgba(239,68,68,0.1)', color: '#EF4444' }}>
+              <i className="fa-solid fa-rotate-left" />
+            </div>
+            <h3>오답노트 복습</h3>
+            <p>틀린 문제를 다시 풀어보기</p>
+          </Link>
+          <Link to="/summary" className="home-quick-card">
+            <div className="home-quick-icon" style={{ background: 'rgba(139,92,246,0.1)', color: '#8B5CF6' }}>
+              <i className="fa-solid fa-graduation-cap" />
+            </div>
+            <h3>학습요약 보기</h3>
+            <p>핵심 개념 빠르게 복습</p>
+          </Link>
+        </div>
+
+        {/* Mini Stats */}
+        {loading ? (
+          <div className="home-mini-stats">
+            <div className="home-mini-stats-inner">
+              <p style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>학습 현황 불러오는 중...</p>
+            </div>
+          </div>
+        ) : (
+          <div className="home-mini-stats">
+            <div className="home-mini-stats-inner">
+              <div className="home-mini-stat">
+                <span className="home-mini-stat-label">최근 필기 점수</span>
+                <span className="home-mini-stat-value">
+                  {stats.lastPilgiScore !== null ? `${stats.lastPilgiScore}점` : '-'}
+                </span>
+              </div>
+              <div className="home-mini-stat">
+                <span className="home-mini-stat-label">최근 실기 점수</span>
+                <span className="home-mini-stat-value">
+                  {stats.lastSilgiMatch !== null ? `${stats.lastSilgiMatch}점` : '-'}
+                </span>
+              </div>
+              <div className="home-mini-stat">
+                <span className="home-mini-stat-label">총 시험 횟수</span>
+                <span className="home-mini-stat-value">{stats.totalExams}회</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Dashboard CTA */}
+        <div className="home-dashboard-cta">
+          <Link to="/dashboard" className="btn btn-primary btn-lg">
+            <i className="fa-solid fa-chart-pie" /> 대시보드에서 상세 분석 보기
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LandingHome() {
   return (
     <>
-      <SEOHead />
-
       {/* Hero */}
       <section className="hero">
         <div className="particles">
@@ -155,6 +293,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
+
+export default function Home() {
+  const { user } = useAuth();
+
+  return (
+    <>
+      <SEOHead />
+      {user ? <LoggedInHome user={user} /> : <LandingHome />}
     </>
   );
 }

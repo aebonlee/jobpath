@@ -7,8 +7,8 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="brand-main">For</span>
-              <span className="brand-sub">Job</span>
+              <span className="brand-main">Job</span>
+              <span className="brand-sub">Path</span>
             </div>
             <p className="footer-description">
               직업상담사 2급 시험 준비를 위한 CBT 학습 플랫폼.<br />

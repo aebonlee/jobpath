@@ -27,10 +27,10 @@ export default function ExamMode() {
   const [submitting, setSubmitting] = useState(false);
   const [startTime] = useState(Date.now());
   const [displayMode, setDisplayMode] = useState(() =>
-    localStorage.getItem('forjob-exam-layout') || 'single'
+    localStorage.getItem('jobpath-exam-layout') || 'single'
   );
   const [questionSize, setQuestionSize] = useState(() =>
-    localStorage.getItem('forjob-exam-size') || 'md'
+    localStorage.getItem('jobpath-exam-size') || 'md'
   );
 
   useEffect(() => {
@@ -40,10 +40,10 @@ export default function ExamMode() {
   }, [questions, navigate]);
 
   useEffect(() => {
-    localStorage.setItem('forjob-exam-layout', displayMode);
+    localStorage.setItem('jobpath-exam-layout', displayMode);
   }, [displayMode]);
   useEffect(() => {
-    localStorage.setItem('forjob-exam-size', questionSize);
+    localStorage.setItem('jobpath-exam-size', questionSize);
   }, [questionSize]);
 
   const handleSelectAnswer = useCallback((questionId, answer) => {

@@ -1,8 +1,116 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { SUBJECTS } from '../../config/site';
+import { useAuth } from '../../contexts/AuthContext';
+import { supabase, TABLES } from '../../lib/supabase';
+
+function getDday(): { label: string; days: number } | null {
+  const exams = [
+    { label: '2회 필기시험', date: new Date(2026, 4, 9) },
+    { label: '3회 필기 접수', date: new Date(2026, 6, 20) },
+    { label: '3회 필기시험', date: new Date(2026, 7, 7) },
+  ];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  for (const exam of exams) {
+    const diff = Math.ceil((exam.date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+    if (diff >= 0) {
+      return { label: exam.label, days: diff };
+    }
+  }
+  return null;
+}
+
+function MyExamStatus({ user }: { user: any }) {
+  const [stats, setStats] = useState<{
+    pilgiExams: number;
+    silgiExams: number;
+    lastPilgiPass: boolean | null;
+  }>({ pilgiExams: 0, silgiExams: 0, lastPilgiPass: null });
+  const [loading, setLoading] = useState(true);
+  const dday = getDday();
+
+  useEffect(() => {
+    async function fetch() {
+      try {
+        const [pilgiRes, silgiRes] = await Promise.all([
+          supabase
+            .from(TABLES.EXAM_SESSIONS)
+            .select('is_pass')
+            .eq('user_id', user.id)
+            .eq('exam_type', 'pilgi')
+            .not('completed_at', 'is', null)
+            .order('completed_at', { ascending: false })
+            .limit(5),
+          supabase
+            .from(TABLES.EXAM_SESSIONS)
+            .select('id', { count: 'exact', head: true })
+            .eq('user_id', user.id)
+            .eq('exam_type', 'silgi_practice')
+            .not('completed_at', 'is', null),
+        ]);
+
+        setStats({
+          pilgiExams: pilgiRes.data?.length ?? 0,
+          silgiExams: silgiRes.count ?? 0,
+          lastPilgiPass: pilgiRes.data?.[0]?.is_pass ?? null,
+        });
+      } catch {
+        // fail silently
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetch();
+  }, [user.id]);
+
+  return (
+    <div className="my-status-card" style={{ borderLeftColor: '#F59E0B' }}>
+      <h3><i className="fa-solid fa-user-check" style={{ color: '#F59E0B' }} /> 나의 시험 준비 현황</h3>
+
+      {dday && (
+        <div className="my-status-dday">
+          <i className="fa-solid fa-calendar-check" />
+          {dday.label}까지 D-{dday.days === 0 ? 'Day' : dday.days}
+        </div>
+      )}
+
+      {loading ? (
+        <p style={{ color: 'var(--text-secondary)' }}>불러오는 중...</p>
+      ) : (
+        <>
+          <div className="my-status-stats">
+            <div className="my-status-stat">
+              <span className="my-status-stat-label">필기 시험</span>
+              <span className="my-status-stat-value">{stats.pilgiExams}회</span>
+            </div>
+            <div className="my-status-stat">
+              <span className="my-status-stat-label">실기 연습</span>
+              <span className="my-status-stat-value">{stats.silgiExams}회</span>
+            </div>
+            <div className="my-status-stat">
+              <span className="my-status-stat-label">최근 필기</span>
+              <span className="my-status-stat-value">
+                {stats.lastPilgiPass === null ? '-' : stats.lastPilgiPass ? '합격' : '불합격'}
+              </span>
+            </div>
+          </div>
+          <div className="my-status-actions">
+            <Link to="/dashboard" className="btn btn-primary btn-sm">대시보드 보기</Link>
+            <Link to="/pilgi/select" className="btn btn-secondary btn-sm">필기 CBT 시작</Link>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function ExamInfo() {
+  const { user } = useAuth();
+  const dday = getDday();
+
   return (
     <>
       <SEOHead title="시험 안내" description="직업상담사 2급 자격시험 안내 - 시험 개요, 일정, 합격 기준, 공부 방법" />
@@ -14,6 +122,19 @@ export default function ExamInfo() {
       </div>
 
       <div className="container info-page">
+        {/* My Status or Login Banner */}
+        {user ? (
+          <MyExamStatus user={user} />
+        ) : (
+          <div className="my-status-login-banner">
+            <i className="fa-solid fa-circle-info" />
+            <span>
+              <Link to="/login">로그인</Link>하면 맞춤 시험 준비 현황을 확인할 수 있습니다
+              {dday && <> &middot; {dday.label}까지 <strong>D-{dday.days === 0 ? 'Day' : dday.days}</strong></>}
+            </span>
+          </div>
+        )}
+
         {/* Overview */}
         <section className="info-card">
           <div className="info-card-header">

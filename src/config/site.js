@@ -1,9 +1,9 @@
 export const SITE = {
-  name: 'ForJob',
+  name: 'JobPath',
   title: '직업상담사 2급 시험 준비 플랫폼',
   description: '직업상담사 2급 필기·실기 시험 준비를 위한 CBT 학습 플랫폼',
-  url: 'https://forjob.dreamitbiz.com',
-  domain: 'forjob.dreamitbiz.com',
+  url: 'https://jobpath.dreamitbiz.com',
+  domain: 'jobpath.dreamitbiz.com',
 };
 
 export const SUBJECTS = [
@@ -30,31 +30,31 @@ export const EXAM_CONFIG = {
 };
 
 export const NAV_ITEMS = [
-  { path: '/info', label: 'About', icon: 'fa-solid fa-circle-question',
+  { path: '/info', label: '시험안내', icon: 'fa-solid fa-clipboard-list',
     children: [
-      { path: '/pilgi', label: '필기' },
-      { path: '/silgi', label: '실기' },
-      { path: '/info', label: '시험안내' },
+      { path: '/pilgi', label: '필기 안내' },
+      { path: '/silgi', label: '실기 안내' },
+      { path: '/info', label: '시험 일정·개요' },
     ]
   },
-  { path: '/learn', label: '과목별학습하기', icon: 'fa-solid fa-book-open',
+  { path: '/learn', label: '학습하기', icon: 'fa-solid fa-book-open',
     children: [
-      { path: '/learn/counseling', label: '직업상담학' },
-      { path: '/learn/psychology', label: '직업심리학' },
-      { path: '/learn/jobinfo', label: '직업정보론' },
-      { path: '/learn/labor_market', label: '노동시장론' },
-      { path: '/learn/labor_law', label: '노동관계법규' },
-      { path: '/learn/silgi', label: '실기 실무' },
+      { path: '/learn', label: '과목별 학습' },
+      { path: '/summary', label: '학습 요약' },
+      { path: '/silgi/past', label: '실기 기출해설' },
     ]
   },
-  { path: '/summary', label: '학습요약', icon: 'fa-solid fa-graduation-cap' },
   { path: '/practice', label: '문제풀기', icon: 'fa-solid fa-pen-to-square',
     children: [
-      { path: '/pilgi', label: '필기 CBT' },
-      { path: '/silgi', label: '실기 연습' },
+      { path: '/pilgi/select', label: '필기 CBT' },
+      { path: '/silgi/practice', label: '실기 연습' },
     ]
   },
-  { path: '/dashboard', label: '대시보드', icon: 'fa-solid fa-chart-pie' },
-  { path: '/bookmarks', label: '북마크', icon: 'fa-solid fa-bookmark' },
-  { path: '/wrong-answers', label: '오답노트', icon: 'fa-solid fa-rotate-left' },
+  { path: '/dashboard', label: '나의학습', icon: 'fa-solid fa-user',
+    children: [
+      { path: '/dashboard', label: '대시보드' },
+      { path: '/bookmarks', label: '북마크' },
+      { path: '/wrong-answers', label: '오답노트' },
+    ]
+  },
 ];
