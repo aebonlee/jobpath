@@ -287,6 +287,49 @@ html[data-theme="dark"] .subject-tab:hover {
 html[data-theme="dark"] .question-text {
     color: #F1F5F9;
 }
+
+/* ===== 보기 박스 Dark ===== */
+html[data-theme="dark"] .bogi-box {
+    background: #1E293B;
+    border-color: #334155;
+}
+html[data-theme="dark"] .bogi-label {
+    background: #334155;
+    color: #93C5FD;
+}
+html[data-theme="dark"] .bogi-content {
+    color: #E2E8F0;
+}
+html[data-theme="dark"] .bogi-list li {
+    border-bottom-color: #334155;
+}
+
+/* ===== 지문 블록 Dark ===== */
+html[data-theme="dark"] .passage-block {
+    background: #1C1917;
+    border-color: #92400E;
+}
+html[data-theme="dark"] .passage-label {
+    color: #FCD34D;
+}
+html[data-theme="dark"] .passage-content {
+    color: #E2E8F0;
+}
+
+/* ===== 보기 내 표 Dark ===== */
+html[data-theme="dark"] .q-table th,
+html[data-theme="dark"] .q-table td {
+    border-color: #334155;
+    color: #E2E8F0;
+}
+html[data-theme="dark"] .q-table-header th {
+    background: #1E3A5F;
+    color: #93C5FD;
+}
+html[data-theme="dark"] .q-table td {
+    background: #0F172A;
+}
+
 html[data-theme="dark"] .question-number {
     background: var(--primary-blue-light);
 }
