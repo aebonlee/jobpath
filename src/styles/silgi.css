@@ -1015,6 +1015,38 @@
     font-size: 11px;
 }
 
+/* ===== Silgi freq grade badges ===== */
+.sq-badge--freq-grade {
+    font-weight: 600;
+    font-size: 12px;
+}
+.sq-badge--freq-grade.sq-freq-grade--5 {
+    background: #FEE2E2 !important;
+    color: #DC2626 !important;
+}
+.sq-badge--freq-grade.sq-freq-grade--4 {
+    background: #FEF3C7 !important;
+    color: #D97706 !important;
+}
+.sq-badge--freq-grade.sq-freq-grade--3 {
+    background: #DBEAFE !important;
+    color: #2563EB !important;
+}
+.sq-badge--freq-grade.sq-freq-grade--2 {
+    background: #D1FAE5 !important;
+    color: #059669 !important;
+}
+.sq-badge--freq-grade.sq-freq-grade--1 {
+    background: #F3F4F6 !important;
+    color: #6B7280 !important;
+}
+/* Silgi card left border by freq grade */
+.sq-card.sq-freq-grade--5 { border-left: 4px solid #DC2626; }
+.sq-card.sq-freq-grade--4 { border-left: 4px solid #D97706; }
+.sq-card.sq-freq-grade--3 { border-left: 4px solid #2563EB; }
+.sq-card.sq-freq-grade--2 { border-left: 4px solid #059669; }
+.sq-card.sq-freq-grade--1 { border-left: 4px solid #D1D5DB; }
+
 /* ===== Keynote stars badge ===== */
 .sq-badge--stars {
     background: #EFF6FF !important;

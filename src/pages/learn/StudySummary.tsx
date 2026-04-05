@@ -77,6 +77,14 @@ function PilgiCard({ topic, isOpen, onToggle, cardRef }: {
   );
 }
 
+function getFreqGrade(count: number) {
+  if (count >= 5) return { label: '최다빈출', cls: 'sq-freq-grade--5', icon: 'fa-solid fa-fire-flame-curved' };
+  if (count >= 4) return { label: '고빈출', cls: 'sq-freq-grade--4', icon: 'fa-solid fa-fire' };
+  if (count >= 3) return { label: '빈출', cls: 'sq-freq-grade--3', icon: 'fa-solid fa-bolt' };
+  if (count >= 2) return { label: '출제', cls: 'sq-freq-grade--2', icon: 'fa-solid fa-circle-check' };
+  return { label: '1회', cls: 'sq-freq-grade--1', icon: 'fa-regular fa-circle' };
+}
+
 function SilgiCard({ topic, rank, isOpen, onToggle, cardRef }: {
   topic: (typeof SILGI_FREQUENT)[number] & { freqCount: number };
   rank: number;
@@ -85,9 +93,10 @@ function SilgiCard({ topic, rank, isOpen, onToggle, cardRef }: {
   cardRef: (el: HTMLDivElement | null) => void;
 }) {
   const cat = FREQUENT_CATEGORIES.find((c) => c.id === topic.category);
+  const grade = getFreqGrade(topic.freqCount);
   return (
     <div
-      className={`sq-card ${isOpen ? 'sq-card--open' : ''}`}
+      className={`sq-card ${isOpen ? 'sq-card--open' : ''} ${grade.cls}`}
       ref={cardRef}
       id={`topic-${topic.num}`}
     >
@@ -103,8 +112,8 @@ function SilgiCard({ topic, rank, isOpen, onToggle, cardRef }: {
               {cat?.label}
             </span>
             <span className="sq-badge sq-badge--keyword">{topic.keyword}</span>
-            <span className="sq-badge sq-badge--freq">
-              <i className="fa-solid fa-fire" /> {topic.freqCount}회 출제
+            <span className={`sq-badge sq-badge--freq-grade ${grade.cls}`}>
+              <i className={grade.icon} /> {topic.freqCount}회 · {grade.label}
             </span>
           </div>
         </div>

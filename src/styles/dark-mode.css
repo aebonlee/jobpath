@@ -1237,6 +1237,31 @@ html[data-theme="dark"] .sq-badge--stars {
     background: rgba(217, 119, 6, 0.12) !important;
     color: #FCD34D !important;
 }
+html[data-theme="dark"] .sq-badge--freq-grade.sq-freq-grade--5 {
+    background: rgba(220, 38, 38, 0.15) !important;
+    color: #FCA5A5 !important;
+}
+html[data-theme="dark"] .sq-badge--freq-grade.sq-freq-grade--4 {
+    background: rgba(217, 119, 6, 0.15) !important;
+    color: #FCD34D !important;
+}
+html[data-theme="dark"] .sq-badge--freq-grade.sq-freq-grade--3 {
+    background: rgba(37, 99, 235, 0.15) !important;
+    color: #93C5FD !important;
+}
+html[data-theme="dark"] .sq-badge--freq-grade.sq-freq-grade--2 {
+    background: rgba(5, 150, 105, 0.15) !important;
+    color: #6EE7B7 !important;
+}
+html[data-theme="dark"] .sq-badge--freq-grade.sq-freq-grade--1 {
+    background: rgba(107, 114, 128, 0.15) !important;
+    color: #9CA3AF !important;
+}
+html[data-theme="dark"] .sq-card.sq-freq-grade--5 { border-left-color: #EF4444; }
+html[data-theme="dark"] .sq-card.sq-freq-grade--4 { border-left-color: #F59E0B; }
+html[data-theme="dark"] .sq-card.sq-freq-grade--3 { border-left-color: #3B82F6; }
+html[data-theme="dark"] .sq-card.sq-freq-grade--2 { border-left-color: #10B981; }
+html[data-theme="dark"] .sq-card.sq-freq-grade--1 { border-left-color: #4B5563; }
 html[data-theme="dark"] .sq-card {
     background: var(--bg-white);
     border-color: var(--border-light);
