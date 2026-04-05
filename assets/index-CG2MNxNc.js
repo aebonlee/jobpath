@@ -127,6 +127,48 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li>환경적 조건과 사건</li>
   <li>학습경험 (도구적 학습, 연합적 학습)</li>
   <li>과제접근기술</li>
+</ul>
+<h4>크럼볼츠의 계획된 우연 이론 (2009)</h4>
+<p>우연한 사건이 진로발달에 중요한 역할을 하며, 우연을 기회로 만드는 5가지 기술이 필요합니다:</p>
+<ol>
+  <li><strong>호기심(Curiosity):</strong> 새로운 학습 기회 탐색</li>
+  <li><strong>인내(Persistence):</strong> 좌절에도 불구하고 노력 지속</li>
+  <li><strong>유연성(Flexibility):</strong> 태도와 상황을 변화시키는 의지</li>
+  <li><strong>낙관성(Optimism):</strong> 새로운 기회가 가능하다는 긍정적 태도</li>
+  <li><strong>위험감수(Risk-taking):</strong> 불확실한 상황에서도 행동하는 용기</li>
+</ol>`},{title:`벡의 인지치료`,content:`<h4>벡의 인지치료 (Cognitive Therapy)</h4>
+<p>아론 벡(Aaron Beck)이 개발한 인지적 상담 이론으로, <strong>인지적 오류</strong>와 <strong>자동적 사고</strong>의 수정을 목표로 합니다.</p>
+<h4>인지삼제 (Cognitive Triad)</h4>
+<p>우울증 환자에게 공통적으로 나타나는 3가지 부정적 인지:</p>
+<ol>
+  <li><strong>자기 자신에 대한 부정적 사고:</strong> "나는 무능하다"</li>
+  <li><strong>세상(환경)에 대한 부정적 사고:</strong> "세상은 불공평하다"</li>
+  <li><strong>미래에 대한 부정적 사고:</strong> "앞으로도 나아지지 않을 것이다"</li>
+</ol>
+<h4>인지 구조의 3수준</h4>
+<ul>
+  <li><strong>핵심신념(Core Belief/Schema):</strong> 가장 깊은 수준, 어린 시절 형성된 근본적 믿음 ("나는 사랑받을 자격이 없다")</li>
+  <li><strong>중간신념(Intermediate Belief):</strong> 규칙, 태도, 가정 ("완벽하지 않으면 실패다")</li>
+  <li><strong>자동적 사고(Automatic Thought):</strong> 특정 상황에서 자동으로 떠오르는 사고 (가장 표면적)</li>
+</ul>
+<h4>주요 인지적 오류</h4>
+<table>
+  <tr><th>인지적 오류</th><th>설명</th><th>예시</th></tr>
+  <tr><td><strong>이분법적 사고</strong></td><td>흑백논리, 전부 아니면 전무</td><td>"완벽하지 않으면 실패"</td></tr>
+  <tr><td><strong>과잉일반화</strong></td><td>한두 번의 사건으로 일반화</td><td>"항상 나만 안 돼"</td></tr>
+  <tr><td><strong>선택적 추상화</strong></td><td>부정적 측면만 선택적으로 주목</td><td>칭찬 10개, 비판 1개 중 비판만 기억</td></tr>
+  <tr><td><strong>확대/축소</strong></td><td>부정은 확대, 긍정은 축소</td><td>실수는 크게, 성공은 운으로</td></tr>
+  <tr><td><strong>개인화</strong></td><td>관련 없는 사건을 자기 탓으로</td><td>"그 사람이 화난 건 내 때문"</td></tr>
+  <tr><td><strong>재앙화(파국화)</strong></td><td>최악의 결과를 예상</td><td>"면접 망하면 인생 끝"</td></tr>
+  <tr><td><strong>감정적 추론</strong></td><td>감정을 근거로 현실 판단</td><td>"불안하니까 위험한 거야"</td></tr>
+  <tr><td><strong>당위적 사고</strong></td><td>"~해야 한다"는 경직된 사고</td><td>"나는 반드시 성공해야 한다"</td></tr>
+</table>
+<h4>상담 기법</h4>
+<ul>
+  <li><strong>소크라테스식 질문:</strong> 질문을 통해 인지적 오류 스스로 발견</li>
+  <li><strong>사고 기록지:</strong> 상황-자동적사고-감정-대안적사고 기록</li>
+  <li><strong>행동 실험:</strong> 부정적 예측을 실제로 검증</li>
+  <li><strong>인지적 재구조화:</strong> 왜곡된 사고를 합리적으로 교정</li>
 </ul>`},{title:`게슈탈트 상담`,content:`<h4>게슈탈트 상담 (Gestalt Therapy)</h4>
 <p>프리츠 펄스(Fritz Perls)가 개발한 상담 이론으로, '지금-여기(here and now)'에서의 알아차림을 강조합니다.</p>
 <h4>핵심 개념</h4>
@@ -143,6 +185,191 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li><strong>과장법:</strong> 특정 행동이나 감정을 과장하여 알아차림 증진</li>
   <li><strong>반대로 하기:</strong> 평소와 반대되는 행동을 시도</li>
   <li><strong>나 언어 사용:</strong> "나는 ~한다"로 책임감 표현</li>
+</ul>`}]},{title:`직업상담 이론 II - 추가 주요 이론`,topics:[{title:`정신분석적 상담 (프로이트)`,content:`<h4>프로이트의 정신분석 이론</h4>
+<p>지그문트 프로이트(Sigmund Freud)가 창시한 최초의 체계적 심리치료 이론으로, <strong>무의식</strong>의 역할을 강조합니다.</p>
+<h4>의식의 3수준</h4>
+<ul>
+  <li><strong>의식(Conscious):</strong> 현재 자각하고 있는 정신 내용</li>
+  <li><strong>전의식(Preconscious):</strong> 노력하면 의식으로 떠올릴 수 있는 내용</li>
+  <li><strong>무의식(Unconscious):</strong> 억압된 충동, 욕구, 기억 (빙산의 수면 아래 대부분)</li>
+</ul>
+<h4>성격 구조</h4>
+<ul>
+  <li><strong>원초아(Id):</strong> 쾌락 원칙, 본능적 충동, 즉각적 만족 추구</li>
+  <li><strong>자아(Ego):</strong> 현실 원칙, 원초아와 초자아를 중재, 적응적 기능</li>
+  <li><strong>초자아(Superego):</strong> 도덕 원칙, 양심과 자아이상, 사회적 규범 내면화</li>
+</ul>
+<h4>심리성적 발달단계</h4>
+<ol>
+  <li><strong>구강기(0~1세):</strong> 빨기, 물기 등 구강 자극으로 만족</li>
+  <li><strong>항문기(1~3세):</strong> 배변훈련, 통제와 자율성</li>
+  <li><strong>남근기(3~6세):</strong> 오이디푸스/엘렉트라 콤플렉스</li>
+  <li><strong>잠복기(6~12세):</strong> 성적 충동 잠복, 지적 활동에 집중</li>
+  <li><strong>생식기(12세~):</strong> 성숙한 성적 관심, 이성 관계 형성</li>
+</ol>
+<h4>주요 방어기제</h4>
+<table>
+  <tr><th>방어기제</th><th>설명</th><th>예시</th></tr>
+  <tr><td><strong>억압</strong></td><td>위협적 생각/감정을 무의식으로 밀어냄</td><td>충격적 사건 기억 못함</td></tr>
+  <tr><td><strong>투사</strong></td><td>자신의 감정을 타인에게 귀인</td><td>"그 사람이 나를 싫어해"</td></tr>
+  <tr><td><strong>합리화</strong></td><td>그럴듯한 이유로 정당화</td><td>"포도가 시다"(여우와 포도)</td></tr>
+  <tr><td><strong>반동형성</strong></td><td>무의식과 반대되는 행동 표현</td><td>미움→과잉친절</td></tr>
+  <tr><td><strong>승화</strong></td><td>충동을 사회적으로 수용 가능한 형태로 전환</td><td>공격성→운동선수</td></tr>
+  <tr><td><strong>퇴행</strong></td><td>이전 발달단계로 되돌아감</td><td>동생 태어나면 아기짓</td></tr>
+  <tr><td><strong>전치(전위)</strong></td><td>감정 대상을 안전한 대상으로 바꿈</td><td>상사에게 화→가족에게 화풀이</td></tr>
+  <tr><td><strong>부정(부인)</strong></td><td>고통스러운 현실을 인정하지 않음</td><td>사망 소식 거부</td></tr>
+  <tr><td><strong>보상</strong></td><td>한 영역의 약점을 다른 영역에서 만회</td><td>공부 약→운동 잘</td></tr>
+  <tr><td><strong>동일시</strong></td><td>타인의 특성을 자기 것으로 내면화</td><td>존경하는 사람 모방</td></tr>
+</table>
+<h4>정신분석적 상담 기법</h4>
+<ul>
+  <li><strong>자유연상:</strong> 떠오르는 생각을 검열 없이 자유롭게 말하기</li>
+  <li><strong>꿈의 분석:</strong> 현재몽(기억하는 내용) → 잠재몽(무의식적 의미) 해석</li>
+  <li><strong>전이 분석:</strong> 과거 중요 인물에 대한 감정이 상담자에게 전이되는 현상 분석</li>
+  <li><strong>저항 분석:</strong> 무의식적 내용 노출을 회피하는 현상 탐색</li>
+  <li><strong>해석:</strong> 무의식적 의미를 의식 수준으로 가져오는 작업</li>
+</ul>`},{title:`아들러의 개인심리학`,content:`<h4>아들러의 개인심리학 (Individual Psychology)</h4>
+<p>알프레드 아들러(Alfred Adler)는 인간을 <strong>사회적 존재</strong>로 보고, 열등감 극복과 사회적 관심을 강조했습니다.</p>
+<h4>핵심 개념</h4>
+<ul>
+  <li><strong>열등감과 보상:</strong> 인간은 본래 열등감을 느끼며, 이를 극복하려는 우월성 추구가 성장의 동력</li>
+  <li><strong>열등감 콤플렉스:</strong> 열등감이 과도하여 정상적 보상이 이루어지지 않는 상태</li>
+  <li><strong>우월성 콤플렉스:</strong> 열등감을 과잉보상하여 허세, 과시적 행동을 보이는 상태</li>
+  <li><strong>가상적 목적론:</strong> 인간은 과거가 아닌 <strong>미래 목표</strong>에 의해 동기화됨 (프로이트의 결정론과 대비)</li>
+  <li><strong>사회적 관심(Gemeinschaftsgefühl):</strong> 타인에 대한 관심과 공동체 의식 → 정신건강의 핵심 지표</li>
+  <li><strong>생활양식(Lifestyle):</strong> 개인의 독특한 삶의 패턴, 4~5세경 형성</li>
+  <li><strong>창조적 자아:</strong> 유전과 환경을 능동적으로 해석하고 활용하는 주체적 힘</li>
+</ul>
+<h4>생활양식의 4유형</h4>
+<table>
+  <tr><th>유형</th><th>사회적 관심</th><th>활동 수준</th><th>특징</th></tr>
+  <tr><td><strong>지배형</strong></td><td>낮음</td><td>높음</td><td>독단적, 공격적</td></tr>
+  <tr><td><strong>획득형(기대형)</strong></td><td>낮음</td><td>낮음</td><td>의존적, 수동적, 기생적</td></tr>
+  <tr><td><strong>회피형</strong></td><td>낮음</td><td>낮음</td><td>문제 회피, 위축, 고립</td></tr>
+  <tr><td><strong>사회적 유용형</strong></td><td>높음</td><td>높음</td><td>건강하고 성숙한 유형 (이상적)</td></tr>
+</table>
+<h4>출생순위의 영향</h4>
+<ul>
+  <li><strong>맏이:</strong> 책임감, 보수적, 권위적 (동생 출생 시 '폐위' 경험)</li>
+  <li><strong>둘째:</strong> 경쟁적, 야망적, 맏이를 따라잡으려는 경향</li>
+  <li><strong>막내:</strong> 응석받이 가능성, 독특한 방향 추구</li>
+  <li><strong>독자:</strong> 관심의 중심, 사회적 관계 형성에 어려움 가능</li>
+</ul>
+<h4>상담 기법</h4>
+<ul>
+  <li><strong>격려(Encouragement):</strong> 내담자의 강점과 자원을 인정, 용기 부여 (가장 핵심적 기법)</li>
+  <li><strong>초기기억 분석:</strong> 가장 오래된 기억을 통해 생활양식 파악</li>
+  <li><strong>가족구도 분석:</strong> 형제 관계, 출생순위를 통한 생활양식 탐색</li>
+  <li><strong>"마치 ~인 것처럼" 기법:</strong> 원하는 모습처럼 행동해보기 (as if 기법)</li>
+  <li><strong>수프에 침 뱉기:</strong> 부적응적 행동의 숨은 목적을 자각시켜 그 매력을 잃게 함</li>
+  <li><strong>역설적 의도:</strong> 증상을 의도적으로 과장하여 통제감 회복</li>
+</ul>`},{title:`글래서의 현실치료`,content:`<h4>글래서의 현실치료 (Reality Therapy)</h4>
+<p>윌리엄 글래서(William Glasser)가 개발한 이론으로, <strong>선택이론</strong>에 기반하여 현재 행동과 책임을 강조합니다.</p>
+<h4>선택이론 (Choice Theory)</h4>
+<p>모든 행동은 자신의 <strong>선택</strong>이며, 외부가 아닌 내부(기본 욕구)에서 동기화된다는 이론입니다. 타인의 행동을 통제할 수 없고 자신의 행동만 통제할 수 있습니다.</p>
+<h4>5가지 기본 욕구</h4>
+<ol>
+  <li><strong>생존(Survival):</strong> 음식, 주거, 안전, 건강 (유일한 생리적 욕구)</li>
+  <li><strong>사랑과 소속(Love & Belonging):</strong> 대인관계, 가족, 소속감</li>
+  <li><strong>힘/성취(Power):</strong> 인정, 성취, 자존감, 경쟁</li>
+  <li><strong>자유(Freedom):</strong> 자율성, 독립성, 선택의 자유</li>
+  <li><strong>즐거움(Fun):</strong> 놀이, 유머, 학습의 즐거움</li>
+</ol>
+<h4>전행동(Total Behavior) 개념</h4>
+<p>모든 행동은 4가지 구성요소로 이루어져 있습니다 (자동차의 4바퀴 비유):</p>
+<ul>
+  <li><strong>활동하기(Acting):</strong> 외현적 행동 → <em>직접 통제 가능 (앞바퀴)</em></li>
+  <li><strong>생각하기(Thinking):</strong> 인지 → <em>직접 통제 가능 (앞바퀴)</em></li>
+  <li><strong>느끼기(Feeling):</strong> 감정 → 간접적 통제 (뒷바퀴)</li>
+  <li><strong>신체반응(Physiology):</strong> 생리 반응 → 간접적 통제 (뒷바퀴)</li>
+</ul>
+<p>★ 핵심: 활동하기와 생각하기(앞바퀴)를 바꾸면 느끼기와 신체반응(뒷바퀴)도 변화합니다.</p>
+<h4>WDEP 체계</h4>
+<ul>
+  <li><strong>W (Want/바람):</strong> "무엇을 원하십니까?" - 바람, 욕구, 지각 탐색</li>
+  <li><strong>D (Doing/행동):</strong> "지금 무엇을 하고 있습니까?" - 현재 행동과 방향 탐색</li>
+  <li><strong>E (Evaluation/평가):</strong> "지금 하는 것이 원하는 것을 얻는 데 도움이 됩니까?" - 자기 평가 (핵심)</li>
+  <li><strong>P (Planning/계획):</strong> 변화를 위한 실행 계획 수립</li>
+</ul>
+<h4>좋은 계획의 조건: SAMI²C³</h4>
+<p>Simple(단순), Attainable(달성가능), Measurable(측정가능), Immediate(즉시실행), Involved(관여), Controlled(통제가능), Committed(헌신), Continuous(지속적)</p>`},{title:`해결중심 단기상담`,content:`<h4>해결중심 단기상담 (Solution-Focused Brief Therapy, SFBT)</h4>
+<p>드 셰이저(Steve de Shazer)와 인수 김 버그(Insoo Kim Berg)가 개발한 단기 상담 모델로, <strong>문제가 아닌 해결</strong>에 초점을 맞춥니다.</p>
+<h4>기본 가정</h4>
+<ul>
+  <li>변화는 불가피하며 항상 일어나고 있다</li>
+  <li>내담자는 자신의 문제 해결에 필요한 <strong>강점과 자원</strong>을 이미 가지고 있다</li>
+  <li>작은 변화가 큰 변화를 이끈다 (눈덩이 효과)</li>
+  <li>문제의 원인을 알 필요 없이 해결 가능하다</li>
+  <li><strong>효과가 있으면 계속하고, 효과가 없으면 다른 것을 하라</strong></li>
+  <li>문제가 항상 일어나는 것은 아니다 (예외는 반드시 존재)</li>
+</ul>
+<h4>핵심 질문 기법</h4>
+<ul>
+  <li><strong>기적질문:</strong> "오늘 밤 기적이 일어나 문제가 해결되었다면, 내일 아침 무엇이 달라져 있을까요?"</li>
+  <li><strong>예외질문:</strong> "문제가 일어나지 않았던 때는 언제였나요? 그때 무엇이 달랐나요?"</li>
+  <li><strong>척도질문:</strong> "1~10점 중 현재 상태는 몇 점? 1점 올리려면 무엇이 필요할까요?"</li>
+  <li><strong>대처질문:</strong> "이렇게 힘든 상황에서 어떻게 견뎌오셨나요?" (내담자 강점 발견)</li>
+  <li><strong>관계성질문:</strong> "주변 사람들은 당신이 어떻게 달라졌다고 말할까요?"</li>
+  <li><strong>첫 회기 전 변화 질문:</strong> "상담 예약 후부터 지금까지 달라진 것이 있나요?"</li>
+</ul>
+<h4>내담자 유형과 상담 전략</h4>
+<table>
+  <tr><th>유형</th><th>특징</th><th>전략</th></tr>
+  <tr><td><strong>방문형</strong></td><td>자발적 동기 없음 (타인에 의해 의뢰)</td><td>칭찬, 관계 형성에 집중</td></tr>
+  <tr><td><strong>불평형</strong></td><td>문제 인식 있으나 자신의 역할 인식 부족</td><td>관찰 과제 부여</td></tr>
+  <tr><td><strong>고객형</strong></td><td>문제 인식 + 해결 의지 있음</td><td>행동 과제 부여</td></tr>
+</table>
+<h4>상담 구조: 메시지 전달</h4>
+<ul>
+  <li><strong>칭찬:</strong> 내담자의 강점과 노력 인정</li>
+  <li><strong>연결문(브릿지):</strong> 칭찬과 과제를 연결하는 근거</li>
+  <li><strong>과제:</strong> 관찰 과제 또는 행동 과제 제시</li>
+</ul>`},{title:`교류분석(TA)과 실존주의 상담`,content:`<h4>교류분석 (Transactional Analysis, TA)</h4>
+<p>에릭 번(Eric Berne)이 개발한 성격이론 및 상담 접근으로, <strong>자아상태</strong>와 대인 교류 패턴을 분석합니다.</p>
+<h4>자아상태 (PAC 모델)</h4>
+<ul>
+  <li><strong>부모 자아(Parent, P):</strong> 부모에게 배운 가치관, 규칙
+    <ul><li>양육적 부모(NP): 돌봄, 격려</li><li>비판적 부모(CP): 비판, 통제</li></ul></li>
+  <li><strong>성인 자아(Adult, A):</strong> 객관적, 합리적 사고와 현실적 판단 (가장 바람직한 상태)</li>
+  <li><strong>아동 자아(Child, C):</strong> 어린 시절의 감정과 충동
+    <ul><li>자유로운 아동(FC): 자발적, 창의적</li><li>순응적 아동(AC): 순종적, 의존적</li></ul></li>
+</ul>
+<h4>교류(Transaction)의 유형</h4>
+<ul>
+  <li><strong>상보교류(Complementary):</strong> 기대한 자아상태에서 반응 → 원활한 의사소통 지속</li>
+  <li><strong>교차교류(Crossed):</strong> 기대하지 않은 자아상태에서 반응 → 의사소통 단절/갈등</li>
+  <li><strong>이면교류(Ulterior):</strong> 표면적 메시지와 이면적 메시지가 다름 → 게임의 원인</li>
+</ul>
+<h4>인생태도(Life Position) 4유형</h4>
+<table>
+  <tr><th>유형</th><th>태도</th><th>특징</th></tr>
+  <tr><td><strong>I'm OK, You're OK</strong></td><td>자타 긍정</td><td>건강한 인생태도 (목표)</td></tr>
+  <tr><td><strong>I'm OK, You're not OK</strong></td><td>자기 긍정, 타인 부정</td><td>투사적, 비난적, 우월감</td></tr>
+  <tr><td><strong>I'm not OK, You're OK</strong></td><td>자기 부정, 타인 긍정</td><td>열등감, 우울, 의존</td></tr>
+  <tr><td><strong>I'm not OK, You're not OK</strong></td><td>자타 부정</td><td>절망적, 무기력, 포기</td></tr>
+</table>
+<h4>기타 주요 개념</h4>
+<ul>
+  <li><strong>스트로크(Stroke):</strong> 상대를 인정하는 자극 (긍정적/부정적, 조건적/무조건적)</li>
+  <li><strong>인생각본(Life Script):</strong> 어린 시절에 무의식적으로 형성된 인생 계획</li>
+  <li><strong>게임(Game):</strong> 이면교류에 기반한 반복적 대인관계 패턴</li>
+</ul>
+<hr/>
+<h4>실존주의 상담</h4>
+<p>빅터 프랭클(Frankl), 롤로 메이(May), 어빈 얄롬(Yalom)이 대표적입니다.</p>
+<h4>실존적 핵심 주제 (얄롬의 4가지 궁극적 관심사)</h4>
+<ul>
+  <li><strong>죽음:</strong> 죽음의 자각이 삶의 의미를 부여하고 참된 삶을 살게 함</li>
+  <li><strong>자유와 책임:</strong> 인간은 선택의 자유가 있으며, 그에 따른 책임도 짐</li>
+  <li><strong>실존적 고독:</strong> 궁극적으로 타인과 완전히 합일될 수 없는 존재</li>
+  <li><strong>무의미:</strong> 삶에는 미리 정해진 의미가 없으므로, 스스로 의미를 창조해야 함</li>
+</ul>
+<h4>프랭클의 로고테라피(Logotherapy) 기법</h4>
+<ul>
+  <li><strong>역설적 의도:</strong> 두려워하는 것을 의도적으로 행하거나 바라기 (예: 불면증 환자에게 "잠들지 않으려고 노력하세요")</li>
+  <li><strong>탈숙고(Dereflection):</strong> 과도한 자기관찰/분석에서 벗어나 외부 대상에 주의 전환</li>
+  <li><strong>소크라테스식 대화:</strong> 질문을 통해 스스로 삶의 의미를 발견하도록 안내</li>
+  <li><strong>의미에의 의지:</strong> 인간의 가장 근본적 동기는 삶의 의미를 찾는 것</li>
 </ul>`}]},{title:`직업상담 기법`,topics:[{title:`경청과 공감`,content:`<h4>경청 (Active Listening)</h4>
 <p>상담의 가장 기본적인 기법으로, 내담자의 언어적/비언어적 메시지에 주의를 기울이는 것입니다.</p>
 <ul>
@@ -302,7 +529,83 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li>흥미를 가장 먼저 포기</li>
   <li>사회적 지위를 그 다음으로 포기</li>
   <li>성유형을 가장 마지막에 포기 (가장 강하게 유지)</li>
-</ol>`}]},{title:`Holland 유형론`,topics:[{title:`RIASEC 6유형`,content:`<h4>Holland의 직업적 성격유형론</h4>
+</ol>`}]},{title:`직업발달이론 II - 추가 주요 이론`,topics:[{title:`Roe의 욕구이론`,content:`<h4>Roe의 욕구이론 (Need Theory)</h4>
+<p>앤 로(Anne Roe)는 <strong>매슬로우의 욕구위계</strong>와 <strong>어린 시절 부모-자녀 관계</strong>를 직업선택에 연결한 이론입니다.</p>
+<h4>부모의 양육태도 3유형</h4>
+<table>
+  <tr><th>양육태도</th><th>하위유형</th><th>자녀 영향</th><th>직업 선택 경향</th></tr>
+  <tr><td><strong>정서적 집중</strong></td><td>과보호, 과잉요구</td><td>타인의 관심/인정 추구</td><td>대인 지향 직업 (서비스, 예술, 경영)</td></tr>
+  <tr><td><strong>회피</strong></td><td>거부, 무시/방임</td><td>타인으로부터 회피 경향</td><td>비대인 지향 직업 (과학, 기술, 자연)</td></tr>
+  <tr><td><strong>수용</strong></td><td>애정적 수용, 비의도적 수용</td><td>균형 잡힌 발달</td><td>다양한 직업 선택 가능</td></tr>
+</table>
+<h4>직업분류 체계 (8개 직업군)</h4>
+<ol>
+  <li>서비스 (Service)</li>
+  <li>비즈니스 접촉 (Business Contact)</li>
+  <li>조직/관리 (Organization)</li>
+  <li>기술 (Technology)</li>
+  <li>야외활동 (Outdoor)</li>
+  <li>과학 (Science)</li>
+  <li>일반문화 (General Culture)</li>
+  <li>예술/오락 (Arts & Entertainment)</li>
+</ol>
+<p>★ 1~3: <strong>대인 지향</strong>(사람 중심) / 4~8: <strong>비대인 지향</strong>(사물/아이디어 중심)</p>`},{title:`Tiedeman과 O'Hara의 진로의사결정이론`,content:`<h4>Tiedeman-O'Hara의 진로의사결정 발달이론</h4>
+<p>진로발달을 <strong>의사결정의 연속적 과정</strong>으로 보며, 에릭슨의 심리사회적 발달이론에 영향을 받았습니다.</p>
+<h4>의사결정의 2단계</h4>
+<h4>1단계: 예상기(Anticipation Period)</h4>
+<ol>
+  <li><strong>탐색(Exploration):</strong> 가능한 대안들을 폭넓게 탐색</li>
+  <li><strong>구체화(Crystallization):</strong> 대안들을 평가하여 범위를 좁힘</li>
+  <li><strong>선택(Choice):</strong> 특정 대안을 선택</li>
+  <li><strong>명료화(Clarification):</strong> 선택에 대한 확신과 세부 계획 수립</li>
+</ol>
+<h4>2단계: 실행기(Implementation Period)</h4>
+<ol>
+  <li><strong>순응(Induction):</strong> 새로운 환경에 적응, 집단 규범 수용</li>
+  <li><strong>변혁/쇄신(Reformation):</strong> 자신의 주장을 집단에 반영하려는 시도</li>
+  <li><strong>통합(Integration):</strong> 개인과 집단의 목표가 조화, 균형 달성</li>
+</ol>
+<p>★ 핵심: 자아정체감의 분화(차별화)와 통합을 반복하면서 진로가 발달합니다.</p>`},{title:`사회인지진로이론 (SCCT)`,content:`<h4>사회인지진로이론 (Social Cognitive Career Theory)</h4>
+<p>렌트(Lent), 브라운(Brown), 해킷(Hackett)이 <strong>반두라의 사회학습이론</strong>을 진로 영역에 적용한 이론입니다.</p>
+<h4>3가지 핵심 변인</h4>
+<ul>
+  <li><strong>자기효능감(Self-efficacy):</strong> 특정 과제를 성공적으로 수행할 수 있다는 자신감
+    <ul>
+      <li>수행성취 경험 (가장 강력한 영향)</li>
+      <li>대리경험 (모델 관찰)</li>
+      <li>언어적 설득 (격려)</li>
+      <li>정서적/생리적 상태</li>
+    </ul>
+  </li>
+  <li><strong>결과기대(Outcome Expectations):</strong> 특정 행동을 수행하면 어떤 결과가 나타날 것이라는 기대</li>
+  <li><strong>개인적 목표(Personal Goals):</strong> 특정 활동에 참여하거나 미래 결과를 달성하겠다는 결심</li>
+</ul>
+<h4>SCCT의 3가지 모델</h4>
+<ol>
+  <li><strong>흥미발달 모델:</strong> 자기효능감 + 결과기대 → 흥미 형성 → 활동선택 → 수행경험 (순환)</li>
+  <li><strong>진로선택 모델:</strong> 흥미 + 자기효능감 + 결과기대 → 선택목표 → 선택행동</li>
+  <li><strong>수행 모델:</strong> 능력 + 자기효능감 + 결과기대 + 목표 → 수행수준 → 성취</li>
+</ol>
+<p>★ 개인 요인(성별, 인종, 건강)과 환경 요인(지지, 장벽)이 자기효능감과 결과기대에 영향을 미칩니다.</p>`},{title:`Savickas의 진로구성이론`,content:`<h4>Savickas의 진로구성이론 (Career Construction Theory)</h4>
+<p>마크 사비카스(Mark Savickas)가 Super의 이론을 <strong>사회구성주의</strong> 관점에서 재구성한 이론입니다.</p>
+<h4>핵심 개념: 진로적응성 (Career Adaptability)</h4>
+<p>변화하는 직업세계에 대처하는 심리사회적 자원으로, <strong>4C</strong>로 구성됩니다:</p>
+<table>
+  <tr><th>차원</th><th>질문</th><th>태도/역량</th></tr>
+  <tr><td><strong>관심(Concern)</strong></td><td>"나의 미래가 있는가?"</td><td>미래지향적 태도, 계획성</td></tr>
+  <tr><td><strong>통제(Control)</strong></td><td>"누가 나의 미래를 만드는가?"</td><td>자기주도성, 책임감, 결단력</td></tr>
+  <tr><td><strong>호기심(Curiosity)</strong></td><td>"미래에 무엇을 하고 싶은가?"</td><td>직업세계 탐색, 개방성</td></tr>
+  <tr><td><strong>자신감(Confidence)</strong></td><td>"할 수 있는가?"</td><td>자기효능감, 문제해결력</td></tr>
+</table>
+<h4>생애주제(Life Theme)</h4>
+<p>개인이 일에 부여하는 <strong>주관적 의미</strong>로, 생애 이야기(career story)를 통해 발견됩니다.</p>
+<h4>진로상담의 3단계</h4>
+<ol>
+  <li><strong>구성(Construction):</strong> 내담자의 진로 이야기를 듣고 생애주제 파악</li>
+  <li><strong>해체(Deconstruction):</strong> 제한적 가정과 편견을 인식하고 해체</li>
+  <li><strong>재구성(Reconstruction):</strong> 새로운 관점으로 진로 이야기를 재구성</li>
+</ol>
+<p>★ 진로상담 = 내담자가 자신의 <strong>진로 내러티브</strong>(이야기)를 구성하도록 돕는 과정</p>`}]},{title:`Holland 유형론`,topics:[{title:`RIASEC 6유형`,content:`<h4>Holland의 직업적 성격유형론</h4>
 <p>John Holland은 직업적 흥미를 6가지 유형(RIASEC)으로 분류했습니다.</p>
 <h4>6가지 유형</h4>
 <table>
@@ -359,6 +662,59 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li><strong>신뢰도:</strong> 검사 결과의 일관성
     <ul><li>검사-재검사, 동형검사, 반분, 내적일관성(Cronbach α)</li></ul>
   </li>
+</ul>`},{title:`타당도와 신뢰도 상세`,content:`<h4>타당도 (Validity) - 검사의 정확성</h4>
+<p>"이 검사가 측정하려는 것을 정확히 측정하고 있는가?"</p>
+<table>
+  <tr><th>타당도 유형</th><th>의미</th><th>확인 방법</th></tr>
+  <tr><td><strong>내용타당도</strong></td><td>검사 내용이 측정 영역을 대표하는 정도</td><td>전문가 판단 (통계적 방법 아님)</td></tr>
+  <tr><td><strong>준거타당도</strong></td><td>외부 준거와의 관련성</td><td>상관계수 산출</td></tr>
+  <tr><td> - 예언(예측)타당도</td><td>미래 행동/성과 예측</td><td>검사→시간경과→준거 측정</td></tr>
+  <tr><td> - 공인(동시)타당도</td><td>현재 상태의 정확한 반영</td><td>검사와 준거를 동시에 측정</td></tr>
+  <tr><td><strong>구인(구성)타당도</strong></td><td>이론적 구인을 측정하는 정도</td><td>요인분석, 수렴/변별타당도</td></tr>
+  <tr><td> - 수렴타당도</td><td>유사 구인 측정 검사와 높은 상관</td><td>다특성다방법(MTMM)</td></tr>
+  <tr><td> - 변별(판별)타당도</td><td>다른 구인 측정 검사와 낮은 상관</td><td>다특성다방법(MTMM)</td></tr>
+</table>
+<h4>신뢰도 (Reliability) - 검사의 일관성</h4>
+<p>"이 검사를 반복 실시하면 같은 결과가 나오는가?"</p>
+<table>
+  <tr><th>신뢰도 유형</th><th>방법</th><th>특징</th></tr>
+  <tr><td><strong>검사-재검사 신뢰도</strong></td><td>같은 검사를 시간 간격을 두고 2회 실시</td><td>안정성 계수, 기억효과/성숙효과 주의</td></tr>
+  <tr><td><strong>동형검사 신뢰도</strong></td><td>동등한 2개 검사를 같은 집단에 실시</td><td>동등성 계수, 동형 검사 제작 어려움</td></tr>
+  <tr><td><strong>반분 신뢰도</strong></td><td>하나의 검사를 반으로 나누어 비교</td><td>내적일관성, 스피어만-브라운 공식으로 교정</td></tr>
+  <tr><td><strong>내적일관성 (Cronbach α)</strong></td><td>문항 간 상관의 평균에 기반</td><td>가장 널리 사용, 0.7 이상이면 양호</td></tr>
+  <tr><td><strong>채점자간 신뢰도</strong></td><td>다른 채점자의 평가 일치도</td><td>주관식 평가에서 중요</td></tr>
+</table>
+<h4>타당도와 신뢰도의 관계</h4>
+<ul>
+  <li>신뢰도가 높다고 타당도가 높은 것은 아님</li>
+  <li>타당도가 높으면 신뢰도도 높음</li>
+  <li>신뢰도는 타당도의 <strong>필요조건</strong>이지만 충분조건은 아님</li>
+  <li>★ 타당도의 상한 = √신뢰도</li>
+</ul>`},{title:`규준과 검사 해석`,content:`<h4>규준 (Norm)</h4>
+<p>개인의 검사 점수를 해석하기 위한 비교 기준으로, <strong>규준집단(표준화 집단)</strong>의 점수 분포를 기반으로 합니다.</p>
+<h4>점수 유형</h4>
+<table>
+  <tr><th>점수 유형</th><th>설명</th><th>특징</th></tr>
+  <tr><td><strong>원점수</strong></td><td>검사에서 직접 얻은 점수</td><td>그 자체로는 의미 해석 불가</td></tr>
+  <tr><td><strong>백분위 점수</strong></td><td>규준집단에서 그 점수 이하인 비율 (%)</td><td>해석 용이, 등간격 아님</td></tr>
+  <tr><td><strong>표준점수 (Z점수)</strong></td><td>Z = (원점수 - 평균) / 표준편차</td><td>평균=0, 표준편차=1</td></tr>
+  <tr><td><strong>T점수</strong></td><td>T = 10Z + 50</td><td>평균=50, 표준편차=10</td></tr>
+  <tr><td><strong>스테나인(Stanine)</strong></td><td>1~9점 척도</td><td>평균=5, 표준편차≈2</td></tr>
+  <tr><td><strong>IQ점수(편차IQ)</strong></td><td>IQ = 15Z + 100</td><td>평균=100, 표준편차=15</td></tr>
+</table>
+<h4>측정의 표준오차 (SEM)</h4>
+<div class="formula-box">
+  <p><strong>SEM = SD × √(1 - r)</strong></p>
+  <p>SD = 표준편차, r = 신뢰도 계수</p>
+  <p>★ 신뢰도가 높을수록 SEM이 작아짐 → 점수 해석의 정확성 증가</p>
+</div>
+<h4>검사 해석 시 유의사항</h4>
+<ul>
+  <li>하나의 검사 점수만으로 판단하지 말고 <strong>종합적</strong>으로 해석</li>
+  <li>점수를 범위(신뢰구간)로 해석하기: 진점수 ± 1.96×SEM (95% 신뢰구간)</li>
+  <li>규준집단의 적절성 확인 (연령, 성별, 학력 등)</li>
+  <li>검사 실시 조건과 내담자 상태 고려</li>
+  <li>내담자에게 결과를 <strong>이해하기 쉽게</strong> 설명하고 상담에 활용</li>
 </ul>`},{title:`MBTI와 주요 검사`,content:`<h4>MBTI (Myers-Briggs Type Indicator)</h4>
 <p>Jung의 심리유형론에 기반한 성격유형 검사로, 4가지 선호 지표의 조합으로 16유형을 분류합니다.</p>
 <h4>4가지 선호 지표</h4>
@@ -393,7 +749,49 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   </li>
   <li><strong>매슬로우(Maslow)의 욕구위계:</strong> 생리 → 안전 → 소속 → 존경 → 자아실현</li>
   <li><strong>브룸(Vroom)의 기대이론:</strong> 동기 = 기대 × 수단성 × 유인가</li>
-</ul>`}]}]},jobinfo:{name:`직업정보론`,code:`jobinfo`,color:`#10B981`,icon:`fa-solid fa-circle-info`,description:`직업분류체계, 직업정보 수집/제공 방법을 학습합니다.`,chapters:[{title:`직업분류체계`,topics:[{title:`한국표준직업분류(KSCO)`,content:`<h4>한국표준직업분류 (KSCO)</h4>
+</ul>`},{title:`직무동기이론 상세`,content:`<h4>내용이론 (Content Theories) - 무엇이 동기를 유발하는가?</h4>
+<h4>매슬로우(Maslow)의 욕구위계이론</h4>
+<ol>
+  <li><strong>생리적 욕구:</strong> 음식, 물, 수면 등 기본 생존 욕구</li>
+  <li><strong>안전 욕구:</strong> 신체적·경제적 안전, 직업 안정</li>
+  <li><strong>소속·애정 욕구:</strong> 사랑, 우정, 소속감, 대인관계</li>
+  <li><strong>존경 욕구:</strong> 자존감, 타인으로부터의 인정과 존경</li>
+  <li><strong>자아실현 욕구:</strong> 잠재력 실현, 성장 (결핍욕구가 아닌 성장욕구)</li>
+</ol>
+<p>★ 하위 욕구가 충족되어야 상위 욕구가 동기로 작용 (위계적 순서)</p>
+<h4>앨더퍼(Alderfer)의 ERG 이론</h4>
+<ul>
+  <li><strong>E (Existence/존재):</strong> 생리적·물질적 욕구 (생리+안전)</li>
+  <li><strong>R (Relatedness/관계):</strong> 대인관계 욕구 (소속+존경 일부)</li>
+  <li><strong>G (Growth/성장):</strong> 개인적 성장과 발전 욕구 (존경 일부+자아실현)</li>
+</ul>
+<p>★ 매슬로우와 차이점: <strong>좌절-퇴행 가설</strong> (상위 욕구 좌절 시 하위 욕구가 강화), 여러 욕구 동시 작동 가능</p>
+<h4>맥클렐란드(McClelland)의 성취동기이론</h4>
+<ul>
+  <li><strong>성취 욕구(nAch):</strong> 우수한 결과를 달성하려는 욕구, 중간 수준의 위험 선호</li>
+  <li><strong>권력 욕구(nPow):</strong> 타인에게 영향력을 행사하려는 욕구</li>
+  <li><strong>친화 욕구(nAff):</strong> 타인과 친밀한 관계를 맺으려는 욕구</li>
+</ul>
+<h4>과정이론 (Process Theories) - 어떻게 동기가 유발되는가?</h4>
+<h4>애덤스(Adams)의 공정성이론</h4>
+<div class="formula-box">
+  <p><strong>자기의 투입 대비 산출 비율</strong>과 <strong>타인의 투입 대비 산출 비율</strong>을 비교</p>
+  <p>불공정 인식 시 → 투입 변경, 산출 변경, 인지적 왜곡, 비교대상 변경, 이직 등으로 해소</p>
+</div>
+<h4>로크(Locke)의 목표설정이론</h4>
+<ul>
+  <li>구체적이고 도전적인 목표가 높은 성과를 이끔</li>
+  <li>피드백이 주어질 때 목표 효과 증대</li>
+  <li>목표에 대한 수용과 몰입이 중요</li>
+</ul>
+<h4>맥그리거(McGregor)의 XY 이론</h4>
+<table>
+  <tr><th>X 이론</th><th>Y 이론</th></tr>
+  <tr><td>인간은 본래 게으름</td><td>인간은 본래 일을 좋아함</td></tr>
+  <tr><td>통제와 감독 필요</td><td>자율성과 책임감 부여</td></tr>
+  <tr><td>외적 동기 (급여, 처벌)</td><td>내적 동기 (성취, 자아실현)</td></tr>
+  <tr><td>권위적 관리 스타일</td><td>참여적 관리 스타일</td></tr>
+</table>`}]}]},jobinfo:{name:`직업정보론`,code:`jobinfo`,color:`#10B981`,icon:`fa-solid fa-circle-info`,description:`직업분류체계, 직업정보 수집/제공 방법을 학습합니다.`,chapters:[{title:`직업분류체계`,topics:[{title:`한국표준직업분류(KSCO)`,content:`<h4>한국표준직업분류 (KSCO)</h4>
 <p>통계청이 고시하는 공식 직업분류 체계로, 국제표준직업분류(ISCO)를 기초로 한국 실정에 맞게 작성합니다.</p>
 <h4>분류 기준</h4>
 <ul>
@@ -479,6 +877,66 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li><strong>관찰법:</strong> 작업자의 활동을 직접 관찰</li>
   <li><strong>체험법:</strong> 분석가가 직접 작업을 수행</li>
   <li><strong>설문지법:</strong> 구조화된 설문지를 통한 정보 수집</li>
+</ul>`}]},{title:`직무분석의 이해`,topics:[{title:`직무분석의 개념과 절차`,content:`<h4>직무분석 (Job Analysis)의 정의</h4>
+<p>특정 직무의 <strong>내용, 요건, 조건, 책임</strong> 등을 체계적으로 조사·분석하여 직무에 관한 정보를 수집·정리하는 과정입니다.</p>
+<h4>직무 관련 용어</h4>
+<ul>
+  <li><strong>요소(Element):</strong> 더 이상 분할할 수 없는 최소 작업 단위</li>
+  <li><strong>과업(Task):</strong> 요소들의 묶음, 독립적으로 의미 있는 작업 단위</li>
+  <li><strong>직위(Position):</strong> 한 사람에게 부여된 과업의 묶음</li>
+  <li><strong>직무(Job):</strong> 유사한 직위의 집합</li>
+  <li><strong>직업(Occupation):</strong> 유사한 직무의 집합, 사회적으로 인정된 활동</li>
+  <li><strong>직군(Job Family):</strong> 유사한 직업의 집합</li>
+</ul>
+<h4>직무분석의 절차</h4>
+<ol>
+  <li><strong>준비 단계:</strong> 목적 설정, 대상 직무 선정, 분석방법 결정</li>
+  <li><strong>정보수집 단계:</strong> 면접, 관찰, 설문, 작업일지 등으로 자료 수집</li>
+  <li><strong>분석 단계:</strong> 수집된 정보의 정리·분석</li>
+  <li><strong>결과물 작성:</strong> 직무기술서(Job Description)와 직무명세서(Job Specification) 작성</li>
+</ol>
+<h4>직무분석의 결과물</h4>
+<table>
+  <tr><th>구분</th><th>직무기술서 (Job Description)</th><th>직무명세서 (Job Specification)</th></tr>
+  <tr><td>초점</td><td><strong>직무</strong> 자체에 대한 정보</td><td><strong>직무수행자</strong>에 대한 요건</td></tr>
+  <tr><td>내용</td><td>직무명, 수행업무, 책임, 작업조건</td><td>학력, 경력, 자격, 능력, 신체조건</td></tr>
+  <tr><td>용도</td><td>직무 설계, 업무 배분</td><td>채용, 선발, 배치</td></tr>
+</table>`},{title:`직무분석 기법 상세`,content:`<h4>주요 직무분석 기법</h4>
+<h4>1. 최초분석법 (시간연구법)</h4>
+<ul>
+  <li>직무에 대한 기존 정보 없이 <strong>처음부터</strong> 분석</li>
+  <li>새로운 직무 또는 기존 정보가 없는 경우에 사용</li>
+</ul>
+<h4>2. DACUM (Developing A CurriculUM)</h4>
+<ul>
+  <li><strong>현직 종사자 패널</strong>(5~12명)을 활용한 직무분석 및 교육과정 개발 기법</li>
+  <li>직무(Duty) → 과업(Task)을 DACUM 차트로 도식화</li>
+  <li>장점: 비용 효율적, 단기간 가능 (2~3일), 현장 중심</li>
+  <li>단점: 패널의 대표성 문제, 미래 변화 예측 어려움</li>
+</ul>
+<h4>3. 기능적 직무분석법 (FJA, Functional Job Analysis)</h4>
+<p>미국 노동부가 개발한 방법으로, 직무를 <strong>자료(Data)-사람(People)-사물(Things)</strong>의 3가지 기능 영역으로 분류합니다.</p>
+<table>
+  <tr><th>자료(Data)</th><th>사람(People)</th><th>사물(Things)</th></tr>
+  <tr><td>종합(0) ~ 비교(6)</td><td>자문(0) ~ 지시수행(8)</td><td>설치(0) ~ 단순작업(7)</td></tr>
+  <tr><td>숫자가 낮을수록 복잡</td><td>숫자가 낮을수록 복잡</td><td>숫자가 낮을수록 복잡</td></tr>
+</table>
+<h4>4. 직위분석 설문지 (PAQ, Position Analysis Questionnaire)</h4>
+<ul>
+  <li>맥코믹(McCormick) 개발, <strong>194개 직무요소</strong>를 6개 영역으로 분류</li>
+  <li>정보입력 → 정신과정 → 작업출력 → 대인관계 → 직무맥락 → 기타특성</li>
+  <li>장점: 표준화되어 직무 간 비교 용이, 양적 분석 가능</li>
+</ul>
+<h4>5. 중요사건 기법 (CIT, Critical Incident Technique)</h4>
+<ul>
+  <li>플래너건(Flanagan) 개발, 직무수행 중 <strong>성공/실패에 결정적인 사건</strong>을 수집·분석</li>
+  <li>효과적/비효과적 행동을 구체적 사례로 파악</li>
+  <li>평가도구 개발, 교육훈련 설계에 활용</li>
+</ul>
+<h4>6. 워크샘플링 (Work Sampling)</h4>
+<ul>
+  <li>무작위 시점에서 작업자의 활동을 관찰·기록</li>
+  <li>각 활동에 소요되는 시간 비율을 통계적으로 추정</li>
 </ul>`}]},{title:`직업정보 제공`,topics:[{title:`직업정보 제공 방법`,content:`<h4>직업정보 제공 방법</h4>
 <ul>
   <li><strong>직업카드:</strong> 카드 형태의 직업정보로, 분류/정렬 활동에 활용</li>
@@ -540,7 +998,33 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li><strong>파생수요:</strong> 노동수요는 생산물 수요에서 파생됨</li>
 </ul>
 <h4>균형임금</h4>
-<p>노동공급곡선과 노동수요곡선이 교차하는 점에서 균형임금과 균형고용량이 결정됩니다.</p>`}]},{title:`임금이론`,topics:[{title:`한계생산성 이론과 임금격차`,content:`<h4>한계생산성 임금이론</h4>
+<p>노동공급곡선과 노동수요곡선이 교차하는 점에서 균형임금과 균형고용량이 결정됩니다.</p>`},{title:`노동시장의 유형`,content:`<h4>노동시장 구조별 유형</h4>
+<table>
+  <tr><th>시장 유형</th><th>노동수요</th><th>노동공급</th><th>임금 결정</th></tr>
+  <tr><td><strong>완전경쟁</strong></td><td>다수 기업</td><td>다수 근로자</td><td>시장에서 결정 (W=VMPL=MRPL)</td></tr>
+  <tr><td><strong>수요독점</strong></td><td>1개 기업</td><td>다수 근로자</td><td>기업이 결정 (W < MRPL, 착취 발생)</td></tr>
+  <tr><td><strong>공급독점(노조)</strong></td><td>다수 기업</td><td>노조 독점</td><td>노조가 결정 (W > 경쟁임금)</td></tr>
+  <tr><td><strong>쌍방독점</strong></td><td>수요독점</td><td>공급독점</td><td>협상으로 결정 (불확정적)</td></tr>
+</table>
+<h4>수요독점 (Monopsony) 상세</h4>
+<ul>
+  <li>노동의 한계비용(MLC) > 평균비용(임금) → <strong>MLC 곡선이 노동공급곡선 위</strong>에 위치</li>
+  <li>이윤극대화: MRPL = MLC인 점에서 고용량 결정</li>
+  <li>임금은 해당 고용량에 대응하는 노동공급곡선상의 점 → <strong>MRPL보다 낮은 임금</strong></li>
+  <li><strong>착취:</strong> W < MRPL (노동의 한계생산가치보다 낮은 임금 지급)</li>
+  <li>최저임금제 도입 시 오히려 <strong>고용이 증가</strong>할 수 있음 (경쟁시장과 차이)</li>
+</ul>
+<h4>노동조합의 임금 효과</h4>
+<ul>
+  <li><strong>임금 인상 방법:</strong>
+    <ul>
+      <li>노동공급 제한 (면허제, 자격요건 강화) → 공급곡선 좌측 이동</li>
+      <li>노동수요 증가 유도 (생산성 향상, 정치적 로비) → 수요곡선 우측 이동</li>
+      <li>단체교섭으로 최저임금 직접 설정</li>
+    </ul>
+  </li>
+  <li><strong>노조의 임금 프리미엄:</strong> 노조 부문이 비노조 부문보다 10~25% 높은 임금</li>
+</ul>`}]},{title:`임금이론`,topics:[{title:`한계생산성 이론과 임금격차`,content:`<h4>한계생산성 임금이론</h4>
 <p>완전경쟁 노동시장에서 노동의 가격(임금)은 노동의 한계생산물가치(VMPL)에 의해 결정됩니다.</p>
 <ul>
   <li>기업은 VMPL = W인 점까지 노동을 고용</li>
@@ -559,6 +1043,26 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li>높은 임금 → 이직률 감소, 사기 진작</li>
   <li>역선택 방지: 우수 인재 유치</li>
   <li>도덕적 해이 방지: 태만 감소 (셔플리 모형)</li>
+</ul>`},{title:`임금격차와 차별이론`,content:`<h4>임금격차의 원인</h4>
+<ul>
+  <li><strong>보상적 임금격차:</strong> 비금전적 직업 특성(위험, 환경)에 따른 차이 (애덤 스미스)</li>
+  <li><strong>인적자본 차이:</strong> 교육, 훈련, 경험의 차이</li>
+  <li><strong>노동시장 분단:</strong> 1차/2차 시장 간 이동 제한</li>
+  <li><strong>차별:</strong> 동일한 생산성에도 불구하고 특성(성별, 인종)에 따른 임금 차이</li>
+</ul>
+<h4>노동시장 차별이론</h4>
+<table>
+  <tr><th>이론</th><th>학자</th><th>내용</th></tr>
+  <tr><td><strong>개인적 편견 모형</strong></td><td>베커(Becker)</td><td>차별은 고용주/근로자/고객의 편견(taste)에서 비롯. 차별계수(d)만큼 추가 비용 인식</td></tr>
+  <tr><td><strong>통계적 차별</strong></td><td>Phelps, Arrow</td><td>개인 정보 부족 → 집단의 평균적 특성으로 판단 (예: 여성의 이직률이 높다는 통계에 기반한 차별)</td></tr>
+  <tr><td><strong>이중노동시장론</strong></td><td>Doeringer, Piore</td><td>1차(고임금, 안정)/2차(저임금, 불안정) 시장 간 구조적 장벽</td></tr>
+  <tr><td><strong>직업분리</strong></td><td>Bergmann</td><td>특정 집단이 특정 직종에 밀집(과밀효과) → 해당 직종 임금 하락</td></tr>
+</table>
+<h4>남녀 임금격차 관련</h4>
+<ul>
+  <li><strong>동일노동 동일임금 원칙:</strong> 같은 직무에 대해 성별에 관계없이 동일 임금 지급</li>
+  <li><strong>동일가치노동 동일임금:</strong> 다른 직무라도 동등한 가치의 노동이면 동일 임금</li>
+  <li>오악사카(Oaxaca) 분해법: 임금격차를 생산성 차이와 차별로 분해하는 통계 기법</li>
 </ul>`}]},{title:`실업이론`,topics:[{title:`실업의 유형과 측정`,content:`<h4>실업의 유형</h4>
 <ul>
   <li><strong>마찰적 실업:</strong> 직업 탐색 과정에서 발생하는 일시적 실업 (자발적)</li>
@@ -584,6 +1088,38 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li>마찰적 실업: 직업정보 제공, 직업소개 활성화</li>
   <li>구조적 실업: 직업훈련, 재교육</li>
   <li>경기적 실업: 재정정책, 통화정책으로 총수요 확대</li>
+</ul>`},{title:`필립스곡선과 오쿤의 법칙`,content:`<h4>필립스곡선 (Phillips Curve)</h4>
+<p>영국의 경제학자 필립스(A.W. Phillips)가 발견한 <strong>임금상승률(물가상승률)과 실업률 간의 역(-)의 관계</strong>입니다.</p>
+<h4>단기 필립스곡선</h4>
+<ul>
+  <li>실업률↓ → 물가상승률(인플레이션)↑ (역의 관계)</li>
+  <li>실업률↑ → 물가상승률↓</li>
+  <li>★ 정부는 실업과 인플레이션 사이에서 <strong>상충관계(trade-off)</strong>에 직면</li>
+</ul>
+<h4>장기 필립스곡선 (프리드먼-펠프스)</h4>
+<ul>
+  <li>장기적으로 필립스곡선은 자연실업률 수준에서 <strong>수직</strong></li>
+  <li>기대인플레이션이 조정되면 실업률은 자연실업률로 회귀</li>
+  <li>자연실업률 = <strong>NAIRU</strong> (Non-Accelerating Inflation Rate of Unemployment)</li>
+  <li>장기적으로 실업률-인플레이션 상충관계 없음</li>
+</ul>
+<h4>스태그플레이션 (Stagflation)</h4>
+<p>경기침체(높은 실업률)와 물가상승(인플레이션)이 <strong>동시</strong>에 발생하는 현상 (1970년대 석유파동)</p>
+<h4>오쿤의 법칙 (Okun's Law)</h4>
+<div class="formula-box">
+  <p><strong>실업률이 자연실업률보다 1%p 높으면, 실질GDP가 잠재GDP보다 약 2~3% 낮다</strong></p>
+  <p>(실질GDP - 잠재GDP) / 잠재GDP ≈ -2 × (실업률 - 자연실업률)</p>
+</div>
+<ul>
+  <li>오쿤 계수: 약 2~3 (국가와 시기에 따라 다름)</li>
+  <li>실업의 경제적 비용을 수량화하는 데 활용</li>
+</ul>
+<h4>베버리지 곡선 (Beveridge Curve)</h4>
+<p><strong>실업률과 빈일자리율(구인율)</strong> 간의 역(-)의 관계를 나타내는 곡선</p>
+<ul>
+  <li>곡선이 원점에서 멀어지면 → 노동시장의 <strong>매칭 효율성 악화</strong> (구조적 실업 증가)</li>
+  <li>곡선 위 이동: 경기침체 (실업↑, 빈일자리↓)</li>
+  <li>곡선 아래 이동: 경기회복 (실업↓, 빈일자리↑)</li>
 </ul>`}]},{title:`인적자본론`,topics:[{title:`인적자본과 노동이동`,content:`<h4>인적자본론 (Human Capital Theory)</h4>
 <p>슐츠(T.W. Schultz)와 베커(G.S. Becker)가 발전시킨 이론으로, 교육/훈련을 투자로 봅니다.</p>
 <h4>교육 투자의 분석</h4>
@@ -650,6 +1186,35 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li><strong>해고 서면 통지:</strong> 해고 사유와 해고시기를 서면으로 통지</li>
   <li><strong>경영상 해고(정리해고):</strong> 긴박한 경영상의 필요, 해고회피 노력, 합리적 기준, 근로자대표 50일 전 통보</li>
   <li><strong>부당해고 구제:</strong> 노동위원회에 구제신청 (해고일로부터 3개월 이내)</li>
+</ul>`},{title:`휴일·휴가·취업규칙`,content:`<h4>휴일</h4>
+<ul>
+  <li><strong>주휴일:</strong> 1주간 소정근로일을 개근한 근로자에게 1일 유급휴일 (주 15시간 이상)</li>
+  <li><strong>근로자의 날:</strong> 5월 1일 (유급휴일, 근로자의날법)</li>
+  <li>관공서 공휴일: 5인 이상 사업장에서 유급휴일로 보장</li>
+</ul>
+<h4>연차유급휴가</h4>
+<ul>
+  <li><strong>1년 미만 근무자:</strong> 1개월 개근 시 1일 (최대 11일)</li>
+  <li><strong>1년 이상 근무자:</strong> 80% 이상 출근 시 15일</li>
+  <li><strong>가산휴가:</strong> 3년 이상 계속 근로 시 최초 1년 초과 매 2년마다 1일 가산 (최대 25일)</li>
+  <li><strong>사용촉진:</strong> 사용자가 사용을 촉구했는데도 미사용 시 보상 의무 소멸</li>
+  <li><strong>미사용 수당:</strong> 연차휴가 미사용분에 대해 통상임금 지급</li>
+</ul>
+<h4>취업규칙</h4>
+<ul>
+  <li>상시 <strong>10인 이상</strong> 사업장에서 작성·신고 의무</li>
+  <li>기재 사항: 근로시간, 임금, 휴일·휴가, 퇴직, 징계 등</li>
+  <li><strong>불이익 변경:</strong> 근로자 과반수 동의 필요 (근로자대표/노조 동의)</li>
+  <li>취업규칙은 법령, 단체협약에 반할 수 없음</li>
+  <li><strong>효력 순서:</strong> 법령 > 단체협약 > 취업규칙 > 근로계약</li>
+</ul>
+<h4>여성·연소근로자 보호</h4>
+<ul>
+  <li><strong>최저 고용연령:</strong> 15세 미만 (취직인허증 필요)</li>
+  <li><strong>산전후휴가:</strong> 출산 전후 90일 (쌍둥이 120일), 산전 45일 이상 확보</li>
+  <li><strong>육아휴직:</strong> 만 8세 이하 자녀 대상, 1년 이내</li>
+  <li><strong>야간·휴일근로 제한:</strong> 임신 중 여성 금지, 18세 미만 근로자 본인 동의+근로감독관 인가</li>
+  <li><strong>생리휴가:</strong> 월 1일 무급 휴가</li>
 </ul>`}]},{title:`고용보험법`,topics:[{title:`실업급여와 고용안정`,content:`<h4>고용보험제도의 구성</h4>
 <ul>
   <li><strong>실업급여사업:</strong> 실직자에 대한 생활 안정 지원</li>
@@ -730,6 +1295,47 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li><strong>단시간근로자:</strong> 통상 근로자보다 소정근로시간이 짧은 근로자</li>
   <li><strong>차별 금지:</strong> 합리적 이유 없는 차별적 처우 금지</li>
   <li><strong>차별 시정:</strong> 노동위원회에 시정신청 (차별적 처우가 있은 날로부터 6개월 이내)</li>
+</ul>`}]},{title:`기타 주요 노동관계법규`,topics:[{title:`최저임금법`,content:`<h4>최저임금법의 목적</h4>
+<p>근로자에 대하여 임금의 <strong>최저수준</strong>을 보장하여 근로자의 생활안정과 노동력의 질적 향상을 기함으로써 국민경제의 건전한 발전에 이바지하는 것입니다.</p>
+<h4>최저임금 결정</h4>
+<ul>
+  <li><strong>최저임금위원회:</strong> 근로자 위원 9인 + 사용자 위원 9인 + 공익위원 9인 (총 27인)</li>
+  <li>매년 8월 5일까지 결정, 다음 연도 1월 1일부터 적용</li>
+  <li>고용노동부 장관이 결정·고시</li>
+  <li>시간급 기준으로 결정</li>
+</ul>
+<h4>적용 대상</h4>
+<ul>
+  <li>근로자 1인 이상 모든 사업장</li>
+  <li><strong>적용 제외:</strong> 동거하는 친족만을 사용하는 사업, 가사사용인</li>
+  <li><strong>감액 적용:</strong> 수습 3개월 이내 (1년 이상 계약 시 10% 감액 가능), 장애인 등</li>
+</ul>
+<h4>위반 시 제재</h4>
+<ul>
+  <li>최저임금 미만 지급: <strong>3년 이하 징역 또는 2천만원 이하 벌금</strong></li>
+  <li>최저임금에 미달하는 근로계약은 그 부분에 한하여 <strong>무효</strong> → 최저임금으로 간주</li>
+  <li>최저임금 주지 의무: 사업장에 게시 또는 근로자에게 알려야 함</li>
+</ul>`},{title:`남녀고용평등법과 고용정책기본법`,content:`<h4>남녀고용평등과 일·가정 양립 지원에 관한 법률</h4>
+<h4>주요 내용</h4>
+<ul>
+  <li><strong>고용에서의 남녀 차별 금지:</strong> 모집·채용, 임금, 배치·승진, 교육, 정년·퇴직·해고에서 차별 금지</li>
+  <li><strong>동일가치노동 동일임금 원칙:</strong> 같은 사업 내 동일 가치 노동에 동일 임금</li>
+  <li><strong>직장 내 성희롱 금지:</strong> 사업주·상급자·근로자의 성희롱 금지, 예방교육 연 1회 의무</li>
+  <li><strong>적극적 고용개선조치:</strong> 500인 이상 사업장, 여성 고용비율이 일정 기준 미달 시 시행계획 수립</li>
+</ul>
+<h4>일·가정 양립 지원</h4>
+<ul>
+  <li><strong>육아휴직:</strong> 만 8세(초등학교 2학년) 이하 자녀, 1년 이내</li>
+  <li><strong>육아기 근로시간 단축:</strong> 육아휴직 대신 주 15~35시간 단축 근무</li>
+  <li><strong>배우자 출산휴가:</strong> 10일 유급</li>
+  <li><strong>가족돌봄휴직:</strong> 부모·배우자·자녀·배우자부모 돌봄, 90일</li>
+</ul>
+<h4>고용정책기본법</h4>
+<ul>
+  <li>국가의 고용정책 기본 방향과 수립 절차 규정</li>
+  <li><strong>고용영향평가:</strong> 주요 정책이 고용에 미치는 영향 사전 평가</li>
+  <li><strong>지역고용촉진:</strong> 지역별 특성에 맞는 고용 창출 지원</li>
+  <li><strong>고용정보 수집·제공:</strong> 고용동향, 직업 전망 등 정보 체계 구축</li>
 </ul>`}]}]},silgi:{name:`실기 - 직업상담 실무`,code:`silgi`,color:`#6366F1`,icon:`fa-solid fa-file-pen`,description:`실기 시험 대비 상담 실무, 계산 문제, 핵심 공식을 정리합니다.`,chapters:[{title:`상담 실무`,topics:[{title:`상담과정과 사례분석`,content:`<h4>직업상담 실무 절차</h4>
 <ol>
   <li><strong>접수 면접:</strong> 내담자의 기본정보 수집, 주호소 문제 파악</li>
@@ -753,6 +1359,35 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li>번호를 매겨 체계적으로 작성</li>
   <li>간결하고 명확하게 서술</li>
   <li>이론적 근거를 함께 제시</li>
+</ul>`},{title:`실기 서술형 빈출 유형`,content:`<h4>상담이론 관련 빈출 유형</h4>
+<ul>
+  <li>특정 상담이론의 <strong>핵심 개념 3가지</strong> 서술 (예: REBT의 비합리적 신념 4유형)</li>
+  <li>특정 이론의 <strong>상담 기법</strong> 나열 (예: 게슈탈트 상담 기법 5가지)</li>
+  <li>상담이론 간 <strong>비교</strong> (예: 파슨스 vs 로저스, 행동주의 vs 인지적 접근)</li>
+  <li>사례를 읽고 적절한 <strong>상담이론/기법</strong> 적용 (예: "이 내담자에게 적합한 상담 접근은?")</li>
+</ul>
+<h4>자주 출제되는 이론별 핵심 키워드</h4>
+<table>
+  <tr><th>이론</th><th>반드시 기억할 핵심 키워드</th></tr>
+  <tr><td>파슨스</td><td>자기이해, 직업이해, 합리적 추론 (3단계)</td></tr>
+  <tr><td>윌리엄슨</td><td>분석-종합-진단-예언-상담-추수지도 (6단계)</td></tr>
+  <tr><td>로저스</td><td>무조건적 긍정적 존중, 공감적 이해, 일치성</td></tr>
+  <tr><td>REBT</td><td>ABCDE 모델, 당위적 사고, 파국화</td></tr>
+  <tr><td>벡</td><td>인지삼제, 자동적 사고, 핵심신념, 인지적 오류</td></tr>
+  <tr><td>현실치료</td><td>선택이론, 5가지 욕구, WDEP, 전행동</td></tr>
+  <tr><td>게슈탈트</td><td>알아차림, 지금-여기, 빈의자, 미해결과제</td></tr>
+  <tr><td>아들러</td><td>열등감, 생활양식, 사회적 관심, 격려, 출생순위</td></tr>
+  <tr><td>해결중심</td><td>기적질문, 예외질문, 척도질문, 방문형/불평형/고객형</td></tr>
+  <tr><td>교류분석</td><td>PAC 자아상태, 상보/교차/이면 교류, 인생태도</td></tr>
+</table>
+<h4>진로이론 빈출 유형</h4>
+<ul>
+  <li>Super의 <strong>5단계</strong>와 각 단계의 특징</li>
+  <li>Ginzberg의 <strong>3기</strong>와 하위단계</li>
+  <li>Gottfredson의 <strong>4단계</strong>와 타협의 순서</li>
+  <li>Holland의 <strong>RIASEC 6유형</strong> 특성과 대표 직업</li>
+  <li>크럼볼츠의 사회학습이론 <strong>4가지 요인</strong></li>
+  <li>SCCT의 <strong>3가지 핵심 변인</strong> (자기효능감, 결과기대, 개인적 목표)</li>
 </ul>`}]},{title:`노동시장 계산`,topics:[{title:`실업률과 경제활동참가율`,content:`<h4>핵심 공식</h4>
 <div class="formula-box">
   <p><strong>실업률 = 실업자 / 경제활동인구 × 100</strong></p>
@@ -797,7 +1432,45 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li>MPL = 10개</li>
   <li>VMPL = 10 × 5,000 = 50,000원</li>
   <li>임금이 50,000원 이하면 고용, 이상이면 비고용</li>
-</ul>`}]},{title:`직업정보 활용`,topics:[{title:`직업분류와 정보수집 실무`,content:`<h4>직업분류 실무</h4>
+</ul>`},{title:`임금 계산과 퇴직금`,content:`<h4>평균임금 계산</h4>
+<div class="formula-box">
+  <p><strong>평균임금 = 산정사유 발생일 이전 3개월간 지급된 임금총액 ÷ 그 기간의 총 일수</strong></p>
+</div>
+<h4>예제 1: 평균임금 계산</h4>
+<p><strong>문제:</strong> 퇴직일: 6월 30일, 최근 3개월(4·5·6월) 임금: 기본급 300만원/월, 식대 20만원/월. 총 일수 = 30+31+30 = 91일</p>
+<ul>
+  <li>3개월 임금총액 = (300+20)×3 = 960만원</li>
+  <li>평균임금 = 9,600,000 / 91 = <strong>105,495원/일</strong></li>
+  <li>★ 평균임금이 통상임금보다 낮으면 통상임금을 평균임금으로 함</li>
+</ul>
+<h4>퇴직금 계산</h4>
+<div class="formula-box">
+  <p><strong>퇴직금 = 1일 평균임금 × 30일 × (재직일수 / 365)</strong></p>
+</div>
+<h4>예제 2: 퇴직금 계산</h4>
+<p><strong>문제:</strong> 1일 평균임금 = 100,000원, 재직기간 = 3년(1,095일)</p>
+<ul>
+  <li>퇴직금 = 100,000 × 30 × (1,095/365)</li>
+  <li>= 100,000 × 30 × 3 = <strong>9,000,000원</strong></li>
+</ul>
+<h4>연장근로수당 계산</h4>
+<div class="formula-box">
+  <p><strong>연장근로수당 = 시간당 통상임금 × 1.5 × 연장근로시간</strong></p>
+  <p>야간(22시~06시) 또는 휴일에 연장근로 시: 통상임금 × 2.0</p>
+</div>
+<h4>예제 3: 연장근로수당</h4>
+<p><strong>문제:</strong> 시간당 통상임금 = 15,000원, 연장근로 4시간(그 중 야간 2시간)</p>
+<ul>
+  <li>일반 연장 2시간 = 15,000 × 1.5 × 2 = 45,000원</li>
+  <li>야간 연장 2시간 = 15,000 × 2.0 × 2 = 60,000원</li>
+  <li>합계 = <strong>105,000원</strong></li>
+</ul>
+<h4>구직급여 계산</h4>
+<div class="formula-box">
+  <p><strong>구직급여일액 = 이직 전 평균임금의 60%</strong></p>
+  <p><strong>구직급여 총액 = 구직급여일액 × 소정급여일수</strong></p>
+  <p>상한액: 1일 66,000원 (2023년 기준) / 하한액: 최저임금 × 80% × 1일 소정근로시간</p>
+</div>`}]},{title:`직업정보 활용`,topics:[{title:`직업분류와 정보수집 실무`,content:`<h4>직업분류 실무</h4>
 <ul>
   <li>한국표준직업분류(KSCO) 코드 읽기</li>
   <li>한국고용직업분류(KECO) 코드 읽기</li>
@@ -849,4 +1522,51 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <p><strong>구직급여일액</strong> = 이직 전 평균임금의 60%</p>
   <p><strong>구직급여 총액</strong> = 구직급여일액 × 소정급여일수</p>
   <p>소정급여일수: 연령·피보험기간에 따라 120~270일</p>
+</div>`},{title:`시험 빈출 수치·기간 총정리`,content:`<h4>근로기준법 핵심 수치</h4>
+<table>
+  <tr><th>항목</th><th>수치/기간</th></tr>
+  <tr><td>법정 근로시간</td><td><strong>1주 40시간, 1일 8시간</strong></td></tr>
+  <tr><td>연장근로 한도</td><td>1주 <strong>12시간</strong></td></tr>
+  <tr><td>가산임금 (연장·야간·휴일)</td><td>통상임금의 <strong>50%</strong> 가산</td></tr>
+  <tr><td>해고예고 기간</td><td><strong>30일</strong> 전 또는 30일분 통상임금</td></tr>
+  <tr><td>경영상 해고 통보</td><td><strong>50일</strong> 전 근로자대표에 통보</td></tr>
+  <tr><td>부당해고 구제신청</td><td>해고일로부터 <strong>3개월</strong> 이내</td></tr>
+  <tr><td>연차유급휴가 (1년 이상)</td><td><strong>15일</strong> (최대 25일)</td></tr>
+  <tr><td>산전후휴가</td><td><strong>90일</strong> (쌍둥이 120일)</td></tr>
+  <tr><td>취업규칙 작성 의무</td><td>상시 <strong>10인</strong> 이상</td></tr>
+  <tr><td>최저 고용연령</td><td><strong>15세</strong> 미만 금지</td></tr>
+  <tr><td>야간근로 시간</td><td>오후 <strong>10시</strong> ~ 오전 <strong>6시</strong></td></tr>
+</table>
+<h4>고용보험법 핵심 수치</h4>
+<table>
+  <tr><th>항목</th><th>수치/기간</th></tr>
+  <tr><td>구직급여 피보험단위기간</td><td>이직일 이전 18개월 중 <strong>180일</strong> 이상</td></tr>
+  <tr><td>구직급여 수준</td><td>평균임금의 <strong>60%</strong></td></tr>
+  <tr><td>소정급여일수</td><td><strong>120~270일</strong> (연령·피보험기간별)</td></tr>
+  <tr><td>대기기간</td><td><strong>7일</strong></td></tr>
+  <tr><td>육아휴직급여</td><td>통상임금의 <strong>80%</strong> (상한 150만원)</td></tr>
+</table>
+<h4>기타 법규 핵심 수치</h4>
+<table>
+  <tr><th>항목</th><th>수치/기간</th></tr>
+  <tr><td>기간제 사용기간</td><td>최대 <strong>2년</strong></td></tr>
+  <tr><td>파견기간</td><td>원칙 <strong>1년</strong>, 최대 <strong>2년</strong></td></tr>
+  <tr><td>차별 시정신청</td><td>차별 발생일로부터 <strong>6개월</strong> 이내</td></tr>
+  <tr><td>최저임금위원회</td><td><strong>27인</strong> (노사공 각 9인)</td></tr>
+  <tr><td>적극적 고용개선조치</td><td><strong>500인</strong> 이상 사업장</td></tr>
+  <tr><td>배우자 출산휴가</td><td><strong>10일</strong></td></tr>
+</table>
+<h4>경제활동 관련 공식 총정리</h4>
+<div class="formula-box">
+  <p>15세 이상 인구 = 경제활동인구 + 비경제활동인구</p>
+  <p>경제활동인구 = 취업자 + 실업자</p>
+  <p>실업률 = 실업자 / 경제활동인구 × 100</p>
+  <p>경제활동참가율 = 경제활동인구 / 15세 이상 인구 × 100</p>
+  <p>고용률 = 취업자 / 15세 이상 인구 × 100</p>
+  <p>노동수요 탄력성 = (ΔL/L) / (ΔW/W)</p>
+  <p>VMPL = MPL × P (완전경쟁)</p>
+  <p>MRPL = MPL × MR (불완전경쟁)</p>
+  <p>이윤극대화: MRPL = W</p>
+  <p>평균임금 = 3개월 임금총액 / 3개월 총 일수</p>
+  <p>퇴직금 = 1일 평균임금 × 30 × (재직일수/365)</p>
 </div>`}]}]}},Ma=[`counseling`,`psychology`,`jobinfo`,`labor_market`,`labor_law`,`silgi`];function Na(e){return ja[e]||null}function Pa(e){let t=Ma.indexOf(e);return{prev:t>0?Ma[t-1]:null,next:t<Ma.length-1?Ma[t+1]:null}}function Fa(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`과목별 학습하기`,description:`직업상담사 2급 과목별 핵심 이론과 개념을 정리한 학습 페이지입니다.`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-graduation-cap`}),` 과목별 학습하기`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`직업상담사 2급 시험 핵심 이론과 개념을 과목별로 정리했습니다.`})]})}),(0,g.jsx)(`section`,{className:`container`,style:{paddingTop:40,paddingBottom:60},children:(0,g.jsx)(`div`,{className:`learn-grid`,children:Ma.map(e=>{let t=ja[e],n=t.chapters.reduce((e,t)=>e+t.topics.length,0);return(0,g.jsxs)(c,{to:`/learn/${e}`,className:`learn-card`,style:{"--card-color":t.color},children:[(0,g.jsx)(`div`,{className:`learn-card-icon`,style:{background:t.color},children:(0,g.jsx)(`i`,{className:t.icon})}),(0,g.jsxs)(`div`,{className:`learn-card-body`,children:[(0,g.jsx)(`h3`,{className:`learn-card-title`,children:t.name}),(0,g.jsx)(`p`,{className:`learn-card-desc`,children:t.description}),(0,g.jsxs)(`div`,{className:`learn-card-meta`,children:[(0,g.jsxs)(`span`,{className:`learn-card-badge`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-layer-group`}),` `,t.chapters.length,`개 챕터`]}),(0,g.jsxs)(`span`,{className:`learn-card-badge`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-file-lines`}),` `,n,`개 토픽`]})]})]}),(0,g.jsx)(`div`,{className:`learn-card-arrow`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})})]},e)})})})]})}function Ia(){let{subjectCode:e}=a(),t=n(),r=Na(e),{prev:i,next:o}=Pa(e),[s,l]=(0,h.useState)({}),[u,d]=(0,h.useState)({}),f=(0,h.useRef)({});if((0,h.useEffect)(()=>{if(!r){t(`/learn`,{replace:!0});return}l({0:!0}),d({}),window.scrollTo(0,0)},[e,r,t]),!r)return null;let p=e=>{l(t=>({...t,[e]:!t[e]}))},m=(e,t)=>{let n=`${e}-${t}`;d(e=>({...e,[n]:!e[n]}))},_=e=>{l(t=>({...t,[e]:!0})),f.current[e]?.scrollIntoView({behavior:`smooth`,block:`start`})},v=i?ja[i]:null,y=o?ja[o]:null;return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`${r.name} 학습`,description:r.description}),(0,g.jsx)(`div`,{className:`page-header`,style:{"--subject-color":r.color},children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(c,{to:`/learn`,className:`subject-back-link`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-left`}),` 과목 목록`]}),(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:r.icon,style:{color:r.color}}),` `,r.name]}),(0,g.jsx)(`p`,{className:`page-desc`,children:r.description})]})}),(0,g.jsxs)(`div`,{className:`container subject-study-layout`,children:[(0,g.jsxs)(`aside`,{className:`chapter-nav`,children:[(0,g.jsx)(`div`,{className:`chapter-nav-title`,children:`목차`}),(0,g.jsx)(`ul`,{className:`chapter-nav-list`,children:r.chapters.map((e,t)=>(0,g.jsx)(`li`,{children:(0,g.jsxs)(`button`,{className:`chapter-nav-item ${s[t]?`active`:``}`,onClick:()=>_(t),children:[(0,g.jsx)(`span`,{className:`chapter-nav-num`,children:t+1}),e.title]})},t))})]}),(0,g.jsxs)(`div`,{className:`subject-study-main`,children:[r.chapters.map((e,t)=>(0,g.jsxs)(`div`,{className:`chapter-accordion`,ref:e=>f.current[t]=e,children:[(0,g.jsxs)(`button`,{className:`chapter-header ${s[t]?`open`:``}`,onClick:()=>p(t),style:{"--chapter-color":r.color},children:[(0,g.jsxs)(`div`,{className:`chapter-header-left`,children:[(0,g.jsx)(`span`,{className:`chapter-num`,style:{background:r.color},children:t+1}),(0,g.jsx)(`span`,{className:`chapter-title`,children:e.title}),(0,g.jsxs)(`span`,{className:`chapter-count`,children:[e.topics.length,`개 토픽`]})]}),(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-down chapter-toggle-icon ${s[t]?`open`:``}`})]}),s[t]&&(0,g.jsx)(`div`,{className:`chapter-body`,children:e.topics.map((e,n)=>{let i=`${t}-${n}`;return(0,g.jsxs)(`div`,{className:`topic-item`,children:[(0,g.jsxs)(`button`,{className:`topic-header ${u[i]?`open`:``}`,onClick:()=>m(t,n),children:[(0,g.jsxs)(`span`,{className:`topic-title-text`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-bookmark`,style:{color:r.color,opacity:.7}}),e.title]}),(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-down topic-toggle-icon ${u[i]?`open`:``}`})]}),u[i]&&(0,g.jsx)(`div`,{className:`topic-content`,style:{"--topic-accent":r.color},dangerouslySetInnerHTML:{__html:e.content}})]},n)})})]},t)),(0,g.jsxs)(`div`,{className:`subject-nav-bottom`,children:[v?(0,g.jsxs)(c,{to:`/learn/${i}`,className:`subject-nav-btn prev`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-left`}),(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`span`,{className:`subject-nav-label`,children:`이전 과목`}),(0,g.jsx)(`span`,{className:`subject-nav-name`,children:v.name})]})]}):(0,g.jsx)(`div`,{}),y?(0,g.jsxs)(c,{to:`/learn/${o}`,className:`subject-nav-btn next`,children:[(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`span`,{className:`subject-nav-label`,children:`다음 과목`}),(0,g.jsx)(`span`,{className:`subject-nav-name`,children:y.name})]}),(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-right`})]}):(0,g.jsx)(`div`,{})]})]})]})]})}function La(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)(qi,{}),(0,g.jsx)(`main`,{id:`main-content`,children:(0,g.jsxs)(s,{children:[(0,g.jsx)(t,{path:`/`,element:(0,g.jsx)(Yi,{})}),(0,g.jsx)(t,{path:`/login`,element:(0,g.jsx)(Zi,{})}),(0,g.jsx)(t,{path:`/learn`,element:(0,g.jsx)(Fa,{})}),(0,g.jsx)(t,{path:`/learn/:subjectCode`,element:(0,g.jsx)(Ia,{})}),(0,g.jsx)(t,{path:`/pilgi`,element:(0,g.jsx)(Qi,{})}),(0,g.jsx)(t,{path:`/pilgi/select`,element:(0,g.jsx)($i,{})}),(0,g.jsx)(t,{path:`/pilgi/study`,element:(0,g.jsx)(na,{})}),(0,g.jsx)(t,{path:`/pilgi/exam/:id`,element:(0,g.jsx)(ua,{})}),(0,g.jsx)(t,{path:`/pilgi/result/:id`,element:(0,g.jsx)(pa,{})}),(0,g.jsx)(t,{path:`/pilgi/review/:id`,element:(0,g.jsx)(ma,{})}),(0,g.jsx)(t,{path:`/silgi`,element:(0,g.jsx)(ha,{})}),(0,g.jsx)(t,{path:`/silgi/practice/:id`,element:(0,g.jsx)(ga,{})}),(0,g.jsx)(t,{path:`/silgi/result/:id`,element:(0,g.jsx)(_a,{})}),(0,g.jsx)(t,{path:`/silgi/terms`,element:(0,g.jsx)(ya,{})}),(0,g.jsx)(t,{path:`/dashboard`,element:(0,g.jsx)(Ca,{})}),(0,g.jsx)(t,{path:`/dashboard/history`,element:(0,g.jsx)(Ta,{})}),(0,g.jsx)(t,{path:`/bookmarks`,element:(0,g.jsx)(Da,{})}),(0,g.jsx)(t,{path:`/wrong-answers`,element:(0,g.jsx)(ka,{})}),(0,g.jsx)(t,{path:`/info`,element:(0,g.jsx)(Aa,{})}),(0,g.jsx)(t,{path:`*`,element:(0,g.jsx)(Xi,{})})]})}),(0,g.jsx)(Ji,{})]})}function Ra(){return(0,g.jsx)(S,{children:(0,g.jsx)(re,{children:(0,g.jsx)(Ui,{children:(0,g.jsx)(o,{children:(0,g.jsx)(La,{})})})})})}(0,m.createRoot)(document.getElementById(`root`)).render((0,g.jsx)(h.StrictMode,{children:(0,g.jsx)(Ra,{})}));
