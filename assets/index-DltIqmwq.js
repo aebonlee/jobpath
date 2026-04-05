@@ -641,55 +641,189 @@ Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/aut
   <li><strong>탈숙고(Dereflection):</strong> 과도한 자기관찰/분석에서 벗어나 외부 대상에 주의 전환</li>
   <li><strong>소크라테스식 대화:</strong> 질문을 통해 스스로 삶의 의미를 발견하도록 안내</li>
   <li><strong>의미에의 의지:</strong> 인간의 가장 근본적 동기는 삶의 의미를 찾는 것</li>
-</ul>`}]},{title:`직업상담 기법`,topics:[{title:`경청과 공감`,content:`<h4>경청 (Active Listening)</h4>
-<p>상담의 가장 기본적인 기법으로, 내담자의 언어적/비언어적 메시지에 주의를 기울이는 것입니다.</p>
+</ul>`}]},{title:`직업상담 기법`,topics:[{title:`생애진로사정(LCA)`,content:`<h4>생애진로사정 개요</h4>
+<p><strong>아들러(Adler)의 개인심리학</strong>에 기초를 둔 생애진로사정은 상담자와 내담자가 처음 만났을 때 이용할 수 있는 <strong>구조화된 면접기법</strong>이자 <strong>초기단계 면접법</strong>이며, 검사 실시와 해석의 예비단계입니다.</p>
+<p>생애진로사정을 통해 파악할 수 있는 것:</p>
+<ol>
+  <li>내담자의 <strong>직업경험과 교육수준</strong></li>
+  <li>내담자의 <strong>기술과 유능성</strong></li>
+  <li>내담자의 <strong>가치관 및 자기인식 정도</strong></li>
+</ol>
+<h4>생애진로사정의 특징</h4>
+<ul>
+  <li>작업자, 학습자, 개인의 역할 등 <strong>다양한 생애역할</strong>에 대한 정보를 탐색</li>
+  <li>진로사정, 전형적인 하루, 강점과 장애, 요약으로 이루어짐</li>
+  <li><strong>비판단적이고 비위협적인 대화</strong>로 내담자와 긍정적 관계를 형성하는 데 도움</li>
+  <li>내담자의 진로계획을 향상시킨다</li>
+  <li class="exam-highlight">인쇄물이나 소책자, 지필도구 등의 <strong>표준화된 진로사정 도구는 가급적 사용을 삼간다</strong></li>
+</ul>
+<h4 class="exam-important">생애진로사정의 구조 (4단계)</h4>
+<table>
+  <tr><th>단계</th><th>내용</th><th>핵심 파악 요소</th></tr>
+  <tr><td><strong>1. 진로사정</strong></td><td>직업경험, 교육·훈련, 여가활동</td><td>내담자의 직업경험(시간제·전임, 유·무보수), 교육 또는 훈련과정과 관련된 문제들, 여가활동</td></tr>
+  <tr><td><strong>2. 전형적인 하루</strong></td><td>생활 조직 방식을 시간 흐름에 따라 체계적 기술</td><td>의존적인지 또는 독립적인지, 자발적인지 또는 체계적인지</td></tr>
+  <tr><td><strong>3. 강점과 장애</strong></td><td>문제·환경적 장애 탐구</td><td>극복을 위한 대처차원이나 잠재력 탐구</td></tr>
+  <tr><td><strong>4. 요약</strong></td><td>자기인식 증진</td><td>내담자 스스로 자기인식을 증진, 문제해결 및 장애극복을 위해 목표달성계획 수립</td></tr>
+</table>`},{title:`직업가계도(Genogram)`,content:`<h4>직업가계도 개요</h4>
+<p>구조화된 면담법의 <strong>직업가계도</strong>는 그 자체로 내담자의 직업선택을 위한 도구로 사용되는 것이 아닌, 내담자의 <strong>생애진로사정을 위한 도구</strong>로 사용됩니다.</p>
+<ul>
+  <li>내담자의 직업의식, 직업선택, 직업태도에 대한 <strong>가족의 영향력</strong>을 분석하는 대표적인 <strong>질적 평가기법</strong></li>
+  <li>경력상담 시 내담자의 가족이나 선조들의 직업 특징에 대한 <strong>시각적 표상</strong>을 얻기 위해 도표를 만드는 방식</li>
+  <li>직업가계도를 통해 <strong>가족의 미완성된 과제</strong>를 발견할 수 있다</li>
+</ul>
+<h4 class="exam-important">다그레이(Dagley)의 직업가계도 작성 시 관심 요인</h4>
+<ol>
+  <li><strong>3~4세대</strong>의 대표적 직업</li>
+  <li>가족 성원의 직업에 전형적인 <strong>지위와 가치의 서열화</strong></li>
+  <li>가족 성원들이 직업을 선택 또는 바꾸었을 때 나타난 <strong>진로선택 형태와 방법</strong></li>
+  <li>가족의 <strong>경제적 기대와 압력</strong></li>
+  <li>가족의 <strong>일의 가치</strong></li>
+  <li>내담자가 성장할 때의 <strong>또래집단 상황</strong></li>
+</ol>`},{title:`직업선택의 결정모형`,content:`<h4>직업선택의 결정모형 개요</h4>
+<p>직업상담기법으로 대안개발과 의사결정에 관한 <strong>직업선택의 결정모형</strong>을 제시하였습니다. 크게 기술적 모형과 처방적 모형으로 구분됩니다.</p>
+<h4 class="exam-important">(1) 기술적 직업결정 모형</h4>
+<p>타이드만과 오하라, 힐튼, 브룸, 슈, 플레쳐 등이 제시</p>
+<table>
+  <tr><th>학자</th><th>핵심 내용</th></tr>
+  <tr><td><strong>타이드만과 오하라<br/>(Tiedeman & O'Hara)</strong></td><td>자기정체감 분화, 발달과업 수행, 심리사회적 위기 해결의 지속적인 과정. 자기정체감을 지속적으로 구별해 내고 발달과제를 처리하는 과정</td></tr>
+  <tr><td><strong>힐튼(Hilton)</strong></td><td>인간이 복잡한 정보에 접근하게 되는 구조에 근거 → <strong>전제단계 - 계획단계 - 인지부조화단계</strong></td></tr>
+  <tr><td><strong>브룸(Vroom)</strong></td><td>직업결정요인 → <strong>균형, 기대, 힘</strong></td></tr>
+  <tr><td><strong>슈(Hsu)</strong></td><td>직업결정자 → 선택과 목표 사이의 <strong>불균형을 극소화</strong> 시키려는 시도를 가정</td></tr>
+  <tr><td><strong>플레쳐(Fletcher)</strong></td><td>개념학습에 대한 생각에 근거 → <strong>'특수성 대 일반성', '구체성 대 추상성'</strong></td></tr>
+</table>
+<h4 class="exam-important">(2) 처방적 직업결정 모형</h4>
+<p>카츠, 겔라트, 칼도와 쥐토우스키가 제시 (이름이 'ㄱ','ㅋ'으로 시작)</p>
+<table>
+  <tr><th>학자</th><th>핵심 내용</th></tr>
+  <tr><td><strong>카츠(Katz)</strong></td><td>특성에 맞는 대안을 선택하고 그 대안이 제공하는 보수에 따라 평가하는 것을 주장</td></tr>
+  <tr><td><strong>겔라트(Gelatt)</strong></td><td>직업선택을 <strong>결과보다 과정 중시</strong>. 정보체계 설명 → <strong>예언적 체계, 가치체계, 결정준거</strong></td></tr>
+  <tr><td><strong>칼도와 쥐토우스키<br/>(Kaldor-Zytowski)</strong></td><td>직업결정자가 대안에 대해 <strong>무제한 정보</strong>를 갖게 된다고 주장</td></tr>
+</table>
+<h4>겔라트(Gelatt)의 진로의사결정 과정</h4>
+<p><strong>목적의식 → 정보수집 → 대안열거 → 대안결과예측 → 대안실현가능성예측 → 가치평가 → 의사결정 → 평가 및 재투입</strong></p>`},{title:`6개의 생각하는 모자`,content:`<h4>의사결정의 유형 - 하렌(Harren)</h4>
+<p>하렌(Harren)의 진로의사결정 유형:</p>
+<ul>
+  <li><strong>합리적 유형</strong> : 논리적으로 정보를 수집하고 체계적으로 의사결정</li>
+  <li><strong>직관적 유형</strong> : 감정과 직감에 의존하여 결정</li>
+  <li><strong>의존적 유형</strong> : 타인의 기대나 의견에 의존하여 결정</li>
+</ul>
+<h4 class="exam-important">6개의 생각하는 모자</h4>
+<p>의사결정의 촉진방법으로 제시된 기법입니다.</p>
+<table>
+  <tr><th>모자 색</th><th>의미</th><th>특징</th></tr>
+  <tr><td><strong>백색</strong></td><td>사실</td><td>본인과 직업들에 대한 <strong>사실들만</strong> 고려한다</td></tr>
+  <tr><td><strong>적색</strong></td><td>직관</td><td><strong>직관에 의존</strong>하고, 직감에 따라 행동한다</td></tr>
+  <tr><td><strong>흑색</strong></td><td>비관</td><td><strong>비관적, 비판적</strong></td></tr>
+  <tr><td><strong>황색</strong></td><td>낙관</td><td><strong>낙관적</strong></td></tr>
+  <tr><td><strong>녹색</strong></td><td>창의</td><td>새로운 대안을 찾으려 노력, 문제를 <strong>다른 각도</strong>에서 바라본다</td></tr>
+  <tr><td><strong>청색</strong></td><td>합리</td><td><strong>합리적</strong>으로 생각한다 (사회자로서의 역할 반영)</td></tr>
+</table>
+<p class="exam-tip"><strong>시험 꿀팁:</strong> 6개 생각하는 모자 중 '갈색 모자' 지문이 나오면 무조건 오답!</p>`},{title:`상담면접 기법과 공감`,content:`<h4 class="exam-important">공감 (감정에 대한 반영)</h4>
+<ul>
+  <li>내담자가 전달하려는 내용에서 <strong>한 걸음 더 나아가</strong> 그 내면적 감정에 대해 반영하는 것</li>
+  <li><strong>객관적 위치</strong>에서 이해</li>
+  <li>내담자의 <strong>자기탐욕과 수용을 촉진</strong></li>
+</ul>
+<h4>공감적 이해의 5가지 수준</h4>
+<table>
+  <tr><th>수준</th><th>설명</th><th>공감 수준</th></tr>
+  <tr><td>수준 1</td><td>별다른 주의를 기울이지 않은 타입, 소통이 못 미침</td><td>매우 낮음</td></tr>
+  <tr><td>수준 2</td><td>어느 정도 반응하는 타입, 상대방 감정이나 의사 무시</td><td>낮음</td></tr>
+  <tr><td>수준 3</td><td>상호교류적 의사소통 가능</td><td>보통</td></tr>
+  <tr><td>수준 4</td><td>상대방보다 더 의사소통 이루어짐</td><td>높음</td></tr>
+  <tr><td>수준 5</td><td>상대방의 표면적, 내면적 감정에 정확한 반응</td><td>매우 높음</td></tr>
+</table>
+<h4 class="exam-important">상담면접의 주요 기법 (6개 이상 암기)</h4>
+<p><strong>공감, 요약과 재진술, 반영, 수용, 경청(반영적/적극적), 탐색적 질문(개방적), 명료화, 해석, 직면, 저항의 처리, 침묵의 처리</strong></p>
+<h4>경청 (Active Listening)</h4>
 <ul>
   <li><strong>수동적 경청:</strong> 조용히 듣기, 고개 끄덕이기, "음", "네" 등</li>
   <li><strong>적극적 경청:</strong> 재진술, 반영, 명료화를 통한 깊은 이해</li>
   <li><strong>비언어적 주의:</strong> 눈맞춤, 몸 기울이기, 개방적 자세</li>
 </ul>
-<h4>공감 (Empathy)</h4>
-<ul>
-  <li><strong>1차적 공감:</strong> 내담자가 표현한 감정을 정확히 반영</li>
-  <li><strong>고급 공감:</strong> 표면 아래의 감정이나 의미를 포착하여 전달</li>
-</ul>
-<h4>공감적 반응의 예</h4>
-<p>"직장에서 인정받지 못한다고 느끼시니 많이 답답하시겠네요."</p>`},{title:`질문 기법`,content:`<h4>질문의 유형</h4>
-<ul>
-  <li><strong>개방형 질문:</strong> "어떻게", "무엇을" 등으로 시작, 자유로운 응답 유도
-    <br/>예: "직업을 선택할 때 가장 중요하게 생각하는 것은 무엇인가요?"</li>
-  <li><strong>폐쇄형 질문:</strong> "예/아니오"로 답할 수 있는 질문
-    <br/>예: "현재 구직활동을 하고 계신가요?"</li>
-  <li><strong>척도 질문:</strong> 수치로 상태를 평가
-    <br/>예: "1~10점으로 현재 직업만족도를 평가한다면?"</li>
-  <li><strong>기적 질문:</strong> 해결중심 접근의 핵심 기법
-    <br/>예: "오늘 밤 자는 동안 기적이 일어나서 문제가 해결되었다면, 내일 아침 가장 먼저 무엇이 달라져 있을까요?"</li>
-</ul>
-<h4>효과적 질문의 원칙</h4>
-<ul>
-  <li>한 번에 하나의 질문만 하기</li>
-  <li>"왜"로 시작하는 질문은 방어를 유발할 수 있으므로 주의</li>
-  <li>내담자의 탐색을 촉진하는 질문 사용</li>
-</ul>`},{title:`명료화, 직면, 해석`,content:`<h4>명료화 (Clarification)</h4>
-<p>내담자의 모호하거나 불분명한 표현을 분명하게 하는 기법입니다.</p>
-<ul>
-  <li>"지금 말씀하신 것은 ~라는 뜻인가요?"</li>
-  <li>"좀 더 구체적으로 설명해 주시겠어요?"</li>
-</ul>
+<h4>명료화 (Clarification)</h4>
+<p>내담자의 모호한 생각과 감정의 표현을 상담사가 분명하게 밝히는 것</p>
 <h4>직면 (Confrontation)</h4>
-<p>내담자의 모순, 왜곡, 회피를 지적하여 자각을 촉진하는 기법입니다.</p>
-<ul>
-  <li>내담자의 말과 행동의 불일치를 지적</li>
-  <li>충분한 라포(rapport) 형성 후 사용</li>
-  <li>비난이 아닌 관찰의 형태로 전달</li>
-  <li>"한편으로는 ~라고 하시면서, 다른 한편으로는 ~라고 하시는 것 같은데요."</li>
-</ul>
+<p>상담사가 내담자로 하여금 자신의 문제에 회피하지 않고 도전하도록 하는 것</p>
 <h4>해석 (Interpretation)</h4>
-<p>내담자의 행동, 사고, 감정 아래에 있는 무의식적 의미나 패턴을 설명하는 기법입니다.</p>
+<p>내담자의 행동, 사고, 감정 아래에 있는 무의식적 의미나 패턴을 설명하는 기법</p>`},{title:`상담의 바람직한 목표설정 방향`,content:`<h4>목표설정의 필요성</h4>
+<p>목표설정에 <strong>상담자의 개입이 필요한 이유</strong>는 내담자가 명확하고 구체적인 목표를 설정하도록 돕기 위해서입니다.</p>
+<h4 class="exam-important">상담의 바람직한 목표설정 방향</h4>
+<ol>
+  <li><strong>구체적</strong>이어야 한다</li>
+  <li><strong>실현 가능</strong>해야 한다</li>
+  <li><strong>내담자가 원하고 바라는 것</strong>이어야 한다</li>
+  <li>내담자의 목표는 <strong>상담자의 기술과 양립 가능</strong>해야만 한다</li>
+</ol>`},{title:`전이된 오류 정정하기`,content:`<h4>전이된 오류 정정하기 개요</h4>
+<p>내담자의 정보 및 행동에 대한 이해기법으로, <strong>정보의 오류, 한계의 오류, 논리적 오류</strong>의 3가지 유형이 있습니다.</p>
+<h4 class="exam-important">3가지 오류 유형</h4>
+<table>
+  <tr><th>오류 유형</th><th>설명</th><th>세부 항목</th></tr>
+  <tr>
+    <td><strong>정보의 오류</strong></td>
+    <td>충분한 정보를 알고 있다고 잘못 생각하는 경우</td>
+    <td>이야기 삭제, 불확실한 인물의 사용, 불분명한 동사의 사용, 참고자료의 불충분, 제한된 어투의 사용</td>
+  </tr>
+  <tr>
+    <td><strong>한계의 오류</strong></td>
+    <td>제한된 기회 및 선택에 대한 견해</td>
+    <td>예외를 인정하지 않는 것, 불가능을 가정하는 것, 어쩔 수 없음을 가정하는 것</td>
+  </tr>
+  <tr>
+    <td><strong>논리적 오류</strong></td>
+    <td>논리적으로 잘못된 추론</td>
+    <td>잘못된 인간관계 오류, 마음의 해석, 제한된 일반화</td>
+  </tr>
+</table>`},{title:`자기보고식 가치사정법`,content:`<h4>가치사정법 개요</h4>
+<p>자기보고식 가치사정법은 <strong>내담자 사정의 가치 사정하기</strong>에 해당합니다.</p>
+<h4 class="exam-important">가치사정법 6가지</h4>
+<ol>
+  <li><strong>체크목록 가치에 순위 매기기</strong></li>
+  <li><strong>과거의 선택 회상하기</strong></li>
+  <li><strong>절정경험 조사하기</strong></li>
+  <li><strong>자유시간과 금전의 사용</strong></li>
+  <li><strong>백일몽 말하기</strong></li>
+  <li><strong>존경하는 사람 기술하기</strong></li>
+</ol>`},{title:`코틀(Cottle)의 원형검사`,content:`<h4>코틀의 원형검사 개요</h4>
 <ul>
-  <li>정신분석적 상담에서 주로 사용</li>
-  <li>시기적절하고 내담자가 수용할 수 있는 수준에서 제공</li>
-</ul>`}]},{title:`직업상담 과정`,topics:[{title:`상담 과정의 단계`,content:`<h4>직업상담의 5단계</h4>
+  <li>가장 효과적인 <strong>시간전망 개입도구</strong></li>
+  <li><strong>과거, 현재, 미래</strong>를 뜻하는 3개의 원을 이용</li>
+  <li>원의 크기는 시간차원에 대한 <strong>상대적 친밀감</strong>을 의미</li>
+  <li>원의 배치는 시간차원이 각각 어떻게 연관되어 있는지를 나타냄</li>
+  <li><strong>방향성, 변별성, 통합성</strong>을 제시</li>
+</ul>
+<h4 class="exam-important">진로시간전망 개입의 3가지 측면</h4>
+<table>
+  <tr><th>측면</th><th>설명</th></tr>
+  <tr><td><strong>방향성</strong></td><td>미래에 대한 <strong>낙관적인 입장</strong>을 구성</td></tr>
+  <tr><td><strong>변별성</strong></td><td>시간차원 내 사건의 강도와 확장의 원리, 미래 계획에 대한 <strong>긍정적 태도를 강화</strong></td></tr>
+  <tr><td><strong>통합성</strong></td><td><strong>현재 행동과 미래의 결과</strong>를 연결</td></tr>
+</table>
+<h4>원의 상대적 배치에 따른 시간 관계성</h4>
+<p>흑색(과거), 청색(현재), 적색(미래)을 사용합니다.</p>
+<table>
+  <tr><th>배치 형태</th><th>시간 관계</th></tr>
+  <tr><td>어떤 것도 접해 있지 않은 원</td><td>시간차원의 <strong>고립</strong></td></tr>
+  <tr><td>중복되지 않고 경계선에 접해 있는 원</td><td>시간차원의 <strong>연결</strong></td></tr>
+  <tr><td>부분적으로 중첩된 원</td><td>시간차원의 <strong>연합</strong></td></tr>
+  <tr><td>완전히 중첩된 원</td><td>시간차원의 <strong>통합</strong></td></tr>
+</table>
+<p class="exam-tip"><strong>참고:</strong> 진로시간전망은 진로에 관한 과거, 현재, 미래의 정신적인 상을 말하며, 직업상담 초기에 하는 것이 좋고, 진로계획에 대한 긍정적 태도의 강화를 목적으로 하며, 직접적인 진로계획 수정을 목적으로 하지 않습니다.</p>`},{title:`MBTI 성격사정`,content:`<h4>MBTI (마이어스-브릭스 성격유형검사)</h4>
+<p>Myers-Briggs Type Indicator</p>
+<ul>
+  <li><strong>융(Jung)의 분석심리학</strong>에 의한 심리유형론에 기반</li>
+  <li><strong>객관적 검사</strong>이자 <strong>자기보고식의 강제선택</strong> 검사</li>
+  <li>내담자가 선호하는 <strong>작업역할, 기능, 환경</strong>을 찾아내는 데 유용</li>
+  <li>성격의 <strong>4가지 양극차원</strong>으로 분류</li>
+</ul>
+<h4 class="exam-important">성격의 4가지 양극차원</h4>
+<table>
+  <tr><th>차원</th><th>유형</th><th>의미</th></tr>
+  <tr><td><strong>에너지 방향</strong></td><td>외향형(E) / 내향형(I)</td><td>세상에 대한 일반적인 태도</td></tr>
+  <tr><td><strong>인식 기능</strong></td><td>감각형(S) / 직관형(N)</td><td>지각적 또는 정보수집적 과정</td></tr>
+  <tr><td><strong>판단 기능</strong></td><td>사고형(T) / 감정형(F)</td><td>정보를 평가하는 방식</td></tr>
+  <tr><td><strong>생활 양식</strong></td><td>판단형(J) / 인식형(P)</td><td>정보박탈(외부 세계에 대한 태도)</td></tr>
+</table>`}]},{title:`직업상담 과정`,topics:[{title:`상담 과정의 단계`,content:`<h4>직업상담의 5단계</h4>
 <ol>
   <li><strong>관계형성 단계</strong>
     <ul>
