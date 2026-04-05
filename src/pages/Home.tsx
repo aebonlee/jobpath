@@ -392,8 +392,10 @@ function LandingHome() {
                       <span className={`hero-schedule-type ${typeClass}`}>
                         <i className={typeIcon} /> {evt.type}
                       </span>
-                      <span className="hero-schedule-label">{evt.label}</span>
-                      <span className="hero-schedule-date">{evt.dateStr}</span>
+                      <div className="hero-schedule-info">
+                        <span className="hero-schedule-label">{evt.label}</span>
+                        <span className="hero-schedule-date">{evt.dateStr}</span>
+                      </div>
                       <span className={`hero-schedule-dday ${typeClass}`}>{ddayText}</span>
                     </div>
                   );
