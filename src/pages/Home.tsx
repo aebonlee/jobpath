@@ -544,12 +544,12 @@ function LandingHome() {
 
 /* ═══════════════════════════════════════════ */
 export default function Home() {
-  const { user } = useAuth();
   return (
     <>
       <SEOHead />
-      {user && <LoggedInHome user={user} />}
       <LandingHome />
     </>
   );
 }
+
+export { LoggedInHome };
