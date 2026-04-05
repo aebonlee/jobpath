@@ -1,0 +1,1843 @@
+import{n as e}from"./rolldown-runtime-DF2fYuay.js";import{a as t,c as n,d as r,i,l as a,n as o,o as s,r as c,s as l,t as u,u as d}from"./vendor-D_GFI8K_.js";import{n as f,t as p}from"./charts--8enhH-2.js";(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var m=d(),h=e(r(),1),g=u(),_=(0,h.createContext)(),v=[{name:`blue`,color:`#1B3A6B`},{name:`red`,color:`#C8102E`},{name:`green`,color:`#00855A`},{name:`purple`,color:`#8B1AC8`},{name:`orange`,color:`#C87200`}];function y(e){let t=document.cookie.match(RegExp(`(^| )`+e+`=([^;]+)`));return t?t[2]:null}function b(e,t,n=365){let r=new Date;r.setTime(r.getTime()+n*24*60*60*1e3),document.cookie=`${e}=${t};expires=${r.toUTCString()};path=/`}function x(){let e=new Date().getHours();return e>=6&&e<18?`light`:`dark`}function S({children:e}){let[t,n]=(0,h.useState)(()=>y(`theme_mode`)||`auto`),[r,i]=(0,h.useState)(()=>y(`color_theme`)||`blue`),a=t===`auto`?x():t;(0,h.useEffect)(()=>{document.documentElement.setAttribute(`data-theme`,a)},[a]),(0,h.useEffect)(()=>{r===`blue`?document.documentElement.removeAttribute(`data-color`):document.documentElement.setAttribute(`data-color`,r)},[r]);let o=(0,h.useCallback)(()=>{n(e=>{let t=e===`auto`?`light`:e===`light`?`dark`:`auto`;return b(`theme_mode`,t),t})},[]),s=(0,h.useCallback)(e=>{i(e),b(`color_theme`,e)},[]);return(0,g.jsx)(_.Provider,{value:{mode:t,resolvedTheme:a,toggleTheme:o,colorTheme:r,setColorTheme:s,COLOR_OPTIONS:v},children:e})}function ee(){let e=(0,h.useContext)(_);if(!e)throw Error(`useTheme must be used within ThemeProvider`);return e}var C=(0,h.createContext)({}),te=0;function ne({toast:e,onRemove:t}){let[n,r]=(0,h.useState)(!1),i=(0,h.useRef)(null);(0,h.useEffect)(()=>(i.current=setTimeout(()=>r(!0),3e3),()=>clearTimeout(i.current)),[]),(0,h.useEffect)(()=>{if(n){let n=setTimeout(()=>t(e.id),300);return()=>clearTimeout(n)}},[n,e.id,t]);let a=()=>{clearTimeout(i.current),r(!0)},o=e.type===`success`?`fa-solid fa-circle-check`:e.type===`error`?`fa-solid fa-circle-xmark`:`fa-solid fa-circle-info`;return(0,g.jsxs)(`div`,{className:`toast toast-${e.type} ${n?`toast-exit`:``}`,role:`alert`,children:[(0,g.jsx)(`i`,{className:`toast-icon ${o}`}),(0,g.jsx)(`span`,{className:`toast-message`,children:e.message}),(0,g.jsx)(`button`,{className:`toast-close`,onClick:a,"aria-label":`닫기`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-xmark`})})]})}function re({toasts:e,onRemove:t}){return e.length===0?null:(0,g.jsx)(`div`,{className:`toast-container`,"aria-live":`polite`,children:e.map(e=>(0,g.jsx)(ne,{toast:e,onRemove:t},e.id))})}function ie({children:e}){let[t,n]=(0,h.useState)([]),r=(0,h.useCallback)((e,t=`info`)=>{let r=++te;n(n=>[...n,{id:r,message:e,type:t}])},[]),i=(0,h.useCallback)(e=>{n(t=>t.filter(t=>t.id!==e))},[]);return(0,g.jsxs)(C.Provider,{value:{showToast:r},children:[e,(0,g.jsx)(re,{toasts:t,onRemove:i})]})}var ae=()=>(0,h.useContext)(C);function oe(e,t){var n={};for(var r in e)Object.prototype.hasOwnProperty.call(e,r)&&t.indexOf(r)<0&&(n[r]=e[r]);if(e!=null&&typeof Object.getOwnPropertySymbols==`function`)for(var i=0,r=Object.getOwnPropertySymbols(e);i<r.length;i++)t.indexOf(r[i])<0&&Object.prototype.propertyIsEnumerable.call(e,r[i])&&(n[r[i]]=e[r[i]]);return n}function se(e,t,n,r){function i(e){return e instanceof n?e:new n(function(t){t(e)})}return new(n||=Promise)(function(n,a){function o(e){try{c(r.next(e))}catch(e){a(e)}}function s(e){try{c(r.throw(e))}catch(e){a(e)}}function c(e){e.done?n(e.value):i(e.value).then(o,s)}c((r=r.apply(e,t||[])).next())})}var ce=e=>e?(...t)=>e(...t):(...e)=>fetch(...e),le=class extends Error{constructor(e,t=`FunctionsError`,n){super(e),this.name=t,this.context=n}},ue=class extends le{constructor(e){super(`Failed to send a request to the Edge Function`,`FunctionsFetchError`,e)}},de=class extends le{constructor(e){super(`Relay Error invoking the Edge Function`,`FunctionsRelayError`,e)}},fe=class extends le{constructor(e){super(`Edge Function returned a non-2xx status code`,`FunctionsHttpError`,e)}},pe;(function(e){e.Any=`any`,e.ApNortheast1=`ap-northeast-1`,e.ApNortheast2=`ap-northeast-2`,e.ApSouth1=`ap-south-1`,e.ApSoutheast1=`ap-southeast-1`,e.ApSoutheast2=`ap-southeast-2`,e.CaCentral1=`ca-central-1`,e.EuCentral1=`eu-central-1`,e.EuWest1=`eu-west-1`,e.EuWest2=`eu-west-2`,e.EuWest3=`eu-west-3`,e.SaEast1=`sa-east-1`,e.UsEast1=`us-east-1`,e.UsWest1=`us-west-1`,e.UsWest2=`us-west-2`})(pe||={});var me=class{constructor(e,{headers:t={},customFetch:n,region:r=pe.Any}={}){this.url=e,this.headers=t,this.region=r,this.fetch=ce(n)}setAuth(e){this.headers.Authorization=`Bearer ${e}`}invoke(e){return se(this,arguments,void 0,function*(e,t={}){let n,r;try{let{headers:i,method:a,body:o,signal:s,timeout:c}=t,l={},{region:u}=t;u||=this.region;let d=new URL(`${this.url}/${e}`);u&&u!==`any`&&(l[`x-region`]=u,d.searchParams.set(`forceFunctionRegion`,u));let f;o&&(i&&!Object.prototype.hasOwnProperty.call(i,`Content-Type`)||!i)?typeof Blob<`u`&&o instanceof Blob||o instanceof ArrayBuffer?(l[`Content-Type`]=`application/octet-stream`,f=o):typeof o==`string`?(l[`Content-Type`]=`text/plain`,f=o):typeof FormData<`u`&&o instanceof FormData?f=o:(l[`Content-Type`]=`application/json`,f=JSON.stringify(o)):f=o&&typeof o!=`string`&&!(typeof Blob<`u`&&o instanceof Blob)&&!(o instanceof ArrayBuffer)&&!(typeof FormData<`u`&&o instanceof FormData)?JSON.stringify(o):o;let p=s;c&&(r=new AbortController,n=setTimeout(()=>r.abort(),c),s?(p=r.signal,s.addEventListener(`abort`,()=>r.abort())):p=r.signal);let m=yield this.fetch(d.toString(),{method:a||`POST`,headers:Object.assign(Object.assign(Object.assign({},l),this.headers),i),body:f,signal:p}).catch(e=>{throw new ue(e)}),h=m.headers.get(`x-relay-error`);if(h&&h===`true`)throw new de(m);if(!m.ok)throw new fe(m);let g=(m.headers.get(`Content-Type`)??`text/plain`).split(`;`)[0].trim(),_;return _=g===`application/json`?yield m.json():g===`application/octet-stream`||g===`application/pdf`?yield m.blob():g===`text/event-stream`?m:g===`multipart/form-data`?yield m.formData():yield m.text(),{data:_,error:null,response:m}}catch(e){return{data:null,error:e,response:e instanceof fe||e instanceof de?e.context:void 0}}finally{n&&clearTimeout(n)}})}},he=class extends Error{constructor(e){super(e.message),this.name=`PostgrestError`,this.details=e.details,this.hint=e.hint,this.code=e.code}},ge=class{constructor(e){this.shouldThrowOnError=!1,this.method=e.method,this.url=e.url,this.headers=new Headers(e.headers),this.schema=e.schema,this.body=e.body,this.shouldThrowOnError=e.shouldThrowOnError??!1,this.signal=e.signal,this.isMaybeSingle=e.isMaybeSingle??!1,this.urlLengthLimit=e.urlLengthLimit??8e3,e.fetch?this.fetch=e.fetch:this.fetch=fetch}throwOnError(){return this.shouldThrowOnError=!0,this}setHeader(e,t){return this.headers=new Headers(this.headers),this.headers.set(e,t),this}then(e,t){var n=this;this.schema===void 0||([`GET`,`HEAD`].includes(this.method)?this.headers.set(`Accept-Profile`,this.schema):this.headers.set(`Content-Profile`,this.schema)),this.method!==`GET`&&this.method!==`HEAD`&&this.headers.set(`Content-Type`,`application/json`);let r=this.fetch,i=r(this.url.toString(),{method:this.method,headers:this.headers,body:JSON.stringify(this.body),signal:this.signal}).then(async e=>{let t=null,r=null,i=null,a=e.status,o=e.statusText;if(e.ok){if(n.method!==`HEAD`){let t=await e.text();t===``||(r=n.headers.get(`Accept`)===`text/csv`||n.headers.get(`Accept`)&&n.headers.get(`Accept`)?.includes(`application/vnd.pgrst.plan+text`)?t:JSON.parse(t))}let s=n.headers.get(`Prefer`)?.match(/count=(exact|planned|estimated)/),c=e.headers.get(`content-range`)?.split(`/`);s&&c&&c.length>1&&(i=parseInt(c[1])),n.isMaybeSingle&&Array.isArray(r)&&(r.length>1?(t={code:`PGRST116`,details:`Results contain ${r.length} rows, application/vnd.pgrst.object+json requires 1 row`,hint:null,message:`JSON object requested, multiple (or no) rows returned`},r=null,i=null,a=406,o=`Not Acceptable`):r=r.length===1?r[0]:null)}else{let i=await e.text();try{t=JSON.parse(i),Array.isArray(t)&&e.status===404&&(r=[],t=null,a=200,o=`OK`)}catch{e.status===404&&i===``?(a=204,o=`No Content`):t={message:i}}if(t&&n.shouldThrowOnError)throw new he(t)}return{error:t,data:r,count:i,status:a,statusText:o}});return this.shouldThrowOnError||(i=i.catch(e=>{let t=``,n=``,r=``,i=e?.cause;if(i){let n=i?.message??``,r=i?.code??``;t=`${e?.name??`FetchError`}: ${e?.message}`,t+=`\n\nCaused by: ${i?.name??`Error`}: ${n}`,r&&(t+=` (${r})`),i?.stack&&(t+=`\n${i.stack}`)}else t=e?.stack??``;let a=this.url.toString().length;return e?.name===`AbortError`||e?.code===`ABORT_ERR`?(r=``,n=`Request was aborted (timeout or manual cancellation)`,a>this.urlLengthLimit&&(n+=`. Note: Your request URL is ${a} characters, which may exceed server limits. If selecting many fields, consider using views. If filtering with large arrays (e.g., .in('id', [many IDs])), consider using an RPC function to pass values server-side.`)):(i?.name===`HeadersOverflowError`||i?.code===`UND_ERR_HEADERS_OVERFLOW`)&&(r=``,n=`HTTP headers exceeded server limits (typically 16KB)`,a>this.urlLengthLimit&&(n+=`. Your request URL is ${a} characters. If selecting many fields, consider using views. If filtering with large arrays (e.g., .in('id', [200+ IDs])), consider using an RPC function instead.`)),{error:{message:`${e?.name??`FetchError`}: ${e?.message}`,details:t,hint:n,code:r},data:null,count:null,status:0,statusText:``}})),i.then(e,t)}returns(){return this}overrideTypes(){return this}},_e=class extends ge{select(e){let t=!1,n=(e??`*`).split(``).map(e=>/\s/.test(e)&&!t?``:(e===`"`&&(t=!t),e)).join(``);return this.url.searchParams.set(`select`,n),this.headers.append(`Prefer`,`return=representation`),this}order(e,{ascending:t=!0,nullsFirst:n,foreignTable:r,referencedTable:i=r}={}){let a=i?`${i}.order`:`order`,o=this.url.searchParams.get(a);return this.url.searchParams.set(a,`${o?`${o},`:``}${e}.${t?`asc`:`desc`}${n===void 0?``:n?`.nullsfirst`:`.nullslast`}`),this}limit(e,{foreignTable:t,referencedTable:n=t}={}){let r=n===void 0?`limit`:`${n}.limit`;return this.url.searchParams.set(r,`${e}`),this}range(e,t,{foreignTable:n,referencedTable:r=n}={}){let i=r===void 0?`offset`:`${r}.offset`,a=r===void 0?`limit`:`${r}.limit`;return this.url.searchParams.set(i,`${e}`),this.url.searchParams.set(a,`${t-e+1}`),this}abortSignal(e){return this.signal=e,this}single(){return this.headers.set(`Accept`,`application/vnd.pgrst.object+json`),this}maybeSingle(){return this.isMaybeSingle=!0,this}csv(){return this.headers.set(`Accept`,`text/csv`),this}geojson(){return this.headers.set(`Accept`,`application/geo+json`),this}explain({analyze:e=!1,verbose:t=!1,settings:n=!1,buffers:r=!1,wal:i=!1,format:a=`text`}={}){let o=[e?`analyze`:null,t?`verbose`:null,n?`settings`:null,r?`buffers`:null,i?`wal`:null].filter(Boolean).join(`|`),s=this.headers.get(`Accept`)??`application/json`;return this.headers.set(`Accept`,`application/vnd.pgrst.plan+${a}; for="${s}"; options=${o};`),this}rollback(){return this.headers.append(`Prefer`,`tx=rollback`),this}returns(){return this}maxAffected(e){return this.headers.append(`Prefer`,`handling=strict`),this.headers.append(`Prefer`,`max-affected=${e}`),this}},ve=RegExp(`[,()]`),ye=class extends _e{eq(e,t){return this.url.searchParams.append(e,`eq.${t}`),this}neq(e,t){return this.url.searchParams.append(e,`neq.${t}`),this}gt(e,t){return this.url.searchParams.append(e,`gt.${t}`),this}gte(e,t){return this.url.searchParams.append(e,`gte.${t}`),this}lt(e,t){return this.url.searchParams.append(e,`lt.${t}`),this}lte(e,t){return this.url.searchParams.append(e,`lte.${t}`),this}like(e,t){return this.url.searchParams.append(e,`like.${t}`),this}likeAllOf(e,t){return this.url.searchParams.append(e,`like(all).{${t.join(`,`)}}`),this}likeAnyOf(e,t){return this.url.searchParams.append(e,`like(any).{${t.join(`,`)}}`),this}ilike(e,t){return this.url.searchParams.append(e,`ilike.${t}`),this}ilikeAllOf(e,t){return this.url.searchParams.append(e,`ilike(all).{${t.join(`,`)}}`),this}ilikeAnyOf(e,t){return this.url.searchParams.append(e,`ilike(any).{${t.join(`,`)}}`),this}regexMatch(e,t){return this.url.searchParams.append(e,`match.${t}`),this}regexIMatch(e,t){return this.url.searchParams.append(e,`imatch.${t}`),this}is(e,t){return this.url.searchParams.append(e,`is.${t}`),this}isDistinct(e,t){return this.url.searchParams.append(e,`isdistinct.${t}`),this}in(e,t){let n=Array.from(new Set(t)).map(e=>typeof e==`string`&&ve.test(e)?`"${e}"`:`${e}`).join(`,`);return this.url.searchParams.append(e,`in.(${n})`),this}notIn(e,t){let n=Array.from(new Set(t)).map(e=>typeof e==`string`&&ve.test(e)?`"${e}"`:`${e}`).join(`,`);return this.url.searchParams.append(e,`not.in.(${n})`),this}contains(e,t){return typeof t==`string`?this.url.searchParams.append(e,`cs.${t}`):Array.isArray(t)?this.url.searchParams.append(e,`cs.{${t.join(`,`)}}`):this.url.searchParams.append(e,`cs.${JSON.stringify(t)}`),this}containedBy(e,t){return typeof t==`string`?this.url.searchParams.append(e,`cd.${t}`):Array.isArray(t)?this.url.searchParams.append(e,`cd.{${t.join(`,`)}}`):this.url.searchParams.append(e,`cd.${JSON.stringify(t)}`),this}rangeGt(e,t){return this.url.searchParams.append(e,`sr.${t}`),this}rangeGte(e,t){return this.url.searchParams.append(e,`nxl.${t}`),this}rangeLt(e,t){return this.url.searchParams.append(e,`sl.${t}`),this}rangeLte(e,t){return this.url.searchParams.append(e,`nxr.${t}`),this}rangeAdjacent(e,t){return this.url.searchParams.append(e,`adj.${t}`),this}overlaps(e,t){return typeof t==`string`?this.url.searchParams.append(e,`ov.${t}`):this.url.searchParams.append(e,`ov.{${t.join(`,`)}}`),this}textSearch(e,t,{config:n,type:r}={}){let i=``;r===`plain`?i=`pl`:r===`phrase`?i=`ph`:r===`websearch`&&(i=`w`);let a=n===void 0?``:`(${n})`;return this.url.searchParams.append(e,`${i}fts${a}.${t}`),this}match(e){return Object.entries(e).filter(([e,t])=>t!==void 0).forEach(([e,t])=>{this.url.searchParams.append(e,`eq.${t}`)}),this}not(e,t,n){return this.url.searchParams.append(e,`not.${t}.${n}`),this}or(e,{foreignTable:t,referencedTable:n=t}={}){let r=n?`${n}.or`:`or`;return this.url.searchParams.append(r,`(${e})`),this}filter(e,t,n){return this.url.searchParams.append(e,`${t}.${n}`),this}},be=class{constructor(e,{headers:t={},schema:n,fetch:r,urlLengthLimit:i=8e3}){this.url=e,this.headers=new Headers(t),this.schema=n,this.fetch=r,this.urlLengthLimit=i}cloneRequestState(){return{url:new URL(this.url.toString()),headers:new Headers(this.headers)}}select(e,t){let{head:n=!1,count:r}=t??{},i=n?`HEAD`:`GET`,a=!1,o=(e??`*`).split(``).map(e=>/\s/.test(e)&&!a?``:(e===`"`&&(a=!a),e)).join(``),{url:s,headers:c}=this.cloneRequestState();return s.searchParams.set(`select`,o),r&&c.append(`Prefer`,`count=${r}`),new ye({method:i,url:s,headers:c,schema:this.schema,fetch:this.fetch,urlLengthLimit:this.urlLengthLimit})}insert(e,{count:t,defaultToNull:n=!0}={}){let{url:r,headers:i}=this.cloneRequestState();if(t&&i.append(`Prefer`,`count=${t}`),n||i.append(`Prefer`,`missing=default`),Array.isArray(e)){let t=e.reduce((e,t)=>e.concat(Object.keys(t)),[]);if(t.length>0){let e=[...new Set(t)].map(e=>`"${e}"`);r.searchParams.set(`columns`,e.join(`,`))}}return new ye({method:`POST`,url:r,headers:i,schema:this.schema,body:e,fetch:this.fetch??fetch,urlLengthLimit:this.urlLengthLimit})}upsert(e,{onConflict:t,ignoreDuplicates:n=!1,count:r,defaultToNull:i=!0}={}){let{url:a,headers:o}=this.cloneRequestState();if(o.append(`Prefer`,`resolution=${n?`ignore`:`merge`}-duplicates`),t!==void 0&&a.searchParams.set(`on_conflict`,t),r&&o.append(`Prefer`,`count=${r}`),i||o.append(`Prefer`,`missing=default`),Array.isArray(e)){let t=e.reduce((e,t)=>e.concat(Object.keys(t)),[]);if(t.length>0){let e=[...new Set(t)].map(e=>`"${e}"`);a.searchParams.set(`columns`,e.join(`,`))}}return new ye({method:`POST`,url:a,headers:o,schema:this.schema,body:e,fetch:this.fetch??fetch,urlLengthLimit:this.urlLengthLimit})}update(e,{count:t}={}){let{url:n,headers:r}=this.cloneRequestState();return t&&r.append(`Prefer`,`count=${t}`),new ye({method:`PATCH`,url:n,headers:r,schema:this.schema,body:e,fetch:this.fetch??fetch,urlLengthLimit:this.urlLengthLimit})}delete({count:e}={}){let{url:t,headers:n}=this.cloneRequestState();return e&&n.append(`Prefer`,`count=${e}`),new ye({method:`DELETE`,url:t,headers:n,schema:this.schema,fetch:this.fetch??fetch,urlLengthLimit:this.urlLengthLimit})}};function xe(e){"@babel/helpers - typeof";return xe=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},xe(e)}function Se(e,t){if(xe(e)!=`object`||!e)return e;var n=e[Symbol.toPrimitive];if(n!==void 0){var r=n.call(e,t||`default`);if(xe(r)!=`object`)return r;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(t===`string`?String:Number)(e)}function Ce(e){var t=Se(e,`string`);return xe(t)==`symbol`?t:t+``}function we(e,t,n){return(t=Ce(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Te(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),n.push.apply(n,r)}return n}function Ee(e){for(var t=1;t<arguments.length;t++){var n=arguments[t]==null?{}:arguments[t];t%2?Te(Object(n),!0).forEach(function(t){we(e,t,n[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):Te(Object(n)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))})}return e}var De=class e{constructor(e,{headers:t={},schema:n,fetch:r,timeout:i,urlLengthLimit:a=8e3}={}){this.url=e,this.headers=new Headers(t),this.schemaName=n,this.urlLengthLimit=a;let o=r??globalThis.fetch;i!==void 0&&i>0?this.fetch=(e,t)=>{let n=new AbortController,r=setTimeout(()=>n.abort(),i),a=t?.signal;if(a){if(a.aborted)return clearTimeout(r),o(e,t);let i=()=>{clearTimeout(r),n.abort()};return a.addEventListener(`abort`,i,{once:!0}),o(e,Ee(Ee({},t),{},{signal:n.signal})).finally(()=>{clearTimeout(r),a.removeEventListener(`abort`,i)})}return o(e,Ee(Ee({},t),{},{signal:n.signal})).finally(()=>clearTimeout(r))}:this.fetch=o}from(e){if(!e||typeof e!=`string`||e.trim()===``)throw Error(`Invalid relation name: relation must be a non-empty string.`);return new be(new URL(`${this.url}/${e}`),{headers:new Headers(this.headers),schema:this.schemaName,fetch:this.fetch,urlLengthLimit:this.urlLengthLimit})}schema(t){return new e(this.url,{headers:this.headers,schema:t,fetch:this.fetch,urlLengthLimit:this.urlLengthLimit})}rpc(e,t={},{head:n=!1,get:r=!1,count:i}={}){let a,o=new URL(`${this.url}/rpc/${e}`),s,c=e=>typeof e==`object`&&!!e&&(!Array.isArray(e)||e.some(c)),l=n&&Object.values(t).some(c);l?(a=`POST`,s=t):n||r?(a=n?`HEAD`:`GET`,Object.entries(t).filter(([e,t])=>t!==void 0).map(([e,t])=>[e,Array.isArray(t)?`{${t.join(`,`)}}`:`${t}`]).forEach(([e,t])=>{o.searchParams.append(e,t)})):(a=`POST`,s=t);let u=new Headers(this.headers);return l?u.set(`Prefer`,i?`count=${i},return=minimal`:`return=minimal`):i&&u.set(`Prefer`,`count=${i}`),new ye({method:a,url:o,headers:u,schema:this.schemaName,body:s,fetch:this.fetch??fetch,urlLengthLimit:this.urlLengthLimit})}},Oe=class{constructor(){}static detectEnvironment(){if(typeof WebSocket<`u`)return{type:`native`,constructor:WebSocket};if(typeof globalThis<`u`&&globalThis.WebSocket!==void 0)return{type:`native`,constructor:globalThis.WebSocket};if(typeof global<`u`&&global.WebSocket!==void 0)return{type:`native`,constructor:global.WebSocket};if(typeof globalThis<`u`&&globalThis.WebSocketPair!==void 0&&globalThis.WebSocket===void 0)return{type:`cloudflare`,error:`Cloudflare Workers detected. WebSocket clients are not supported in Cloudflare Workers.`,workaround:`Use Cloudflare Workers WebSocket API for server-side WebSocket handling, or deploy to a different runtime.`};if(typeof globalThis<`u`&&globalThis.EdgeRuntime||typeof navigator<`u`&&navigator.userAgent?.includes(`Vercel-Edge`))return{type:`unsupported`,error:`Edge runtime detected (Vercel Edge/Netlify Edge). WebSockets are not supported in edge functions.`,workaround:`Use serverless functions or a different deployment target for WebSocket functionality.`};let e=globalThis.process;if(e){let t=e.versions;if(t&&t.node){let e=t.node,n=parseInt(e.replace(/^v/,``).split(`.`)[0]);return n>=22?globalThis.WebSocket===void 0?{type:`unsupported`,error:`Node.js ${n} detected but native WebSocket not found.`,workaround:`Provide a WebSocket implementation via the transport option.`}:{type:`native`,constructor:globalThis.WebSocket}:{type:`unsupported`,error:`Node.js ${n} detected without native WebSocket support.`,workaround:`For Node.js < 22, install "ws" package and provide it via the transport option:
+import ws from "ws"
+new RealtimeClient(url, { transport: ws })`}}}return{type:`unsupported`,error:`Unknown JavaScript runtime without WebSocket support.`,workaround:`Ensure you're running in a supported environment (browser, Node.js, Deno) or provide a custom WebSocket implementation.`}}static getWebSocketConstructor(){let e=this.detectEnvironment();if(e.constructor)return e.constructor;let t=e.error||`WebSocket not supported in this environment.`;throw e.workaround&&(t+=`\n\nSuggested solution: ${e.workaround}`),Error(t)}static isWebSocketSupported(){try{let e=this.detectEnvironment();return e.type===`native`||e.type===`ws`}catch{return!1}}},ke=`realtime-js/2.101.1`,Ae=`1.0.0`,je=`2.0.0`,Me=je,Ne=1e4,w={closed:`closed`,errored:`errored`,joined:`joined`,joining:`joining`,leaving:`leaving`},Pe={close:`phx_close`,error:`phx_error`,join:`phx_join`,reply:`phx_reply`,leave:`phx_leave`,access_token:`access_token`},Fe={connecting:`connecting`,open:`open`,closing:`closing`,closed:`closed`},Ie=class{constructor(e){this.HEADER_LENGTH=1,this.USER_BROADCAST_PUSH_META_LENGTH=6,this.KINDS={userBroadcastPush:3,userBroadcast:4},this.BINARY_ENCODING=0,this.JSON_ENCODING=1,this.BROADCAST_EVENT=`broadcast`,this.allowedMetadataKeys=[],this.allowedMetadataKeys=e??[]}encode(e,t){if(e.event===this.BROADCAST_EVENT&&!(e.payload instanceof ArrayBuffer)&&typeof e.payload.event==`string`)return t(this._binaryEncodeUserBroadcastPush(e));let n=[e.join_ref,e.ref,e.topic,e.event,e.payload];return t(JSON.stringify(n))}_binaryEncodeUserBroadcastPush(e){return this._isArrayBuffer(e.payload?.payload)?this._encodeBinaryUserBroadcastPush(e):this._encodeJsonUserBroadcastPush(e)}_encodeBinaryUserBroadcastPush(e){let t=e.payload?.payload??new ArrayBuffer(0);return this._encodeUserBroadcastPush(e,this.BINARY_ENCODING,t)}_encodeJsonUserBroadcastPush(e){let t=e.payload?.payload??{},n=new TextEncoder().encode(JSON.stringify(t)).buffer;return this._encodeUserBroadcastPush(e,this.JSON_ENCODING,n)}_encodeUserBroadcastPush(e,t,n){let r=e.topic,i=e.ref??``,a=e.join_ref??``,o=e.payload.event,s=this.allowedMetadataKeys?this._pick(e.payload,this.allowedMetadataKeys):{},c=Object.keys(s).length===0?``:JSON.stringify(s);if(a.length>255)throw Error(`joinRef length ${a.length} exceeds maximum of 255`);if(i.length>255)throw Error(`ref length ${i.length} exceeds maximum of 255`);if(r.length>255)throw Error(`topic length ${r.length} exceeds maximum of 255`);if(o.length>255)throw Error(`userEvent length ${o.length} exceeds maximum of 255`);if(c.length>255)throw Error(`metadata length ${c.length} exceeds maximum of 255`);let l=this.USER_BROADCAST_PUSH_META_LENGTH+a.length+i.length+r.length+o.length+c.length,u=new ArrayBuffer(this.HEADER_LENGTH+l),d=new DataView(u),f=0;d.setUint8(f++,this.KINDS.userBroadcastPush),d.setUint8(f++,a.length),d.setUint8(f++,i.length),d.setUint8(f++,r.length),d.setUint8(f++,o.length),d.setUint8(f++,c.length),d.setUint8(f++,t),Array.from(a,e=>d.setUint8(f++,e.charCodeAt(0))),Array.from(i,e=>d.setUint8(f++,e.charCodeAt(0))),Array.from(r,e=>d.setUint8(f++,e.charCodeAt(0))),Array.from(o,e=>d.setUint8(f++,e.charCodeAt(0))),Array.from(c,e=>d.setUint8(f++,e.charCodeAt(0)));var p=new Uint8Array(u.byteLength+n.byteLength);return p.set(new Uint8Array(u),0),p.set(new Uint8Array(n),u.byteLength),p.buffer}decode(e,t){if(this._isArrayBuffer(e))return t(this._binaryDecode(e));if(typeof e==`string`){let[n,r,i,a,o]=JSON.parse(e);return t({join_ref:n,ref:r,topic:i,event:a,payload:o})}return t({})}_binaryDecode(e){let t=new DataView(e),n=t.getUint8(0),r=new TextDecoder;switch(n){case this.KINDS.userBroadcast:return this._decodeUserBroadcast(e,t,r)}}_decodeUserBroadcast(e,t,n){let r=t.getUint8(1),i=t.getUint8(2),a=t.getUint8(3),o=t.getUint8(4),s=this.HEADER_LENGTH+4,c=n.decode(e.slice(s,s+r));s+=r;let l=n.decode(e.slice(s,s+i));s+=i;let u=n.decode(e.slice(s,s+a));s+=a;let d=e.slice(s,e.byteLength),f=o===this.JSON_ENCODING?JSON.parse(n.decode(d)):d,p={type:this.BROADCAST_EVENT,event:l,payload:f};return a>0&&(p.meta=JSON.parse(u)),{join_ref:null,ref:null,topic:c,event:this.BROADCAST_EVENT,payload:p}}_isArrayBuffer(e){return e instanceof ArrayBuffer||e?.constructor?.name===`ArrayBuffer`}_pick(e,t){return!e||typeof e!=`object`?{}:Object.fromEntries(Object.entries(e).filter(([e])=>t.includes(e)))}},T;(function(e){e.abstime=`abstime`,e.bool=`bool`,e.date=`date`,e.daterange=`daterange`,e.float4=`float4`,e.float8=`float8`,e.int2=`int2`,e.int4=`int4`,e.int4range=`int4range`,e.int8=`int8`,e.int8range=`int8range`,e.json=`json`,e.jsonb=`jsonb`,e.money=`money`,e.numeric=`numeric`,e.oid=`oid`,e.reltime=`reltime`,e.text=`text`,e.time=`time`,e.timestamp=`timestamp`,e.timestamptz=`timestamptz`,e.timetz=`timetz`,e.tsrange=`tsrange`,e.tstzrange=`tstzrange`})(T||={});var Le=(e,t,n={})=>{let r=n.skipTypes??[];return t?Object.keys(t).reduce((n,i)=>(n[i]=Re(i,e,t,r),n),{}):{}},Re=(e,t,n,r)=>{let i=t.find(t=>t.name===e)?.type,a=n[e];return i&&!r.includes(i)?ze(i,a):Be(a)},ze=(e,t)=>{if(e.charAt(0)===`_`)return We(t,e.slice(1,e.length));switch(e){case T.bool:return Ve(t);case T.float4:case T.float8:case T.int2:case T.int4:case T.int8:case T.numeric:case T.oid:return He(t);case T.json:case T.jsonb:return Ue(t);case T.timestamp:return Ge(t);case T.abstime:case T.date:case T.daterange:case T.int4range:case T.int8range:case T.money:case T.reltime:case T.text:case T.time:case T.timestamptz:case T.timetz:case T.tsrange:case T.tstzrange:return Be(t);default:return Be(t)}},Be=e=>e,Ve=e=>{switch(e){case`t`:return!0;case`f`:return!1;default:return e}},He=e=>{if(typeof e==`string`){let t=parseFloat(e);if(!Number.isNaN(t))return t}return e},Ue=e=>{if(typeof e==`string`)try{return JSON.parse(e)}catch{return e}return e},We=(e,t)=>{if(typeof e!=`string`)return e;let n=e.length-1,r=e[n];if(e[0]===`{`&&r===`}`){let r,i=e.slice(1,n);try{r=JSON.parse(`[`+i+`]`)}catch{r=i?i.split(`,`):[]}return r.map(e=>ze(t,e))}return e},Ge=e=>typeof e==`string`?e.replace(` `,`T`):e,Ke=e=>{let t=new URL(e);return t.protocol=t.protocol.replace(/^ws/i,`http`),t.pathname=t.pathname.replace(/\/+$/,``).replace(/\/socket\/websocket$/i,``).replace(/\/socket$/i,``).replace(/\/websocket$/i,``),t.pathname===``||t.pathname===`/`?t.pathname=`/api/broadcast`:t.pathname+=`/api/broadcast`,t.href},qe=e=>typeof e==`function`?e:function(){return e},Je=typeof self<`u`?self:null,Ye=typeof window<`u`?window:null,E=Je||Ye||globalThis,Xe=`2.0.0`,Ze=1e4,Qe=1e3,D={connecting:0,open:1,closing:2,closed:3},O={closed:`closed`,errored:`errored`,joined:`joined`,joining:`joining`,leaving:`leaving`},k={close:`phx_close`,error:`phx_error`,join:`phx_join`,reply:`phx_reply`,leave:`phx_leave`},$e={longpoll:`longpoll`,websocket:`websocket`},et={complete:4},tt=`base64url.bearer.phx.`,nt=class{constructor(e,t,n,r){this.channel=e,this.event=t,this.payload=n||function(){return{}},this.receivedResp=null,this.timeout=r,this.timeoutTimer=null,this.recHooks=[],this.sent=!1,this.ref=void 0}resend(e){this.timeout=e,this.reset(),this.send()}send(){this.hasReceived(`timeout`)||(this.startTimeout(),this.sent=!0,this.channel.socket.push({topic:this.channel.topic,event:this.event,payload:this.payload(),ref:this.ref,join_ref:this.channel.joinRef()}))}receive(e,t){return this.hasReceived(e)&&t(this.receivedResp.response),this.recHooks.push({status:e,callback:t}),this}reset(){this.cancelRefEvent(),this.ref=null,this.refEvent=null,this.receivedResp=null,this.sent=!1}destroy(){this.cancelRefEvent(),this.cancelTimeout()}matchReceive({status:e,response:t,_ref:n}){this.recHooks.filter(t=>t.status===e).forEach(e=>e.callback(t))}cancelRefEvent(){this.refEvent&&this.channel.off(this.refEvent)}cancelTimeout(){clearTimeout(this.timeoutTimer),this.timeoutTimer=null}startTimeout(){this.timeoutTimer&&this.cancelTimeout(),this.ref=this.channel.socket.makeRef(),this.refEvent=this.channel.replyEventName(this.ref),this.channel.on(this.refEvent,e=>{this.cancelRefEvent(),this.cancelTimeout(),this.receivedResp=e,this.matchReceive(e)}),this.timeoutTimer=setTimeout(()=>{this.trigger(`timeout`,{})},this.timeout)}hasReceived(e){return this.receivedResp&&this.receivedResp.status===e}trigger(e,t){this.channel.trigger(this.refEvent,{status:e,response:t})}},rt=class{constructor(e,t){this.callback=e,this.timerCalc=t,this.timer=void 0,this.tries=0}reset(){this.tries=0,clearTimeout(this.timer)}scheduleTimeout(){clearTimeout(this.timer),this.timer=setTimeout(()=>{this.tries+=1,this.callback()},this.timerCalc(this.tries+1))}},it=class{constructor(e,t,n){this.state=O.closed,this.topic=e,this.params=qe(t||{}),this.socket=n,this.bindings=[],this.bindingRef=0,this.timeout=this.socket.timeout,this.joinedOnce=!1,this.joinPush=new nt(this,k.join,this.params,this.timeout),this.pushBuffer=[],this.stateChangeRefs=[],this.rejoinTimer=new rt(()=>{this.socket.isConnected()&&this.rejoin()},this.socket.rejoinAfterMs),this.stateChangeRefs.push(this.socket.onError(()=>this.rejoinTimer.reset())),this.stateChangeRefs.push(this.socket.onOpen(()=>{this.rejoinTimer.reset(),this.isErrored()&&this.rejoin()})),this.joinPush.receive(`ok`,()=>{this.state=O.joined,this.rejoinTimer.reset(),this.pushBuffer.forEach(e=>e.send()),this.pushBuffer=[]}),this.joinPush.receive(`error`,e=>{this.state=O.errored,this.socket.hasLogger()&&this.socket.log(`channel`,`error ${this.topic}`,e),this.socket.isConnected()&&this.rejoinTimer.scheduleTimeout()}),this.onClose(()=>{this.rejoinTimer.reset(),this.socket.hasLogger()&&this.socket.log(`channel`,`close ${this.topic}`),this.state=O.closed,this.socket.remove(this)}),this.onError(e=>{this.socket.hasLogger()&&this.socket.log(`channel`,`error ${this.topic}`,e),this.isJoining()&&this.joinPush.reset(),this.state=O.errored,this.socket.isConnected()&&this.rejoinTimer.scheduleTimeout()}),this.joinPush.receive(`timeout`,()=>{this.socket.hasLogger()&&this.socket.log(`channel`,`timeout ${this.topic}`,this.joinPush.timeout),new nt(this,k.leave,qe({}),this.timeout).send(),this.state=O.errored,this.joinPush.reset(),this.socket.isConnected()&&this.rejoinTimer.scheduleTimeout()}),this.on(k.reply,(e,t)=>{this.trigger(this.replyEventName(t),e)})}join(e=this.timeout){if(this.joinedOnce)throw Error(`tried to join multiple times. 'join' can only be called a single time per channel instance`);return this.timeout=e,this.joinedOnce=!0,this.rejoin(),this.joinPush}teardown(){this.pushBuffer.forEach(e=>e.destroy()),this.pushBuffer=[],this.rejoinTimer.reset(),this.joinPush.destroy(),this.state=O.closed,this.bindings=[]}onClose(e){this.on(k.close,e)}onError(e){return this.on(k.error,t=>e(t))}on(e,t){let n=this.bindingRef++;return this.bindings.push({event:e,ref:n,callback:t}),n}off(e,t){this.bindings=this.bindings.filter(n=>!(n.event===e&&(t===void 0||t===n.ref)))}canPush(){return this.socket.isConnected()&&this.isJoined()}push(e,t,n=this.timeout){if(t||={},!this.joinedOnce)throw Error(`tried to push '${e}' to '${this.topic}' before joining. Use channel.join() before pushing events`);let r=new nt(this,e,function(){return t},n);return this.canPush()?r.send():(r.startTimeout(),this.pushBuffer.push(r)),r}leave(e=this.timeout){this.rejoinTimer.reset(),this.joinPush.cancelTimeout(),this.state=O.leaving;let t=()=>{this.socket.hasLogger()&&this.socket.log(`channel`,`leave ${this.topic}`),this.trigger(k.close,`leave`)},n=new nt(this,k.leave,qe({}),e);return n.receive(`ok`,()=>t()).receive(`timeout`,()=>t()),n.send(),this.canPush()||n.trigger(`ok`,{}),n}onMessage(e,t,n){return t}filterBindings(e,t,n){return!0}isMember(e,t,n,r){return this.topic===e?r&&r!==this.joinRef()?(this.socket.hasLogger()&&this.socket.log(`channel`,`dropping outdated message`,{topic:e,event:t,payload:n,joinRef:r}),!1):!0:!1}joinRef(){return this.joinPush.ref}rejoin(e=this.timeout){this.isLeaving()||(this.socket.leaveOpenTopic(this.topic),this.state=O.joining,this.joinPush.resend(e))}trigger(e,t,n,r){let i=this.onMessage(e,t,n,r);if(t&&!i)throw Error(`channel onMessage callbacks must return the payload, modified or unmodified`);let a=this.bindings.filter(r=>r.event===e&&this.filterBindings(r,t,n));for(let e=0;e<a.length;e++)a[e].callback(i,n,r||this.joinRef())}replyEventName(e){return`chan_reply_${e}`}isClosed(){return this.state===O.closed}isErrored(){return this.state===O.errored}isJoined(){return this.state===O.joined}isJoining(){return this.state===O.joining}isLeaving(){return this.state===O.leaving}},at=class{static request(e,t,n,r,i,a,o){if(E.XDomainRequest){let n=new E.XDomainRequest;return this.xdomainRequest(n,e,t,r,i,a,o)}else if(E.XMLHttpRequest){let s=new E.XMLHttpRequest;return this.xhrRequest(s,e,t,n,r,i,a,o)}else if(E.fetch&&E.AbortController)return this.fetchRequest(e,t,n,r,i,a,o);else throw Error(`No suitable XMLHttpRequest implementation found`)}static fetchRequest(e,t,n,r,i,a,o){let s={method:e,headers:n,body:r},c=null;return i&&(c=new AbortController,setTimeout(()=>c.abort(),i),s.signal=c.signal),E.fetch(t,s).then(e=>e.text()).then(e=>this.parseJSON(e)).then(e=>o&&o(e)).catch(e=>{e.name===`AbortError`&&a?a():o&&o(null)}),c}static xdomainRequest(e,t,n,r,i,a,o){return e.timeout=i,e.open(t,n),e.onload=()=>{let t=this.parseJSON(e.responseText);o&&o(t)},a&&(e.ontimeout=a),e.onprogress=()=>{},e.send(r),e}static xhrRequest(e,t,n,r,i,a,o,s){e.open(t,n,!0),e.timeout=a;for(let[t,n]of Object.entries(r))e.setRequestHeader(t,n);return e.onerror=()=>s&&s(null),e.onreadystatechange=()=>{e.readyState===et.complete&&s&&s(this.parseJSON(e.responseText))},o&&(e.ontimeout=o),e.send(i),e}static parseJSON(e){if(!e||e===``)return null;try{return JSON.parse(e)}catch{return console&&console.log(`failed to parse JSON response`,e),null}}static serialize(e,t){let n=[];for(var r in e){if(!Object.prototype.hasOwnProperty.call(e,r))continue;let i=t?`${t}[${r}]`:r,a=e[r];typeof a==`object`?n.push(this.serialize(a,i)):n.push(encodeURIComponent(i)+`=`+encodeURIComponent(a))}return n.join(`&`)}static appendParams(e,t){return Object.keys(t).length===0?e:`${e}${e.match(/\?/)?`&`:`?`}${this.serialize(t)}`}},ot=e=>{let t=``,n=new Uint8Array(e),r=n.byteLength;for(let e=0;e<r;e++)t+=String.fromCharCode(n[e]);return btoa(t)},st=class{constructor(e,t){t&&t.length===2&&t[1].startsWith(tt)&&(this.authToken=atob(t[1].slice(tt.length))),this.endPoint=null,this.token=null,this.skipHeartbeat=!0,this.reqs=new Set,this.awaitingBatchAck=!1,this.currentBatch=null,this.currentBatchTimer=null,this.batchBuffer=[],this.onopen=function(){},this.onerror=function(){},this.onmessage=function(){},this.onclose=function(){},this.pollEndpoint=this.normalizeEndpoint(e),this.readyState=D.connecting,setTimeout(()=>this.poll(),0)}normalizeEndpoint(e){return e.replace(`ws://`,`http://`).replace(`wss://`,`https://`).replace(RegExp(`(.*)/`+$e.websocket),`$1/`+$e.longpoll)}endpointURL(){return at.appendParams(this.pollEndpoint,{token:this.token})}closeAndRetry(e,t,n){this.close(e,t,n),this.readyState=D.connecting}ontimeout(){this.onerror(`timeout`),this.closeAndRetry(1005,`timeout`,!1)}isActive(){return this.readyState===D.open||this.readyState===D.connecting}poll(){let e={Accept:`application/json`};this.authToken&&(e[`X-Phoenix-AuthToken`]=this.authToken),this.ajax(`GET`,e,null,()=>this.ontimeout(),e=>{if(e){var{status:t,token:n,messages:r}=e;if(t===410&&this.token!==null){this.onerror(410),this.closeAndRetry(3410,`session_gone`,!1);return}this.token=n}else t=0;switch(t){case 200:r.forEach(e=>{setTimeout(()=>this.onmessage({data:e}),0)}),this.poll();break;case 204:this.poll();break;case 410:this.readyState=D.open,this.onopen({}),this.poll();break;case 403:this.onerror(403),this.close(1008,`forbidden`,!1);break;case 0:case 500:this.onerror(500),this.closeAndRetry(1011,`internal server error`,500);break;default:throw Error(`unhandled poll status ${t}`)}})}send(e){typeof e!=`string`&&(e=ot(e)),this.currentBatch?this.currentBatch.push(e):this.awaitingBatchAck?this.batchBuffer.push(e):(this.currentBatch=[e],this.currentBatchTimer=setTimeout(()=>{this.batchSend(this.currentBatch),this.currentBatch=null},0))}batchSend(e){this.awaitingBatchAck=!0,this.ajax(`POST`,{"Content-Type":`application/x-ndjson`},e.join(`
+`),()=>this.onerror(`timeout`),e=>{this.awaitingBatchAck=!1,!e||e.status!==200?(this.onerror(e&&e.status),this.closeAndRetry(1011,`internal server error`,!1)):this.batchBuffer.length>0&&(this.batchSend(this.batchBuffer),this.batchBuffer=[])})}close(e,t,n){for(let e of this.reqs)e.abort();this.readyState=D.closed;let r=Object.assign({code:1e3,reason:void 0,wasClean:!0},{code:e,reason:t,wasClean:n});this.batchBuffer=[],clearTimeout(this.currentBatchTimer),this.currentBatchTimer=null,typeof CloseEvent<`u`?this.onclose(new CloseEvent(`close`,r)):this.onclose(r)}ajax(e,t,n,r,i){let a;a=at.request(e,this.endpointURL(),t,n,this.timeout,()=>{this.reqs.delete(a),r()},e=>{this.reqs.delete(a),this.isActive()&&i(e)}),this.reqs.add(a)}},ct=class e{constructor(t,n={}){let r=n.events||{state:`presence_state`,diff:`presence_diff`};this.state={},this.pendingDiffs=[],this.channel=t,this.joinRef=null,this.caller={onJoin:function(){},onLeave:function(){},onSync:function(){}},this.channel.on(r.state,t=>{let{onJoin:n,onLeave:r,onSync:i}=this.caller;this.joinRef=this.channel.joinRef(),this.state=e.syncState(this.state,t,n,r),this.pendingDiffs.forEach(t=>{this.state=e.syncDiff(this.state,t,n,r)}),this.pendingDiffs=[],i()}),this.channel.on(r.diff,t=>{let{onJoin:n,onLeave:r,onSync:i}=this.caller;this.inPendingSyncState()?this.pendingDiffs.push(t):(this.state=e.syncDiff(this.state,t,n,r),i())})}onJoin(e){this.caller.onJoin=e}onLeave(e){this.caller.onLeave=e}onSync(e){this.caller.onSync=e}list(t){return e.list(this.state,t)}inPendingSyncState(){return!this.joinRef||this.joinRef!==this.channel.joinRef()}static syncState(e,t,n,r){let i=this.clone(e),a={},o={};return this.map(i,(e,n)=>{t[e]||(o[e]=n)}),this.map(t,(e,t)=>{let n=i[e];if(n){let r=t.metas.map(e=>e.phx_ref),i=n.metas.map(e=>e.phx_ref),s=t.metas.filter(e=>i.indexOf(e.phx_ref)<0),c=n.metas.filter(e=>r.indexOf(e.phx_ref)<0);s.length>0&&(a[e]=t,a[e].metas=s),c.length>0&&(o[e]=this.clone(n),o[e].metas=c)}else a[e]=t}),this.syncDiff(i,{joins:a,leaves:o},n,r)}static syncDiff(e,t,n,r){let{joins:i,leaves:a}=this.clone(t);return n||=function(){},r||=function(){},this.map(i,(t,r)=>{let i=e[t];if(e[t]=this.clone(r),i){let n=e[t].metas.map(e=>e.phx_ref),r=i.metas.filter(e=>n.indexOf(e.phx_ref)<0);e[t].metas.unshift(...r)}n(t,i,r)}),this.map(a,(t,n)=>{let i=e[t];if(!i)return;let a=n.metas.map(e=>e.phx_ref);i.metas=i.metas.filter(e=>a.indexOf(e.phx_ref)<0),r(t,i,n),i.metas.length===0&&delete e[t]}),e}static list(e,t){return t||=function(e,t){return t},this.map(e,(e,n)=>t(e,n))}static map(e,t){return Object.getOwnPropertyNames(e).map(n=>t(n,e[n]))}static clone(e){return JSON.parse(JSON.stringify(e))}},lt={HEADER_LENGTH:1,META_LENGTH:4,KINDS:{push:0,reply:1,broadcast:2},encode(e,t){if(e.payload.constructor===ArrayBuffer)return t(this.binaryEncode(e));{let n=[e.join_ref,e.ref,e.topic,e.event,e.payload];return t(JSON.stringify(n))}},decode(e,t){if(e.constructor===ArrayBuffer)return t(this.binaryDecode(e));{let[n,r,i,a,o]=JSON.parse(e);return t({join_ref:n,ref:r,topic:i,event:a,payload:o})}},binaryEncode(e){let{join_ref:t,ref:n,event:r,topic:i,payload:a}=e,o=this.META_LENGTH+t.length+n.length+i.length+r.length,s=new ArrayBuffer(this.HEADER_LENGTH+o),c=new DataView(s),l=0;c.setUint8(l++,this.KINDS.push),c.setUint8(l++,t.length),c.setUint8(l++,n.length),c.setUint8(l++,i.length),c.setUint8(l++,r.length),Array.from(t,e=>c.setUint8(l++,e.charCodeAt(0))),Array.from(n,e=>c.setUint8(l++,e.charCodeAt(0))),Array.from(i,e=>c.setUint8(l++,e.charCodeAt(0))),Array.from(r,e=>c.setUint8(l++,e.charCodeAt(0)));var u=new Uint8Array(s.byteLength+a.byteLength);return u.set(new Uint8Array(s),0),u.set(new Uint8Array(a),s.byteLength),u.buffer},binaryDecode(e){let t=new DataView(e),n=t.getUint8(0),r=new TextDecoder;switch(n){case this.KINDS.push:return this.decodePush(e,t,r);case this.KINDS.reply:return this.decodeReply(e,t,r);case this.KINDS.broadcast:return this.decodeBroadcast(e,t,r)}},decodePush(e,t,n){let r=t.getUint8(1),i=t.getUint8(2),a=t.getUint8(3),o=this.HEADER_LENGTH+this.META_LENGTH-1,s=n.decode(e.slice(o,o+r));o+=r;let c=n.decode(e.slice(o,o+i));o+=i;let l=n.decode(e.slice(o,o+a));return o+=a,{join_ref:s,ref:null,topic:c,event:l,payload:e.slice(o,e.byteLength)}},decodeReply(e,t,n){let r=t.getUint8(1),i=t.getUint8(2),a=t.getUint8(3),o=t.getUint8(4),s=this.HEADER_LENGTH+this.META_LENGTH,c=n.decode(e.slice(s,s+r));s+=r;let l=n.decode(e.slice(s,s+i));s+=i;let u=n.decode(e.slice(s,s+a));s+=a;let d=n.decode(e.slice(s,s+o));s+=o;let f={status:d,response:e.slice(s,e.byteLength)};return{join_ref:c,ref:l,topic:u,event:k.reply,payload:f}},decodeBroadcast(e,t,n){let r=t.getUint8(1),i=t.getUint8(2),a=this.HEADER_LENGTH+2,o=n.decode(e.slice(a,a+r));a+=r;let s=n.decode(e.slice(a,a+i));return a+=i,{join_ref:null,ref:null,topic:o,event:s,payload:e.slice(a,e.byteLength)}}},ut=class{constructor(e,t={}){this.stateChangeCallbacks={open:[],close:[],error:[],message:[]},this.channels=[],this.sendBuffer=[],this.ref=0,this.fallbackRef=null,this.timeout=t.timeout||Ze,this.transport=t.transport||E.WebSocket||st,this.conn=void 0,this.primaryPassedHealthCheck=!1,this.longPollFallbackMs=t.longPollFallbackMs,this.fallbackTimer=null,this.sessionStore=t.sessionStorage||E&&E.sessionStorage,this.establishedConnections=0,this.defaultEncoder=lt.encode.bind(lt),this.defaultDecoder=lt.decode.bind(lt),this.closeWasClean=!0,this.disconnecting=!1,this.binaryType=t.binaryType||`arraybuffer`,this.connectClock=1,this.pageHidden=!1,this.encode=void 0,this.decode=void 0,this.transport===st?(this.encode=this.defaultEncoder,this.decode=this.defaultDecoder):(this.encode=t.encode||this.defaultEncoder,this.decode=t.decode||this.defaultDecoder);let n=null;Ye&&Ye.addEventListener&&(Ye.addEventListener(`pagehide`,e=>{this.conn&&(this.disconnect(),n=this.connectClock)}),Ye.addEventListener(`pageshow`,e=>{n===this.connectClock&&(n=null,this.connect())}),Ye.addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`?this.pageHidden=!0:(this.pageHidden=!1,!this.isConnected()&&!this.closeWasClean&&this.teardown(()=>this.connect()))})),this.heartbeatIntervalMs=t.heartbeatIntervalMs||3e4,this.autoSendHeartbeat=t.autoSendHeartbeat??!0,this.heartbeatCallback=t.heartbeatCallback??(()=>{}),this.rejoinAfterMs=e=>t.rejoinAfterMs?t.rejoinAfterMs(e):[1e3,2e3,5e3][e-1]||1e4,this.reconnectAfterMs=e=>t.reconnectAfterMs?t.reconnectAfterMs(e):[10,50,100,150,200,250,500,1e3,2e3][e-1]||5e3,this.logger=t.logger||null,!this.logger&&t.debug&&(this.logger=(e,t,n)=>{console.log(`${e}: ${t}`,n)}),this.longpollerTimeout=t.longpollerTimeout||2e4,this.params=qe(t.params||{}),this.endPoint=`${e}/${$e.websocket}`,this.vsn=t.vsn||Xe,this.heartbeatTimeoutTimer=null,this.heartbeatTimer=null,this.heartbeatSentAt=null,this.pendingHeartbeatRef=null,this.reconnectTimer=new rt(()=>{if(this.pageHidden){this.log(`Not reconnecting as page is hidden!`),this.teardown();return}this.teardown(async()=>{t.beforeReconnect&&await t.beforeReconnect(),this.connect()})},this.reconnectAfterMs),this.authToken=t.authToken}getLongPollTransport(){return st}replaceTransport(e){this.connectClock++,this.closeWasClean=!0,clearTimeout(this.fallbackTimer),this.reconnectTimer.reset(),this.conn&&=(this.conn.close(),null),this.transport=e}protocol(){return location.protocol.match(/^https/)?`wss`:`ws`}endPointURL(){let e=at.appendParams(at.appendParams(this.endPoint,this.params()),{vsn:this.vsn});return e.charAt(0)===`/`?e.charAt(1)===`/`?`${this.protocol()}:${e}`:`${this.protocol()}://${location.host}${e}`:e}disconnect(e,t,n){this.connectClock++,this.disconnecting=!0,this.closeWasClean=!0,clearTimeout(this.fallbackTimer),this.reconnectTimer.reset(),this.teardown(()=>{this.disconnecting=!1,e&&e()},t,n)}connect(e){e&&(console&&console.log(`passing params to connect is deprecated. Instead pass :params to the Socket constructor`),this.params=qe(e)),!(this.conn&&!this.disconnecting)&&(this.longPollFallbackMs&&this.transport!==st?this.connectWithFallback(st,this.longPollFallbackMs):this.transportConnect())}log(e,t,n){this.logger&&this.logger(e,t,n)}hasLogger(){return this.logger!==null}onOpen(e){let t=this.makeRef();return this.stateChangeCallbacks.open.push([t,e]),t}onClose(e){let t=this.makeRef();return this.stateChangeCallbacks.close.push([t,e]),t}onError(e){let t=this.makeRef();return this.stateChangeCallbacks.error.push([t,e]),t}onMessage(e){let t=this.makeRef();return this.stateChangeCallbacks.message.push([t,e]),t}onHeartbeat(e){this.heartbeatCallback=e}ping(e){if(!this.isConnected())return!1;let t=this.makeRef(),n=Date.now();this.push({topic:`phoenix`,event:`heartbeat`,payload:{},ref:t});let r=this.onMessage(i=>{i.ref===t&&(this.off([r]),e(Date.now()-n))});return!0}transportName(e){switch(e){case st:return`LongPoll`;default:return e.name}}transportConnect(){this.connectClock++,this.closeWasClean=!1;let e;this.authToken&&(e=[`phoenix`,`${tt}${btoa(this.authToken).replace(/=/g,``)}`]),this.conn=new this.transport(this.endPointURL(),e),this.conn.binaryType=this.binaryType,this.conn.timeout=this.longpollerTimeout,this.conn.onopen=()=>this.onConnOpen(),this.conn.onerror=e=>this.onConnError(e),this.conn.onmessage=e=>this.onConnMessage(e),this.conn.onclose=e=>this.onConnClose(e)}getSession(e){return this.sessionStore&&this.sessionStore.getItem(e)}storeSession(e,t){this.sessionStore&&this.sessionStore.setItem(e,t)}connectWithFallback(e,t=2500){clearTimeout(this.fallbackTimer);let n=!1,r=!0,i,a=this.transportName(e),o=t=>{this.log(`transport`,`falling back to ${a}...`,t),this.off([void 0,i]),r=!1,this.replaceTransport(e),this.transportConnect()};if(this.getSession(`phx:fallback:${a}`))return o(`memorized`);this.fallbackTimer=setTimeout(o,t),i=this.onError(e=>{this.log(`transport`,`error`,e),r&&!n&&(clearTimeout(this.fallbackTimer),o(e))}),this.fallbackRef&&this.off([this.fallbackRef]),this.fallbackRef=this.onOpen(()=>{if(n=!0,!r){let t=this.transportName(e);return this.primaryPassedHealthCheck||this.storeSession(`phx:fallback:${t}`,`true`),this.log(`transport`,`established ${t} fallback`)}clearTimeout(this.fallbackTimer),this.fallbackTimer=setTimeout(o,t),this.ping(e=>{this.log(`transport`,`connected to primary after`,e),this.primaryPassedHealthCheck=!0,clearTimeout(this.fallbackTimer)})}),this.transportConnect()}clearHeartbeats(){clearTimeout(this.heartbeatTimer),clearTimeout(this.heartbeatTimeoutTimer)}onConnOpen(){this.hasLogger()&&this.log(`transport`,`connected to ${this.endPointURL()}`),this.closeWasClean=!1,this.disconnecting=!1,this.establishedConnections++,this.flushSendBuffer(),this.reconnectTimer.reset(),this.autoSendHeartbeat&&this.resetHeartbeat(),this.triggerStateCallbacks(`open`)}heartbeatTimeout(){if(this.pendingHeartbeatRef){this.pendingHeartbeatRef=null,this.heartbeatSentAt=null,this.hasLogger()&&this.log(`transport`,`heartbeat timeout. Attempting to re-establish connection`);try{this.heartbeatCallback(`timeout`)}catch(e){this.log(`error`,`error in heartbeat callback`,e)}this.triggerChanError(),this.closeWasClean=!1,this.teardown(()=>this.reconnectTimer.scheduleTimeout(),Qe,`heartbeat timeout`)}}resetHeartbeat(){this.conn&&this.conn.skipHeartbeat||(this.pendingHeartbeatRef=null,this.clearHeartbeats(),this.heartbeatTimer=setTimeout(()=>this.sendHeartbeat(),this.heartbeatIntervalMs))}teardown(e,t,n){if(!this.conn)return e&&e();let r=this.conn;this.waitForBufferDone(r,()=>{t?r.close(t,n||``):r.close(),this.waitForSocketClosed(r,()=>{this.conn===r&&(this.conn.onopen=function(){},this.conn.onerror=function(){},this.conn.onmessage=function(){},this.conn.onclose=function(){},this.conn=null),e&&e()})})}waitForBufferDone(e,t,n=1){if(n===5||!e.bufferedAmount){t();return}setTimeout(()=>{this.waitForBufferDone(e,t,n+1)},150*n)}waitForSocketClosed(e,t,n=1){if(n===5||e.readyState===D.closed){t();return}setTimeout(()=>{this.waitForSocketClosed(e,t,n+1)},150*n)}onConnClose(e){this.conn&&(this.conn.onclose=()=>{}),this.hasLogger()&&this.log(`transport`,`close`,e),this.triggerChanError(),this.clearHeartbeats(),this.closeWasClean||this.reconnectTimer.scheduleTimeout(),this.triggerStateCallbacks(`close`,e)}onConnError(e){this.hasLogger()&&this.log(`transport`,e);let t=this.transport,n=this.establishedConnections;this.triggerStateCallbacks(`error`,e,t,n),(t===this.transport||n>0)&&this.triggerChanError()}triggerChanError(){this.channels.forEach(e=>{e.isErrored()||e.isLeaving()||e.isClosed()||e.trigger(k.error)})}connectionState(){switch(this.conn&&this.conn.readyState){case D.connecting:return`connecting`;case D.open:return`open`;case D.closing:return`closing`;default:return`closed`}}isConnected(){return this.connectionState()===`open`}remove(e){this.off(e.stateChangeRefs),this.channels=this.channels.filter(t=>t!==e)}off(e){for(let t in this.stateChangeCallbacks)this.stateChangeCallbacks[t]=this.stateChangeCallbacks[t].filter(([t])=>e.indexOf(t)===-1)}channel(e,t={}){let n=new it(e,t,this);return this.channels.push(n),n}push(e){if(this.hasLogger()){let{topic:t,event:n,payload:r,ref:i,join_ref:a}=e;this.log(`push`,`${t} ${n} (${a}, ${i})`,r)}this.isConnected()?this.encode(e,e=>this.conn.send(e)):this.sendBuffer.push(()=>this.encode(e,e=>this.conn.send(e)))}makeRef(){let e=this.ref+1;return e===this.ref?this.ref=0:this.ref=e,this.ref.toString()}sendHeartbeat(){if(!this.isConnected()){try{this.heartbeatCallback(`disconnected`)}catch(e){this.log(`error`,`error in heartbeat callback`,e)}return}if(this.pendingHeartbeatRef){this.heartbeatTimeout();return}this.pendingHeartbeatRef=this.makeRef(),this.heartbeatSentAt=Date.now(),this.push({topic:`phoenix`,event:`heartbeat`,payload:{},ref:this.pendingHeartbeatRef});try{this.heartbeatCallback(`sent`)}catch(e){this.log(`error`,`error in heartbeat callback`,e)}this.heartbeatTimeoutTimer=setTimeout(()=>this.heartbeatTimeout(),this.heartbeatIntervalMs)}flushSendBuffer(){this.isConnected()&&this.sendBuffer.length>0&&(this.sendBuffer.forEach(e=>e()),this.sendBuffer=[])}onConnMessage(e){this.decode(e.data,e=>{let{topic:t,event:n,payload:r,ref:i,join_ref:a}=e;if(i&&i===this.pendingHeartbeatRef){let e=this.heartbeatSentAt?Date.now()-this.heartbeatSentAt:void 0;this.clearHeartbeats();try{this.heartbeatCallback(r.status===`ok`?`ok`:`error`,e)}catch(e){this.log(`error`,`error in heartbeat callback`,e)}this.pendingHeartbeatRef=null,this.heartbeatSentAt=null,this.autoSendHeartbeat&&(this.heartbeatTimer=setTimeout(()=>this.sendHeartbeat(),this.heartbeatIntervalMs))}this.hasLogger()&&this.log(`receive`,`${r.status||``} ${t} ${n} ${i&&`(`+i+`)`||``}`.trim(),r);for(let e=0;e<this.channels.length;e++){let o=this.channels[e];o.isMember(t,n,r,a)&&o.trigger(n,r,i,a)}this.triggerStateCallbacks(`message`,e)})}triggerStateCallbacks(e,...t){try{this.stateChangeCallbacks[e].forEach(([n,r])=>{try{r(...t)}catch(t){this.log(`error`,`error in ${e} callback`,t)}})}catch(t){this.log(`error`,`error triggering ${e} callbacks`,t)}}leaveOpenTopic(e){let t=this.channels.find(t=>t.topic===e&&(t.isJoined()||t.isJoining()));t&&(this.hasLogger()&&this.log(`transport`,`leaving duplicate topic "${e}"`),t.leave())}},dt=class e{constructor(t,n){let r=mt(n);this.presence=new ct(t.getChannel(),r),this.presence.onJoin((n,r,i)=>{let a=e.onJoinPayload(n,r,i);t.getChannel().trigger(`presence`,a)}),this.presence.onLeave((n,r,i)=>{let a=e.onLeavePayload(n,r,i);t.getChannel().trigger(`presence`,a)}),this.presence.onSync(()=>{t.getChannel().trigger(`presence`,{event:`sync`})})}get state(){return e.transformState(this.presence.state)}static transformState(e){return e=pt(e),Object.getOwnPropertyNames(e).reduce((t,n)=>{let r=e[n];return t[n]=ft(r),t},{})}static onJoinPayload(e,t,n){return{event:`join`,key:e,currentPresences:ht(t),newPresences:ft(n)}}static onLeavePayload(e,t,n){return{event:`leave`,key:e,currentPresences:ht(t),leftPresences:ft(n)}}};function ft(e){return e.metas.map(e=>(e.presence_ref=e.phx_ref,delete e.phx_ref,delete e.phx_ref_prev,e))}function pt(e){return JSON.parse(JSON.stringify(e))}function mt(e){return e?.events&&{events:e.events}}function ht(e){return e?.metas?ft(e):[]}var gt;(function(e){e.SYNC=`sync`,e.JOIN=`join`,e.LEAVE=`leave`})(gt||={});var _t=class{get state(){return this.presenceAdapter.state}constructor(e,t){this.channel=e,this.presenceAdapter=new dt(this.channel.channelAdapter,t)}},vt=class{constructor(e,t,n){let r=yt(n);this.channel=e.getSocket().channel(t,r),this.socket=e}get state(){return this.channel.state}set state(e){this.channel.state=e}get joinedOnce(){return this.channel.joinedOnce}get joinPush(){return this.channel.joinPush}get rejoinTimer(){return this.channel.rejoinTimer}on(e,t){return this.channel.on(e,t)}off(e,t){this.channel.off(e,t)}subscribe(e){return this.channel.join(e)}unsubscribe(e){return this.channel.leave(e)}teardown(){this.channel.teardown()}onClose(e){this.channel.onClose(e)}onError(e){return this.channel.onError(e)}push(e,t,n){let r;try{r=this.channel.push(e,t,n)}catch{throw`tried to push '${e}' to '${this.channel.topic}' before joining. Use channel.subscribe() before pushing events`}if(this.channel.pushBuffer.length>100){let e=this.channel.pushBuffer.shift();e.cancelTimeout(),this.socket.log(`channel`,`discarded push due to buffer overflow: ${e.event}`,e.payload())}return r}updateJoinPayload(e){let t=this.channel.joinPush.payload();this.channel.joinPush.payload=()=>Object.assign(Object.assign({},t),e)}canPush(){return this.socket.isConnected()&&this.state===w.joined}isJoined(){return this.state===w.joined}isJoining(){return this.state===w.joining}isClosed(){return this.state===w.closed}isLeaving(){return this.state===w.leaving}updateFilterBindings(e){this.channel.filterBindings=e}updatePayloadTransform(e){this.channel.onMessage=e}getChannel(){return this.channel}};function yt(e){return{config:Object.assign({broadcast:{ack:!1,self:!1},presence:{key:``,enabled:!1},private:!1},e.config)}}var bt;(function(e){e.ALL=`*`,e.INSERT=`INSERT`,e.UPDATE=`UPDATE`,e.DELETE=`DELETE`})(bt||={});var xt;(function(e){e.BROADCAST=`broadcast`,e.PRESENCE=`presence`,e.POSTGRES_CHANGES=`postgres_changes`,e.SYSTEM=`system`})(xt||={});var A;(function(e){e.SUBSCRIBED=`SUBSCRIBED`,e.TIMED_OUT=`TIMED_OUT`,e.CLOSED=`CLOSED`,e.CHANNEL_ERROR=`CHANNEL_ERROR`})(A||={});var St=class e{get state(){return this.channelAdapter.state}set state(e){this.channelAdapter.state=e}get joinedOnce(){return this.channelAdapter.joinedOnce}get timeout(){return this.socket.timeout}get joinPush(){return this.channelAdapter.joinPush}get rejoinTimer(){return this.channelAdapter.rejoinTimer}constructor(e,t={config:{}},n){if(this.topic=e,this.params=t,this.socket=n,this.bindings={},this.subTopic=e.replace(/^realtime:/i,``),this.params.config=Object.assign({broadcast:{ack:!1,self:!1},presence:{key:``,enabled:!1},private:!1},t.config),this.channelAdapter=new vt(this.socket.socketAdapter,e,this.params),this.presence=new _t(this),this._onClose(()=>{this.socket._remove(this)}),this._updateFilterTransform(),this.broadcastEndpointURL=Ke(this.socket.socketAdapter.endPointURL()),this.private=this.params.config.private||!1,!this.private&&this.params.config?.broadcast?.replay)throw`tried to use replay on public channel '${this.topic}'. It must be a private channel.`}subscribe(e,t=this.timeout){if(this.socket.isConnected()||this.socket.connect(),this.channelAdapter.isClosed()){let{config:{broadcast:n,presence:r,private:i}}=this.params,a=this.bindings.postgres_changes?.map(e=>e.filter)??[],o=!!this.bindings[xt.PRESENCE]&&this.bindings[xt.PRESENCE].length>0||this.params.config.presence?.enabled===!0,s={},c={broadcast:n,presence:Object.assign(Object.assign({},r),{enabled:o}),postgres_changes:a,private:i};this.socket.accessTokenValue&&(s.access_token=this.socket.accessTokenValue),this._onError(t=>{e?.(A.CHANNEL_ERROR,t)}),this._onClose(()=>e?.(A.CLOSED)),this.updateJoinPayload(Object.assign({config:c},s)),this._updateFilterMessage(),this.channelAdapter.subscribe(t).receive(`ok`,async({postgres_changes:t})=>{if(this.socket._isManualToken()||this.socket.setAuth(),t===void 0){e?.(A.SUBSCRIBED);return}this._updatePostgresBindings(t,e)}).receive(`error`,t=>{this.state=w.errored,e?.(A.CHANNEL_ERROR,Error(JSON.stringify(Object.values(t).join(`, `)||`error`)))}).receive(`timeout`,()=>{e?.(A.TIMED_OUT)})}return this}_updatePostgresBindings(t,n){let r=this.bindings.postgres_changes,i=r?.length??0,a=[];for(let o=0;o<i;o++){let i=r[o],{filter:{event:s,schema:c,table:l,filter:u}}=i,d=t&&t[o];if(d&&d.event===s&&e.isFilterValueEqual(d.schema,c)&&e.isFilterValueEqual(d.table,l)&&e.isFilterValueEqual(d.filter,u))a.push(Object.assign(Object.assign({},i),{id:d.id}));else{this.unsubscribe(),this.state=w.errored,n?.(A.CHANNEL_ERROR,Error(`mismatch between server and client bindings for postgres changes`));return}}this.bindings.postgres_changes=a,this.state!=w.errored&&n&&n(A.SUBSCRIBED)}presenceState(){return this.presence.state}async track(e,t={}){return await this.send({type:`presence`,event:`track`,payload:e},t.timeout||this.timeout)}async untrack(e={}){return await this.send({type:`presence`,event:`untrack`},e)}on(e,t,n){let r=this.channelAdapter.isJoined()||this.channelAdapter.isJoining(),i=e===xt.PRESENCE||e===xt.POSTGRES_CHANGES;if(r&&i)throw this.socket.log(`channel`,`cannot add \`${e}\` callbacks for ${this.topic} after \`subscribe()\`.`),Error(`cannot add \`${e}\` callbacks for ${this.topic} after \`subscribe()\`.`);return this._on(e,t,n)}async httpSend(e,t,n={}){if(t==null)return Promise.reject(`Payload is required for httpSend()`);let r={apikey:this.socket.apiKey?this.socket.apiKey:``,"Content-Type":`application/json`};this.socket.accessTokenValue&&(r.Authorization=`Bearer ${this.socket.accessTokenValue}`);let i={method:`POST`,headers:r,body:JSON.stringify({messages:[{topic:this.subTopic,event:e,payload:t,private:this.private}]})},a=await this._fetchWithTimeout(this.broadcastEndpointURL,i,n.timeout??this.timeout);if(a.status===202)return{success:!0};let o=a.statusText;try{let e=await a.json();o=e.error||e.message||o}catch{}return Promise.reject(Error(o))}async send(e,t={}){if(!this.channelAdapter.canPush()&&e.type===`broadcast`){console.warn(`Realtime send() is automatically falling back to REST API. This behavior will be deprecated in the future. Please use httpSend() explicitly for REST delivery.`);let{event:n,payload:r}=e,i={apikey:this.socket.apiKey?this.socket.apiKey:``,"Content-Type":`application/json`};this.socket.accessTokenValue&&(i.Authorization=`Bearer ${this.socket.accessTokenValue}`);let a={method:`POST`,headers:i,body:JSON.stringify({messages:[{topic:this.subTopic,event:n,payload:r,private:this.private}]})};try{let e=await this._fetchWithTimeout(this.broadcastEndpointURL,a,t.timeout??this.timeout);return await e.body?.cancel(),e.ok?`ok`:`error`}catch(e){return e.name===`AbortError`?`timed out`:`error`}}else return new Promise(n=>{let r=this.channelAdapter.push(e.type,e,t.timeout||this.timeout);e.type===`broadcast`&&!this.params?.config?.broadcast?.ack&&n(`ok`),r.receive(`ok`,()=>n(`ok`)),r.receive(`error`,()=>n(`error`)),r.receive(`timeout`,()=>n(`timed out`))})}updateJoinPayload(e){this.channelAdapter.updateJoinPayload(e)}async unsubscribe(e=this.timeout){return new Promise(t=>{this.channelAdapter.unsubscribe(e).receive(`ok`,()=>t(`ok`)).receive(`timeout`,()=>t(`timed out`)).receive(`error`,()=>t(`error`))})}teardown(){this.channelAdapter.teardown()}async _fetchWithTimeout(e,t,n){let r=new AbortController,i=setTimeout(()=>r.abort(),n),a=await this.socket.fetch(e,Object.assign(Object.assign({},t),{signal:r.signal}));return clearTimeout(i),a}_on(e,t,n){let r=e.toLocaleLowerCase(),i={type:r,filter:t,callback:n,ref:this.channelAdapter.on(e,n)};return this.bindings[r]?this.bindings[r].push(i):this.bindings[r]=[i],this._updateFilterMessage(),this}_onClose(e){this.channelAdapter.onClose(e)}_onError(e){this.channelAdapter.onError(e)}_updateFilterMessage(){this.channelAdapter.updateFilterBindings((e,t,n)=>{let r=e.event.toLocaleLowerCase();if(this._notThisChannelEvent(r,n))return!1;let i=this.bindings[r]?.find(t=>t.ref===e.ref);if(!i)return!0;if([`broadcast`,`presence`,`postgres_changes`].includes(r))if(`id`in i){let e=i.id,n=i.filter?.event;return e&&t.ids?.includes(e)&&(n===`*`||n?.toLocaleLowerCase()===t.data?.type.toLocaleLowerCase())}else{let e=(i?.filter?.event)?.toLocaleLowerCase();return e===`*`||e===(t?.event)?.toLocaleLowerCase()}else return i.type.toLocaleLowerCase()===r})}_notThisChannelEvent(e,t){let{close:n,error:r,leave:i,join:a}=Pe;return t&&[n,r,i,a].includes(e)&&t!==this.joinPush.ref}_updateFilterTransform(){this.channelAdapter.updatePayloadTransform((e,t,n)=>{if(typeof t==`object`&&`ids`in t){let e=t.data,{schema:n,table:r,commit_timestamp:i,type:a,errors:o}=e;return Object.assign(Object.assign({},{schema:n,table:r,commit_timestamp:i,eventType:a,new:{},old:{},errors:o}),this._getPayloadRecords(e))}return t})}copyBindings(e){if(this.joinedOnce)throw Error(`cannot copy bindings into joined channel`);for(let t in e.bindings)for(let n of e.bindings[t])this._on(n.type,n.filter,n.callback)}static isFilterValueEqual(e,t){return(e??void 0)===(t??void 0)}_getPayloadRecords(e){let t={new:{},old:{}};return(e.type===`INSERT`||e.type===`UPDATE`)&&(t.new=Le(e.columns,e.record)),(e.type===`UPDATE`||e.type===`DELETE`)&&(t.old=Le(e.columns,e.old_record)),t}},Ct=class{constructor(e,t){this.socket=new ut(e,t)}get timeout(){return this.socket.timeout}get endPoint(){return this.socket.endPoint}get transport(){return this.socket.transport}get heartbeatIntervalMs(){return this.socket.heartbeatIntervalMs}get heartbeatCallback(){return this.socket.heartbeatCallback}set heartbeatCallback(e){this.socket.heartbeatCallback=e}get heartbeatTimer(){return this.socket.heartbeatTimer}get pendingHeartbeatRef(){return this.socket.pendingHeartbeatRef}get reconnectTimer(){return this.socket.reconnectTimer}get vsn(){return this.socket.vsn}get encode(){return this.socket.encode}get decode(){return this.socket.decode}get reconnectAfterMs(){return this.socket.reconnectAfterMs}get sendBuffer(){return this.socket.sendBuffer}get stateChangeCallbacks(){return this.socket.stateChangeCallbacks}connect(){this.socket.connect()}disconnect(e,t,n,r=1e4){return new Promise(i=>{setTimeout(()=>i(`timeout`),r),this.socket.disconnect(()=>{e(),i(`ok`)},t,n)})}push(e){this.socket.push(e)}log(e,t,n){this.socket.log(e,t,n)}makeRef(){return this.socket.makeRef()}onOpen(e){this.socket.onOpen(e)}onClose(e){this.socket.onClose(e)}onError(e){this.socket.onError(e)}onMessage(e){this.socket.onMessage(e)}isConnected(){return this.socket.isConnected()}isConnecting(){return this.socket.connectionState()==Fe.connecting}isDisconnecting(){return this.socket.connectionState()==Fe.closing}connectionState(){return this.socket.connectionState()}endPointURL(){return this.socket.endPointURL()}sendHeartbeat(){this.socket.sendHeartbeat()}getSocket(){return this.socket}},wt={HEARTBEAT_INTERVAL:25e3,RECONNECT_DELAY:10,HEARTBEAT_TIMEOUT_FALLBACK:100},Tt=[1e3,2e3,5e3,1e4],Et=1e4,Dt=`
+  addEventListener("message", (e) => {
+    if (e.data.event === "start") {
+      setInterval(() => postMessage({ event: "keepAlive" }), e.data.interval);
+    }
+  });`,Ot=class{get endPoint(){return this.socketAdapter.endPoint}get timeout(){return this.socketAdapter.timeout}get transport(){return this.socketAdapter.transport}get heartbeatCallback(){return this.socketAdapter.heartbeatCallback}get heartbeatIntervalMs(){return this.socketAdapter.heartbeatIntervalMs}get heartbeatTimer(){return this.worker?this._workerHeartbeatTimer:this.socketAdapter.heartbeatTimer}get pendingHeartbeatRef(){return this.worker?this._pendingWorkerHeartbeatRef:this.socketAdapter.pendingHeartbeatRef}get reconnectTimer(){return this.socketAdapter.reconnectTimer}get vsn(){return this.socketAdapter.vsn}get encode(){return this.socketAdapter.encode}get decode(){return this.socketAdapter.decode}get reconnectAfterMs(){return this.socketAdapter.reconnectAfterMs}get sendBuffer(){return this.socketAdapter.sendBuffer}get stateChangeCallbacks(){return this.socketAdapter.stateChangeCallbacks}constructor(e,t){if(this.channels=[],this.accessTokenValue=null,this.accessToken=null,this.apiKey=null,this.httpEndpoint=``,this.headers={},this.params={},this.ref=0,this.serializer=new Ie,this._manuallySetToken=!1,this._authPromise=null,this._workerHeartbeatTimer=void 0,this._pendingWorkerHeartbeatRef=null,this._resolveFetch=e=>e?(...t)=>e(...t):(...e)=>fetch(...e),!t?.params?.apikey)throw Error(`API key is required to connect to Realtime`);this.apiKey=t.params.apikey,this.socketAdapter=new Ct(e,this._initializeOptions(t)),this.httpEndpoint=Ke(e),this.fetch=this._resolveFetch(t?.fetch)}connect(){if(!(this.isConnecting()||this.isDisconnecting()||this.isConnected())){this.accessToken&&!this._authPromise&&this._setAuthSafely(`connect`),this._setupConnectionHandlers();try{this.socketAdapter.connect()}catch(e){let t=e.message;throw t.includes(`Node.js`)?Error(`${t}\n\nTo use Realtime in Node.js, you need to provide a WebSocket implementation:
+
+Option 1: Use Node.js 22+ which has native WebSocket support
+Option 2: Install and provide the "ws" package:
+
+  npm install ws
+
+  import ws from "ws"
+  const client = new RealtimeClient(url, {
+    ...options,
+    transport: ws
+  })`):Error(`WebSocket not available: ${t}`)}this._handleNodeJsRaceCondition()}}endpointURL(){return this.socketAdapter.endPointURL()}async disconnect(e,t){return this.isDisconnecting()?`ok`:await this.socketAdapter.disconnect(()=>{clearInterval(this._workerHeartbeatTimer),this._terminateWorker()},e,t)}getChannels(){return this.channels}async removeChannel(e){let t=await e.unsubscribe();return t===`ok`&&e.teardown(),this.channels.length===0&&this.disconnect(),t}async removeAllChannels(){let e=this.channels.map(async e=>{let t=await e.unsubscribe();return e.teardown(),t}),t=await Promise.all(e);return this.disconnect(),t}log(e,t,n){this.socketAdapter.log(e,t,n)}connectionState(){return this.socketAdapter.connectionState()||Fe.closed}isConnected(){return this.socketAdapter.isConnected()}isConnecting(){return this.socketAdapter.isConnecting()}isDisconnecting(){return this.socketAdapter.isDisconnecting()}channel(e,t={config:{}}){let n=`realtime:${e}`,r=this.getChannels().find(e=>e.topic===n);if(r)return r;{let n=new St(`realtime:${e}`,t,this);return this.channels.push(n),n}}push(e){this.socketAdapter.push(e)}async setAuth(e=null){this._authPromise=this._performAuth(e);try{await this._authPromise}finally{this._authPromise=null}}_isManualToken(){return this._manuallySetToken}async sendHeartbeat(){this.socketAdapter.sendHeartbeat()}onHeartbeat(e){this.socketAdapter.heartbeatCallback=this._wrapHeartbeatCallback(e)}_makeRef(){return this.socketAdapter.makeRef()}_remove(e){this.channels=this.channels.filter(t=>t.topic!==e.topic)}async _performAuth(e=null){let t,n=!1;if(e)t=e,n=!0;else if(this.accessToken)try{t=await this.accessToken()}catch(e){this.log(`error`,`Error fetching access token from callback`,e),t=this.accessTokenValue}else t=this.accessTokenValue;n?this._manuallySetToken=!0:this.accessToken&&(this._manuallySetToken=!1),this.accessTokenValue!=t&&(this.accessTokenValue=t,this.channels.forEach(e=>{let n={access_token:t,version:ke};t&&e.updateJoinPayload(n),e.joinedOnce&&e.channelAdapter.isJoined()&&e.channelAdapter.push(Pe.access_token,{access_token:t})}))}async _waitForAuthIfNeeded(){this._authPromise&&await this._authPromise}_setAuthSafely(e=`general`){this._isManualToken()||this.setAuth().catch(t=>{this.log(`error`,`Error setting auth in ${e}`,t)})}_setupConnectionHandlers(){this.socketAdapter.onOpen(()=>{(this._authPromise||(this.accessToken&&!this.accessTokenValue?this.setAuth():Promise.resolve())).catch(e=>{this.log(`error`,`error waiting for auth on connect`,e)}),this.worker&&!this.workerRef&&this._startWorkerHeartbeat()}),this.socketAdapter.onClose(()=>{this.worker&&this.workerRef&&this._terminateWorker()}),this.socketAdapter.onMessage(e=>{e.ref&&e.ref===this._pendingWorkerHeartbeatRef&&(this._pendingWorkerHeartbeatRef=null)})}_handleNodeJsRaceCondition(){this.socketAdapter.isConnected()&&this.socketAdapter.getSocket().onConnOpen()}_wrapHeartbeatCallback(e){return(t,n)=>{t==`sent`&&this._setAuthSafely(),e&&e(t,n)}}_startWorkerHeartbeat(){this.workerUrl?this.log(`worker`,`starting worker for from ${this.workerUrl}`):this.log(`worker`,`starting default worker`);let e=this._workerObjectUrl(this.workerUrl);this.workerRef=new Worker(e),this.workerRef.onerror=e=>{this.log(`worker`,`worker error`,e.message),this._terminateWorker(),this.disconnect()},this.workerRef.onmessage=e=>{e.data.event===`keepAlive`&&this.sendHeartbeat()},this.workerRef.postMessage({event:`start`,interval:this.heartbeatIntervalMs})}_terminateWorker(){this.workerRef&&=(this.log(`worker`,`terminating worker`),this.workerRef.terminate(),void 0)}_workerObjectUrl(e){let t;if(e)t=e;else{let e=new Blob([Dt],{type:`application/javascript`});t=URL.createObjectURL(e)}return t}_initializeOptions(e){this.worker=e?.worker??!1,this.accessToken=e?.accessToken??null;let t={};t.timeout=e?.timeout??Ne,t.heartbeatIntervalMs=e?.heartbeatIntervalMs??wt.HEARTBEAT_INTERVAL,t.transport=e?.transport??Oe.getWebSocketConstructor(),t.params=e?.params,t.logger=e?.logger,t.heartbeatCallback=this._wrapHeartbeatCallback(e?.heartbeatCallback),t.reconnectAfterMs=e?.reconnectAfterMs??(e=>Tt[e-1]||Et);let n,r,i=e?.vsn??Me;switch(i){case Ae:n=(e,t)=>t(JSON.stringify(e)),r=(e,t)=>t(JSON.parse(e));break;case je:n=this.serializer.encode.bind(this.serializer),r=this.serializer.decode.bind(this.serializer);break;default:throw Error(`Unsupported serializer version: ${t.vsn}`)}if(t.vsn=i,t.encode=e?.encode??n,t.decode=e?.decode??r,t.beforeReconnect=this._reconnectAuth.bind(this),(e?.logLevel||e?.log_level)&&(this.logLevel=e.logLevel||e.log_level,t.params=Object.assign(Object.assign({},t.params),{log_level:this.logLevel})),this.worker){if(typeof window<`u`&&!window.Worker)throw Error(`Web Worker is not supported`);this.workerUrl=e?.workerUrl,t.autoSendHeartbeat=!this.worker}return t}async _reconnectAuth(){await this._waitForAuthIfNeeded(),this.isConnected()||this.connect()}},kt=class extends Error{constructor(e,t){super(e),this.name=`IcebergError`,this.status=t.status,this.icebergType=t.icebergType,this.icebergCode=t.icebergCode,this.details=t.details,this.isCommitStateUnknown=t.icebergType===`CommitStateUnknownException`||[500,502,504].includes(t.status)&&t.icebergType?.includes(`CommitState`)===!0}isNotFound(){return this.status===404}isConflict(){return this.status===409}isAuthenticationTimeout(){return this.status===419}};function At(e,t,n){let r=new URL(t,e);if(n)for(let[e,t]of Object.entries(n))t!==void 0&&r.searchParams.set(e,t);return r.toString()}async function jt(e){return!e||e.type===`none`?{}:e.type===`bearer`?{Authorization:`Bearer ${e.token}`}:e.type===`header`?{[e.name]:e.value}:e.type===`custom`?await e.getHeaders():{}}function Mt(e){let t=e.fetchImpl??globalThis.fetch;return{async request({method:n,path:r,query:i,body:a,headers:o}){let s=At(e.baseUrl,r,i),c=await jt(e.auth),l=await t(s,{method:n,headers:{...a?{"Content-Type":`application/json`}:{},...c,...o},body:a?JSON.stringify(a):void 0}),u=await l.text(),d=(l.headers.get(`content-type`)||``).includes(`application/json`),f=d&&u?JSON.parse(u):u;if(!l.ok){let e=d?f:void 0,t=e?.error;throw new kt(t?.message??`Request failed with status ${l.status}`,{status:l.status,icebergType:t?.type,icebergCode:t?.code,details:e})}return{status:l.status,headers:l.headers,data:f}}}}function Nt(e){return e.join(``)}var Pt=class{constructor(e,t=``){this.client=e,this.prefix=t}async listNamespaces(e){let t=e?{parent:Nt(e.namespace)}:void 0;return(await this.client.request({method:`GET`,path:`${this.prefix}/namespaces`,query:t})).data.namespaces.map(e=>({namespace:e}))}async createNamespace(e,t){let n={namespace:e.namespace,properties:t?.properties};return(await this.client.request({method:`POST`,path:`${this.prefix}/namespaces`,body:n})).data}async dropNamespace(e){await this.client.request({method:`DELETE`,path:`${this.prefix}/namespaces/${Nt(e.namespace)}`})}async loadNamespaceMetadata(e){return{properties:(await this.client.request({method:`GET`,path:`${this.prefix}/namespaces/${Nt(e.namespace)}`})).data.properties}}async namespaceExists(e){try{return await this.client.request({method:`HEAD`,path:`${this.prefix}/namespaces/${Nt(e.namespace)}`}),!0}catch(e){if(e instanceof kt&&e.status===404)return!1;throw e}}async createNamespaceIfNotExists(e,t){try{return await this.createNamespace(e,t)}catch(e){if(e instanceof kt&&e.status===409)return;throw e}}};function Ft(e){return e.join(``)}var It=class{constructor(e,t=``,n){this.client=e,this.prefix=t,this.accessDelegation=n}async listTables(e){return(await this.client.request({method:`GET`,path:`${this.prefix}/namespaces/${Ft(e.namespace)}/tables`})).data.identifiers}async createTable(e,t){let n={};return this.accessDelegation&&(n[`X-Iceberg-Access-Delegation`]=this.accessDelegation),(await this.client.request({method:`POST`,path:`${this.prefix}/namespaces/${Ft(e.namespace)}/tables`,body:t,headers:n})).data.metadata}async updateTable(e,t){let n=await this.client.request({method:`POST`,path:`${this.prefix}/namespaces/${Ft(e.namespace)}/tables/${e.name}`,body:t});return{"metadata-location":n.data[`metadata-location`],metadata:n.data.metadata}}async dropTable(e,t){await this.client.request({method:`DELETE`,path:`${this.prefix}/namespaces/${Ft(e.namespace)}/tables/${e.name}`,query:{purgeRequested:String(t?.purge??!1)}})}async loadTable(e){let t={};return this.accessDelegation&&(t[`X-Iceberg-Access-Delegation`]=this.accessDelegation),(await this.client.request({method:`GET`,path:`${this.prefix}/namespaces/${Ft(e.namespace)}/tables/${e.name}`,headers:t})).data.metadata}async tableExists(e){let t={};this.accessDelegation&&(t[`X-Iceberg-Access-Delegation`]=this.accessDelegation);try{return await this.client.request({method:`HEAD`,path:`${this.prefix}/namespaces/${Ft(e.namespace)}/tables/${e.name}`,headers:t}),!0}catch(e){if(e instanceof kt&&e.status===404)return!1;throw e}}async createTableIfNotExists(e,t){try{return await this.createTable(e,t)}catch(n){if(n instanceof kt&&n.status===409)return await this.loadTable({namespace:e.namespace,name:t.name});throw n}}},Lt=class{constructor(e){let t=`v1`;e.catalogName&&(t+=`/${e.catalogName}`),this.client=Mt({baseUrl:e.baseUrl.endsWith(`/`)?e.baseUrl:`${e.baseUrl}/`,auth:e.auth,fetchImpl:e.fetch}),this.accessDelegation=e.accessDelegation?.join(`,`),this.namespaceOps=new Pt(this.client,t),this.tableOps=new It(this.client,t,this.accessDelegation)}async listNamespaces(e){return this.namespaceOps.listNamespaces(e)}async createNamespace(e,t){return this.namespaceOps.createNamespace(e,t)}async dropNamespace(e){await this.namespaceOps.dropNamespace(e)}async loadNamespaceMetadata(e){return this.namespaceOps.loadNamespaceMetadata(e)}async listTables(e){return this.tableOps.listTables(e)}async createTable(e,t){return this.tableOps.createTable(e,t)}async updateTable(e,t){return this.tableOps.updateTable(e,t)}async dropTable(e,t){await this.tableOps.dropTable(e,t)}async loadTable(e){return this.tableOps.loadTable(e)}async namespaceExists(e){return this.namespaceOps.namespaceExists(e)}async tableExists(e){return this.tableOps.tableExists(e)}async createNamespaceIfNotExists(e,t){return this.namespaceOps.createNamespaceIfNotExists(e,t)}async createTableIfNotExists(e,t){return this.tableOps.createTableIfNotExists(e,t)}},Rt=class extends Error{constructor(e,t=`storage`,n,r){super(e),this.__isStorageError=!0,this.namespace=t,this.name=t===`vectors`?`StorageVectorsError`:`StorageError`,this.status=n,this.statusCode=r}};function zt(e){return typeof e==`object`&&!!e&&`__isStorageError`in e}var Bt=class extends Rt{constructor(e,t,n,r=`storage`){super(e,r,t,n),this.name=r===`vectors`?`StorageVectorsApiError`:`StorageApiError`,this.status=t,this.statusCode=n}toJSON(){return{name:this.name,message:this.message,status:this.status,statusCode:this.statusCode}}},Vt=class extends Rt{constructor(e,t,n=`storage`){super(e,n),this.name=n===`vectors`?`StorageVectorsUnknownError`:`StorageUnknownError`,this.originalError=t}},Ht=e=>e?(...t)=>e(...t):(...e)=>fetch(...e),Ut=e=>{if(typeof e!=`object`||!e)return!1;let t=Object.getPrototypeOf(e);return(t===null||t===Object.prototype||Object.getPrototypeOf(t)===null)&&!(Symbol.toStringTag in e)&&!(Symbol.iterator in e)},Wt=e=>{if(Array.isArray(e))return e.map(e=>Wt(e));if(typeof e==`function`||e!==Object(e))return e;let t={};return Object.entries(e).forEach(([e,n])=>{let r=e.replace(/([-_][a-z])/gi,e=>e.toUpperCase().replace(/[-_]/g,``));t[r]=Wt(n)}),t},Gt=e=>!e||typeof e!=`string`||e.length===0||e.length>100||e.trim()!==e||e.includes(`/`)||e.includes(`\\`)?!1:/^[\w!.\*'() &$@=;:+,?-]+$/.test(e);function Kt(e){"@babel/helpers - typeof";return Kt=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},Kt(e)}function qt(e,t){if(Kt(e)!=`object`||!e)return e;var n=e[Symbol.toPrimitive];if(n!==void 0){var r=n.call(e,t||`default`);if(Kt(r)!=`object`)return r;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(t===`string`?String:Number)(e)}function Jt(e){var t=qt(e,`string`);return Kt(t)==`symbol`?t:t+``}function Yt(e,t,n){return(t=Jt(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function Xt(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),n.push.apply(n,r)}return n}function j(e){for(var t=1;t<arguments.length;t++){var n=arguments[t]==null?{}:arguments[t];t%2?Xt(Object(n),!0).forEach(function(t){Yt(e,t,n[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):Xt(Object(n)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))})}return e}var Zt=e=>e.msg||e.message||e.error_description||(typeof e.error==`string`?e.error:e.error?.message)||JSON.stringify(e),Qt=async(e,t,n,r)=>{if(typeof e==`object`&&e&&typeof e.json==`function`){let n=e,i=parseInt(n.status,10);Number.isFinite(i)||(i=500),n.json().then(e=>{let n=e?.statusCode||e?.code||i+``;t(new Bt(Zt(e),i,n,r))}).catch(()=>{let e=i+``;t(new Bt(n.statusText||`HTTP ${i} error`,i,e,r))})}else t(new Vt(Zt(e),e,r))},$t=(e,t,n,r)=>{let i={method:e,headers:t?.headers||{}};return e===`GET`||e===`HEAD`||!r?j(j({},i),n):(Ut(r)?(i.headers=j({"Content-Type":`application/json`},t?.headers),i.body=JSON.stringify(r)):i.body=r,t?.duplex&&(i.duplex=t.duplex),j(j({},i),n))};async function en(e,t,n,r,i,a,o){return new Promise((s,c)=>{e(n,$t(t,r,i,a)).then(e=>{if(!e.ok)throw e;if(r?.noResolveJson)return e;if(o===`vectors`){let t=e.headers.get(`content-type`);if(e.headers.get(`content-length`)===`0`||e.status===204||!t||!t.includes(`application/json`))return{}}return e.json()}).then(e=>s(e)).catch(e=>Qt(e,c,r,o))})}function tn(e=`storage`){return{get:async(t,n,r,i)=>en(t,`GET`,n,r,i,void 0,e),post:async(t,n,r,i,a)=>en(t,`POST`,n,i,a,r,e),put:async(t,n,r,i,a)=>en(t,`PUT`,n,i,a,r,e),head:async(t,n,r,i)=>en(t,`HEAD`,n,j(j({},r),{},{noResolveJson:!0}),i,void 0,e),remove:async(t,n,r,i,a)=>en(t,`DELETE`,n,i,a,r,e)}}var{get:nn,post:M,put:rn,head:an,remove:on}=tn(`storage`),N=tn(`vectors`),sn=class{constructor(e,t={},n,r=`storage`){this.shouldThrowOnError=!1,this.url=e,this.headers=t,this.fetch=Ht(n),this.namespace=r}throwOnError(){return this.shouldThrowOnError=!0,this}setHeader(e,t){return this.headers=j(j({},this.headers),{},{[e]:t}),this}async handleOperation(e){var t=this;try{return{data:await e(),error:null}}catch(e){if(t.shouldThrowOnError)throw e;if(zt(e))return{data:null,error:e};throw e}}},cn=class{constructor(e,t){this.downloadFn=e,this.shouldThrowOnError=t}then(e,t){return this.execute().then(e,t)}async execute(){var e=this;try{return{data:(await e.downloadFn()).body,error:null}}catch(t){if(e.shouldThrowOnError)throw t;if(zt(t))return{data:null,error:t};throw t}}},ln=Symbol.toStringTag,un=class{constructor(e,t){this.downloadFn=e,this.shouldThrowOnError=t,this[ln]=`BlobDownloadBuilder`,this.promise=null}asStream(){return new cn(this.downloadFn,this.shouldThrowOnError)}then(e,t){return this.getPromise().then(e,t)}catch(e){return this.getPromise().catch(e)}finally(e){return this.getPromise().finally(e)}getPromise(){return this.promise||=this.execute(),this.promise}async execute(){var e=this;try{return{data:await(await e.downloadFn()).blob(),error:null}}catch(t){if(e.shouldThrowOnError)throw t;if(zt(t))return{data:null,error:t};throw t}}},dn={limit:100,offset:0,sortBy:{column:`name`,order:`asc`}},fn={cacheControl:`3600`,contentType:`text/plain;charset=UTF-8`,upsert:!1},pn=class extends sn{constructor(e,t={},n,r){super(e,t,r,`storage`),this.bucketId=n}async uploadOrUpdate(e,t,n,r){var i=this;return i.handleOperation(async()=>{let a,o=j(j({},fn),r),s=j(j({},i.headers),e===`POST`&&{"x-upsert":String(o.upsert)}),c=o.metadata;typeof Blob<`u`&&n instanceof Blob?(a=new FormData,a.append(`cacheControl`,o.cacheControl),c&&a.append(`metadata`,i.encodeMetadata(c)),a.append(``,n)):typeof FormData<`u`&&n instanceof FormData?(a=n,a.has(`cacheControl`)||a.append(`cacheControl`,o.cacheControl),c&&!a.has(`metadata`)&&a.append(`metadata`,i.encodeMetadata(c))):(a=n,s[`cache-control`]=`max-age=${o.cacheControl}`,s[`content-type`]=o.contentType,c&&(s[`x-metadata`]=i.toBase64(i.encodeMetadata(c))),(typeof ReadableStream<`u`&&a instanceof ReadableStream||a&&typeof a==`object`&&`pipe`in a&&typeof a.pipe==`function`)&&!o.duplex&&(o.duplex=`half`)),r?.headers&&(s=j(j({},s),r.headers));let l=i._removeEmptyFolders(t),u=i._getFinalPath(l),d=await(e==`PUT`?rn:M)(i.fetch,`${i.url}/object/${u}`,a,j({headers:s},o?.duplex?{duplex:o.duplex}:{}));return{path:l,id:d.Id,fullPath:d.Key}})}async upload(e,t,n){return this.uploadOrUpdate(`POST`,e,t,n)}async uploadToSignedUrl(e,t,n,r){var i=this;let a=i._removeEmptyFolders(e),o=i._getFinalPath(a),s=new URL(i.url+`/object/upload/sign/${o}`);return s.searchParams.set(`token`,t),i.handleOperation(async()=>{let e,t=j(j({},fn),r),o=j(j({},i.headers),{"x-upsert":String(t.upsert)});return typeof Blob<`u`&&n instanceof Blob?(e=new FormData,e.append(`cacheControl`,t.cacheControl),e.append(``,n)):typeof FormData<`u`&&n instanceof FormData?(e=n,e.append(`cacheControl`,t.cacheControl)):(e=n,o[`cache-control`]=`max-age=${t.cacheControl}`,o[`content-type`]=t.contentType),{path:a,fullPath:(await rn(i.fetch,s.toString(),e,{headers:o})).Key}})}async createSignedUploadUrl(e,t){var n=this;return n.handleOperation(async()=>{let r=n._getFinalPath(e),i=j({},n.headers);t?.upsert&&(i[`x-upsert`]=`true`);let a=await M(n.fetch,`${n.url}/object/upload/sign/${r}`,{},{headers:i}),o=new URL(n.url+a.url),s=o.searchParams.get(`token`);if(!s)throw new Rt(`No token returned by API`);return{signedUrl:o.toString(),path:e,token:s}})}async update(e,t,n){return this.uploadOrUpdate(`PUT`,e,t,n)}async move(e,t,n){var r=this;return r.handleOperation(async()=>await M(r.fetch,`${r.url}/object/move`,{bucketId:r.bucketId,sourceKey:e,destinationKey:t,destinationBucket:n?.destinationBucket},{headers:r.headers}))}async copy(e,t,n){var r=this;return r.handleOperation(async()=>({path:(await M(r.fetch,`${r.url}/object/copy`,{bucketId:r.bucketId,sourceKey:e,destinationKey:t,destinationBucket:n?.destinationBucket},{headers:r.headers})).Key}))}async createSignedUrl(e,t,n){var r=this;return r.handleOperation(async()=>{let i=r._getFinalPath(e),a=typeof n?.transform==`object`&&n.transform!==null&&Object.keys(n.transform).length>0,o=await M(r.fetch,`${r.url}/object/sign/${i}`,j({expiresIn:t},a?{transform:n.transform}:{}),{headers:r.headers}),s=n?.download?`&download=${n.download===!0?``:n.download}`:``,c=a&&o.signedURL.includes(`/object/sign/`)?o.signedURL.replace(`/object/sign/`,`/render/image/sign/`):o.signedURL;return{signedUrl:encodeURI(`${r.url}${c}${s}`)}})}async createSignedUrls(e,t,n){var r=this;return r.handleOperation(async()=>{let i=await M(r.fetch,`${r.url}/object/sign/${r.bucketId}`,{expiresIn:t,paths:e},{headers:r.headers}),a=n?.download?`&download=${n.download===!0?``:n.download}`:``;return i.map(e=>j(j({},e),{},{signedUrl:e.signedURL?encodeURI(`${r.url}${e.signedURL}${a}`):null}))})}download(e,t,n){let r=t?.transform===void 0?`object`:`render/image/authenticated`,i=this.transformOptsToQueryString(t?.transform||{}),a=i?`?${i}`:``,o=this._getFinalPath(e);return new un(()=>nn(this.fetch,`${this.url}/${r}/${o}${a}`,{headers:this.headers,noResolveJson:!0},n),this.shouldThrowOnError)}async info(e){var t=this;let n=t._getFinalPath(e);return t.handleOperation(async()=>Wt(await nn(t.fetch,`${t.url}/object/info/${n}`,{headers:t.headers})))}async exists(e){var t=this;let n=t._getFinalPath(e);try{return await an(t.fetch,`${t.url}/object/${n}`,{headers:t.headers}),{data:!0,error:null}}catch(e){if(t.shouldThrowOnError)throw e;if(zt(e)){let t=e instanceof Bt?e.status:e instanceof Vt?e.originalError?.status:void 0;if(t!==void 0&&[400,404].includes(t))return{data:!1,error:e}}throw e}}getPublicUrl(e,t){let n=this._getFinalPath(e),r=[],i=t?.download?`download=${t.download===!0?``:t.download}`:``;i!==``&&r.push(i);let a=t?.transform===void 0?`object`:`render/image`,o=this.transformOptsToQueryString(t?.transform||{});o!==``&&r.push(o);let s=r.join(`&`);return s!==``&&(s=`?${s}`),{data:{publicUrl:encodeURI(`${this.url}/${a}/public/${n}${s}`)}}}async remove(e){var t=this;return t.handleOperation(async()=>await on(t.fetch,`${t.url}/object/${t.bucketId}`,{prefixes:e},{headers:t.headers}))}async list(e,t,n){var r=this;return r.handleOperation(async()=>{let i=j(j(j({},dn),t),{},{prefix:e||``});return await M(r.fetch,`${r.url}/object/list/${r.bucketId}`,i,{headers:r.headers},n)})}async listV2(e,t){var n=this;return n.handleOperation(async()=>{let r=j({},e);return await M(n.fetch,`${n.url}/object/list-v2/${n.bucketId}`,r,{headers:n.headers},t)})}encodeMetadata(e){return JSON.stringify(e)}toBase64(e){return typeof Buffer<`u`?Buffer.from(e).toString(`base64`):btoa(e)}_getFinalPath(e){return`${this.bucketId}/${e.replace(/^\/+/,``)}`}_removeEmptyFolders(e){return e.replace(/^\/|\/$/g,``).replace(/\/+/g,`/`)}transformOptsToQueryString(e){let t=[];return e.width&&t.push(`width=${e.width}`),e.height&&t.push(`height=${e.height}`),e.resize&&t.push(`resize=${e.resize}`),e.format&&t.push(`format=${e.format}`),e.quality&&t.push(`quality=${e.quality}`),t.join(`&`)}},mn=`2.101.1`,hn={"X-Client-Info":`storage-js/${mn}`},gn=class extends sn{constructor(e,t={},n,r){let i=new URL(e);r?.useNewHostname&&/supabase\.(co|in|red)$/.test(i.hostname)&&!i.hostname.includes(`storage.supabase.`)&&(i.hostname=i.hostname.replace(`supabase.`,`storage.supabase.`));let a=i.href.replace(/\/$/,``),o=j(j({},hn),t);super(a,o,n,`storage`)}async listBuckets(e){var t=this;return t.handleOperation(async()=>{let n=t.listBucketOptionsToQueryString(e);return await nn(t.fetch,`${t.url}/bucket${n}`,{headers:t.headers})})}async getBucket(e){var t=this;return t.handleOperation(async()=>await nn(t.fetch,`${t.url}/bucket/${e}`,{headers:t.headers}))}async createBucket(e,t={public:!1}){var n=this;return n.handleOperation(async()=>await M(n.fetch,`${n.url}/bucket`,{id:e,name:e,type:t.type,public:t.public,file_size_limit:t.fileSizeLimit,allowed_mime_types:t.allowedMimeTypes},{headers:n.headers}))}async updateBucket(e,t){var n=this;return n.handleOperation(async()=>await rn(n.fetch,`${n.url}/bucket/${e}`,{id:e,name:e,public:t.public,file_size_limit:t.fileSizeLimit,allowed_mime_types:t.allowedMimeTypes},{headers:n.headers}))}async emptyBucket(e){var t=this;return t.handleOperation(async()=>await M(t.fetch,`${t.url}/bucket/${e}/empty`,{},{headers:t.headers}))}async deleteBucket(e){var t=this;return t.handleOperation(async()=>await on(t.fetch,`${t.url}/bucket/${e}`,{},{headers:t.headers}))}listBucketOptionsToQueryString(e){let t={};return e&&(`limit`in e&&(t.limit=String(e.limit)),`offset`in e&&(t.offset=String(e.offset)),e.search&&(t.search=e.search),e.sortColumn&&(t.sortColumn=e.sortColumn),e.sortOrder&&(t.sortOrder=e.sortOrder)),Object.keys(t).length>0?`?`+new URLSearchParams(t).toString():``}},_n=class extends sn{constructor(e,t={},n){let r=e.replace(/\/$/,``),i=j(j({},hn),t);super(r,i,n,`storage`)}async createBucket(e){var t=this;return t.handleOperation(async()=>await M(t.fetch,`${t.url}/bucket`,{name:e},{headers:t.headers}))}async listBuckets(e){var t=this;return t.handleOperation(async()=>{let n=new URLSearchParams;e?.limit!==void 0&&n.set(`limit`,e.limit.toString()),e?.offset!==void 0&&n.set(`offset`,e.offset.toString()),e?.sortColumn&&n.set(`sortColumn`,e.sortColumn),e?.sortOrder&&n.set(`sortOrder`,e.sortOrder),e?.search&&n.set(`search`,e.search);let r=n.toString(),i=r?`${t.url}/bucket?${r}`:`${t.url}/bucket`;return await nn(t.fetch,i,{headers:t.headers})})}async deleteBucket(e){var t=this;return t.handleOperation(async()=>await on(t.fetch,`${t.url}/bucket/${e}`,{},{headers:t.headers}))}from(e){var t=this;if(!Gt(e))throw new Rt(`Invalid bucket name: File, folder, and bucket names must follow AWS object key naming guidelines and should avoid the use of any other characters.`);let n=new Lt({baseUrl:this.url,catalogName:e,auth:{type:`custom`,getHeaders:async()=>t.headers},fetch:this.fetch}),r=this.shouldThrowOnError;return new Proxy(n,{get(e,t){let n=e[t];return typeof n==`function`?async(...t)=>{try{return{data:await n.apply(e,t),error:null}}catch(e){if(r)throw e;return{data:null,error:e}}}:n}})}},vn=class extends sn{constructor(e,t={},n){let r=e.replace(/\/$/,``),i=j(j({},hn),{},{"Content-Type":`application/json`},t);super(r,i,n,`vectors`)}async createIndex(e){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/CreateIndex`,e,{headers:t.headers})||{})}async getIndex(e,t){var n=this;return n.handleOperation(async()=>await N.post(n.fetch,`${n.url}/GetIndex`,{vectorBucketName:e,indexName:t},{headers:n.headers}))}async listIndexes(e){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/ListIndexes`,e,{headers:t.headers}))}async deleteIndex(e,t){var n=this;return n.handleOperation(async()=>await N.post(n.fetch,`${n.url}/DeleteIndex`,{vectorBucketName:e,indexName:t},{headers:n.headers})||{})}},yn=class extends sn{constructor(e,t={},n){let r=e.replace(/\/$/,``),i=j(j({},hn),{},{"Content-Type":`application/json`},t);super(r,i,n,`vectors`)}async putVectors(e){var t=this;if(e.vectors.length<1||e.vectors.length>500)throw Error(`Vector batch size must be between 1 and 500 items`);return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/PutVectors`,e,{headers:t.headers})||{})}async getVectors(e){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/GetVectors`,e,{headers:t.headers}))}async listVectors(e){var t=this;if(e.segmentCount!==void 0){if(e.segmentCount<1||e.segmentCount>16)throw Error(`segmentCount must be between 1 and 16`);if(e.segmentIndex!==void 0&&(e.segmentIndex<0||e.segmentIndex>=e.segmentCount))throw Error(`segmentIndex must be between 0 and ${e.segmentCount-1}`)}return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/ListVectors`,e,{headers:t.headers}))}async queryVectors(e){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/QueryVectors`,e,{headers:t.headers}))}async deleteVectors(e){var t=this;if(e.keys.length<1||e.keys.length>500)throw Error(`Keys batch size must be between 1 and 500 items`);return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/DeleteVectors`,e,{headers:t.headers})||{})}},bn=class extends sn{constructor(e,t={},n){let r=e.replace(/\/$/,``),i=j(j({},hn),{},{"Content-Type":`application/json`},t);super(r,i,n,`vectors`)}async createBucket(e){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/CreateVectorBucket`,{vectorBucketName:e},{headers:t.headers})||{})}async getBucket(e){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/GetVectorBucket`,{vectorBucketName:e},{headers:t.headers}))}async listBuckets(e={}){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/ListVectorBuckets`,e,{headers:t.headers}))}async deleteBucket(e){var t=this;return t.handleOperation(async()=>await N.post(t.fetch,`${t.url}/DeleteVectorBucket`,{vectorBucketName:e},{headers:t.headers})||{})}},xn=class extends bn{constructor(e,t={}){super(e,t.headers||{},t.fetch)}from(e){return new Sn(this.url,this.headers,e,this.fetch)}async createBucket(e){var t=()=>super.createBucket,n=this;return t().call(n,e)}async getBucket(e){var t=()=>super.getBucket,n=this;return t().call(n,e)}async listBuckets(e={}){var t=()=>super.listBuckets,n=this;return t().call(n,e)}async deleteBucket(e){var t=()=>super.deleteBucket,n=this;return t().call(n,e)}},Sn=class extends vn{constructor(e,t,n,r){super(e,t,r),this.vectorBucketName=n}async createIndex(e){var t=()=>super.createIndex,n=this;return t().call(n,j(j({},e),{},{vectorBucketName:n.vectorBucketName}))}async listIndexes(e={}){var t=()=>super.listIndexes,n=this;return t().call(n,j(j({},e),{},{vectorBucketName:n.vectorBucketName}))}async getIndex(e){var t=()=>super.getIndex,n=this;return t().call(n,n.vectorBucketName,e)}async deleteIndex(e){var t=()=>super.deleteIndex,n=this;return t().call(n,n.vectorBucketName,e)}index(e){return new Cn(this.url,this.headers,this.vectorBucketName,e,this.fetch)}},Cn=class extends yn{constructor(e,t,n,r,i){super(e,t,i),this.vectorBucketName=n,this.indexName=r}async putVectors(e){var t=()=>super.putVectors,n=this;return t().call(n,j(j({},e),{},{vectorBucketName:n.vectorBucketName,indexName:n.indexName}))}async getVectors(e){var t=()=>super.getVectors,n=this;return t().call(n,j(j({},e),{},{vectorBucketName:n.vectorBucketName,indexName:n.indexName}))}async listVectors(e={}){var t=()=>super.listVectors,n=this;return t().call(n,j(j({},e),{},{vectorBucketName:n.vectorBucketName,indexName:n.indexName}))}async queryVectors(e){var t=()=>super.queryVectors,n=this;return t().call(n,j(j({},e),{},{vectorBucketName:n.vectorBucketName,indexName:n.indexName}))}async deleteVectors(e){var t=()=>super.deleteVectors,n=this;return t().call(n,j(j({},e),{},{vectorBucketName:n.vectorBucketName,indexName:n.indexName}))}},wn=class extends gn{constructor(e,t={},n,r){super(e,t,n,r)}from(e){return new pn(this.url,this.headers,e,this.fetch)}get vectors(){return new xn(this.url+`/vector`,{headers:this.headers,fetch:this.fetch})}get analytics(){return new _n(this.url+`/iceberg`,this.headers,this.fetch)}},Tn=`2.101.1`,En=30*1e3,Dn=3*En,On=`http://localhost:9999`,kn=`supabase.auth.token`,An={"X-Client-Info":`gotrue-js/${Tn}`},jn=`X-Supabase-Api-Version`,Mn={"2024-01-01":{timestamp:Date.parse(`2024-01-01T00:00:00.0Z`),name:`2024-01-01`}},Nn=/^([a-z0-9_-]{4})*($|[a-z0-9_-]{3}$|[a-z0-9_-]{2}$)$/i,Pn=class extends Error{constructor(e,t,n){super(e),this.__isAuthError=!0,this.name=`AuthError`,this.status=t,this.code=n}};function P(e){return typeof e==`object`&&!!e&&`__isAuthError`in e}var Fn=class extends Pn{constructor(e,t,n){super(e,t,n),this.name=`AuthApiError`,this.status=t,this.code=n}};function In(e){return P(e)&&e.name===`AuthApiError`}var Ln=class extends Pn{constructor(e,t){super(e),this.name=`AuthUnknownError`,this.originalError=t}},F=class extends Pn{constructor(e,t,n,r){super(e,n,r),this.name=t,this.status=n}},I=class extends F{constructor(){super(`Auth session missing!`,`AuthSessionMissingError`,400,void 0)}};function Rn(e){return P(e)&&e.name===`AuthSessionMissingError`}var zn=class extends F{constructor(){super(`Auth session or user missing`,`AuthInvalidTokenResponseError`,500,void 0)}},Bn=class extends F{constructor(e){super(e,`AuthInvalidCredentialsError`,400,void 0)}},Vn=class extends F{constructor(e,t=null){super(e,`AuthImplicitGrantRedirectError`,500,void 0),this.details=null,this.details=t}toJSON(){return{name:this.name,message:this.message,status:this.status,details:this.details}}};function Hn(e){return P(e)&&e.name===`AuthImplicitGrantRedirectError`}var Un=class extends F{constructor(e,t=null){super(e,`AuthPKCEGrantCodeExchangeError`,500,void 0),this.details=null,this.details=t}toJSON(){return{name:this.name,message:this.message,status:this.status,details:this.details}}},Wn=class extends F{constructor(){super(`PKCE code verifier not found in storage. This can happen if the auth flow was initiated in a different browser or device, or if the storage was cleared. For SSR frameworks (Next.js, SvelteKit, etc.), use @supabase/ssr on both the server and client to store the code verifier in cookies.`,`AuthPKCECodeVerifierMissingError`,400,`pkce_code_verifier_not_found`)}},Gn=class extends F{constructor(e,t){super(e,`AuthRetryableFetchError`,t,void 0)}};function Kn(e){return P(e)&&e.name===`AuthRetryableFetchError`}var qn=class extends F{constructor(e,t,n){super(e,`AuthWeakPasswordError`,t,`weak_password`),this.reasons=n}},Jn=class extends F{constructor(e){super(e,`AuthInvalidJwtError`,400,`invalid_jwt`)}},Yn=`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_`.split(``),Xn=` 	
+\r=`.split(``),Zn=(()=>{let e=Array(128);for(let t=0;t<e.length;t+=1)e[t]=-1;for(let t=0;t<Xn.length;t+=1)e[Xn[t].charCodeAt(0)]=-2;for(let t=0;t<Yn.length;t+=1)e[Yn[t].charCodeAt(0)]=t;return e})();function Qn(e,t,n){if(e!==null)for(t.queue=t.queue<<8|e,t.queuedBits+=8;t.queuedBits>=6;)n(Yn[t.queue>>t.queuedBits-6&63]),t.queuedBits-=6;else if(t.queuedBits>0)for(t.queue<<=6-t.queuedBits,t.queuedBits=6;t.queuedBits>=6;)n(Yn[t.queue>>t.queuedBits-6&63]),t.queuedBits-=6}function $n(e,t,n){let r=Zn[e];if(r>-1)for(t.queue=t.queue<<6|r,t.queuedBits+=6;t.queuedBits>=8;)n(t.queue>>t.queuedBits-8&255),t.queuedBits-=8;else if(r===-2)return;else throw Error(`Invalid Base64-URL character "${String.fromCharCode(e)}"`)}function er(e){let t=[],n=e=>{t.push(String.fromCodePoint(e))},r={utf8seq:0,codepoint:0},i={queue:0,queuedBits:0},a=e=>{rr(e,r,n)};for(let t=0;t<e.length;t+=1)$n(e.charCodeAt(t),i,a);return t.join(``)}function tr(e,t){if(e<=127){t(e);return}else if(e<=2047){t(192|e>>6),t(128|e&63);return}else if(e<=65535){t(224|e>>12),t(128|e>>6&63),t(128|e&63);return}else if(e<=1114111){t(240|e>>18),t(128|e>>12&63),t(128|e>>6&63),t(128|e&63);return}throw Error(`Unrecognized Unicode codepoint: ${e.toString(16)}`)}function nr(e,t){for(let n=0;n<e.length;n+=1){let r=e.charCodeAt(n);if(r>55295&&r<=56319){let t=(r-55296)*1024&65535;r=(e.charCodeAt(n+1)-56320&65535|t)+65536,n+=1}tr(r,t)}}function rr(e,t,n){if(t.utf8seq===0){if(e<=127){n(e);return}for(let n=1;n<6;n+=1)if(!(e>>7-n&1)){t.utf8seq=n;break}if(t.utf8seq===2)t.codepoint=e&31;else if(t.utf8seq===3)t.codepoint=e&15;else if(t.utf8seq===4)t.codepoint=e&7;else throw Error(`Invalid UTF-8 sequence`);--t.utf8seq}else if(t.utf8seq>0){if(e<=127)throw Error(`Invalid UTF-8 sequence`);t.codepoint=t.codepoint<<6|e&63,--t.utf8seq,t.utf8seq===0&&n(t.codepoint)}}function ir(e){let t=[],n={queue:0,queuedBits:0},r=e=>{t.push(e)};for(let t=0;t<e.length;t+=1)$n(e.charCodeAt(t),n,r);return new Uint8Array(t)}function ar(e){let t=[];return nr(e,e=>t.push(e)),new Uint8Array(t)}function L(e){let t=[],n={queue:0,queuedBits:0},r=e=>{t.push(e)};return e.forEach(e=>Qn(e,n,r)),Qn(null,n,r),t.join(``)}function or(e){return Math.round(Date.now()/1e3)+e}function sr(){return Symbol(`auth-callback`)}var R=()=>typeof window<`u`&&typeof document<`u`,z={tested:!1,writable:!1},cr=()=>{if(!R())return!1;try{if(typeof globalThis.localStorage!=`object`)return!1}catch{return!1}if(z.tested)return z.writable;let e=`lswt-${Math.random()}${Math.random()}`;try{globalThis.localStorage.setItem(e,e),globalThis.localStorage.removeItem(e),z.tested=!0,z.writable=!0}catch{z.tested=!0,z.writable=!1}return z.writable};function lr(e){let t={},n=new URL(e);if(n.hash&&n.hash[0]===`#`)try{new URLSearchParams(n.hash.substring(1)).forEach((e,n)=>{t[n]=e})}catch{}return n.searchParams.forEach((e,n)=>{t[n]=e}),t}var ur=e=>e?(...t)=>e(...t):(...e)=>fetch(...e),dr=e=>typeof e==`object`&&!!e&&`status`in e&&`ok`in e&&`json`in e&&typeof e.json==`function`,fr=async(e,t,n)=>{await e.setItem(t,JSON.stringify(n))},B=async(e,t)=>{let n=await e.getItem(t);if(!n)return null;try{return JSON.parse(n)}catch{return n}},V=async(e,t)=>{await e.removeItem(t)},pr=class e{constructor(){this.promise=new e.promiseConstructor((e,t)=>{this.resolve=e,this.reject=t})}};pr.promiseConstructor=Promise;function mr(e){let t=e.split(`.`);if(t.length!==3)throw new Jn(`Invalid JWT structure`);for(let e=0;e<t.length;e++)if(!Nn.test(t[e]))throw new Jn(`JWT not in base64url format`);return{header:JSON.parse(er(t[0])),payload:JSON.parse(er(t[1])),signature:ir(t[2]),raw:{header:t[0],payload:t[1]}}}async function hr(e){return await new Promise(t=>{setTimeout(()=>t(null),e)})}function gr(e,t){return new Promise((n,r)=>{(async()=>{for(let i=0;i<1/0;i++)try{let r=await e(i);if(!t(i,null,r)){n(r);return}}catch(e){if(!t(i,e)){r(e);return}}})()})}function _r(e){return(`0`+e.toString(16)).substr(-2)}function vr(){let e=new Uint32Array(56);if(typeof crypto>`u`){let e=``;for(let t=0;t<56;t++)e+=`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~`.charAt(Math.floor(Math.random()*66));return e}return crypto.getRandomValues(e),Array.from(e,_r).join(``)}async function yr(e){let t=new TextEncoder().encode(e),n=await crypto.subtle.digest(`SHA-256`,t),r=new Uint8Array(n);return Array.from(r).map(e=>String.fromCharCode(e)).join(``)}async function br(e){if(!(typeof crypto<`u`&&crypto.subtle!==void 0&&typeof TextEncoder<`u`))return console.warn(`WebCrypto API is not supported. Code challenge method will default to use plain instead of sha256.`),e;let t=await yr(e);return btoa(t).replace(/\+/g,`-`).replace(/\//g,`_`).replace(/=+$/,``)}async function xr(e,t,n=!1){let r=vr(),i=r;n&&(i+=`/PASSWORD_RECOVERY`),await fr(e,`${t}-code-verifier`,i);let a=await br(r);return[a,r===a?`plain`:`s256`]}var Sr=/^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/i;function Cr(e){let t=e.headers.get(jn);if(!t||!t.match(Sr))return null;try{return new Date(`${t}T00:00:00.0Z`)}catch{return null}}function wr(e){if(!e)throw Error(`Missing exp claim`);if(e<=Math.floor(Date.now()/1e3))throw Error(`JWT has expired`)}function Tr(e){switch(e){case`RS256`:return{name:`RSASSA-PKCS1-v1_5`,hash:{name:`SHA-256`}};case`ES256`:return{name:`ECDSA`,namedCurve:`P-256`,hash:{name:`SHA-256`}};default:throw Error(`Invalid alg claim`)}}var Er=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;function Dr(e){if(!Er.test(e))throw Error(`@supabase/auth-js: Expected parameter to be UUID but is not`)}function Or(){return new Proxy({},{get:(e,t)=>{if(t===`__isUserNotAvailableProxy`)return!0;if(typeof t==`symbol`){let e=t.toString();if(e===`Symbol(Symbol.toPrimitive)`||e===`Symbol(Symbol.toStringTag)`||e===`Symbol(util.inspect.custom)`)return}throw Error(`@supabase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Accessing the "${t}" property of the session object is not supported. Please use getUser() instead.`)},set:(e,t)=>{throw Error(`@supabase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Setting the "${t}" property of the session object is not supported. Please use getUser() to fetch a user object you can manipulate.`)},deleteProperty:(e,t)=>{throw Error(`@supabase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Deleting the "${t}" property of the session object is not supported. Please use getUser() to fetch a user object you can manipulate.`)}})}function kr(e,t){return new Proxy(e,{get:(e,n,r)=>{if(n===`__isInsecureUserWarningProxy`)return!0;if(typeof n==`symbol`){let t=n.toString();if(t===`Symbol(Symbol.toPrimitive)`||t===`Symbol(Symbol.toStringTag)`||t===`Symbol(util.inspect.custom)`||t===`Symbol(nodejs.util.inspect.custom)`)return Reflect.get(e,n,r)}return!t.value&&typeof n==`string`&&(console.warn(`Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server.`),t.value=!0),Reflect.get(e,n,r)}})}function Ar(e){return JSON.parse(JSON.stringify(e))}var jr=e=>e.msg||e.message||e.error_description||e.error||JSON.stringify(e),Mr=[502,503,504];async function Nr(e){if(!dr(e))throw new Gn(jr(e),0);if(Mr.includes(e.status))throw new Gn(jr(e),e.status);let t;try{t=await e.json()}catch(e){throw new Ln(jr(e),e)}let n,r=Cr(e);if(r&&r.getTime()>=Mn[`2024-01-01`].timestamp&&typeof t==`object`&&t&&typeof t.code==`string`?n=t.code:typeof t==`object`&&t&&typeof t.error_code==`string`&&(n=t.error_code),!n){if(typeof t==`object`&&t&&typeof t.weak_password==`object`&&t.weak_password&&Array.isArray(t.weak_password.reasons)&&t.weak_password.reasons.length&&t.weak_password.reasons.reduce((e,t)=>e&&typeof t==`string`,!0))throw new qn(jr(t),e.status,t.weak_password.reasons)}else if(n===`weak_password`)throw new qn(jr(t),e.status,t.weak_password?.reasons||[]);else if(n===`session_not_found`)throw new I;throw new Fn(jr(t),e.status||500,n)}var Pr=(e,t,n,r)=>{let i={method:e,headers:t?.headers||{}};return e===`GET`?i:(i.headers=Object.assign({"Content-Type":`application/json;charset=UTF-8`},t?.headers),i.body=JSON.stringify(r),Object.assign(Object.assign({},i),n))};async function H(e,t,n,r){let i=Object.assign({},r?.headers);i[`X-Supabase-Api-Version`]||(i[jn]=Mn[`2024-01-01`].name),r?.jwt&&(i.Authorization=`Bearer ${r.jwt}`);let a=r?.query??{};r?.redirectTo&&(a.redirect_to=r.redirectTo);let o=await Fr(e,t,n+(Object.keys(a).length?`?`+new URLSearchParams(a).toString():``),{headers:i,noResolveJson:r?.noResolveJson},{},r?.body);return r?.xform?r?.xform(o):{data:Object.assign({},o),error:null}}async function Fr(e,t,n,r,i,a){let o=Pr(t,r,i,a),s;try{s=await e(n,Object.assign({},o))}catch(e){throw console.error(e),new Gn(jr(e),0)}if(s.ok||await Nr(s),r?.noResolveJson)return s;try{return await s.json()}catch(e){await Nr(e)}}function U(e){let t=null;Br(e)&&(t=Object.assign({},e),e.expires_at||(t.expires_at=or(e.expires_in)));let n=e.user??e;return{data:{session:t,user:n},error:null}}function Ir(e){let t=U(e);return!t.error&&e.weak_password&&typeof e.weak_password==`object`&&Array.isArray(e.weak_password.reasons)&&e.weak_password.reasons.length&&e.weak_password.message&&typeof e.weak_password.message==`string`&&e.weak_password.reasons.reduce((e,t)=>e&&typeof t==`string`,!0)&&(t.data.weak_password=e.weak_password),t}function W(e){return{data:{user:e.user??e},error:null}}function Lr(e){return{data:e,error:null}}function Rr(e){let{action_link:t,email_otp:n,hashed_token:r,redirect_to:i,verification_type:a}=e,o=oe(e,[`action_link`,`email_otp`,`hashed_token`,`redirect_to`,`verification_type`]);return{data:{properties:{action_link:t,email_otp:n,hashed_token:r,redirect_to:i,verification_type:a},user:Object.assign({},o)},error:null}}function zr(e){return e}function Br(e){return e.access_token&&e.refresh_token&&e.expires_in}var Vr=[`global`,`local`,`others`],Hr=class{constructor({url:e=``,headers:t={},fetch:n}){this.url=e,this.headers=t,this.fetch=ur(n),this.mfa={listFactors:this._listFactors.bind(this),deleteFactor:this._deleteFactor.bind(this)},this.oauth={listClients:this._listOAuthClients.bind(this),createClient:this._createOAuthClient.bind(this),getClient:this._getOAuthClient.bind(this),updateClient:this._updateOAuthClient.bind(this),deleteClient:this._deleteOAuthClient.bind(this),regenerateClientSecret:this._regenerateOAuthClientSecret.bind(this)},this.customProviders={listProviders:this._listCustomProviders.bind(this),createProvider:this._createCustomProvider.bind(this),getProvider:this._getCustomProvider.bind(this),updateProvider:this._updateCustomProvider.bind(this),deleteProvider:this._deleteCustomProvider.bind(this)}}async signOut(e,t=Vr[0]){if(Vr.indexOf(t)<0)throw Error(`@supabase/auth-js: Parameter scope must be one of ${Vr.join(`, `)}`);try{return await H(this.fetch,`POST`,`${this.url}/logout?scope=${t}`,{headers:this.headers,jwt:e,noResolveJson:!0}),{data:null,error:null}}catch(e){if(P(e))return{data:null,error:e};throw e}}async inviteUserByEmail(e,t={}){try{return await H(this.fetch,`POST`,`${this.url}/invite`,{body:{email:e,data:t.data},headers:this.headers,redirectTo:t.redirectTo,xform:W})}catch(e){if(P(e))return{data:{user:null},error:e};throw e}}async generateLink(e){try{let{options:t}=e,n=oe(e,[`options`]),r=Object.assign(Object.assign({},n),t);return`newEmail`in n&&(r.new_email=n?.newEmail,delete r.newEmail),await H(this.fetch,`POST`,`${this.url}/admin/generate_link`,{body:r,headers:this.headers,xform:Rr,redirectTo:t?.redirectTo})}catch(e){if(P(e))return{data:{properties:null,user:null},error:e};throw e}}async createUser(e){try{return await H(this.fetch,`POST`,`${this.url}/admin/users`,{body:e,headers:this.headers,xform:W})}catch(e){if(P(e))return{data:{user:null},error:e};throw e}}async listUsers(e){try{let t={nextPage:null,lastPage:0,total:0},n=await H(this.fetch,`GET`,`${this.url}/admin/users`,{headers:this.headers,noResolveJson:!0,query:{page:(e?.page)?.toString()??``,per_page:(e?.perPage)?.toString()??``},xform:zr});if(n.error)throw n.error;let r=await n.json(),i=n.headers.get(`x-total-count`)??0,a=n.headers.get(`link`)?.split(`,`)??[];return a.length>0&&(a.forEach(e=>{let n=parseInt(e.split(`;`)[0].split(`=`)[1].substring(0,1)),r=JSON.parse(e.split(`;`)[1].split(`=`)[1]);t[`${r}Page`]=n}),t.total=parseInt(i)),{data:Object.assign(Object.assign({},r),t),error:null}}catch(e){if(P(e))return{data:{users:[]},error:e};throw e}}async getUserById(e){Dr(e);try{return await H(this.fetch,`GET`,`${this.url}/admin/users/${e}`,{headers:this.headers,xform:W})}catch(e){if(P(e))return{data:{user:null},error:e};throw e}}async updateUserById(e,t){Dr(e);try{return await H(this.fetch,`PUT`,`${this.url}/admin/users/${e}`,{body:t,headers:this.headers,xform:W})}catch(e){if(P(e))return{data:{user:null},error:e};throw e}}async deleteUser(e,t=!1){Dr(e);try{return await H(this.fetch,`DELETE`,`${this.url}/admin/users/${e}`,{headers:this.headers,body:{should_soft_delete:t},xform:W})}catch(e){if(P(e))return{data:{user:null},error:e};throw e}}async _listFactors(e){Dr(e.userId);try{let{data:t,error:n}=await H(this.fetch,`GET`,`${this.url}/admin/users/${e.userId}/factors`,{headers:this.headers,xform:e=>({data:{factors:e},error:null})});return{data:t,error:n}}catch(e){if(P(e))return{data:null,error:e};throw e}}async _deleteFactor(e){Dr(e.userId),Dr(e.id);try{return{data:await H(this.fetch,`DELETE`,`${this.url}/admin/users/${e.userId}/factors/${e.id}`,{headers:this.headers}),error:null}}catch(e){if(P(e))return{data:null,error:e};throw e}}async _listOAuthClients(e){try{let t={nextPage:null,lastPage:0,total:0},n=await H(this.fetch,`GET`,`${this.url}/admin/oauth/clients`,{headers:this.headers,noResolveJson:!0,query:{page:(e?.page)?.toString()??``,per_page:(e?.perPage)?.toString()??``},xform:zr});if(n.error)throw n.error;let r=await n.json(),i=n.headers.get(`x-total-count`)??0,a=n.headers.get(`link`)?.split(`,`)??[];return a.length>0&&(a.forEach(e=>{let n=parseInt(e.split(`;`)[0].split(`=`)[1].substring(0,1)),r=JSON.parse(e.split(`;`)[1].split(`=`)[1]);t[`${r}Page`]=n}),t.total=parseInt(i)),{data:Object.assign(Object.assign({},r),t),error:null}}catch(e){if(P(e))return{data:{clients:[]},error:e};throw e}}async _createOAuthClient(e){try{return await H(this.fetch,`POST`,`${this.url}/admin/oauth/clients`,{body:e,headers:this.headers,xform:e=>({data:e,error:null})})}catch(e){if(P(e))return{data:null,error:e};throw e}}async _getOAuthClient(e){try{return await H(this.fetch,`GET`,`${this.url}/admin/oauth/clients/${e}`,{headers:this.headers,xform:e=>({data:e,error:null})})}catch(e){if(P(e))return{data:null,error:e};throw e}}async _updateOAuthClient(e,t){try{return await H(this.fetch,`PUT`,`${this.url}/admin/oauth/clients/${e}`,{body:t,headers:this.headers,xform:e=>({data:e,error:null})})}catch(e){if(P(e))return{data:null,error:e};throw e}}async _deleteOAuthClient(e){try{return await H(this.fetch,`DELETE`,`${this.url}/admin/oauth/clients/${e}`,{headers:this.headers,noResolveJson:!0}),{data:null,error:null}}catch(e){if(P(e))return{data:null,error:e};throw e}}async _regenerateOAuthClientSecret(e){try{return await H(this.fetch,`POST`,`${this.url}/admin/oauth/clients/${e}/regenerate_secret`,{headers:this.headers,xform:e=>({data:e,error:null})})}catch(e){if(P(e))return{data:null,error:e};throw e}}async _listCustomProviders(e){try{let t={};return e?.type&&(t.type=e.type),await H(this.fetch,`GET`,`${this.url}/admin/custom-providers`,{headers:this.headers,query:t,xform:e=>({data:{providers:e?.providers??[]},error:null})})}catch(e){if(P(e))return{data:{providers:[]},error:e};throw e}}async _createCustomProvider(e){try{return await H(this.fetch,`POST`,`${this.url}/admin/custom-providers`,{body:e,headers:this.headers,xform:e=>({data:e,error:null})})}catch(e){if(P(e))return{data:null,error:e};throw e}}async _getCustomProvider(e){try{return await H(this.fetch,`GET`,`${this.url}/admin/custom-providers/${e}`,{headers:this.headers,xform:e=>({data:e,error:null})})}catch(e){if(P(e))return{data:null,error:e};throw e}}async _updateCustomProvider(e,t){try{return await H(this.fetch,`PUT`,`${this.url}/admin/custom-providers/${e}`,{body:t,headers:this.headers,xform:e=>({data:e,error:null})})}catch(e){if(P(e))return{data:null,error:e};throw e}}async _deleteCustomProvider(e){try{return await H(this.fetch,`DELETE`,`${this.url}/admin/custom-providers/${e}`,{headers:this.headers,noResolveJson:!0}),{data:null,error:null}}catch(e){if(P(e))return{data:null,error:e};throw e}}};function Ur(e={}){return{getItem:t=>e[t]||null,setItem:(t,n)=>{e[t]=n},removeItem:t=>{delete e[t]}}}var G={debug:!!(globalThis&&cr()&&globalThis.localStorage&&globalThis.localStorage.getItem(`supabase.gotrue-js.locks.debug`)===`true`)},Wr=class extends Error{constructor(e){super(e),this.isAcquireTimeout=!0}},Gr=class extends Wr{};async function Kr(e,t,n){G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: acquire lock`,e,t);let r=new globalThis.AbortController,i;t>0&&(i=setTimeout(()=>{r.abort(),G.debug&&console.log(`@supabase/gotrue-js: navigatorLock acquire timed out`,e)},t)),await Promise.resolve();try{return await globalThis.navigator.locks.request(e,t===0?{mode:`exclusive`,ifAvailable:!0}:{mode:`exclusive`,signal:r.signal},async r=>{if(r){clearTimeout(i),G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: acquired`,e,r.name);try{return await n()}finally{G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: released`,e,r.name)}}else if(t===0)throw G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: not immediately available`,e),new Gr(`Acquiring an exclusive Navigator LockManager lock "${e}" immediately failed`);else{if(G.debug)try{let e=await globalThis.navigator.locks.query();console.log(`@supabase/gotrue-js: Navigator LockManager state`,JSON.stringify(e,null,`  `))}catch(e){console.warn(`@supabase/gotrue-js: Error when querying Navigator LockManager state`,e)}return console.warn(`@supabase/gotrue-js: Navigator LockManager returned a null lock when using #request without ifAvailable set to true, it appears this browser is not following the LockManager spec https://developer.mozilla.org/en-US/docs/Web/API/LockManager/request`),clearTimeout(i),await n()}})}catch(a){if(t>0&&clearTimeout(i),a?.name===`AbortError`&&t>0){if(r.signal.aborted)return G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: acquire timeout, recovering by stealing lock`,e),console.warn(`@supabase/gotrue-js: Lock "${e}" was not released within ${t}ms. This may indicate an orphaned lock from a component unmount (e.g., React Strict Mode). Forcefully acquiring the lock to recover.`),await Promise.resolve().then(()=>globalThis.navigator.locks.request(e,{mode:`exclusive`,steal:!0},async t=>{if(t){G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: recovered (stolen)`,e,t.name);try{return await n()}finally{G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: released (stolen)`,e,t.name)}}else return console.warn(`@supabase/gotrue-js: Navigator LockManager returned null lock even with steal: true`),await n()}));throw G.debug&&console.log(`@supabase/gotrue-js: navigatorLock: lock was stolen by another request`,e),new Gr(`Lock "${e}" was released because another request stole it`)}throw a}}function qr(){if(typeof globalThis!=`object`)try{Object.defineProperty(Object.prototype,`__magic__`,{get:function(){return this},configurable:!0}),__magic__.globalThis=__magic__,delete Object.prototype.__magic__}catch{typeof self<`u`&&(self.globalThis=self)}}function Jr(e){if(!/^0x[a-fA-F0-9]{40}$/.test(e))throw Error(`@supabase/auth-js: Address "${e}" is invalid.`);return e.toLowerCase()}function Yr(e){return parseInt(e,16)}function Xr(e){let t=new TextEncoder().encode(e);return`0x`+Array.from(t,e=>e.toString(16).padStart(2,`0`)).join(``)}function Zr(e){let{chainId:t,domain:n,expirationTime:r,issuedAt:i=new Date,nonce:a,notBefore:o,requestId:s,resources:c,scheme:l,uri:u,version:d}=e;if(!Number.isInteger(t))throw Error(`@supabase/auth-js: Invalid SIWE message field "chainId". Chain ID must be a EIP-155 chain ID. Provided value: ${t}`);if(!n)throw Error(`@supabase/auth-js: Invalid SIWE message field "domain". Domain must be provided.`);if(a&&a.length<8)throw Error(`@supabase/auth-js: Invalid SIWE message field "nonce". Nonce must be at least 8 characters. Provided value: ${a}`);if(!u)throw Error(`@supabase/auth-js: Invalid SIWE message field "uri". URI must be provided.`);if(d!==`1`)throw Error(`@supabase/auth-js: Invalid SIWE message field "version". Version must be '1'. Provided value: ${d}`);if(e.statement?.includes(`
+`))throw Error(`@supabase/auth-js: Invalid SIWE message field "statement". Statement must not include '\\n'. Provided value: ${e.statement}`);let f=Jr(e.address),p=`${l?`${l}://${n}`:n} wants you to sign in with your Ethereum account:\n${f}\n\n${e.statement?`${e.statement}\n`:``}`,m=`URI: ${u}\nVersion: ${d}\nChain ID: ${t}${a?`\nNonce: ${a}`:``}\nIssued At: ${i.toISOString()}`;if(r&&(m+=`\nExpiration Time: ${r.toISOString()}`),o&&(m+=`\nNot Before: ${o.toISOString()}`),s&&(m+=`\nRequest ID: ${s}`),c){let e=`
+Resources:`;for(let t of c){if(!t||typeof t!=`string`)throw Error(`@supabase/auth-js: Invalid SIWE message field "resources". Every resource must be a valid string. Provided value: ${t}`);e+=`\n- ${t}`}m+=e}return`${p}\n${m}`}var K=class extends Error{constructor({message:e,code:t,cause:n,name:r}){super(e,{cause:n}),this.__isWebAuthnError=!0,this.name=r??(n instanceof Error?n.name:void 0)??`Unknown Error`,this.code=t}},Qr=class extends K{constructor(e,t){super({code:`ERROR_PASSTHROUGH_SEE_CAUSE_PROPERTY`,cause:t,message:e}),this.name=`WebAuthnUnknownError`,this.originalError=t}};function $r({error:e,options:t}){let{publicKey:n}=t;if(!n)throw Error(`options was missing required publicKey property`);if(e.name===`AbortError`){if(t.signal instanceof AbortSignal)return new K({message:`Registration ceremony was sent an abort signal`,code:`ERROR_CEREMONY_ABORTED`,cause:e})}else if(e.name===`ConstraintError`){if(n.authenticatorSelection?.requireResidentKey===!0)return new K({message:`Discoverable credentials were required but no available authenticator supported it`,code:`ERROR_AUTHENTICATOR_MISSING_DISCOVERABLE_CREDENTIAL_SUPPORT`,cause:e});if(t.mediation===`conditional`&&n.authenticatorSelection?.userVerification===`required`)return new K({message:`User verification was required during automatic registration but it could not be performed`,code:`ERROR_AUTO_REGISTER_USER_VERIFICATION_FAILURE`,cause:e});if(n.authenticatorSelection?.userVerification===`required`)return new K({message:`User verification was required but no available authenticator supported it`,code:`ERROR_AUTHENTICATOR_MISSING_USER_VERIFICATION_SUPPORT`,cause:e})}else if(e.name===`InvalidStateError`)return new K({message:`The authenticator was previously registered`,code:`ERROR_AUTHENTICATOR_PREVIOUSLY_REGISTERED`,cause:e});else if(e.name===`NotAllowedError`)return new K({message:e.message,code:`ERROR_PASSTHROUGH_SEE_CAUSE_PROPERTY`,cause:e});else if(e.name===`NotSupportedError`)return n.pubKeyCredParams.filter(e=>e.type===`public-key`).length===0?new K({message:`No entry in pubKeyCredParams was of type "public-key"`,code:`ERROR_MALFORMED_PUBKEYCREDPARAMS`,cause:e}):new K({message:`No available authenticator supported any of the specified pubKeyCredParams algorithms`,code:`ERROR_AUTHENTICATOR_NO_SUPPORTED_PUBKEYCREDPARAMS_ALG`,cause:e});else if(e.name===`SecurityError`){let t=window.location.hostname;if(!oi(t))return new K({message:`${window.location.hostname} is an invalid domain`,code:`ERROR_INVALID_DOMAIN`,cause:e});if(n.rp.id!==t)return new K({message:`The RP ID "${n.rp.id}" is invalid for this domain`,code:`ERROR_INVALID_RP_ID`,cause:e})}else if(e.name===`TypeError`){if(n.user.id.byteLength<1||n.user.id.byteLength>64)return new K({message:`User ID was not between 1 and 64 characters`,code:`ERROR_INVALID_USER_ID_LENGTH`,cause:e})}else if(e.name===`UnknownError`)return new K({message:`The authenticator was unable to process the specified options, or could not create a new credential`,code:`ERROR_AUTHENTICATOR_GENERAL_ERROR`,cause:e});return new K({message:`a Non-Webauthn related error has occurred`,code:`ERROR_PASSTHROUGH_SEE_CAUSE_PROPERTY`,cause:e})}function ei({error:e,options:t}){let{publicKey:n}=t;if(!n)throw Error(`options was missing required publicKey property`);if(e.name===`AbortError`){if(t.signal instanceof AbortSignal)return new K({message:`Authentication ceremony was sent an abort signal`,code:`ERROR_CEREMONY_ABORTED`,cause:e})}else if(e.name===`NotAllowedError`)return new K({message:e.message,code:`ERROR_PASSTHROUGH_SEE_CAUSE_PROPERTY`,cause:e});else if(e.name===`SecurityError`){let t=window.location.hostname;if(!oi(t))return new K({message:`${window.location.hostname} is an invalid domain`,code:`ERROR_INVALID_DOMAIN`,cause:e});if(n.rpId!==t)return new K({message:`The RP ID "${n.rpId}" is invalid for this domain`,code:`ERROR_INVALID_RP_ID`,cause:e})}else if(e.name===`UnknownError`)return new K({message:`The authenticator was unable to process the specified options, or could not create a new assertion signature`,code:`ERROR_AUTHENTICATOR_GENERAL_ERROR`,cause:e});return new K({message:`a Non-Webauthn related error has occurred`,code:`ERROR_PASSTHROUGH_SEE_CAUSE_PROPERTY`,cause:e})}var ti=new class{createNewAbortSignal(){if(this.controller){let e=Error(`Cancelling existing WebAuthn API call for new one`);e.name=`AbortError`,this.controller.abort(e)}let e=new AbortController;return this.controller=e,e.signal}cancelCeremony(){if(this.controller){let e=Error(`Manually cancelling existing WebAuthn API call`);e.name=`AbortError`,this.controller.abort(e),this.controller=void 0}}};function ni(e){if(!e)throw Error(`Credential creation options are required`);if(typeof PublicKeyCredential<`u`&&`parseCreationOptionsFromJSON`in PublicKeyCredential&&typeof PublicKeyCredential.parseCreationOptionsFromJSON==`function`)return PublicKeyCredential.parseCreationOptionsFromJSON(e);let{challenge:t,user:n,excludeCredentials:r}=e,i=oe(e,[`challenge`,`user`,`excludeCredentials`]),a=ir(t).buffer,o=Object.assign(Object.assign({},n),{id:ir(n.id).buffer}),s=Object.assign(Object.assign({},i),{challenge:a,user:o});if(r&&r.length>0){s.excludeCredentials=Array(r.length);for(let e=0;e<r.length;e++){let t=r[e];s.excludeCredentials[e]=Object.assign(Object.assign({},t),{id:ir(t.id).buffer,type:t.type||`public-key`,transports:t.transports})}}return s}function ri(e){if(!e)throw Error(`Credential request options are required`);if(typeof PublicKeyCredential<`u`&&`parseRequestOptionsFromJSON`in PublicKeyCredential&&typeof PublicKeyCredential.parseRequestOptionsFromJSON==`function`)return PublicKeyCredential.parseRequestOptionsFromJSON(e);let{challenge:t,allowCredentials:n}=e,r=oe(e,[`challenge`,`allowCredentials`]),i=ir(t).buffer,a=Object.assign(Object.assign({},r),{challenge:i});if(n&&n.length>0){a.allowCredentials=Array(n.length);for(let e=0;e<n.length;e++){let t=n[e];a.allowCredentials[e]=Object.assign(Object.assign({},t),{id:ir(t.id).buffer,type:t.type||`public-key`,transports:t.transports})}}return a}function ii(e){if(`toJSON`in e&&typeof e.toJSON==`function`)return e.toJSON();let t=e;return{id:e.id,rawId:e.id,response:{attestationObject:L(new Uint8Array(e.response.attestationObject)),clientDataJSON:L(new Uint8Array(e.response.clientDataJSON))},type:`public-key`,clientExtensionResults:e.getClientExtensionResults(),authenticatorAttachment:t.authenticatorAttachment??void 0}}function ai(e){if(`toJSON`in e&&typeof e.toJSON==`function`)return e.toJSON();let t=e,n=e.getClientExtensionResults(),r=e.response;return{id:e.id,rawId:e.id,response:{authenticatorData:L(new Uint8Array(r.authenticatorData)),clientDataJSON:L(new Uint8Array(r.clientDataJSON)),signature:L(new Uint8Array(r.signature)),userHandle:r.userHandle?L(new Uint8Array(r.userHandle)):void 0},type:`public-key`,clientExtensionResults:n,authenticatorAttachment:t.authenticatorAttachment??void 0}}function oi(e){return e===`localhost`||/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i.test(e)}function si(){return!!(R()&&`PublicKeyCredential`in window&&window.PublicKeyCredential&&`credentials`in navigator&&typeof(navigator==null?void 0:navigator.credentials)?.create==`function`&&typeof(navigator==null?void 0:navigator.credentials)?.get==`function`)}async function ci(e){try{let t=await navigator.credentials.create(e);return t?t instanceof PublicKeyCredential?{data:t,error:null}:{data:null,error:new Qr(`Browser returned unexpected credential type`,t)}:{data:null,error:new Qr(`Empty credential response`,t)}}catch(t){return{data:null,error:$r({error:t,options:e})}}}async function li(e){try{let t=await navigator.credentials.get(e);return t?t instanceof PublicKeyCredential?{data:t,error:null}:{data:null,error:new Qr(`Browser returned unexpected credential type`,t)}:{data:null,error:new Qr(`Empty credential response`,t)}}catch(t){return{data:null,error:ei({error:t,options:e})}}}var ui={hints:[`security-key`],authenticatorSelection:{authenticatorAttachment:`cross-platform`,requireResidentKey:!1,userVerification:`preferred`,residentKey:`discouraged`},attestation:`direct`},di={userVerification:`preferred`,hints:[`security-key`],attestation:`direct`};function fi(...e){let t=e=>typeof e==`object`&&!!e&&!Array.isArray(e),n=e=>e instanceof ArrayBuffer||ArrayBuffer.isView(e),r={};for(let i of e)if(i)for(let e in i){let a=i[e];if(a!==void 0)if(Array.isArray(a))r[e]=a;else if(n(a))r[e]=a;else if(t(a)){let n=r[e];t(n)?r[e]=fi(n,a):r[e]=fi(a)}else r[e]=a}return r}function pi(e,t){return fi(ui,e,t||{})}function mi(e,t){return fi(di,e,t||{})}var hi=class{constructor(e){this.client=e,this.enroll=this._enroll.bind(this),this.challenge=this._challenge.bind(this),this.verify=this._verify.bind(this),this.authenticate=this._authenticate.bind(this),this.register=this._register.bind(this)}async _enroll(e){return this.client.mfa.enroll(Object.assign(Object.assign({},e),{factorType:`webauthn`}))}async _challenge({factorId:e,webauthn:t,friendlyName:n,signal:r},i){try{let{data:a,error:o}=await this.client.mfa.challenge({factorId:e,webauthn:t});if(!a)return{data:null,error:o};let s=r??ti.createNewAbortSignal();if(a.webauthn.type===`create`){let{user:e}=a.webauthn.credential_options.publicKey;if(!e.name){let t=n;if(t)e.name=`${e.id}:${t}`;else{let t=(await this.client.getUser()).data.user,n=t?.user_metadata?.name||t?.email||t?.id||`User`;e.name=`${e.id}:${n}`}}e.displayName||=e.name}switch(a.webauthn.type){case`create`:{let{data:t,error:n}=await ci({publicKey:pi(a.webauthn.credential_options.publicKey,i?.create),signal:s});return t?{data:{factorId:e,challengeId:a.id,webauthn:{type:a.webauthn.type,credential_response:t}},error:null}:{data:null,error:n}}case`request`:{let t=mi(a.webauthn.credential_options.publicKey,i?.request),{data:n,error:r}=await li(Object.assign(Object.assign({},a.webauthn.credential_options),{publicKey:t,signal:s}));return n?{data:{factorId:e,challengeId:a.id,webauthn:{type:a.webauthn.type,credential_response:n}},error:null}:{data:null,error:r}}}}catch(e){return P(e)?{data:null,error:e}:{data:null,error:new Ln(`Unexpected error in challenge`,e)}}}async _verify({challengeId:e,factorId:t,webauthn:n}){return this.client.mfa.verify({factorId:t,challengeId:e,webauthn:n})}async _authenticate({factorId:e,webauthn:{rpId:t=typeof window<`u`?window.location.hostname:void 0,rpOrigins:n=typeof window<`u`?[window.location.origin]:void 0,signal:r}={}},i){if(!t)return{data:null,error:new Pn(`rpId is required for WebAuthn authentication`)};try{if(!si())return{data:null,error:new Ln(`Browser does not support WebAuthn`,null)};let{data:a,error:o}=await this.challenge({factorId:e,webauthn:{rpId:t,rpOrigins:n},signal:r},{request:i});if(!a)return{data:null,error:o};let{webauthn:s}=a;return this._verify({factorId:e,challengeId:a.challengeId,webauthn:{type:s.type,rpId:t,rpOrigins:n,credential_response:s.credential_response}})}catch(e){return P(e)?{data:null,error:e}:{data:null,error:new Ln(`Unexpected error in authenticate`,e)}}}async _register({friendlyName:e,webauthn:{rpId:t=typeof window<`u`?window.location.hostname:void 0,rpOrigins:n=typeof window<`u`?[window.location.origin]:void 0,signal:r}={}},i){if(!t)return{data:null,error:new Pn(`rpId is required for WebAuthn registration`)};try{if(!si())return{data:null,error:new Ln(`Browser does not support WebAuthn`,null)};let{data:a,error:o}=await this._enroll({friendlyName:e});if(!a)return await this.client.mfa.listFactors().then(t=>t.data?.all.find(t=>t.factor_type===`webauthn`&&t.friendly_name===e&&t.status!==`unverified`)).then(e=>e?this.client.mfa.unenroll({factorId:e?.id}):void 0),{data:null,error:o};let{data:s,error:c}=await this._challenge({factorId:a.id,friendlyName:a.friendly_name,webauthn:{rpId:t,rpOrigins:n},signal:r},{create:i});return s?this._verify({factorId:a.id,challengeId:s.challengeId,webauthn:{rpId:t,rpOrigins:n,type:s.webauthn.type,credential_response:s.webauthn.credential_response}}):{data:null,error:c}}catch(e){return P(e)?{data:null,error:e}:{data:null,error:new Ln(`Unexpected error in register`,e)}}}};qr();var gi={url:On,storageKey:kn,autoRefreshToken:!0,persistSession:!0,detectSessionInUrl:!0,headers:An,flowType:`implicit`,debug:!1,hasCustomAuthorizationHeader:!1,throwOnError:!1,lockAcquireTimeout:5e3,skipAutoInitialize:!1};async function _i(e,t,n){return await n()}var vi={},yi=class e{get jwks(){return vi[this.storageKey]?.jwks??{keys:[]}}set jwks(e){vi[this.storageKey]=Object.assign(Object.assign({},vi[this.storageKey]),{jwks:e})}get jwks_cached_at(){return vi[this.storageKey]?.cachedAt??-(2**53-1)}set jwks_cached_at(e){vi[this.storageKey]=Object.assign(Object.assign({},vi[this.storageKey]),{cachedAt:e})}constructor(t){var n;this.userStorage=null,this.memoryStorage=null,this.stateChangeEmitters=new Map,this.autoRefreshTicker=null,this.autoRefreshTickTimeout=null,this.visibilityChangedCallback=null,this.refreshingDeferred=null,this.initializePromise=null,this.detectSessionInUrl=!0,this.hasCustomAuthorizationHeader=!1,this.suppressGetSessionWarning=!1,this.lockAcquired=!1,this.pendingInLock=[],this.broadcastChannel=null,this.logger=console.log;let r=Object.assign(Object.assign({},gi),t);if(this.storageKey=r.storageKey,this.instanceID=e.nextInstanceID[this.storageKey]??0,e.nextInstanceID[this.storageKey]=this.instanceID+1,this.logDebugMessages=!!r.debug,typeof r.debug==`function`&&(this.logger=r.debug),this.instanceID>0&&R()){let e=`${this._logPrefix()} Multiple GoTrueClient instances detected in the same browser context. It is not an error, but this should be avoided as it may produce undefined behavior when used concurrently under the same storage key.`;console.warn(e),this.logDebugMessages&&console.trace(e)}if(this.persistSession=r.persistSession,this.autoRefreshToken=r.autoRefreshToken,this.admin=new Hr({url:r.url,headers:r.headers,fetch:r.fetch}),this.url=r.url,this.headers=r.headers,this.fetch=ur(r.fetch),this.lock=r.lock||_i,this.detectSessionInUrl=r.detectSessionInUrl,this.flowType=r.flowType,this.hasCustomAuthorizationHeader=r.hasCustomAuthorizationHeader,this.throwOnError=r.throwOnError,this.lockAcquireTimeout=r.lockAcquireTimeout,r.lock?this.lock=r.lock:this.persistSession&&R()&&(globalThis==null?void 0:globalThis.navigator)?.locks?this.lock=Kr:this.lock=_i,this.jwks||(this.jwks={keys:[]},this.jwks_cached_at=-(2**53-1)),this.mfa={verify:this._verify.bind(this),enroll:this._enroll.bind(this),unenroll:this._unenroll.bind(this),challenge:this._challenge.bind(this),listFactors:this._listFactors.bind(this),challengeAndVerify:this._challengeAndVerify.bind(this),getAuthenticatorAssuranceLevel:this._getAuthenticatorAssuranceLevel.bind(this),webauthn:new hi(this)},this.oauth={getAuthorizationDetails:this._getAuthorizationDetails.bind(this),approveAuthorization:this._approveAuthorization.bind(this),denyAuthorization:this._denyAuthorization.bind(this),listGrants:this._listOAuthGrants.bind(this),revokeGrant:this._revokeOAuthGrant.bind(this)},this.persistSession?(r.storage?this.storage=r.storage:cr()?this.storage=globalThis.localStorage:(this.memoryStorage={},this.storage=Ur(this.memoryStorage)),r.userStorage&&(this.userStorage=r.userStorage)):(this.memoryStorage={},this.storage=Ur(this.memoryStorage)),R()&&globalThis.BroadcastChannel&&this.persistSession&&this.storageKey){try{this.broadcastChannel=new globalThis.BroadcastChannel(this.storageKey)}catch(e){console.error(`Failed to create a new BroadcastChannel, multi-tab state changes will not be available`,e)}(n=this.broadcastChannel)==null||n.addEventListener(`message`,async e=>{this._debug(`received broadcast notification from other tab or client`,e);try{await this._notifyAllSubscribers(e.data.event,e.data.session,!1)}catch(e){this._debug(`#broadcastChannel`,`error`,e)}})}r.skipAutoInitialize||this.initialize().catch(e=>{this._debug(`#initialize()`,`error`,e)})}isThrowOnErrorEnabled(){return this.throwOnError}_returnResult(e){if(this.throwOnError&&e&&e.error)throw e.error;return e}_logPrefix(){return`GoTrueClient@${this.storageKey}:${this.instanceID} (${Tn}) ${new Date().toISOString()}`}_debug(...e){return this.logDebugMessages&&this.logger(this._logPrefix(),...e),this}async initialize(){return this.initializePromise||=(async()=>await this._acquireLock(this.lockAcquireTimeout,async()=>await this._initialize()))(),await this.initializePromise}async _initialize(){try{let e={},t=`none`;if(R()&&(e=lr(window.location.href),this._isImplicitGrantCallback(e)?t=`implicit`:await this._isPKCECallback(e)&&(t=`pkce`)),R()&&this.detectSessionInUrl&&t!==`none`){let{data:n,error:r}=await this._getSessionFromURL(e,t);if(r){if(this._debug(`#_initialize()`,`error detecting session from URL`,r),Hn(r)){let e=r.details?.code;if(e===`identity_already_exists`||e===`identity_not_found`||e===`single_identity_not_deletable`)return{error:r}}return{error:r}}let{session:i,redirectType:a}=n;return this._debug(`#_initialize()`,`detected session in URL`,i,`redirect type`,a),await this._saveSession(i),setTimeout(async()=>{a===`recovery`?await this._notifyAllSubscribers(`PASSWORD_RECOVERY`,i):await this._notifyAllSubscribers(`SIGNED_IN`,i)},0),{error:null}}return await this._recoverAndRefresh(),{error:null}}catch(e){return P(e)?this._returnResult({error:e}):this._returnResult({error:new Ln(`Unexpected error during initialization`,e)})}finally{await this._handleVisibilityChange(),this._debug(`#_initialize()`,`end`)}}async signInAnonymously(e){try{let{data:t,error:n}=await H(this.fetch,`POST`,`${this.url}/signup`,{headers:this.headers,body:{data:e?.options?.data??{},gotrue_meta_security:{captcha_token:e?.options?.captchaToken}},xform:U});if(n||!t)return this._returnResult({data:{user:null,session:null},error:n});let r=t.session,i=t.user;return t.session&&(await this._saveSession(t.session),await this._notifyAllSubscribers(`SIGNED_IN`,r)),this._returnResult({data:{user:i,session:r},error:null})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async signUp(e){try{let t;if(`email`in e){let{email:n,password:r,options:i}=e,a=null,o=null;this.flowType===`pkce`&&([a,o]=await xr(this.storage,this.storageKey)),t=await H(this.fetch,`POST`,`${this.url}/signup`,{headers:this.headers,redirectTo:i?.emailRedirectTo,body:{email:n,password:r,data:i?.data??{},gotrue_meta_security:{captcha_token:i?.captchaToken},code_challenge:a,code_challenge_method:o},xform:U})}else if(`phone`in e){let{phone:n,password:r,options:i}=e;t=await H(this.fetch,`POST`,`${this.url}/signup`,{headers:this.headers,body:{phone:n,password:r,data:i?.data??{},channel:i?.channel??`sms`,gotrue_meta_security:{captcha_token:i?.captchaToken}},xform:U})}else throw new Bn(`You must provide either an email or phone number and a password`);let{data:n,error:r}=t;if(r||!n)return await V(this.storage,`${this.storageKey}-code-verifier`),this._returnResult({data:{user:null,session:null},error:r});let i=n.session,a=n.user;return n.session&&(await this._saveSession(n.session),await this._notifyAllSubscribers(`SIGNED_IN`,i)),this._returnResult({data:{user:a,session:i},error:null})}catch(e){if(await V(this.storage,`${this.storageKey}-code-verifier`),P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async signInWithPassword(e){try{let t;if(`email`in e){let{email:n,password:r,options:i}=e;t=await H(this.fetch,`POST`,`${this.url}/token?grant_type=password`,{headers:this.headers,body:{email:n,password:r,gotrue_meta_security:{captcha_token:i?.captchaToken}},xform:Ir})}else if(`phone`in e){let{phone:n,password:r,options:i}=e;t=await H(this.fetch,`POST`,`${this.url}/token?grant_type=password`,{headers:this.headers,body:{phone:n,password:r,gotrue_meta_security:{captcha_token:i?.captchaToken}},xform:Ir})}else throw new Bn(`You must provide either an email or phone number and a password`);let{data:n,error:r}=t;if(r)return this._returnResult({data:{user:null,session:null},error:r});if(!n||!n.session||!n.user){let e=new zn;return this._returnResult({data:{user:null,session:null},error:e})}return n.session&&(await this._saveSession(n.session),await this._notifyAllSubscribers(`SIGNED_IN`,n.session)),this._returnResult({data:Object.assign({user:n.user,session:n.session},n.weak_password?{weakPassword:n.weak_password}:null),error:r})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async signInWithOAuth(e){return await this._handleProviderSignIn(e.provider,{redirectTo:e.options?.redirectTo,scopes:e.options?.scopes,queryParams:e.options?.queryParams,skipBrowserRedirect:e.options?.skipBrowserRedirect})}async exchangeCodeForSession(e){return await this.initializePromise,this._acquireLock(this.lockAcquireTimeout,async()=>this._exchangeCodeForSession(e))}async signInWithWeb3(e){let{chain:t}=e;switch(t){case`ethereum`:return await this.signInWithEthereum(e);case`solana`:return await this.signInWithSolana(e);default:throw Error(`@supabase/auth-js: Unsupported chain "${t}"`)}}async signInWithEthereum(e){let t,n;if(`message`in e)t=e.message,n=e.signature;else{let{chain:r,wallet:i,statement:a,options:o}=e,s;if(!R()){if(typeof i!=`object`||!o?.url)throw Error(`@supabase/auth-js: Both wallet and url must be specified in non-browser environments.`);s=i}else if(typeof i==`object`)s=i;else{let e=window;if(`ethereum`in e&&typeof e.ethereum==`object`&&`request`in e.ethereum&&typeof e.ethereum.request==`function`)s=e.ethereum;else throw Error(`@supabase/auth-js: No compatible Ethereum wallet interface on the window object (window.ethereum) detected. Make sure the user already has a wallet installed and connected for this app. Prefer passing the wallet interface object directly to signInWithWeb3({ chain: 'ethereum', wallet: resolvedUserWallet }) instead.`)}let c=new URL(o?.url??window.location.href),l=await s.request({method:`eth_requestAccounts`}).then(e=>e).catch(()=>{throw Error(`@supabase/auth-js: Wallet method eth_requestAccounts is missing or invalid`)});if(!l||l.length===0)throw Error(`@supabase/auth-js: No accounts available. Please ensure the wallet is connected.`);let u=Jr(l[0]),d=o?.signInWithEthereum?.chainId;d||=Yr(await s.request({method:`eth_chainId`})),t=Zr({domain:c.host,address:u,statement:a,uri:c.href,version:`1`,chainId:d,nonce:o?.signInWithEthereum?.nonce,issuedAt:o?.signInWithEthereum?.issuedAt??new Date,expirationTime:o?.signInWithEthereum?.expirationTime,notBefore:o?.signInWithEthereum?.notBefore,requestId:o?.signInWithEthereum?.requestId,resources:o?.signInWithEthereum?.resources}),n=await s.request({method:`personal_sign`,params:[Xr(t),u]})}try{let{data:r,error:i}=await H(this.fetch,`POST`,`${this.url}/token?grant_type=web3`,{headers:this.headers,body:Object.assign({chain:`ethereum`,message:t,signature:n},e.options?.captchaToken?{gotrue_meta_security:{captcha_token:e.options?.captchaToken}}:null),xform:U});if(i)throw i;if(!r||!r.session||!r.user){let e=new zn;return this._returnResult({data:{user:null,session:null},error:e})}return r.session&&(await this._saveSession(r.session),await this._notifyAllSubscribers(`SIGNED_IN`,r.session)),this._returnResult({data:Object.assign({},r),error:i})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async signInWithSolana(e){let t,n;if(`message`in e)t=e.message,n=e.signature;else{let{chain:r,wallet:i,statement:a,options:o}=e,s;if(!R()){if(typeof i!=`object`||!o?.url)throw Error(`@supabase/auth-js: Both wallet and url must be specified in non-browser environments.`);s=i}else if(typeof i==`object`)s=i;else{let e=window;if(`solana`in e&&typeof e.solana==`object`&&(`signIn`in e.solana&&typeof e.solana.signIn==`function`||`signMessage`in e.solana&&typeof e.solana.signMessage==`function`))s=e.solana;else throw Error(`@supabase/auth-js: No compatible Solana wallet interface on the window object (window.solana) detected. Make sure the user already has a wallet installed and connected for this app. Prefer passing the wallet interface object directly to signInWithWeb3({ chain: 'solana', wallet: resolvedUserWallet }) instead.`)}let c=new URL(o?.url??window.location.href);if(`signIn`in s&&s.signIn){let e=await s.signIn(Object.assign(Object.assign(Object.assign({issuedAt:new Date().toISOString()},o?.signInWithSolana),{version:`1`,domain:c.host,uri:c.href}),a?{statement:a}:null)),r;if(Array.isArray(e)&&e[0]&&typeof e[0]==`object`)r=e[0];else if(e&&typeof e==`object`&&`signedMessage`in e&&`signature`in e)r=e;else throw Error(`@supabase/auth-js: Wallet method signIn() returned unrecognized value`);if(`signedMessage`in r&&`signature`in r&&(typeof r.signedMessage==`string`||r.signedMessage instanceof Uint8Array)&&r.signature instanceof Uint8Array)t=typeof r.signedMessage==`string`?r.signedMessage:new TextDecoder().decode(r.signedMessage),n=r.signature;else throw Error(`@supabase/auth-js: Wallet method signIn() API returned object without signedMessage and signature fields`)}else{if(!(`signMessage`in s)||typeof s.signMessage!=`function`||!(`publicKey`in s)||typeof s!=`object`||!s.publicKey||!(`toBase58`in s.publicKey)||typeof s.publicKey.toBase58!=`function`)throw Error(`@supabase/auth-js: Wallet does not have a compatible signMessage() and publicKey.toBase58() API`);t=[`${c.host} wants you to sign in with your Solana account:`,s.publicKey.toBase58(),...a?[``,a,``]:[``],`Version: 1`,`URI: ${c.href}`,`Issued At: ${o?.signInWithSolana?.issuedAt??new Date().toISOString()}`,...o?.signInWithSolana?.notBefore?[`Not Before: ${o.signInWithSolana.notBefore}`]:[],...o?.signInWithSolana?.expirationTime?[`Expiration Time: ${o.signInWithSolana.expirationTime}`]:[],...o?.signInWithSolana?.chainId?[`Chain ID: ${o.signInWithSolana.chainId}`]:[],...o?.signInWithSolana?.nonce?[`Nonce: ${o.signInWithSolana.nonce}`]:[],...o?.signInWithSolana?.requestId?[`Request ID: ${o.signInWithSolana.requestId}`]:[],...o?.signInWithSolana?.resources?.length?[`Resources`,...o.signInWithSolana.resources.map(e=>`- ${e}`)]:[]].join(`
+`);let e=await s.signMessage(new TextEncoder().encode(t),`utf8`);if(!e||!(e instanceof Uint8Array))throw Error(`@supabase/auth-js: Wallet signMessage() API returned an recognized value`);n=e}}try{let{data:r,error:i}=await H(this.fetch,`POST`,`${this.url}/token?grant_type=web3`,{headers:this.headers,body:Object.assign({chain:`solana`,message:t,signature:L(n)},e.options?.captchaToken?{gotrue_meta_security:{captcha_token:e.options?.captchaToken}}:null),xform:U});if(i)throw i;if(!r||!r.session||!r.user){let e=new zn;return this._returnResult({data:{user:null,session:null},error:e})}return r.session&&(await this._saveSession(r.session),await this._notifyAllSubscribers(`SIGNED_IN`,r.session)),this._returnResult({data:Object.assign({},r),error:i})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async _exchangeCodeForSession(e){let[t,n]=(await B(this.storage,`${this.storageKey}-code-verifier`)??``).split(`/`);try{if(!t&&this.flowType===`pkce`)throw new Wn;let{data:r,error:i}=await H(this.fetch,`POST`,`${this.url}/token?grant_type=pkce`,{headers:this.headers,body:{auth_code:e,code_verifier:t},xform:U});if(await V(this.storage,`${this.storageKey}-code-verifier`),i)throw i;if(!r||!r.session||!r.user){let e=new zn;return this._returnResult({data:{user:null,session:null,redirectType:null},error:e})}return r.session&&(await this._saveSession(r.session),await this._notifyAllSubscribers(`SIGNED_IN`,r.session)),this._returnResult({data:Object.assign(Object.assign({},r),{redirectType:n??null}),error:i})}catch(e){if(await V(this.storage,`${this.storageKey}-code-verifier`),P(e))return this._returnResult({data:{user:null,session:null,redirectType:null},error:e});throw e}}async signInWithIdToken(e){try{let{options:t,provider:n,token:r,access_token:i,nonce:a}=e,{data:o,error:s}=await H(this.fetch,`POST`,`${this.url}/token?grant_type=id_token`,{headers:this.headers,body:{provider:n,id_token:r,access_token:i,nonce:a,gotrue_meta_security:{captcha_token:t?.captchaToken}},xform:U});if(s)return this._returnResult({data:{user:null,session:null},error:s});if(!o||!o.session||!o.user){let e=new zn;return this._returnResult({data:{user:null,session:null},error:e})}return o.session&&(await this._saveSession(o.session),await this._notifyAllSubscribers(`SIGNED_IN`,o.session)),this._returnResult({data:o,error:s})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async signInWithOtp(e){try{if(`email`in e){let{email:t,options:n}=e,r=null,i=null;this.flowType===`pkce`&&([r,i]=await xr(this.storage,this.storageKey));let{error:a}=await H(this.fetch,`POST`,`${this.url}/otp`,{headers:this.headers,body:{email:t,data:n?.data??{},create_user:n?.shouldCreateUser??!0,gotrue_meta_security:{captcha_token:n?.captchaToken},code_challenge:r,code_challenge_method:i},redirectTo:n?.emailRedirectTo});return this._returnResult({data:{user:null,session:null},error:a})}if(`phone`in e){let{phone:t,options:n}=e,{data:r,error:i}=await H(this.fetch,`POST`,`${this.url}/otp`,{headers:this.headers,body:{phone:t,data:n?.data??{},create_user:n?.shouldCreateUser??!0,gotrue_meta_security:{captcha_token:n?.captchaToken},channel:n?.channel??`sms`}});return this._returnResult({data:{user:null,session:null,messageId:r?.message_id},error:i})}throw new Bn(`You must provide either an email or phone number.`)}catch(e){if(await V(this.storage,`${this.storageKey}-code-verifier`),P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async verifyOtp(e){try{let t,n;`options`in e&&(t=e.options?.redirectTo,n=e.options?.captchaToken);let{data:r,error:i}=await H(this.fetch,`POST`,`${this.url}/verify`,{headers:this.headers,body:Object.assign(Object.assign({},e),{gotrue_meta_security:{captcha_token:n}}),redirectTo:t,xform:U});if(i)throw i;if(!r)throw Error(`An error occurred on token verification.`);let a=r.session,o=r.user;return a?.access_token&&(await this._saveSession(a),await this._notifyAllSubscribers(e.type==`recovery`?`PASSWORD_RECOVERY`:`SIGNED_IN`,a)),this._returnResult({data:{user:o,session:a},error:null})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async signInWithSSO(e){try{let t=null,n=null;this.flowType===`pkce`&&([t,n]=await xr(this.storage,this.storageKey));let r=await H(this.fetch,`POST`,`${this.url}/sso`,{body:Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({},`providerId`in e?{provider_id:e.providerId}:null),`domain`in e?{domain:e.domain}:null),{redirect_to:e.options?.redirectTo??void 0}),e?.options?.captchaToken?{gotrue_meta_security:{captcha_token:e.options.captchaToken}}:null),{skip_http_redirect:!0,code_challenge:t,code_challenge_method:n}),headers:this.headers,xform:Lr});return r.data?.url&&R()&&!e.options?.skipBrowserRedirect&&window.location.assign(r.data.url),this._returnResult(r)}catch(e){if(await V(this.storage,`${this.storageKey}-code-verifier`),P(e))return this._returnResult({data:null,error:e});throw e}}async reauthenticate(){return await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>await this._reauthenticate())}async _reauthenticate(){try{return await this._useSession(async e=>{let{data:{session:t},error:n}=e;if(n)throw n;if(!t)throw new I;let{error:r}=await H(this.fetch,`GET`,`${this.url}/reauthenticate`,{headers:this.headers,jwt:t.access_token});return this._returnResult({data:{user:null,session:null},error:r})})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async resend(e){try{let t=`${this.url}/resend`;if(`email`in e){let{email:n,type:r,options:i}=e,{error:a}=await H(this.fetch,`POST`,t,{headers:this.headers,body:{email:n,type:r,gotrue_meta_security:{captcha_token:i?.captchaToken}},redirectTo:i?.emailRedirectTo});return this._returnResult({data:{user:null,session:null},error:a})}else if(`phone`in e){let{phone:n,type:r,options:i}=e,{data:a,error:o}=await H(this.fetch,`POST`,t,{headers:this.headers,body:{phone:n,type:r,gotrue_meta_security:{captcha_token:i?.captchaToken}}});return this._returnResult({data:{user:null,session:null,messageId:a?.message_id},error:o})}throw new Bn(`You must provide either an email or phone number and a type`)}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async getSession(){return await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>this._useSession(async e=>e))}async _acquireLock(e,t){this._debug(`#_acquireLock`,`begin`,e);try{if(this.lockAcquired){let e=this.pendingInLock.length?this.pendingInLock[this.pendingInLock.length-1]:Promise.resolve(),n=(async()=>(await e,await t()))();return this.pendingInLock.push((async()=>{try{await n}catch{}})()),n}return await this.lock(`lock:${this.storageKey}`,e,async()=>{this._debug(`#_acquireLock`,`lock acquired for storage key`,this.storageKey);try{this.lockAcquired=!0;let e=t();for(this.pendingInLock.push((async()=>{try{await e}catch{}})()),await e;this.pendingInLock.length;){let e=[...this.pendingInLock];await Promise.all(e),this.pendingInLock.splice(0,e.length)}return await e}finally{this._debug(`#_acquireLock`,`lock released for storage key`,this.storageKey),this.lockAcquired=!1}})}finally{this._debug(`#_acquireLock`,`end`)}}async _useSession(e){this._debug(`#_useSession`,`begin`);try{return await e(await this.__loadSession())}finally{this._debug(`#_useSession`,`end`)}}async __loadSession(){this._debug(`#__loadSession()`,`begin`),this.lockAcquired||this._debug(`#__loadSession()`,`used outside of an acquired lock!`,Error().stack);try{let e=null,t=await B(this.storage,this.storageKey);if(this._debug(`#getSession()`,`session from storage`,t),t!==null&&(this._isValidSession(t)?e=t:(this._debug(`#getSession()`,`session from storage is not valid`),await this._removeSession())),!e)return{data:{session:null},error:null};let n=e.expires_at?e.expires_at*1e3-Date.now()<Dn:!1;if(this._debug(`#__loadSession()`,`session has${n?``:` not`} expired`,`expires_at`,e.expires_at),!n){if(this.userStorage){let t=await B(this.userStorage,this.storageKey+`-user`);t?.user?e.user=t.user:e.user=Or()}if(this.storage.isServer&&e.user&&!e.user.__isUserNotAvailableProxy){let t={value:this.suppressGetSessionWarning};e.user=kr(e.user,t),t.value&&(this.suppressGetSessionWarning=!0)}return{data:{session:e},error:null}}let{data:r,error:i}=await this._callRefreshToken(e.refresh_token);return i?this._returnResult({data:{session:null},error:i}):this._returnResult({data:{session:r},error:null})}finally{this._debug(`#__loadSession()`,`end`)}}async getUser(e){if(e)return await this._getUser(e);await this.initializePromise;let t=await this._acquireLock(this.lockAcquireTimeout,async()=>await this._getUser());return t.data.user&&(this.suppressGetSessionWarning=!0),t}async _getUser(e){try{return e?await H(this.fetch,`GET`,`${this.url}/user`,{headers:this.headers,jwt:e,xform:W}):await this._useSession(async e=>{let{data:t,error:n}=e;if(n)throw n;return!t.session?.access_token&&!this.hasCustomAuthorizationHeader?{data:{user:null},error:new I}:await H(this.fetch,`GET`,`${this.url}/user`,{headers:this.headers,jwt:t.session?.access_token??void 0,xform:W})})}catch(e){if(P(e))return Rn(e)&&(await this._removeSession(),await V(this.storage,`${this.storageKey}-code-verifier`)),this._returnResult({data:{user:null},error:e});throw e}}async updateUser(e,t={}){return await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>await this._updateUser(e,t))}async _updateUser(e,t={}){try{return await this._useSession(async n=>{let{data:r,error:i}=n;if(i)throw i;if(!r.session)throw new I;let a=r.session,o=null,s=null;this.flowType===`pkce`&&e.email!=null&&([o,s]=await xr(this.storage,this.storageKey));let{data:c,error:l}=await H(this.fetch,`PUT`,`${this.url}/user`,{headers:this.headers,redirectTo:t?.emailRedirectTo,body:Object.assign(Object.assign({},e),{code_challenge:o,code_challenge_method:s}),jwt:a.access_token,xform:W});if(l)throw l;return a.user=c.user,await this._saveSession(a),await this._notifyAllSubscribers(`USER_UPDATED`,a),this._returnResult({data:{user:a.user},error:null})})}catch(e){if(await V(this.storage,`${this.storageKey}-code-verifier`),P(e))return this._returnResult({data:{user:null},error:e});throw e}}async setSession(e){return await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>await this._setSession(e))}async _setSession(e){try{if(!e.access_token||!e.refresh_token)throw new I;let t=Date.now()/1e3,n=t,r=!0,i=null,{payload:a}=mr(e.access_token);if(a.exp&&(n=a.exp,r=n<=t),r){let{data:t,error:n}=await this._callRefreshToken(e.refresh_token);if(n)return this._returnResult({data:{user:null,session:null},error:n});if(!t)return{data:{user:null,session:null},error:null};i=t}else{let{data:r,error:a}=await this._getUser(e.access_token);if(a)return this._returnResult({data:{user:null,session:null},error:a});i={access_token:e.access_token,refresh_token:e.refresh_token,user:r.user,token_type:`bearer`,expires_in:n-t,expires_at:n},await this._saveSession(i),await this._notifyAllSubscribers(`SIGNED_IN`,i)}return this._returnResult({data:{user:i.user,session:i},error:null})}catch(e){if(P(e))return this._returnResult({data:{session:null,user:null},error:e});throw e}}async refreshSession(e){return await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>await this._refreshSession(e))}async _refreshSession(e){try{return await this._useSession(async t=>{if(!e){let{data:n,error:r}=t;if(r)throw r;e=n.session??void 0}if(!e?.refresh_token)throw new I;let{data:n,error:r}=await this._callRefreshToken(e.refresh_token);return r?this._returnResult({data:{user:null,session:null},error:r}):n?this._returnResult({data:{user:n.user,session:n},error:null}):this._returnResult({data:{user:null,session:null},error:null})})}catch(e){if(P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async _getSessionFromURL(e,t){try{if(!R())throw new Vn(`No browser detected.`);if(e.error||e.error_description||e.error_code)throw new Vn(e.error_description||`Error in URL with unspecified error_description`,{error:e.error||`unspecified_error`,code:e.error_code||`unspecified_code`});switch(t){case`implicit`:if(this.flowType===`pkce`)throw new Un(`Not a valid PKCE flow url.`);break;case`pkce`:if(this.flowType===`implicit`)throw new Vn(`Not a valid implicit grant flow url.`);break;default:}if(t===`pkce`){if(this._debug(`#_initialize()`,`begin`,`is PKCE flow`,!0),!e.code)throw new Un(`No code detected.`);let{data:t,error:n}=await this._exchangeCodeForSession(e.code);if(n)throw n;let r=new URL(window.location.href);return r.searchParams.delete(`code`),window.history.replaceState(window.history.state,``,r.toString()),{data:{session:t.session,redirectType:null},error:null}}let{provider_token:n,provider_refresh_token:r,access_token:i,refresh_token:a,expires_in:o,expires_at:s,token_type:c}=e;if(!i||!o||!a||!c)throw new Vn(`No session defined in URL`);let l=Math.round(Date.now()/1e3),u=parseInt(o),d=l+u;s&&(d=parseInt(s));let f=d-l;f*1e3<=3e4&&console.warn(`@supabase/gotrue-js: Session as retrieved from URL expires in ${f}s, should have been closer to ${u}s`);let p=d-u;l-p>=120?console.warn(`@supabase/gotrue-js: Session as retrieved from URL was issued over 120s ago, URL could be stale`,p,d,l):l-p<0&&console.warn(`@supabase/gotrue-js: Session as retrieved from URL was issued in the future? Check the device clock for skew`,p,d,l);let{data:m,error:h}=await this._getUser(i);if(h)throw h;let g={provider_token:n,provider_refresh_token:r,access_token:i,expires_in:u,expires_at:d,refresh_token:a,token_type:c,user:m.user};return window.location.hash=``,this._debug(`#_getSessionFromURL()`,`clearing window.location.hash`),this._returnResult({data:{session:g,redirectType:e.type},error:null})}catch(e){if(P(e))return this._returnResult({data:{session:null,redirectType:null},error:e});throw e}}_isImplicitGrantCallback(e){return typeof this.detectSessionInUrl==`function`?this.detectSessionInUrl(new URL(window.location.href),e):!!(e.access_token||e.error_description)}async _isPKCECallback(e){let t=await B(this.storage,`${this.storageKey}-code-verifier`);return!!(e.code&&t)}async signOut(e={scope:`global`}){return await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>await this._signOut(e))}async _signOut({scope:e}={scope:`global`}){return await this._useSession(async t=>{let{data:n,error:r}=t;if(r&&!Rn(r))return this._returnResult({error:r});let i=n.session?.access_token;if(i){let{error:t}=await this.admin.signOut(i,e);if(t&&!(In(t)&&(t.status===404||t.status===401||t.status===403)||Rn(t)))return this._returnResult({error:t})}return e!==`others`&&(await this._removeSession(),await V(this.storage,`${this.storageKey}-code-verifier`)),this._returnResult({error:null})})}onAuthStateChange(e){let t=sr(),n={id:t,callback:e,unsubscribe:()=>{this._debug(`#unsubscribe()`,`state change callback with id removed`,t),this.stateChangeEmitters.delete(t)}};return this._debug(`#onAuthStateChange()`,`registered callback with id`,t),this.stateChangeEmitters.set(t,n),(async()=>{await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>{this._emitInitialSession(t)})})(),{data:{subscription:n}}}async _emitInitialSession(e){return await this._useSession(async t=>{try{let{data:{session:n},error:r}=t;if(r)throw r;await this.stateChangeEmitters.get(e)?.callback(`INITIAL_SESSION`,n),this._debug(`INITIAL_SESSION`,`callback id`,e,`session`,n)}catch(t){await this.stateChangeEmitters.get(e)?.callback(`INITIAL_SESSION`,null),this._debug(`INITIAL_SESSION`,`callback id`,e,`error`,t),console.error(t)}})}async resetPasswordForEmail(e,t={}){let n=null,r=null;this.flowType===`pkce`&&([n,r]=await xr(this.storage,this.storageKey,!0));try{return await H(this.fetch,`POST`,`${this.url}/recover`,{body:{email:e,code_challenge:n,code_challenge_method:r,gotrue_meta_security:{captcha_token:t.captchaToken}},headers:this.headers,redirectTo:t.redirectTo})}catch(e){if(await V(this.storage,`${this.storageKey}-code-verifier`),P(e))return this._returnResult({data:null,error:e});throw e}}async getUserIdentities(){try{let{data:e,error:t}=await this.getUser();if(t)throw t;return this._returnResult({data:{identities:e.user.identities??[]},error:null})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async linkIdentity(e){return`token`in e?this.linkIdentityIdToken(e):this.linkIdentityOAuth(e)}async linkIdentityOAuth(e){try{let{data:t,error:n}=await this._useSession(async t=>{let{data:n,error:r}=t;if(r)throw r;let i=await this._getUrlForProvider(`${this.url}/user/identities/authorize`,e.provider,{redirectTo:e.options?.redirectTo,scopes:e.options?.scopes,queryParams:e.options?.queryParams,skipBrowserRedirect:!0});return await H(this.fetch,`GET`,i,{headers:this.headers,jwt:n.session?.access_token??void 0})});if(n)throw n;return R()&&!e.options?.skipBrowserRedirect&&window.location.assign(t?.url),this._returnResult({data:{provider:e.provider,url:t?.url},error:null})}catch(t){if(P(t))return this._returnResult({data:{provider:e.provider,url:null},error:t});throw t}}async linkIdentityIdToken(e){return await this._useSession(async t=>{try{let{error:n,data:{session:r}}=t;if(n)throw n;let{options:i,provider:a,token:o,access_token:s,nonce:c}=e,{data:l,error:u}=await H(this.fetch,`POST`,`${this.url}/token?grant_type=id_token`,{headers:this.headers,jwt:r?.access_token??void 0,body:{provider:a,id_token:o,access_token:s,nonce:c,link_identity:!0,gotrue_meta_security:{captcha_token:i?.captchaToken}},xform:U});return u?this._returnResult({data:{user:null,session:null},error:u}):!l||!l.session||!l.user?this._returnResult({data:{user:null,session:null},error:new zn}):(l.session&&(await this._saveSession(l.session),await this._notifyAllSubscribers(`USER_UPDATED`,l.session)),this._returnResult({data:l,error:u}))}catch(e){if(await V(this.storage,`${this.storageKey}-code-verifier`),P(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}})}async unlinkIdentity(e){try{return await this._useSession(async t=>{let{data:n,error:r}=t;if(r)throw r;return await H(this.fetch,`DELETE`,`${this.url}/user/identities/${e.identity_id}`,{headers:this.headers,jwt:n.session?.access_token??void 0})})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async _refreshAccessToken(e){let t=`#_refreshAccessToken(${e.substring(0,5)}...)`;this._debug(t,`begin`);try{let n=Date.now();return await gr(async n=>(n>0&&await hr(200*2**(n-1)),this._debug(t,`refreshing attempt`,n),await H(this.fetch,`POST`,`${this.url}/token?grant_type=refresh_token`,{body:{refresh_token:e},headers:this.headers,xform:U})),(e,t)=>{let r=200*2**e;return t&&Kn(t)&&Date.now()+r-n<3e4})}catch(e){if(this._debug(t,`error`,e),P(e))return this._returnResult({data:{session:null,user:null},error:e});throw e}finally{this._debug(t,`end`)}}_isValidSession(e){return typeof e==`object`&&!!e&&`access_token`in e&&`refresh_token`in e&&`expires_at`in e}async _handleProviderSignIn(e,t){let n=await this._getUrlForProvider(`${this.url}/authorize`,e,{redirectTo:t.redirectTo,scopes:t.scopes,queryParams:t.queryParams});return this._debug(`#_handleProviderSignIn()`,`provider`,e,`options`,t,`url`,n),R()&&!t.skipBrowserRedirect&&window.location.assign(n),{data:{provider:e,url:n},error:null}}async _recoverAndRefresh(){let e=`#_recoverAndRefresh()`;this._debug(e,`begin`);try{let t=await B(this.storage,this.storageKey);if(t&&this.userStorage){let e=await B(this.userStorage,this.storageKey+`-user`);!this.storage.isServer&&Object.is(this.storage,this.userStorage)&&!e&&(e={user:t.user},await fr(this.userStorage,this.storageKey+`-user`,e)),t.user=e?.user??Or()}else if(t&&!t.user&&!t.user){let e=await B(this.storage,this.storageKey+`-user`);e&&e?.user?(t.user=e.user,await V(this.storage,this.storageKey+`-user`),await fr(this.storage,this.storageKey,t)):t.user=Or()}if(this._debug(e,`session from storage`,t),!this._isValidSession(t)){this._debug(e,`session is not valid`),t!==null&&await this._removeSession();return}let n=(t.expires_at??1/0)*1e3-Date.now()<Dn;if(this._debug(e,`session has${n?``:` not`} expired with margin of ${Dn}s`),n){if(this.autoRefreshToken&&t.refresh_token){let{error:n}=await this._callRefreshToken(t.refresh_token);n&&(console.error(n),Kn(n)||(this._debug(e,`refresh failed with a non-retryable error, removing the session`,n),await this._removeSession()))}}else if(t.user&&t.user.__isUserNotAvailableProxy===!0)try{let{data:n,error:r}=await this._getUser(t.access_token);!r&&n?.user?(t.user=n.user,await this._saveSession(t),await this._notifyAllSubscribers(`SIGNED_IN`,t)):this._debug(e,`could not get user data, skipping SIGNED_IN notification`)}catch(t){console.error(`Error getting user data:`,t),this._debug(e,`error getting user data, skipping SIGNED_IN notification`,t)}else await this._notifyAllSubscribers(`SIGNED_IN`,t)}catch(t){this._debug(e,`error`,t),console.error(t);return}finally{this._debug(e,`end`)}}async _callRefreshToken(e){var t,n;if(!e)throw new I;if(this.refreshingDeferred)return this.refreshingDeferred.promise;let r=`#_callRefreshToken(${e.substring(0,5)}...)`;this._debug(r,`begin`);try{this.refreshingDeferred=new pr;let{data:t,error:n}=await this._refreshAccessToken(e);if(n)throw n;if(!t.session)throw new I;await this._saveSession(t.session),await this._notifyAllSubscribers(`TOKEN_REFRESHED`,t.session);let r={data:t.session,error:null};return this.refreshingDeferred.resolve(r),r}catch(e){if(this._debug(r,`error`,e),P(e)){let n={data:null,error:e};return Kn(e)||await this._removeSession(),(t=this.refreshingDeferred)==null||t.resolve(n),n}throw(n=this.refreshingDeferred)==null||n.reject(e),e}finally{this.refreshingDeferred=null,this._debug(r,`end`)}}async _notifyAllSubscribers(e,t,n=!0){let r=`#_notifyAllSubscribers(${e})`;this._debug(r,`begin`,t,`broadcast = ${n}`);try{this.broadcastChannel&&n&&this.broadcastChannel.postMessage({event:e,session:t});let r=[],i=Array.from(this.stateChangeEmitters.values()).map(async n=>{try{await n.callback(e,t)}catch(e){r.push(e)}});if(await Promise.all(i),r.length>0){for(let e=0;e<r.length;e+=1)console.error(r[e]);throw r[0]}}finally{this._debug(r,`end`)}}async _saveSession(e){this._debug(`#_saveSession()`,e),this.suppressGetSessionWarning=!0,await V(this.storage,`${this.storageKey}-code-verifier`);let t=Object.assign({},e),n=t.user&&t.user.__isUserNotAvailableProxy===!0;if(this.userStorage){!n&&t.user&&await fr(this.userStorage,this.storageKey+`-user`,{user:t.user});let e=Object.assign({},t);delete e.user;let r=Ar(e);await fr(this.storage,this.storageKey,r)}else{let e=Ar(t);await fr(this.storage,this.storageKey,e)}}async _removeSession(){this._debug(`#_removeSession()`),this.suppressGetSessionWarning=!1,await V(this.storage,this.storageKey),await V(this.storage,this.storageKey+`-code-verifier`),await V(this.storage,this.storageKey+`-user`),this.userStorage&&await V(this.userStorage,this.storageKey+`-user`),await this._notifyAllSubscribers(`SIGNED_OUT`,null)}_removeVisibilityChangedCallback(){this._debug(`#_removeVisibilityChangedCallback()`);let e=this.visibilityChangedCallback;this.visibilityChangedCallback=null;try{e&&R()&&window!=null&&window.removeEventListener&&window.removeEventListener(`visibilitychange`,e)}catch(e){console.error(`removing visibilitychange callback failed`,e)}}async _startAutoRefresh(){await this._stopAutoRefresh(),this._debug(`#_startAutoRefresh()`);let e=setInterval(()=>this._autoRefreshTokenTick(),En);this.autoRefreshTicker=e,e&&typeof e==`object`&&typeof e.unref==`function`?e.unref():typeof Deno<`u`&&typeof Deno.unrefTimer==`function`&&Deno.unrefTimer(e);let t=setTimeout(async()=>{await this.initializePromise,await this._autoRefreshTokenTick()},0);this.autoRefreshTickTimeout=t,t&&typeof t==`object`&&typeof t.unref==`function`?t.unref():typeof Deno<`u`&&typeof Deno.unrefTimer==`function`&&Deno.unrefTimer(t)}async _stopAutoRefresh(){this._debug(`#_stopAutoRefresh()`);let e=this.autoRefreshTicker;this.autoRefreshTicker=null,e&&clearInterval(e);let t=this.autoRefreshTickTimeout;this.autoRefreshTickTimeout=null,t&&clearTimeout(t)}async startAutoRefresh(){this._removeVisibilityChangedCallback(),await this._startAutoRefresh()}async stopAutoRefresh(){this._removeVisibilityChangedCallback(),await this._stopAutoRefresh()}async _autoRefreshTokenTick(){this._debug(`#_autoRefreshTokenTick()`,`begin`);try{await this._acquireLock(0,async()=>{try{let e=Date.now();try{return await this._useSession(async t=>{let{data:{session:n}}=t;if(!n||!n.refresh_token||!n.expires_at){this._debug(`#_autoRefreshTokenTick()`,`no session`);return}let r=Math.floor((n.expires_at*1e3-e)/En);this._debug(`#_autoRefreshTokenTick()`,`access token expires in ${r} ticks, a tick lasts ${En}ms, refresh threshold is 3 ticks`),r<=3&&await this._callRefreshToken(n.refresh_token)})}catch(e){console.error(`Auto refresh tick failed with error. This is likely a transient error.`,e)}}finally{this._debug(`#_autoRefreshTokenTick()`,`end`)}})}catch(e){if(e.isAcquireTimeout||e instanceof Wr)this._debug(`auto refresh token tick lock not available`);else throw e}}async _handleVisibilityChange(){if(this._debug(`#_handleVisibilityChange()`),!R()||!(window!=null&&window.addEventListener))return this.autoRefreshToken&&this.startAutoRefresh(),!1;try{this.visibilityChangedCallback=async()=>{try{await this._onVisibilityChanged(!1)}catch(e){this._debug(`#visibilityChangedCallback`,`error`,e)}},window==null||window.addEventListener(`visibilitychange`,this.visibilityChangedCallback),await this._onVisibilityChanged(!0)}catch(e){console.error(`_handleVisibilityChange`,e)}}async _onVisibilityChanged(e){let t=`#_onVisibilityChanged(${e})`;this._debug(t,`visibilityState`,document.visibilityState),document.visibilityState===`visible`?(this.autoRefreshToken&&this._startAutoRefresh(),e||(await this.initializePromise,await this._acquireLock(this.lockAcquireTimeout,async()=>{if(document.visibilityState!==`visible`){this._debug(t,`acquired the lock to recover the session, but the browser visibilityState is no longer visible, aborting`);return}await this._recoverAndRefresh()}))):document.visibilityState===`hidden`&&this.autoRefreshToken&&this._stopAutoRefresh()}async _getUrlForProvider(e,t,n){let r=[`provider=${encodeURIComponent(t)}`];if(n?.redirectTo&&r.push(`redirect_to=${encodeURIComponent(n.redirectTo)}`),n?.scopes&&r.push(`scopes=${encodeURIComponent(n.scopes)}`),this.flowType===`pkce`){let[e,t]=await xr(this.storage,this.storageKey),n=new URLSearchParams({code_challenge:`${encodeURIComponent(e)}`,code_challenge_method:`${encodeURIComponent(t)}`});r.push(n.toString())}if(n?.queryParams){let e=new URLSearchParams(n.queryParams);r.push(e.toString())}return n?.skipBrowserRedirect&&r.push(`skip_http_redirect=${n.skipBrowserRedirect}`),`${e}?${r.join(`&`)}`}async _unenroll(e){try{return await this._useSession(async t=>{let{data:n,error:r}=t;return r?this._returnResult({data:null,error:r}):await H(this.fetch,`DELETE`,`${this.url}/factors/${e.factorId}`,{headers:this.headers,jwt:n?.session?.access_token})})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async _enroll(e){try{return await this._useSession(async t=>{let{data:n,error:r}=t;if(r)return this._returnResult({data:null,error:r});let i=Object.assign({friendly_name:e.friendlyName,factor_type:e.factorType},e.factorType===`phone`?{phone:e.phone}:e.factorType===`totp`?{issuer:e.issuer}:{}),{data:a,error:o}=await H(this.fetch,`POST`,`${this.url}/factors`,{body:i,headers:this.headers,jwt:n?.session?.access_token});return o?this._returnResult({data:null,error:o}):(e.factorType===`totp`&&a.type===`totp`&&a?.totp?.qr_code&&(a.totp.qr_code=`data:image/svg+xml;utf-8,${a.totp.qr_code}`),this._returnResult({data:a,error:null}))})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async _verify(e){return this._acquireLock(this.lockAcquireTimeout,async()=>{try{return await this._useSession(async t=>{let{data:n,error:r}=t;if(r)return this._returnResult({data:null,error:r});let i=Object.assign({challenge_id:e.challengeId},`webauthn`in e?{webauthn:Object.assign(Object.assign({},e.webauthn),{credential_response:e.webauthn.type===`create`?ii(e.webauthn.credential_response):ai(e.webauthn.credential_response)})}:{code:e.code}),{data:a,error:o}=await H(this.fetch,`POST`,`${this.url}/factors/${e.factorId}/verify`,{body:i,headers:this.headers,jwt:n?.session?.access_token});return o?this._returnResult({data:null,error:o}):(await this._saveSession(Object.assign({expires_at:Math.round(Date.now()/1e3)+a.expires_in},a)),await this._notifyAllSubscribers(`MFA_CHALLENGE_VERIFIED`,a),this._returnResult({data:a,error:o}))})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}})}async _challenge(e){return this._acquireLock(this.lockAcquireTimeout,async()=>{try{return await this._useSession(async t=>{let{data:n,error:r}=t;if(r)return this._returnResult({data:null,error:r});let i=await H(this.fetch,`POST`,`${this.url}/factors/${e.factorId}/challenge`,{body:e,headers:this.headers,jwt:n?.session?.access_token});if(i.error)return i;let{data:a}=i;if(a.type!==`webauthn`)return{data:a,error:null};switch(a.webauthn.type){case`create`:return{data:Object.assign(Object.assign({},a),{webauthn:Object.assign(Object.assign({},a.webauthn),{credential_options:Object.assign(Object.assign({},a.webauthn.credential_options),{publicKey:ni(a.webauthn.credential_options.publicKey)})})}),error:null};case`request`:return{data:Object.assign(Object.assign({},a),{webauthn:Object.assign(Object.assign({},a.webauthn),{credential_options:Object.assign(Object.assign({},a.webauthn.credential_options),{publicKey:ri(a.webauthn.credential_options.publicKey)})})}),error:null}}})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}})}async _challengeAndVerify(e){let{data:t,error:n}=await this._challenge({factorId:e.factorId});return n?this._returnResult({data:null,error:n}):await this._verify({factorId:e.factorId,challengeId:t.id,code:e.code})}async _listFactors(){let{data:{user:e},error:t}=await this.getUser();if(t)return{data:null,error:t};let n={all:[],phone:[],totp:[],webauthn:[]};for(let t of e?.factors??[])n.all.push(t),t.status===`verified`&&n[t.factor_type].push(t);return{data:n,error:null}}async _getAuthenticatorAssuranceLevel(e){if(e)try{let{payload:t}=mr(e),n=null;t.aal&&(n=t.aal);let r=n,{data:{user:i},error:a}=await this.getUser(e);if(a)return this._returnResult({data:null,error:a});((i?.factors)?.filter(e=>e.status===`verified`)??[]).length>0&&(r=`aal2`);let o=t.amr||[];return{data:{currentLevel:n,nextLevel:r,currentAuthenticationMethods:o},error:null}}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}let{data:{session:t},error:n}=await this.getSession();if(n)return this._returnResult({data:null,error:n});if(!t)return{data:{currentLevel:null,nextLevel:null,currentAuthenticationMethods:[]},error:null};let{payload:r}=mr(t.access_token),i=null;r.aal&&(i=r.aal);let a=i;(t.user.factors?.filter(e=>e.status===`verified`)??[]).length>0&&(a=`aal2`);let o=r.amr||[];return{data:{currentLevel:i,nextLevel:a,currentAuthenticationMethods:o},error:null}}async _getAuthorizationDetails(e){try{return await this._useSession(async t=>{let{data:{session:n},error:r}=t;return r?this._returnResult({data:null,error:r}):n?await H(this.fetch,`GET`,`${this.url}/oauth/authorizations/${e}`,{headers:this.headers,jwt:n.access_token,xform:e=>({data:e,error:null})}):this._returnResult({data:null,error:new I})})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async _approveAuthorization(e,t){try{return await this._useSession(async n=>{let{data:{session:r},error:i}=n;if(i)return this._returnResult({data:null,error:i});if(!r)return this._returnResult({data:null,error:new I});let a=await H(this.fetch,`POST`,`${this.url}/oauth/authorizations/${e}/consent`,{headers:this.headers,jwt:r.access_token,body:{action:`approve`},xform:e=>({data:e,error:null})});return a.data&&a.data.redirect_url&&R()&&!t?.skipBrowserRedirect&&window.location.assign(a.data.redirect_url),a})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async _denyAuthorization(e,t){try{return await this._useSession(async n=>{let{data:{session:r},error:i}=n;if(i)return this._returnResult({data:null,error:i});if(!r)return this._returnResult({data:null,error:new I});let a=await H(this.fetch,`POST`,`${this.url}/oauth/authorizations/${e}/consent`,{headers:this.headers,jwt:r.access_token,body:{action:`deny`},xform:e=>({data:e,error:null})});return a.data&&a.data.redirect_url&&R()&&!t?.skipBrowserRedirect&&window.location.assign(a.data.redirect_url),a})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async _listOAuthGrants(){try{return await this._useSession(async e=>{let{data:{session:t},error:n}=e;return n?this._returnResult({data:null,error:n}):t?await H(this.fetch,`GET`,`${this.url}/user/oauth/grants`,{headers:this.headers,jwt:t.access_token,xform:e=>({data:e,error:null})}):this._returnResult({data:null,error:new I})})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async _revokeOAuthGrant(e){try{return await this._useSession(async t=>{let{data:{session:n},error:r}=t;return r?this._returnResult({data:null,error:r}):n?(await H(this.fetch,`DELETE`,`${this.url}/user/oauth/grants`,{headers:this.headers,jwt:n.access_token,query:{client_id:e.clientId},noResolveJson:!0}),{data:{},error:null}):this._returnResult({data:null,error:new I})})}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}async fetchJwk(e,t={keys:[]}){let n=t.keys.find(t=>t.kid===e);if(n)return n;let r=Date.now();if(n=this.jwks.keys.find(t=>t.kid===e),n&&this.jwks_cached_at+6e5>r)return n;let{data:i,error:a}=await H(this.fetch,`GET`,`${this.url}/.well-known/jwks.json`,{headers:this.headers});if(a)throw a;return!i.keys||i.keys.length===0||(this.jwks=i,this.jwks_cached_at=r,n=i.keys.find(t=>t.kid===e),!n)?null:n}async getClaims(e,t={}){try{let n=e;if(!n){let{data:e,error:t}=await this.getSession();if(t||!e.session)return this._returnResult({data:null,error:t});n=e.session.access_token}let{header:r,payload:i,signature:a,raw:{header:o,payload:s}}=mr(n);t?.allowExpired||wr(i.exp);let c=!r.alg||r.alg.startsWith(`HS`)||!r.kid||!(`crypto`in globalThis&&`subtle`in globalThis.crypto)?null:await this.fetchJwk(r.kid,t?.keys?{keys:t.keys}:t?.jwks);if(!c){let{error:e}=await this.getUser(n);if(e)throw e;return{data:{claims:i,header:r,signature:a},error:null}}let l=Tr(r.alg),u=await crypto.subtle.importKey(`jwk`,c,l,!0,[`verify`]);if(!await crypto.subtle.verify(l,u,a,ar(`${o}.${s}`)))throw new Jn(`Invalid JWT signature`);return{data:{claims:i,header:r,signature:a},error:null}}catch(e){if(P(e))return this._returnResult({data:null,error:e});throw e}}};yi.nextInstanceID={};var bi=yi,xi=`2.101.1`,Si=``;Si=typeof Deno<`u`?`deno`:typeof document<`u`?`web`:typeof navigator<`u`&&navigator.product===`ReactNative`?`react-native`:`node`;var Ci={headers:{"X-Client-Info":`supabase-js-${Si}/${xi}`}},wi={schema:`public`},Ti={autoRefreshToken:!0,persistSession:!0,detectSessionInUrl:!0,flowType:`implicit`},Ei={};function Di(e){"@babel/helpers - typeof";return Di=typeof Symbol==`function`&&typeof Symbol.iterator==`symbol`?function(e){return typeof e}:function(e){return e&&typeof Symbol==`function`&&e.constructor===Symbol&&e!==Symbol.prototype?`symbol`:typeof e},Di(e)}function Oi(e,t){if(Di(e)!=`object`||!e)return e;var n=e[Symbol.toPrimitive];if(n!==void 0){var r=n.call(e,t||`default`);if(Di(r)!=`object`)return r;throw TypeError(`@@toPrimitive must return a primitive value.`)}return(t===`string`?String:Number)(e)}function ki(e){var t=Oi(e,`string`);return Di(t)==`symbol`?t:t+``}function Ai(e,t,n){return(t=ki(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function ji(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),n.push.apply(n,r)}return n}function q(e){for(var t=1;t<arguments.length;t++){var n=arguments[t]==null?{}:arguments[t];t%2?ji(Object(n),!0).forEach(function(t){Ai(e,t,n[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):ji(Object(n)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))})}return e}var Mi=e=>e?(...t)=>e(...t):(...e)=>fetch(...e),Ni=()=>Headers,Pi=(e,t,n)=>{let r=Mi(n),i=Ni();return async(n,a)=>{let o=await t()??e,s=new i(a?.headers);return s.has(`apikey`)||s.set(`apikey`,e),s.has(`Authorization`)||s.set(`Authorization`,`Bearer ${o}`),r(n,q(q({},a),{},{headers:s}))}};function Fi(e){return e.endsWith(`/`)?e:e+`/`}function Ii(e,t){let{db:n,auth:r,realtime:i,global:a}=e,{db:o,auth:s,realtime:c,global:l}=t,u={db:q(q({},o),n),auth:q(q({},s),r),realtime:q(q({},c),i),storage:{},global:q(q(q({},l),a),{},{headers:q(q({},l?.headers??{}),a?.headers??{})}),accessToken:async()=>``};return e.accessToken?u.accessToken=e.accessToken:delete u.accessToken,u}function Li(e){let t=e?.trim();if(!t)throw Error(`supabaseUrl is required.`);if(!t.match(/^https?:\/\//i))throw Error(`Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.`);try{return new URL(Fi(t))}catch{throw Error(`Invalid supabaseUrl: Provided URL is malformed.`)}}var Ri=class extends bi{constructor(e){super(e)}},zi=class{constructor(e,t,n){this.supabaseUrl=e,this.supabaseKey=t;let r=Li(e);if(!t)throw Error(`supabaseKey is required.`);this.realtimeUrl=new URL(`realtime/v1`,r),this.realtimeUrl.protocol=this.realtimeUrl.protocol.replace(`http`,`ws`),this.authUrl=new URL(`auth/v1`,r),this.storageUrl=new URL(`storage/v1`,r),this.functionsUrl=new URL(`functions/v1`,r);let i=`sb-${r.hostname.split(`.`)[0]}-auth-token`,a={db:wi,realtime:Ei,auth:q(q({},Ti),{},{storageKey:i}),global:Ci},o=Ii(n??{},a);this.storageKey=o.auth.storageKey??``,this.headers=o.global.headers??{},o.accessToken?(this.accessToken=o.accessToken,this.auth=new Proxy({},{get:(e,t)=>{throw Error(`@supabase/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.${String(t)} is not possible`)}})):this.auth=this._initSupabaseAuthClient(o.auth??{},this.headers,o.global.fetch),this.fetch=Pi(t,this._getAccessToken.bind(this),o.global.fetch),this.realtime=this._initRealtimeClient(q({headers:this.headers,accessToken:this._getAccessToken.bind(this)},o.realtime)),this.accessToken&&Promise.resolve(this.accessToken()).then(e=>this.realtime.setAuth(e)).catch(e=>console.warn(`Failed to set initial Realtime auth token:`,e)),this.rest=new De(new URL(`rest/v1`,r).href,{headers:this.headers,schema:o.db.schema,fetch:this.fetch,timeout:o.db.timeout,urlLengthLimit:o.db.urlLengthLimit}),this.storage=new wn(this.storageUrl.href,this.headers,this.fetch,n?.storage),o.accessToken||this._listenForAuthEvents()}get functions(){return new me(this.functionsUrl.href,{headers:this.headers,customFetch:this.fetch})}from(e){return this.rest.from(e)}schema(e){return this.rest.schema(e)}rpc(e,t={},n={head:!1,get:!1,count:void 0}){return this.rest.rpc(e,t,n)}channel(e,t={config:{}}){return this.realtime.channel(e,t)}getChannels(){return this.realtime.getChannels()}removeChannel(e){return this.realtime.removeChannel(e)}removeAllChannels(){return this.realtime.removeAllChannels()}async _getAccessToken(){var e=this;if(e.accessToken)return await e.accessToken();let{data:t}=await e.auth.getSession();return t.session?.access_token??e.supabaseKey}_initSupabaseAuthClient({autoRefreshToken:e,persistSession:t,detectSessionInUrl:n,storage:r,userStorage:i,storageKey:a,flowType:o,lock:s,debug:c,throwOnError:l},u,d){let f={Authorization:`Bearer ${this.supabaseKey}`,apikey:`${this.supabaseKey}`};return new Ri({url:this.authUrl.href,headers:q(q({},f),u),storageKey:a,autoRefreshToken:e,persistSession:t,detectSessionInUrl:n,storage:r,userStorage:i,flowType:o,lock:s,debug:c,throwOnError:l,fetch:d,hasCustomAuthorizationHeader:Object.keys(this.headers).some(e=>e.toLowerCase()===`authorization`)})}_initRealtimeClient(e){return new Ot(this.realtimeUrl.href,q(q({},e),{},{params:q(q({},{apikey:this.supabaseKey}),e?.params)}))}_listenForAuthEvents(){return this.auth.onAuthStateChange((e,t)=>{this._handleTokenChanged(e,`CLIENT`,t?.access_token)})}_handleTokenChanged(e,t,n){(e===`TOKEN_REFRESHED`||e===`SIGNED_IN`)&&this.changedAccessToken!==n?(this.changedAccessToken=n,this.realtime.setAuth(n)):e===`SIGNED_OUT`&&(this.realtime.setAuth(),t==`STORAGE`&&this.auth.signOut(),this.changedAccessToken=void 0)}},Bi=(e,t,n)=>new zi(e,t,n);function Vi(){if(typeof window<`u`)return!1;let e=globalThis.process;if(!e)return!1;let t=e.version;if(t==null)return!1;let n=t.match(/^v(\d+)\./);return n?parseInt(n[1],10)<=18:!1}Vi()&&console.warn(`⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217`);var J=Bi(`https://hcmgdztsgjvzcyxyayaj.supabase.co`,`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhjbWdkenRzZ2p2emN5eHlheWFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0MzU4ODcsImV4cCI6MjA4NzAxMTg4N30.gznaPzY1l8qDAPsEyYNR9KS7f7VqS3xaw-_2HTSwSZw`,{auth:{flowType:`pkce`,detectSessionInUrl:!0,autoRefreshToken:!0,persistSession:!0}}),Y=`forjob_`,X={PROFILES:`${Y}profiles`,SUBJECTS:`${Y}subjects`,QUESTIONS:`${Y}questions`,SILGI_QUESTIONS:`${Y}silgi_questions`,EXAM_SESSIONS:`${Y}exam_sessions`,EXAM_ANSWERS:`${Y}exam_answers`,BOOKMARKS:`${Y}bookmarks`,WRONG_ANSWERS:`${Y}wrong_answers`},Hi=(0,h.createContext)({}),Ui=`https://forjob.dreamitbiz.com`;function Wi({children:e}){let[t,n]=(0,h.useState)(null),[r,i]=(0,h.useState)(!0),{showToast:a}=ae();return(0,h.useEffect)(()=>{let{data:{subscription:e}}=J.auth.onAuthStateChange((e,t)=>{n(t?.user??null),e===`INITIAL_SESSION`&&i(!1),e===`SIGNED_IN`&&i(!1),e===`SIGNED_OUT`&&(n(null),i(!1))}),t=setTimeout(()=>{i(e=>(e&&console.warn(`Auth: INITIAL_SESSION timeout, forcing loading=false`),!1))},5e3);return()=>{e.unsubscribe(),clearTimeout(t)}},[]),(0,g.jsx)(Hi.Provider,{value:{user:t,loading:r,signInWithGoogle:async()=>{try{let{error:e}=await J.auth.signInWithOAuth({provider:`google`,options:{redirectTo:Ui}});e&&(console.error(`Google login error:`,e.message),a(`Google 로그인에 실패했습니다.`,`error`))}catch(e){console.error(`Google login error:`,e),a(`Google 로그인에 실패했습니다.`,`error`)}},signInWithKakao:async()=>{try{let{error:e}=await J.auth.signInWithOAuth({provider:`kakao`,options:{redirectTo:Ui}});e&&(console.error(`Kakao login error:`,e.message),a(`카카오 로그인에 실패했습니다.`,`error`))}catch(e){console.error(`Kakao login error:`,e),a(`카카오 로그인에 실패했습니다.`,`error`)}},signOut:async()=>{try{let{error:e}=await J.auth.signOut();e?(console.error(`Logout error:`,e.message),a(`로그아웃에 실패했습니다.`,`error`)):a(`로그아웃되었습니다.`,`success`)}catch(e){console.error(`Logout error:`,e),a(`로그아웃에 실패했습니다.`,`error`)}}},children:e})}var Z=()=>(0,h.useContext)(Hi),Gi={name:`ForJob`,title:`직업상담사 2급 시험 준비 플랫폼`,description:`직업상담사 2급 필기·실기 시험 준비를 위한 CBT 학습 플랫폼`,url:`https://forjob.dreamitbiz.com`,domain:`forjob.dreamitbiz.com`},Q=[{id:1,code:`counseling`,name:`직업상담학`,color:`#3B82F6`,icon:`fa-solid fa-comments`,sortOrder:1},{id:2,code:`psychology`,name:`직업심리학`,color:`#8B5CF6`,icon:`fa-solid fa-brain`,sortOrder:2},{id:3,code:`jobinfo`,name:`직업정보론`,color:`#10B981`,icon:`fa-solid fa-circle-info`,sortOrder:3},{id:4,code:`labor_market`,name:`노동시장론`,color:`#F59E0B`,icon:`fa-solid fa-chart-line`,sortOrder:4},{id:5,code:`labor_law`,name:`노동관계법규`,color:`#EF4444`,icon:`fa-solid fa-scale-balanced`,sortOrder:5}],Ki={pilgi:{totalQuestions:100,questionsPerSubject:20,timeLimit:9e3,passScore:60,subjectMinScore:40,optionCount:4},silgi:{timeLimit:9e3,passScore:60}},qi=[{path:`/info`,label:`About`,icon:`fa-solid fa-circle-question`,children:[{path:`/pilgi`,label:`필기`},{path:`/silgi`,label:`실기`},{path:`/info`,label:`시험안내`}]},{path:`/learn`,label:`학습요약`,icon:`fa-solid fa-graduation-cap`,children:[{path:`/learn/counseling`,label:`직업상담학`},{path:`/learn/psychology`,label:`직업심리학`},{path:`/learn/jobinfo`,label:`직업정보론`},{path:`/learn/labor_market`,label:`노동시장론`},{path:`/learn/labor_law`,label:`노동관계법규`},{path:`/learn/silgi`,label:`실기 실무`}]},{path:`/dashboard`,label:`대시보드`,icon:`fa-solid fa-chart-pie`},{path:`/bookmarks`,label:`북마크`,icon:`fa-solid fa-bookmark`},{path:`/wrong-answers`,label:`오답노트`,icon:`fa-solid fa-rotate-left`}];function Ji(){let{mode:e,toggleTheme:t,colorTheme:n,setColorTheme:r,COLOR_OPTIONS:i}=ee(),{user:a,signOut:o}=Z(),s=l(),[u,d]=(0,h.useState)(!1),[f,p]=(0,h.useState)(!1),[m,_]=(0,h.useState)(!1),[v,y]=(0,h.useState)(!1),[b,x]=(0,h.useState)({}),S=(0,h.useRef)(null),C=(0,h.useRef)(null);(0,h.useEffect)(()=>{let e=()=>d(window.scrollY>50);return window.addEventListener(`scroll`,e),()=>window.removeEventListener(`scroll`,e)},[]),(0,h.useEffect)(()=>{p(!1),x({})},[s.pathname]),(0,h.useEffect)(()=>{function e(e){S.current&&!S.current.contains(e.target)&&_(!1),C.current&&!C.current.contains(e.target)&&y(!1)}return document.addEventListener(`mousedown`,e),()=>document.removeEventListener(`mousedown`,e)},[]);let te=e===`auto`?`◑`:e===`light`?`☀️`:`🌙`,ne=e=>{x(t=>({...t,[e]:!t[e]}))};return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)(`nav`,{className:`navbar ${u?`scrolled`:``}`,"aria-label":`메인 네비게이션`,children:(0,g.jsxs)(`div`,{className:`navbar-inner`,children:[(0,g.jsxs)(c,{to:`/`,className:`navbar-logo`,children:[(0,g.jsx)(`span`,{className:`logo-main`,children:`For`}),(0,g.jsx)(`span`,{className:`logo-sub`,children:`Job`})]}),(0,g.jsx)(`ul`,{className:`nav-links`,children:qi.map(e=>(0,g.jsxs)(`li`,{className:`nav-item ${e.children?`nav-item-has-children`:``}`,children:[(0,g.jsx)(c,{to:e.path,className:`nav-link ${s.pathname.startsWith(e.path)?`active`:``}`,children:e.label}),e.children&&(0,g.jsx)(`ul`,{className:`nav-dropdown`,children:e.children.map(e=>(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:e.path,className:`nav-dropdown-link`,children:e.label})},e.path))})]},e.path))}),(0,g.jsxs)(`div`,{className:`navbar-actions`,children:[(0,g.jsxs)(`div`,{className:`color-picker-wrapper`,ref:S,children:[(0,g.jsx)(`button`,{className:`color-picker-btn`,onClick:()=>_(!m),title:`컬러 테마`,"aria-expanded":m,"aria-label":`컬러 테마 선택`,children:(0,g.jsx)(`div`,{className:`color-dot-preview`,style:{background:i.find(e=>e.name===n)?.color}})}),(0,g.jsx)(`div`,{className:`color-picker-dropdown ${m?`show`:``}`,children:i.map(e=>(0,g.jsx)(`button`,{className:`color-option ${n===e.name?`active`:``}`,style:{background:e.color},onClick:()=>{r(e.name),_(!1)},title:e.name,"aria-label":e.name},e.name))})]}),(0,g.jsx)(`button`,{className:`theme-toggle`,onClick:t,title:e,"aria-label":`테마 변경`,children:te}),a?(0,g.jsxs)(`div`,{className:`user-menu`,children:[a.user_metadata?.avatar_url&&(0,g.jsx)(`img`,{src:a.user_metadata.avatar_url,alt:``,className:`user-avatar`}),(0,g.jsx)(`button`,{className:`logout-btn`,onClick:o,children:`로그아웃`})]}):(0,g.jsx)(c,{to:`/login`,className:`login-link`,children:`로그인`}),(0,g.jsxs)(`button`,{className:`mobile-menu-toggle ${f?`open`:``}`,onClick:()=>p(!f),"aria-expanded":f,"aria-label":`메뉴 열기/닫기`,children:[(0,g.jsx)(`span`,{}),(0,g.jsx)(`span`,{}),(0,g.jsx)(`span`,{})]})]})]})}),(0,g.jsxs)(`div`,{className:`mobile-menu ${f?`open`:``}`,"aria-hidden":!f,children:[(0,g.jsxs)(`ul`,{className:`mobile-nav-links`,children:[qi.map(e=>(0,g.jsx)(`li`,{children:e.children?(0,g.jsxs)(g.Fragment,{children:[(0,g.jsxs)(`button`,{className:`mobile-subnav-toggle`,onClick:()=>ne(e.path),children:[(0,g.jsx)(`span`,{children:e.label}),(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-down toggle-arrow ${b[e.path]?`open`:``}`})]}),b[e.path]&&(0,g.jsxs)(`ul`,{className:`mobile-subnav`,children:[(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:e.path,className:`mobile-subnav-link`,children:`전체 과목 보기`})}),e.children.map(e=>(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:e.path,className:`mobile-subnav-link`,children:e.label})},e.path))]})]}):(0,g.jsx)(c,{to:e.path,className:`mobile-nav-link`,children:e.label})},e.path)),(0,g.jsx)(`li`,{children:a?(0,g.jsx)(`button`,{className:`mobile-nav-link`,onClick:o,style:{background:`none`,border:`none`,cursor:`pointer`,width:`100%`,textAlign:`left`,fontFamily:`inherit`,fontSize:16},children:`로그아웃`}):(0,g.jsx)(c,{to:`/login`,className:`mobile-nav-link`,children:`로그인`})})]}),(0,g.jsxs)(`div`,{className:`mobile-menu-actions`,children:[(0,g.jsxs)(`div`,{className:`color-picker-wrapper`,ref:C,children:[(0,g.jsx)(`button`,{className:`color-picker-btn`,onClick:()=>y(!v),title:`컬러 테마`,"aria-label":`컬러 테마 선택`,children:(0,g.jsx)(`div`,{className:`color-dot-preview`,style:{background:i.find(e=>e.name===n)?.color}})}),(0,g.jsx)(`div`,{className:`color-picker-dropdown ${v?`show`:``}`,children:i.map(e=>(0,g.jsx)(`button`,{className:`color-option ${n===e.name?`active`:``}`,style:{background:e.color},onClick:()=>{r(e.name),y(!1)},title:e.name,"aria-label":e.name},e.name))})]}),(0,g.jsx)(`button`,{className:`theme-toggle`,onClick:t,title:e,"aria-label":`테마 변경`,children:te})]})]})]})}function Yi(){return(0,g.jsx)(`footer`,{className:`footer`,"aria-label":`사이트 푸터`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`div`,{className:`footer-content`,children:[(0,g.jsxs)(`div`,{className:`footer-brand`,children:[(0,g.jsxs)(`div`,{className:`footer-logo`,children:[(0,g.jsx)(`span`,{className:`brand-main`,children:`For`}),(0,g.jsx)(`span`,{className:`brand-sub`,children:`Job`})]}),(0,g.jsxs)(`p`,{className:`footer-description`,children:[`직업상담사 2급 시험 준비를 위한 CBT 학습 플랫폼.`,(0,g.jsx)(`br`,{}),`기출문제 풀이, 모의시험, 오답노트로 합격을 준비하세요.`]})]}),(0,g.jsxs)(`div`,{className:`footer-links`,children:[(0,g.jsx)(`h4`,{children:`학습 메뉴`}),(0,g.jsxs)(`ul`,{className:`footer-link-list`,children:[(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:`/pilgi`,children:`필기 시험`})}),(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:`/silgi`,children:`실기 시험`})}),(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:`/dashboard`,children:`대시보드`})}),(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:`/bookmarks`,children:`북마크`})}),(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:`/wrong-answers`,children:`오답노트`})}),(0,g.jsx)(`li`,{children:(0,g.jsx)(c,{to:`/info`,children:`시험 안내`})})]})]}),(0,g.jsxs)(`div`,{className:`footer-contact`,children:[(0,g.jsx)(`h4`,{children:`문의`}),(0,g.jsxs)(`p`,{className:`footer-email`,children:[(0,g.jsx)(`span`,{className:`footer-email-icon`,children:`✉️`}),(0,g.jsx)(`a`,{href:`mailto:aebon@dreamitbiz.com`,children:`aebon@dreamitbiz.com`})]}),(0,g.jsx)(`p`,{children:`010-3700-0629`}),(0,g.jsx)(`p`,{className:`business-hours`,children:`평일 09:00 - 18:00`}),(0,g.jsx)(`div`,{className:`footer-family`,children:(0,g.jsxs)(`select`,{defaultValue:``,"aria-label":`패밀리 사이트`,onChange:e=>{e.target.value&&window.open(e.target.value,`_blank`),e.target.value=``},children:[(0,g.jsx)(`option`,{value:``,disabled:!0,children:`Family Site`}),(0,g.jsx)(`option`,{value:`https://www.dreamitbiz.com`,children:`DreamIT Biz`}),(0,g.jsx)(`option`,{value:`https://teaching.dreamitbiz.com`,children:`Teaching AI`}),(0,g.jsx)(`option`,{value:`https://competency.dreamitbiz.com`,children:`NCS 역량평가`})]})})]})]}),(0,g.jsxs)(`div`,{className:`footer-bottom`,children:[(0,g.jsx)(`p`,{children:`© 2026 DreamIT Biz. All rights reserved.`}),(0,g.jsx)(`p`,{className:`footer-bottom-info`,children:`Designed by Ph.D Aebon Lee | 대표이사: 이애본 | 사업자등록번호: 601-45-20154`})]})]})})}function $({title:e,description:t}){return(0,h.useEffect)(()=>{document.title=e?`${e} | ${Gi.name}`:`${Gi.name} | ${Gi.title}`;let n=document.querySelector(`meta[name="description"]`);n&&n.setAttribute(`content`,t||Gi.description)},[e,t]),null}function Xi(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{}),(0,g.jsxs)(`section`,{className:`hero`,children:[(0,g.jsx)(`div`,{className:`particles`,children:[...[,,,,,,]].map((e,t)=>(0,g.jsx)(`div`,{className:`particle`,style:{width:`${4+t*3}px`,height:`${4+t*3}px`,left:`${10+t*15}%`,top:`${20+t%3*25}%`,"--duration":`${15+t*3}s`,"--delay":`${t*2}s`}},t))}),(0,g.jsx)(`div`,{className:`container`,children:(0,g.jsxs)(`div`,{className:`hero-content`,children:[(0,g.jsxs)(`div`,{className:`hero-badge`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-award`}),` 2026년 직업상담사 2급`]}),(0,g.jsxs)(`h1`,{className:`hero-title`,children:[`직업상담사 2급`,(0,g.jsx)(`br`,{}),(0,g.jsx)(`span`,{className:`highlight`,children:`합격을 위한 최적의 학습`})]}),(0,g.jsxs)(`p`,{className:`hero-description`,children:[`기출문제 CBT, 모의시험, 과목별 분석, 오답노트까지.`,(0,g.jsx)(`br`,{}),`체계적인 시험 준비로 한 번에 합격하세요.`]}),(0,g.jsxs)(`div`,{className:`hero-buttons`,children:[(0,g.jsxs)(c,{to:`/pilgi`,className:`btn btn-primary`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-pen-to-square`}),` 필기 시작하기`]}),(0,g.jsxs)(c,{to:`/info`,className:`btn btn-secondary`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-circle-info`}),` 시험 안내`]})]})]})}),(0,g.jsxs)(`div`,{className:`scroll-indicator`,children:[(0,g.jsx)(`div`,{className:`mouse`,children:(0,g.jsx)(`div`,{className:`wheel`})}),(0,g.jsx)(`span`,{className:`scroll-text`,children:`Scroll Down`})]})]}),(0,g.jsx)(`section`,{className:`home-section`,style:{padding:`var(--section-padding) 0`},children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`div`,{className:`section-header`,children:[(0,g.jsx)(`div`,{className:`section-badge`,children:`SUBJECTS`}),(0,g.jsx)(`h2`,{className:`section-title`,children:`5개 필기 과목`}),(0,g.jsx)(`p`,{className:`section-subtitle`,children:`과목별 맞춤 학습으로 약점을 보완하고 합격을 준비하세요`})]}),(0,g.jsx)(`div`,{className:`home-subjects-grid`,children:Q.map((e,t)=>(0,g.jsxs)(`div`,{className:`home-subject-card fade-in-up`,style:{borderLeftColor:e.color,animationDelay:`${t*.1}s`},children:[(0,g.jsx)(`div`,{className:`home-subject-icon`,style:{background:`${e.color}15`,color:e.color},children:(0,g.jsx)(`i`,{className:e.icon})}),(0,g.jsx)(`h4`,{children:e.name}),(0,g.jsxs)(`p`,{className:`home-subject-desc`,children:[e.code===`counseling`&&`상담이론, 상담기법, 직업상담 과정 등`,e.code===`psychology`&&`직업심리검사, 직업적성, 흥미이론 등`,e.code===`jobinfo`&&`직업분류, 직업정보 수집·분석, 워크넷 등`,e.code===`labor_market`&&`노동시장 이론, 임금, 실업, 인적자본 등`,e.code===`labor_law`&&`근로기준법, 고용보험법, 직업안정법 등`]}),(0,g.jsx)(`span`,{className:`home-subject-questions`,children:`20문항 / 과목`})]},e.code))})]})}),(0,g.jsx)(`section`,{className:`home-section home-features-section`,style:{padding:`var(--section-padding) 0`,background:`var(--bg-light-gray)`},children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`div`,{className:`section-header`,children:[(0,g.jsx)(`div`,{className:`section-badge`,children:`FEATURES`}),(0,g.jsx)(`h2`,{className:`section-title`,children:`학습 기능`}),(0,g.jsx)(`p`,{className:`section-subtitle`,children:`합격을 위한 다양한 학습 도구를 제공합니다`})]}),(0,g.jsx)(`div`,{className:`home-features-grid`,children:[{icon:`fa-solid fa-desktop`,title:`CBT 모의시험`,desc:`실제 시험과 동일한 환경의 온라인 CBT로 실전 감각을 키우세요`},{icon:`fa-solid fa-book-open`,title:`학습 모드`,desc:`답 선택 즉시 정답과 해설을 확인하며 효율적으로 학습하세요`},{icon:`fa-solid fa-chart-pie`,title:`과목별 분석`,desc:`레이더 차트로 강점과 약점을 한눈에 파악하세요`},{icon:`fa-solid fa-rotate-left`,title:`오답 노트`,desc:`틀린 문제를 모아 반복 학습으로 실력을 올리세요`},{icon:`fa-solid fa-trophy`,title:`합격 예측`,desc:`최근 시험 결과를 분석하여 합격 확률을 예측합니다`},{icon:`fa-solid fa-file-pen`,title:`실기 연습`,desc:`서술형 문제와 모범답안 비교로 실기도 준비하세요`}].map((e,t)=>(0,g.jsxs)(`div`,{className:`home-feature-card`,children:[(0,g.jsx)(`div`,{className:`home-feature-icon`,children:(0,g.jsx)(`i`,{className:e.icon})}),(0,g.jsx)(`h4`,{children:e.title}),(0,g.jsx)(`p`,{children:e.desc})]},t))})]})}),(0,g.jsx)(`section`,{className:`home-stats-section`,children:(0,g.jsx)(`div`,{className:`container`,children:(0,g.jsxs)(`div`,{className:`home-stats-grid`,children:[(0,g.jsxs)(`div`,{className:`home-stat-item`,children:[(0,g.jsx)(`span`,{className:`home-stat-number`,children:`5`}),(0,g.jsx)(`span`,{className:`home-stat-label`,children:`필기 과목`})]}),(0,g.jsxs)(`div`,{className:`home-stat-item`,children:[(0,g.jsx)(`span`,{className:`home-stat-number`,children:`100`}),(0,g.jsx)(`span`,{className:`home-stat-label`,children:`문항`})]}),(0,g.jsxs)(`div`,{className:`home-stat-item`,children:[(0,g.jsx)(`span`,{className:`home-stat-number`,children:`150`}),(0,g.jsx)(`span`,{className:`home-stat-label`,children:`분 (시험시간)`})]}),(0,g.jsxs)(`div`,{className:`home-stat-item`,children:[(0,g.jsx)(`span`,{className:`home-stat-number`,children:`60`}),(0,g.jsx)(`span`,{className:`home-stat-label`,children:`점 (합격기준)`})]})]})})}),(0,g.jsx)(`section`,{className:`home-cta-section`,children:(0,g.jsx)(`div`,{className:`container`,children:(0,g.jsxs)(`div`,{className:`home-cta-content`,children:[(0,g.jsx)(`h2`,{children:`지금 바로 시작하세요`}),(0,g.jsx)(`p`,{children:`무료 회원가입 후 기출문제와 모의시험을 무제한으로 이용하세요`}),(0,g.jsxs)(`div`,{className:`home-cta-buttons`,children:[(0,g.jsxs)(c,{to:`/login`,className:`btn btn-primary btn-lg`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-rocket`}),` 무료로 시작하기`]}),(0,g.jsxs)(c,{to:`/pilgi`,className:`btn btn-secondary btn-lg`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-play`}),` 바로 학습하기`]})]})]})})})]})}function Zi(){return(0,g.jsxs)(`div`,{className:`not-found-page`,style:{paddingTop:`var(--nav-height)`},children:[(0,g.jsx)($,{title:`404`}),(0,g.jsxs)(`div`,{className:`not-found-content`,children:[(0,g.jsx)(`div`,{className:`not-found-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-compass`})}),(0,g.jsx)(`div`,{className:`not-found-code`,children:`404`}),(0,g.jsx)(`h1`,{className:`not-found-title`,children:`페이지를 찾을 수 없습니다`}),(0,g.jsx)(`p`,{className:`not-found-desc`,children:`요청하신 페이지가 존재하지 않거나 이동되었습니다.`}),(0,g.jsxs)(`div`,{className:`not-found-actions`,children:[(0,g.jsx)(c,{to:`/`,className:`btn btn-primary`,children:`홈으로`}),(0,g.jsx)(c,{to:`/pilgi`,className:`btn btn-secondary`,children:`필기 학습`})]})]})]})}function Qi(){let{user:e,signInWithGoogle:t,signInWithKakao:n}=Z();return e?(0,g.jsx)(i,{to:`/dashboard`,replace:!0}):(0,g.jsxs)(`div`,{className:`login-page`,children:[(0,g.jsx)($,{title:`로그인`}),(0,g.jsx)(`div`,{className:`login-container`,children:(0,g.jsxs)(`div`,{className:`login-card`,children:[(0,g.jsxs)(`div`,{className:`login-header`,children:[(0,g.jsxs)(`div`,{className:`login-logo`,children:[(0,g.jsx)(`span`,{children:`For`}),(0,g.jsx)(`span`,{style:{opacity:.7},children:`Job`})]}),(0,g.jsx)(`h1`,{className:`login-title`,children:`로그인`}),(0,g.jsx)(`p`,{className:`login-subtitle`,children:`소셜 계정으로 간편하게 시작하세요`})]}),(0,g.jsxs)(`div`,{className:`login-buttons`,children:[(0,g.jsxs)(`button`,{className:`login-btn google-btn`,onClick:t,children:[(0,g.jsx)(`span`,{className:`login-icon`,children:(0,g.jsxs)(`svg`,{viewBox:`0 0 24 24`,width:`20`,height:`20`,children:[(0,g.jsx)(`path`,{fill:`#4285F4`,d:`M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z`}),(0,g.jsx)(`path`,{fill:`#34A853`,d:`M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z`}),(0,g.jsx)(`path`,{fill:`#FBBC05`,d:`M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z`}),(0,g.jsx)(`path`,{fill:`#EA4335`,d:`M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z`})]})}),`Google로 계속하기`]}),(0,g.jsxs)(`button`,{className:`login-btn kakao-btn`,onClick:n,children:[(0,g.jsx)(`span`,{className:`login-icon`,children:(0,g.jsx)(`svg`,{viewBox:`0 0 24 24`,width:`20`,height:`20`,children:(0,g.jsx)(`path`,{fill:`#000000`,d:`M12 3C6.48 3 2 6.36 2 10.5c0 2.69 1.79 5.05 4.48 6.39-.15.54-.97 3.48-1 3.63 0 .11.04.22.13.28.06.04.14.06.21.06.09 0 .17-.03.24-.09.89-.66 3.29-2.44 3.82-2.85.68.1 1.39.15 2.12.15 5.52 0 10-3.36 10-7.5S17.52 3 12 3z`})})}),`카카오로 계속하기`]})]}),(0,g.jsxs)(`p`,{className:`login-terms`,children:[`로그인 시 `,(0,g.jsx)(`a`,{href:`#`,children:`이용약관`}),` 및 `,(0,g.jsx)(`a`,{href:`#`,children:`개인정보처리방침`}),`에 동의하게 됩니다.`]}),(0,g.jsx)(`div`,{className:`login-footer`,children:`학습 기록은 로그인 후 자동으로 저장됩니다.`})]})})]})}function $i(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`필기 시험`,description:`직업상담사 2급 필기 시험 준비`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-pen-to-square`}),` 필기 시험`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`5과목 100문항, 4지선다. 평균 60점 이상 + 과목당 40점 이상 합격`})]})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsxs)(`div`,{className:`pilgi-modes`,children:[(0,g.jsxs)(c,{to:`/pilgi/select`,className:`pilgi-mode-card`,children:[(0,g.jsx)(`div`,{className:`pilgi-mode-icon exam`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-desktop`})}),(0,g.jsx)(`h3`,{children:`시험 모드`}),(0,g.jsx)(`p`,{children:`실제 시험과 동일한 환경으로 100문항을 150분 내에 풀어보세요`}),(0,g.jsx)(`span`,{className:`pilgi-mode-badge`,children:`150분 타이머`})]}),(0,g.jsxs)(c,{to:`/pilgi/study`,className:`pilgi-mode-card`,children:[(0,g.jsx)(`div`,{className:`pilgi-mode-icon study`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-book-open`})}),(0,g.jsx)(`h3`,{children:`학습 모드`}),(0,g.jsx)(`p`,{children:`답 선택 즉시 정답과 해설을 확인하며 학습할 수 있습니다`}),(0,g.jsx)(`span`,{className:`pilgi-mode-badge`,children:`즉시 해설`})]})]}),(0,g.jsxs)(`div`,{className:`section-header mt-4`,children:[(0,g.jsx)(`div`,{className:`section-badge`,children:`SUBJECTS`}),(0,g.jsx)(`h2`,{className:`section-title`,children:`과목 안내`})]}),(0,g.jsx)(`div`,{className:`pilgi-subjects-grid`,children:Q.map(e=>(0,g.jsxs)(`div`,{className:`pilgi-subject-card`,style:{borderTopColor:e.color},children:[(0,g.jsx)(`div`,{className:`pilgi-subject-icon`,style:{color:e.color,background:`${e.color}12`},children:(0,g.jsx)(`i`,{className:e.icon})}),(0,g.jsx)(`h4`,{children:e.name}),(0,g.jsx)(`p`,{children:`20문항 / 과목당 40점 이상`})]},e.code))})]})]})}function ea(){let[e,t]=(0,h.useState)(`random`),[r,i]=(0,h.useState)(`random`),[a,o]=(0,h.useState)(!1),s=n(),{user:c}=Z(),{showToast:l}=ae(),u=[2024,2023,2022,2021,2020,2019],d=[1,2,3],f=async()=>{o(!0);try{let t=J.from(X.QUESTIONS).select(`*`);e!==`random`&&(t=t.eq(`exam_year`,parseInt(e))),r!==`random`&&(t=t.eq(`exam_session`,parseInt(r))),t=t.order(`subject_id`).order(`question_number`);let{data:n,error:i}=await t;if(i)throw i;if(!n?.length){l(`해당 조건의 문제가 없습니다. 랜덤으로 시작합니다.`,`info`);let{data:e}=await J.from(X.QUESTIONS).select(`*`).order(`subject_id`).order(`question_number`).limit(100);if(!e?.length){l(`등록된 문제가 없습니다.`,`error`),o(!1);return}let t=await p(e,null,null);s(`/pilgi/exam/${t.id}`,{state:{questions:e,session:t}});return}let a=n.slice(0,100),c=await p(a,e===`random`?null:parseInt(e),r===`random`?null:parseInt(r));s(`/pilgi/exam/${c.id}`,{state:{questions:a,session:c}})}catch(e){console.error(e),l(`시험 시작에 실패했습니다.`,`error`)}o(!1)},p=async(e,t,n)=>{let r={user_id:c?.id||null,exam_type:`pilgi`,mode:`exam`,exam_year:t,total_questions:e.length,correct_count:0,score_total:0,is_pass:!1,time_spent_sec:0,started_at:new Date().toISOString()};if(!c)return{id:`local_${Date.now()}`,...r};let{data:i,error:a}=await J.from(X.EXAM_SESSIONS).insert(r).select().single();if(a)throw a;return i};return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`시험 선택`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-list-check`}),` 시험 선택`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`연도와 회차를 선택하거나 랜덤으로 시험을 시작하세요`})]})}),(0,g.jsx)(`div`,{className:`container`,style:{paddingBottom:80},children:(0,g.jsxs)(`div`,{className:`exam-select-card`,children:[(0,g.jsxs)(`div`,{className:`form-group`,children:[(0,g.jsx)(`label`,{className:`form-label`,children:`출제 연도`}),(0,g.jsxs)(`select`,{className:`form-select`,value:e,onChange:e=>t(e.target.value),children:[(0,g.jsx)(`option`,{value:`random`,children:`랜덤 (전체 연도)`}),u.map(e=>(0,g.jsxs)(`option`,{value:e,children:[e,`년`]},e))]})]}),(0,g.jsxs)(`div`,{className:`form-group`,children:[(0,g.jsx)(`label`,{className:`form-label`,children:`회차`}),(0,g.jsxs)(`select`,{className:`form-select`,value:r,onChange:e=>i(e.target.value),children:[(0,g.jsx)(`option`,{value:`random`,children:`랜덤 (전체 회차)`}),d.map(e=>(0,g.jsxs)(`option`,{value:e,children:[e,`회`]},e))]})]}),(0,g.jsxs)(`div`,{className:`exam-select-info`,children:[(0,g.jsxs)(`p`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-circle-info`}),` 총 100문항 (5과목 x 20문항), 제한시간 150분`]}),(0,g.jsxs)(`p`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-check`}),` 평균 60점 이상 + 과목당 40점 이상 합격`]})]}),(0,g.jsx)(`button`,{className:`btn btn-primary btn-lg`,onClick:f,disabled:a,style:{width:`100%`,marginTop:24},children:a?(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)(`div`,{className:`loading-spinner`,style:{width:20,height:20,borderWidth:2}}),` 시작 중...`]}):(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-play`}),` 시험 시작`]})})]})})]})}function ta({isBookmarked:e,onClick:t}){return(0,g.jsx)(`button`,{className:`bookmark-btn ${e?`active`:``}`,onClick:t,"aria-label":e?`북마크 해제`:`북마크 추가`,title:e?`북마크 해제`:`북마크 추가`,children:(0,g.jsx)(`i`,{className:e?`fa-solid fa-bookmark`:`fa-regular fa-bookmark`})})}function na({question:e,selectedAnswer:t,onSelectAnswer:n,showResult:r=!1,showExplanation:i=!1,questionIndex:a,isBookmarked:o,onToggleBookmark:s}){let{question_text:c,option_1:l,option_2:u,option_3:d,option_4:f,correct_answer:p,explanation:m}=e,h=[l,u,d,f],_=e=>{let n=e+1,i=`option-item`;return t===n&&(i+=` selected`),r&&(n===p?i+=` correct`:t===n&&n!==p&&(i+=` wrong`)),i};return(0,g.jsxs)(`div`,{className:`question-card`,children:[(0,g.jsxs)(`div`,{className:`question-header`,children:[(0,g.jsxs)(`span`,{className:`question-number`,children:[`Q`,a+1]}),s&&(0,g.jsx)(ta,{isBookmarked:o,onClick:()=>s(e.id)})]}),(0,g.jsx)(`p`,{className:`question-text`,children:c}),(0,g.jsx)(`div`,{className:`options-list`,children:h.map((e,i)=>(0,g.jsxs)(`button`,{className:_(i),onClick:()=>!r&&n?.(i+1),disabled:r,children:[(0,g.jsx)(`span`,{className:`option-number`,children:i+1}),(0,g.jsx)(`span`,{className:`option-text`,children:e}),r&&i+1===p&&(0,g.jsx)(`i`,{className:`fa-solid fa-circle-check option-icon correct-icon`}),r&&t===i+1&&i+1!==p&&(0,g.jsx)(`i`,{className:`fa-solid fa-circle-xmark option-icon wrong-icon`})]},i))}),i&&m&&(0,g.jsxs)(`div`,{className:`explanation-box`,children:[(0,g.jsxs)(`div`,{className:`explanation-header`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-lightbulb`}),` 해설`]}),(0,g.jsx)(`p`,{children:m})]})]})}function ra(){let[e,t]=(0,h.useState)(`all`),[n,r]=(0,h.useState)([]),[i,a]=(0,h.useState)(0),[o,s]=(0,h.useState)({}),[c,l]=(0,h.useState)({}),[u,d]=(0,h.useState)(!1),[f,p]=(0,h.useState)([]),{user:m}=Z(),{showToast:_}=ae(),v=(0,h.useCallback)(async()=>{d(!0);try{let t=J.from(X.QUESTIONS).select(`*`);if(e!==`all`){let n=Q.find(t=>t.code===e);n&&(t=t.eq(`subject_id`,n.id))}t=t.order(`subject_id`).order(`question_number`).limit(50);let{data:n,error:i}=await t;if(i)throw i;r(n||[]),a(0),s({}),l({})}catch(e){console.error(e),_(`문제를 불러오는데 실패했습니다.`,`error`)}d(!1)},[e,_]);(0,h.useEffect)(()=>{v()},[v]),(0,h.useEffect)(()=>{m&&J.from(X.BOOKMARKS).select(`question_id`).eq(`user_id`,m.id).then(({data:e})=>{e&&p(e.map(e=>e.question_id))})},[m]);let y=(e,t)=>{s(n=>({...n,[e]:t})),l(t=>({...t,[e]:!0}))},b=async e=>{if(!m){_(`로그인 후 북마크를 이용할 수 있습니다.`,`info`);return}f.includes(e)?(await J.from(X.BOOKMARKS).delete().eq(`user_id`,m.id).eq(`question_id`,e),p(t=>t.filter(t=>t!==e)),_(`북마크가 해제되었습니다.`,`info`)):(await J.from(X.BOOKMARKS).insert({user_id:m.id,question_id:e}),p(t=>[...t,e]),_(`북마크에 추가되었습니다.`,`success`))},x=n[i],S=x?Q.find(e=>e.id===x.subject_id):null;return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`학습 모드`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-book-open`}),` 학습 모드`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`답을 선택하면 즉시 정답과 해설을 확인할 수 있습니다`})]})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsxs)(`div`,{className:`study-filters`,children:[(0,g.jsx)(`button`,{className:`study-filter-btn ${e===`all`?`active`:``}`,onClick:()=>t(`all`),children:`전체`}),Q.map(n=>(0,g.jsx)(`button`,{className:`study-filter-btn ${e===n.code?`active`:``}`,onClick:()=>t(n.code),style:e===n.code?{background:n.color,borderColor:n.color,color:`#FFF`}:{},children:n.name},n.code))]}),u?(0,g.jsx)(`div`,{className:`loading-page`,children:(0,g.jsx)(`div`,{className:`loading-spinner`})}):n.length===0?(0,g.jsx)(`div`,{className:`text-center mt-4`,children:(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`},children:`등록된 문제가 없습니다.`})}):(0,g.jsxs)(g.Fragment,{children:[S&&(0,g.jsxs)(`div`,{className:`study-subject-badge`,style:{background:`${S.color}15`,color:S.color},children:[(0,g.jsx)(`i`,{className:S.icon}),` `,S.name]}),(0,g.jsx)(na,{question:x,selectedAnswer:o[x.id],onSelectAnswer:e=>y(x.id,e),showResult:!!c[x.id],showExplanation:!!c[x.id],questionIndex:i,isBookmarked:f.includes(x.id),onToggleBookmark:b}),(0,g.jsxs)(`div`,{className:`exam-nav-buttons mt-3`,children:[(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>a(e=>Math.max(0,e-1)),disabled:i===0,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-left`}),` 이전`]}),(0,g.jsxs)(`span`,{className:`exam-page-info`,children:[i+1,` / `,n.length]}),(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>a(e=>Math.min(n.length-1,e+1)),disabled:i>=n.length-1,children:[`다음 `,(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})]})]})]})]})]})}function ia({totalSeconds:e,onTimeUp:t,running:n=!0}){let[r,i]=(0,h.useState)(e),a=(0,h.useRef)(null);(0,h.useEffect)(()=>{if(n)return a.current=setInterval(()=>{i(e=>e<=1?(clearInterval(a.current),t?.(),0):e-1)},1e3),()=>clearInterval(a.current)},[n,t]);let o=Math.floor(r/3600),s=Math.floor(r%3600/60),c=r%60,l=e=>String(e).padStart(2,`0`);return(0,g.jsxs)(`div`,{className:`exam-timer ${r<=600?`warning`:``} ${r<=60?`danger`:``}`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-clock`}),(0,g.jsxs)(`span`,{className:`timer-display`,children:[o>0&&`${l(o)}:`,l(s),`:`,l(c)]})]})}function aa({questions:e,answers:t,currentIndex:n,onNavigate:r,bookmarkedIds:i=[]}){return(0,g.jsxs)(`div`,{className:`question-nav`,children:[(0,g.jsxs)(`div`,{className:`question-nav-header`,children:[(0,g.jsx)(`span`,{children:`문항 네비게이션`}),(0,g.jsxs)(`span`,{className:`question-nav-count`,children:[Object.keys(t).length,` / `,e.length]})]}),(0,g.jsx)(`div`,{className:`question-nav-grid`,children:e.map((e,a)=>{let o=`question-nav-item`;return a===n&&(o+=` current`),t[e.id]&&(o+=` answered`),i.includes(e.id)&&(o+=` bookmarked`),(0,g.jsx)(`button`,{className:o,onClick:()=>r(a),title:`문항 ${a+1}`,children:a+1},e.id)})}),(0,g.jsxs)(`div`,{className:`question-nav-legend`,children:[(0,g.jsxs)(`span`,{className:`legend-item`,children:[(0,g.jsx)(`span`,{className:`legend-dot current`}),` 현재`]}),(0,g.jsxs)(`span`,{className:`legend-item`,children:[(0,g.jsx)(`span`,{className:`legend-dot answered`}),` 답변`]}),(0,g.jsxs)(`span`,{className:`legend-item`,children:[(0,g.jsx)(`span`,{className:`legend-dot bookmarked`}),` 북마크`]}),(0,g.jsxs)(`span`,{className:`legend-item`,children:[(0,g.jsx)(`span`,{className:`legend-dot`}),` 미답변`]})]})]})}function oa({isOpen:e,onClose:t,title:n,children:r,actions:i}){return(0,h.useEffect)(()=>(e?document.body.style.overflow=`hidden`:document.body.style.overflow=``,()=>{document.body.style.overflow=``}),[e]),e?(0,g.jsx)(`div`,{className:`modal-overlay`,onClick:t,children:(0,g.jsxs)(`div`,{className:`modal-content`,onClick:e=>e.stopPropagation(),children:[n&&(0,g.jsx)(`h2`,{className:`modal-title`,children:n}),(0,g.jsx)(`div`,{className:`modal-body`,children:r}),i&&(0,g.jsx)(`div`,{className:`modal-actions`,children:i})]})}):null}function sa(e,t){let n={};Q.forEach(r=>{let i=e.filter(e=>e.subject_id===r.id),a=i.filter(e=>t[e.id]===e.correct_answer).length,o=i.length||Ki.pilgi.questionsPerSubject;n[r.code]=Math.round(a/o*100)});let r=e.filter(e=>t[e.id]===e.correct_answer).length;return{subjectScores:n,totalScore:Math.round(r/e.length*100),totalCorrect:r}}function ca(e,t){let{passScore:n,subjectMinScore:r}=Ki.pilgi,i=t>=n,a=Object.values(e).every(e=>e>=r),o=Q.filter(t=>(e[t.code]??0)<r);return{isPass:i&&a,avgPass:i,allSubjectsPass:a,failedSubjects:o}}function la(e){return e>=90?{label:`수`,color:`#10B981`}:e>=80?{label:`우`,color:`#3B82F6`}:e>=70?{label:`미`,color:`#6366F1`}:e>=60?{label:`양`,color:`#F59E0B`}:{label:`가`,color:`#EF4444`}}function ua(e){let t=Math.floor(e/3600),n=Math.floor(e%3600/60),r=e%60,i=e=>String(e).padStart(2,`0`);return t>0?`${i(t)}:${i(n)}:${i(r)}`:`${i(n)}:${i(r)}`}function da(){let{id:e}=a(),t=l(),r=n(),{user:i}=Z(),{showToast:o}=ae(),[s]=(0,h.useState)(t.state?.questions||[]),[c]=(0,h.useState)(t.state?.session||null),[u,d]=(0,h.useState)(0),[f,p]=(0,h.useState)({}),[m,_]=(0,h.useState)([]),[v,y]=(0,h.useState)(!1),[b,x]=(0,h.useState)(!1),[S]=(0,h.useState)(Date.now());(0,h.useEffect)(()=>{s.length||r(`/pilgi/select`,{replace:!0})},[s,r]);let ee=(0,h.useCallback)((e,t)=>{p(n=>({...n,[e]:t}))},[]),C=(0,h.useCallback)(e=>{_(t=>t.includes(e)?t.filter(t=>t!==e):[...t,e])},[]),te=(0,h.useCallback)(()=>{o(`시간이 종료되었습니다. 자동 제출합니다.`,`info`),ne()},[]),ne=async()=>{x(!0);let e=Math.floor((Date.now()-S)/1e3),{subjectScores:t,totalScore:n,totalCorrect:a}=sa(s,f),{isPass:l}=ca(t,n),u={score_total:n,correct_count:a,score_by_subject:t,is_pass:l,time_spent_sec:e,completed_at:new Date().toISOString()};try{if(i&&c&&!String(c.id).startsWith(`local_`)){await J.from(X.EXAM_SESSIONS).update(u).eq(`id`,c.id);let e=s.map(e=>({session_id:c.id,question_id:e.id,selected_answer:f[e.id]||null,is_correct:f[e.id]===e.correct_answer}));await J.from(X.EXAM_ANSWERS).insert(e);let t=s.filter(e=>f[e.id]&&f[e.id]!==e.correct_answer);for(let e of t){let{data:t}=await J.from(X.WRONG_ANSWERS).select(`id, wrong_count`).eq(`user_id`,i.id).eq(`question_id`,e.id).single();t?await J.from(X.WRONG_ANSWERS).update({wrong_count:t.wrong_count+1,resolved:!1}).eq(`id`,t.id):await J.from(X.WRONG_ANSWERS).insert({user_id:i.id,question_id:e.id,wrong_count:1,resolved:!1})}}r(`/pilgi/result/${c?.id||`local`}`,{state:{questions:s,answers:f,session:{...c,...u},subjectScores:t},replace:!0})}catch(e){console.error(e),o(`결과 저장에 실패했습니다.`,`error`),r(`/pilgi/result/${c?.id||`local`}`,{state:{questions:s,answers:f,session:{...c,...u},subjectScores:t},replace:!0})}x(!1)};if(!s.length)return null;let re=s[u],ie=Q.find(e=>e.id===re?.subject_id),oe=Object.keys(f).length;return(0,g.jsxs)(`div`,{className:`exam-container`,children:[(0,g.jsx)($,{title:`필기 시험`}),(0,g.jsxs)(`div`,{className:`exam-header`,children:[(0,g.jsxs)(`div`,{className:`exam-header-left`,children:[(0,g.jsxs)(`div`,{className:`exam-subject-badge`,style:{background:`${ie?.color}15`,color:ie?.color,borderColor:ie?.color},children:[(0,g.jsx)(`i`,{className:ie?.icon}),` `,ie?.name]}),(0,g.jsxs)(`span`,{className:`exam-progress-text`,children:[oe,` / `,s.length,` 답변`]})]}),(0,g.jsx)(ia,{totalSeconds:Ki.pilgi.timeLimit,onTimeUp:te,running:!0})]}),(0,g.jsxs)(`div`,{className:`exam-body`,children:[(0,g.jsxs)(`div`,{className:`exam-main`,children:[(0,g.jsx)(na,{question:re,selectedAnswer:f[re.id],onSelectAnswer:e=>ee(re.id,e),questionIndex:u,isBookmarked:m.includes(re.id),onToggleBookmark:C}),(0,g.jsxs)(`div`,{className:`exam-nav-buttons`,children:[(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>d(e=>Math.max(0,e-1)),disabled:u===0,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-left`}),` 이전`]}),(0,g.jsxs)(`span`,{className:`exam-page-info`,children:[u+1,` / `,s.length]}),u<s.length-1?(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>d(e=>Math.min(s.length-1,e+1)),children:[`다음 `,(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})]}):(0,g.jsxs)(`button`,{className:`btn btn-primary btn-sm`,onClick:()=>y(!0),children:[(0,g.jsx)(`i`,{className:`fa-solid fa-paper-plane`}),` 제출`]})]})]}),(0,g.jsxs)(`div`,{className:`exam-sidebar`,children:[(0,g.jsx)(aa,{questions:s,answers:f,currentIndex:u,onNavigate:d,bookmarkedIds:m}),(0,g.jsxs)(`button`,{className:`btn btn-primary`,onClick:()=>y(!0),style:{width:`100%`,marginTop:16},children:[(0,g.jsx)(`i`,{className:`fa-solid fa-paper-plane`}),` 시험 제출`]})]})]}),(0,g.jsxs)(oa,{isOpen:v,onClose:()=>y(!1),title:`시험 제출`,actions:(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>y(!1),children:`취소`}),(0,g.jsx)(`button`,{className:`btn btn-primary btn-sm`,onClick:ne,disabled:b,children:b?`제출 중...`:`제출하기`})]}),children:[(0,g.jsx)(`p`,{children:`시험을 제출하시겠습니까?`}),(0,g.jsxs)(`p`,{style:{marginTop:8},children:[(0,g.jsx)(`strong`,{children:oe}),`문항 답변 완료 /`,(0,g.jsxs)(`strong`,{style:{color:`var(--color-wrong)`},children:[` `,s.length-oe]}),`문항 미답변`]})]})]})}p.register(...f);function fa({scores:e}){let t=(0,h.useRef)(null),n=(0,h.useRef)(null);return(0,h.useEffect)(()=>{n.current&&n.current.destroy();let r=Q.map(e=>e.name),i=Q.map(t=>e[t.code]??0),a=Q.map(e=>e.color);return n.current=new p(t.current,{type:`radar`,data:{labels:r,datasets:[{label:`과목별 점수`,data:i,backgroundColor:`rgba(59, 130, 246, 0.15)`,borderColor:`#3B82F6`,borderWidth:2,pointBackgroundColor:a,pointBorderColor:`#FFFFFF`,pointBorderWidth:2,pointRadius:5}]},options:{responsive:!0,maintainAspectRatio:!0,scales:{r:{beginAtZero:!0,max:100,ticks:{stepSize:20,display:!1},grid:{color:`rgba(0,0,0,0.08)`},angleLines:{color:`rgba(0,0,0,0.08)`},pointLabels:{font:{size:12,weight:`600`,family:`Noto Sans KR`},color:`#4B5563`}}},plugins:{legend:{display:!1},tooltip:{callbacks:{label:e=>`${e.label}: ${e.raw}점`}}}}}),()=>{n.current&&n.current.destroy()}},[e]),(0,g.jsx)(`div`,{className:`chart-container`,children:(0,g.jsx)(`canvas`,{ref:t})})}function pa({sessions:e}){let t=(0,h.useRef)(null),n=(0,h.useRef)(null);return(0,h.useEffect)(()=>{if(n.current&&n.current.destroy(),!e?.length)return;let r=e.map((e,t)=>`${t+1}회`),i=e.map(e=>e.score_total??0);return n.current=new p(t.current,{type:`bar`,data:{labels:r,datasets:[{label:`총점`,data:i,backgroundColor:i.map(e=>e>=60?`rgba(16, 185, 129, 0.7)`:`rgba(239, 68, 68, 0.7)`),borderColor:i.map(e=>e>=60?`#10B981`:`#EF4444`),borderWidth:1,borderRadius:6}]},options:{responsive:!0,maintainAspectRatio:!0,scales:{y:{beginAtZero:!0,max:100,ticks:{stepSize:20}},x:{grid:{display:!1}}},plugins:{legend:{display:!1},tooltip:{callbacks:{label:e=>`${e.raw}점`}}}}}),()=>{n.current&&n.current.destroy()}},[e]),(0,g.jsx)(`div`,{className:`chart-container`,children:(0,g.jsx)(`canvas`,{ref:t})})}function ma(){let e=l();n();let{questions:t,answers:r,session:i,subjectScores:a}=e.state||{};if(!i)return(0,g.jsx)(`div`,{className:`loading-page`,style:{paddingTop:`var(--nav-height)`},children:(0,g.jsxs)(`div`,{className:`text-center`,children:[(0,g.jsx)(`p`,{children:`결과 데이터가 없습니다.`}),(0,g.jsx)(c,{to:`/pilgi`,className:`btn btn-primary mt-3`,children:`필기 홈으로`})]})});let{isPass:o,failedSubjects:s}=ca(a,i.score_total),u=la(i.score_total);return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`시험 결과`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsx)(`div`,{className:`container`,children:(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-column`}),` 시험 결과`]})})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsxs)(`div`,{className:`result-banner ${o?`pass`:`fail`}`,children:[(0,g.jsx)(`div`,{className:`result-banner-icon`,children:(0,g.jsx)(`i`,{className:o?`fa-solid fa-trophy`:`fa-solid fa-rotate-left`})}),(0,g.jsxs)(`div`,{className:`result-banner-content`,children:[(0,g.jsx)(`h2`,{children:o?`합격`:`불합격`}),(0,g.jsx)(`p`,{children:o?`축하합니다! 합격 기준을 충족했습니다.`:`아쉽지만 합격 기준에 미달했습니다.`})]}),(0,g.jsxs)(`div`,{className:`result-banner-score`,children:[(0,g.jsx)(`span`,{className:`result-total-score`,children:i.score_total}),(0,g.jsx)(`span`,{className:`result-total-label`,children:`/ 100점`})]})]}),(0,g.jsxs)(`div`,{className:`result-summary-grid`,children:[(0,g.jsxs)(`div`,{className:`result-stat-card`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-check-double`}),(0,g.jsx)(`span`,{className:`result-stat-value`,children:i.correct_count}),(0,g.jsx)(`span`,{className:`result-stat-label`,children:`정답 수`})]}),(0,g.jsxs)(`div`,{className:`result-stat-card`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-percentage`}),(0,g.jsxs)(`span`,{className:`result-stat-value`,children:[i.score_total,`점`]}),(0,g.jsx)(`span`,{className:`result-stat-label`,children:`총점`})]}),(0,g.jsxs)(`div`,{className:`result-stat-card`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-clock`}),(0,g.jsx)(`span`,{className:`result-stat-value`,children:ua(i.time_spent_sec)}),(0,g.jsx)(`span`,{className:`result-stat-label`,children:`소요 시간`})]}),(0,g.jsxs)(`div`,{className:`result-stat-card`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-award`}),(0,g.jsx)(`span`,{className:`result-stat-value`,style:{color:u.color},children:u.label}),(0,g.jsx)(`span`,{className:`result-stat-label`,children:`등급`})]})]}),(0,g.jsxs)(`div`,{className:`result-subjects`,children:[(0,g.jsx)(`h3`,{children:`과목별 성적`}),(0,g.jsx)(`div`,{className:`result-subjects-grid`,children:Q.map(e=>{let t=a[e.code]??0,n=t>=40;return(0,g.jsxs)(`div`,{className:`subject-score-card ${n?``:`failed`}`,children:[(0,g.jsxs)(`div`,{className:`subject-score-header`,children:[(0,g.jsxs)(`span`,{className:`subject-score-name`,style:{color:e.color},children:[(0,g.jsx)(`i`,{className:e.icon}),` `,e.name]}),(0,g.jsx)(`span`,{className:`subject-pass-badge ${n?`pass`:`fail`}`,children:n?`통과`:`과락`})]}),(0,g.jsx)(`div`,{className:`subject-score-bar`,children:(0,g.jsx)(`div`,{className:`subject-score-fill`,style:{width:`${t}%`,background:n?e.color:`var(--color-wrong)`}})}),(0,g.jsxs)(`span`,{className:`subject-score-value`,children:[t,`점`]})]},e.code)})})]}),(0,g.jsxs)(`div`,{className:`result-chart-section`,children:[(0,g.jsx)(`h3`,{children:`과목별 분석`}),(0,g.jsx)(fa,{scores:a})]}),s.length>0&&(0,g.jsxs)(`div`,{className:`result-warning`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-triangle-exclamation`}),(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`strong`,{children:`과락 과목:`}),s.map(e=>(0,g.jsxs)(`span`,{className:`result-failed-subject`,style:{color:e.color},children:[e.name,` (`,a[e.code],`점)`]},e.code))]})]}),(0,g.jsxs)(`div`,{className:`result-actions`,children:[(0,g.jsxs)(c,{to:`/pilgi/review/${i.id}`,className:`btn btn-primary`,state:{questions:t,answers:r},children:[(0,g.jsx)(`i`,{className:`fa-solid fa-magnifying-glass`}),` 오답 복습`]}),(0,g.jsxs)(c,{to:`/pilgi/select`,className:`btn btn-secondary`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-rotate-right`}),` 다시 시험보기`]}),(0,g.jsxs)(c,{to:`/dashboard`,className:`btn btn-secondary`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-pie`}),` 대시보드`]})]})]})]})}function ha(){let{questions:e=[],answers:t={}}=l().state||{},[n,r]=(0,h.useState)(`wrong`),[i,a]=(0,h.useState)(0),o=e.filter(e=>n===`wrong`?t[e.id]&&t[e.id]!==e.correct_answer:n===`correct`?t[e.id]===e.correct_answer:n===`unanswered`?!t[e.id]:!0);if(!e.length)return(0,g.jsx)(`div`,{className:`loading-page`,style:{paddingTop:`var(--nav-height)`},children:(0,g.jsxs)(`div`,{className:`text-center`,children:[(0,g.jsx)(`p`,{children:`복습할 문제가 없습니다.`}),(0,g.jsx)(c,{to:`/pilgi`,className:`btn btn-primary mt-3`,children:`필기 홈으로`})]})});let s=o[i],u=s?Q.find(e=>e.id===s.subject_id):null;return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`오답 복습`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-magnifying-glass`}),` 오답 복습`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`틀린 문제를 다시 확인하고 해설을 읽어보세요`})]})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsx)(`div`,{className:`review-filters`,children:[{key:`wrong`,label:`오답`,icon:`fa-solid fa-xmark`},{key:`correct`,label:`정답`,icon:`fa-solid fa-check`},{key:`unanswered`,label:`미답변`,icon:`fa-solid fa-minus`},{key:`all`,label:`전체`,icon:`fa-solid fa-list`}].map(i=>(0,g.jsxs)(`button`,{className:`study-filter-btn ${n===i.key?`active`:``}`,onClick:()=>{r(i.key),a(0)},children:[(0,g.jsx)(`i`,{className:i.icon}),` `,i.label,` (`,e.filter(e=>i.key===`wrong`?t[e.id]&&t[e.id]!==e.correct_answer:i.key===`correct`?t[e.id]===e.correct_answer:i.key===`unanswered`?!t[e.id]:!0).length,`)`]},i.key))}),o.length===0?(0,g.jsx)(`div`,{className:`text-center mt-4`,children:(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`},children:`해당 조건의 문제가 없습니다.`})}):(0,g.jsxs)(g.Fragment,{children:[u&&(0,g.jsxs)(`div`,{className:`study-subject-badge`,style:{background:`${u.color}15`,color:u.color},children:[(0,g.jsx)(`i`,{className:u.icon}),` `,u.name]}),(0,g.jsx)(na,{question:s,selectedAnswer:t[s.id],showResult:!0,showExplanation:!0,questionIndex:e.indexOf(s)}),(0,g.jsxs)(`div`,{className:`exam-nav-buttons mt-3`,children:[(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>a(e=>Math.max(0,e-1)),disabled:i===0,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-left`}),` 이전`]}),(0,g.jsxs)(`span`,{className:`exam-page-info`,children:[i+1,` / `,o.length]}),(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>a(e=>Math.min(o.length-1,e+1)),disabled:i>=o.length-1,children:[`다음 `,(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})]})]})]})]})]})}function ga(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`실기 시험`,description:`직업상담사 2급 실기 시험 준비`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-file-pen`}),` 실기 시험`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`직업상담 실무 - 주관식/서술형, 150분, 60점 이상 합격`})]})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsxs)(`div`,{className:`pilgi-modes`,children:[(0,g.jsxs)(c,{to:`/silgi/practice/1`,className:`pilgi-mode-card`,children:[(0,g.jsx)(`div`,{className:`pilgi-mode-icon study`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-pen`})}),(0,g.jsx)(`h3`,{children:`서술형 연습`}),(0,g.jsx)(`p`,{children:`주관식/서술형 문제를 풀고 모범답안과 비교하세요`}),(0,g.jsx)(`span`,{className:`pilgi-mode-badge`,children:`모범답안 비교`})]}),(0,g.jsxs)(c,{to:`/silgi/past`,className:`pilgi-mode-card`,children:[(0,g.jsx)(`div`,{className:`pilgi-mode-icon exam`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-scroll`})}),(0,g.jsx)(`h3`,{children:`기출문제 해설`}),(0,g.jsx)(`p`,{children:`회차별 기출문제와 상세 해설을 확인하세요`}),(0,g.jsx)(`span`,{className:`pilgi-mode-badge`,children:`해설 포함`})]}),(0,g.jsxs)(c,{to:`/silgi/terms`,className:`pilgi-mode-card`,children:[(0,g.jsx)(`div`,{className:`pilgi-mode-icon exam`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-book`})}),(0,g.jsx)(`h3`,{children:`핵심 용어`}),(0,g.jsx)(`p`,{children:`실기 시험에 자주 출제되는 핵심 용어를 학습하세요`}),(0,g.jsx)(`span`,{className:`pilgi-mode-badge`,children:`핵심 정리`})]})]}),(0,g.jsxs)(`div`,{className:`silgi-info mt-4`,children:[(0,g.jsx)(`h3`,{children:`실기 시험 안내`}),(0,g.jsxs)(`ul`,{children:[(0,g.jsx)(`li`,{children:`과목: 직업상담 실무`}),(0,g.jsx)(`li`,{children:`문제 유형: 주관식 (단답형, 서술형, 계산형)`}),(0,g.jsx)(`li`,{children:`시험 시간: 150분`}),(0,g.jsx)(`li`,{children:`합격 기준: 100점 만점 중 60점 이상`})]})]})]})]})}function _a(){let[e,t]=(0,h.useState)([]),[r,i]=(0,h.useState)(0),[a,o]=(0,h.useState)(``),[s,c]=(0,h.useState)(!1),[l,u]=(0,h.useState)(!0),{showToast:d}=ae();if(n(),(0,h.useEffect)(()=>{J.from(X.SILGI_QUESTIONS).select(`*`).order(`exam_year`,{ascending:!1}).order(`question_number`).limit(20).then(({data:e,error:n})=>{n&&d(`문제를 불러오지 못했습니다.`,`error`),t(e||[]),u(!1)})},[]),l)return(0,g.jsx)(`div`,{className:`loading-page`,style:{paddingTop:`var(--nav-height)`},children:(0,g.jsx)(`div`,{className:`loading-spinner`})});if(!e.length)return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`실기 연습`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsx)(`div`,{className:`container`,children:(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-pen`}),` 실기 연습`]})})}),(0,g.jsx)(`div`,{className:`container text-center mt-4`,style:{paddingBottom:80},children:(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`},children:`등록된 실기 문제가 없습니다.`})})]});let f=e[r],p=f.keywords||[],m=()=>{c(!0)},_=()=>{c(!1),o(``),i(t=>Math.min(e.length-1,t+1))},v=p.filter(e=>a.toLowerCase().includes(e.toLowerCase()));return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`실기 연습`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-pen`}),` 실기 연습`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`답안을 작성하고 모범답안과 비교하세요`})]})}),(0,g.jsx)(`div`,{className:`container`,style:{paddingBottom:80},children:(0,g.jsxs)(`div`,{className:`practice-container`,children:[(0,g.jsxs)(`div`,{className:`practice-question-header`,children:[(0,g.jsxs)(`span`,{className:`question-number`,children:[`Q`,r+1]}),(0,g.jsx)(`span`,{className:`practice-type-badge`,children:f.question_type===`short`?`단답형`:f.question_type===`essay`?`서술형`:`계산형`}),f.max_points&&(0,g.jsxs)(`span`,{className:`practice-points`,children:[f.max_points,`점`]})]}),(0,g.jsx)(`p`,{className:`question-text`,children:f.question_text}),(0,g.jsxs)(`div`,{className:`practice-answer-section`,children:[(0,g.jsx)(`label`,{className:`form-label`,children:`답안 작성`}),(0,g.jsx)(`textarea`,{className:`form-textarea answer-textarea`,value:a,onChange:e=>o(e.target.value),placeholder:`답안을 작성하세요...`,rows:6,disabled:s})]}),s?(0,g.jsxs)(g.Fragment,{children:[(0,g.jsxs)(`div`,{className:`model-answer`,children:[(0,g.jsxs)(`h4`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-star`}),` 모범답안`]}),(0,g.jsx)(`p`,{children:f.model_answer})]}),p.length>0&&(0,g.jsxs)(`div`,{className:`keyword-analysis`,children:[(0,g.jsxs)(`h4`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-key`}),` 키워드 매칭`]}),(0,g.jsx)(`div`,{className:`keyword-list`,children:p.map((e,t)=>(0,g.jsxs)(`span`,{className:`keyword-tag ${v.includes(e)?`keyword-match`:`keyword-miss`}`,children:[v.includes(e)?(0,g.jsx)(`i`,{className:`fa-solid fa-check`}):(0,g.jsx)(`i`,{className:`fa-solid fa-xmark`}),e]},t))}),(0,g.jsxs)(`p`,{className:`keyword-result`,children:[v.length,` / `,p.length,` 키워드 일치`]})]}),(0,g.jsxs)(`div`,{className:`exam-nav-buttons mt-3`,children:[(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>{c(!1),o(``),i(e=>Math.max(0,e-1))},disabled:r===0,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-left`}),` 이전`]}),(0,g.jsxs)(`span`,{className:`exam-page-info`,children:[r+1,` / `,e.length]}),(0,g.jsxs)(`button`,{className:`btn btn-primary btn-sm`,onClick:_,disabled:r>=e.length-1,children:[`다음 `,(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})]})]})]}):(0,g.jsxs)(`button`,{className:`btn btn-primary`,onClick:m,style:{width:`100%`},children:[(0,g.jsx)(`i`,{className:`fa-solid fa-eye`}),` 모범답안 확인`]})]})})]})}function va(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`실기 결과`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsx)(`div`,{className:`container`,children:(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-column`}),` 실기 연습 결과`]})})}),(0,g.jsxs)(`div`,{className:`container text-center`,style:{paddingBottom:80},children:[(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`,marginTop:40},children:`실기 시험은 자기 채점 방식입니다. 모범답안과 비교하여 학습하세요.`}),(0,g.jsxs)(`div`,{style:{display:`flex`,gap:12,justifyContent:`center`,marginTop:24},children:[(0,g.jsx)(c,{to:`/silgi`,className:`btn btn-primary`,children:`실기 홈`}),(0,g.jsx)(c,{to:`/silgi/terms`,className:`btn btn-secondary`,children:`핵심 용어`})]})]})]})}var ya=[{term:`직업상담`,definition:`개인이 자신의 직업적 문제를 해결하고 직업 선택·적응·발달을 도모할 수 있도록 전문 상담사가 도움을 제공하는 과정`,category:`직업상담학`},{term:`내담자 중심 상담`,definition:`Rogers의 인간중심 상담이론에 기반하여 공감적 이해, 무조건적 긍정적 존중, 일치성을 핵심 조건으로 하는 상담 방법`,category:`직업상담학`},{term:`행동주의 상담`,definition:`학습이론에 기반하여 관찰 가능한 행동의 변화를 목표로 하는 상담 접근법. 체계적 탈감법, 토큰경제 등의 기법 활용`,category:`직업상담학`},{term:`Holland 유형론`,definition:`현실형(R), 탐구형(I), 예술형(A), 사회형(S), 기업형(E), 관습형(C) 6가지 유형으로 개인과 직업 환경을 분류하는 이론`,category:`직업심리학`},{term:`Super의 발달이론`,definition:`직업발달을 성장기, 탐색기, 확립기, 유지기, 쇠퇴기의 5단계로 나누는 생애발달 이론`,category:`직업심리학`},{term:`직업심리검사`,definition:`개인의 적성, 흥미, 성격 등을 측정하여 직업 선택과 적응에 활용하는 표준화된 검사 도구`,category:`직업심리학`},{term:`한국표준직업분류(KSCO)`,definition:`통계청에서 발행하는 직업분류 체계로, 대분류 10개, 중분류, 소분류, 세분류, 세세분류로 구성`,category:`직업정보론`},{term:`워크넷(WorkNet)`,definition:`고용노동부 산하 한국고용정보원이 운영하는 온라인 취업 지원 서비스`,category:`직업정보론`},{term:`노동시장`,definition:`노동력의 수요(기업)와 공급(근로자)이 만나 임금과 고용량이 결정되는 시장`,category:`노동시장론`},{term:`인적자본론`,definition:`Becker에 의해 체계화된 이론으로, 교육·훈련에 대한 투자가 개인의 생산성과 임금을 높인다는 이론`,category:`노동시장론`},{term:`실업`,definition:`일할 능력과 의사가 있음에도 취업하지 못한 상태. 마찰적, 구조적, 경기적 실업으로 구분`,category:`노동시장론`},{term:`근로기준법`,definition:`근로조건의 최저 기준을 정하여 근로자의 기본적 생활을 보장하는 법률`,category:`노동관계법규`},{term:`고용보험법`,definition:`실업 예방, 고용 촉진, 근로자의 직업능력 개발·향상, 실업급여 지급을 위한 법률`,category:`노동관계법규`},{term:`직업안정법`,definition:`직업소개, 직업지도 등 직업안정 업무에 관한 사항을 규정하는 법률`,category:`노동관계법규`},{term:`구조화된 면접`,definition:`사전에 정해진 질문 목록에 따라 모든 지원자에게 동일한 질문을 하는 면접 방식`,category:`직업상담학`}];function ba(){let[e,t]=(0,h.useState)(`전체`),[n,r]=(0,h.useState)(``),i=[`전체`,...new Set(ya.map(e=>e.category))],a=ya.filter(t=>{let r=e===`전체`||t.category===e,i=!n||t.term.toLowerCase().includes(n.toLowerCase())||t.definition.toLowerCase().includes(n.toLowerCase());return r&&i});return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`핵심 용어`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-book`}),` 핵심 용어`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`실기 시험에 자주 출제되는 핵심 용어를 정리했습니다`})]})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsxs)(`div`,{className:`terms-toolbar`,children:[(0,g.jsx)(`input`,{type:`text`,className:`form-input`,placeholder:`용어 검색...`,value:n,onChange:e=>r(e.target.value),style:{maxWidth:300}}),(0,g.jsx)(`div`,{className:`study-filters`,style:{marginTop:16},children:i.map(n=>(0,g.jsx)(`button`,{className:`study-filter-btn ${e===n?`active`:``}`,onClick:()=>t(n),children:n},n))})]}),(0,g.jsx)(`div`,{className:`key-terms-grid`,children:a.map((e,t)=>(0,g.jsxs)(`div`,{className:`term-card`,children:[(0,g.jsxs)(`div`,{className:`term-card-header`,children:[(0,g.jsx)(`h4`,{className:`term-name`,children:e.term}),(0,g.jsx)(`span`,{className:`term-category`,children:e.category})]}),(0,g.jsx)(`p`,{className:`term-definition`,children:e.definition})]},t))}),a.length===0&&(0,g.jsx)(`div`,{className:`text-center mt-4`,children:(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`},children:`검색 결과가 없습니다.`})})]})]})}var xa=[{id:`2023-3`,year:2023,round:3,title:`2023년 제3회 직업상담사 실기`,totalPoints:100,questions:[{num:1,title:`현재 사용되고 있는 흥미검사의 종류 5가지를 쓰시오.`,points:5,frequency:`23-3, 20-4, 12-2`,keyword:`흥미검사의 종류`,answer:`<ol>
+<li>직업선호도검사(워크넷)</li>
+<li>청소년 직업흥미검사(워크넷)</li>
+<li>자기방향탐색검사</li>
+<li>스트롱 흥미검사</li>
+<li>쿠더 직업흥미검사</li>
+</ol>`,advanced:`<p><strong>직업흥미검사의 종류</strong></p>
+<ol>
+<li>직업선호도검사(VPI ; Vocational Preference Inventory)</li>
+<li>자기방향탐색검사(SDS ; Self Directed Search)</li>
+<li>스트롱 흥미검사(SII ; Strong Interest Inventory)</li>
+<li>스트롱-캠벨 흥미검사(SCII ; Strong-Campbell Interest Inventory)</li>
+<li>쿠더 직업흥미검사(KOIS ; Kuder Occupational Interest Survey)</li>
+<li>경력의사결정검사(CDM ; Career Decision Making System)</li>
+<li>직업선호도검사(워크넷)</li>
+<li>청소년 직업흥미검사(워크넷)</li>
+</ol>`,tips:null,partialScore:`각 1점`},{num:2,title:`행동주의 직업상담의 상담기법은 크게 불안감소기법과 학습촉진기법의 유형으로 구분할 수 있다. 각 유형별 대표적인 방법을 각각 3가지 쓰시오.`,points:6,frequency:`23-3, 22-1, 16-3, 16-2, 15-2, 15-1, 12-3, 11-1`,keyword:`불안감소기법과 학습촉진기법`,answer:`<h4>불안감소기법</h4>
+<ol>
+<li><strong>홍수법</strong></li>
+<li><strong>주장훈련</strong></li>
+<li><strong>체계적둔감법</strong></li>
+<li><strong>금지조건형성</strong></li>
+</ol>
+<h4>학습촉진기법</h4>
+<ol>
+<li><strong>강화</strong></li>
+<li><strong>변별학습</strong></li>
+<li><strong>모델링(모방)</strong></li>
+<li><strong>토큰법</strong></li>
+</ol>`,advanced:`<h4>불안감소기법</h4>
+<ol>
+<li><strong>홍수법</strong> : 특정 불안 공포증을 가진 환자를 단번에 강한 공포자극에 장시간 직면케 하여 불안을 치료하는 방법이다.</li>
+<li><strong>주장훈련</strong> : 불안을 역제지하는 방법으로 대인관계에서 오는 불안 제지 효과를 갖는다.</li>
+<li><strong>체계적둔감법</strong> : 불안과 공포증이 있는 환자에게 불안 조건을 점차로 노출시켜 둔감화 시키는 치료법이다.</li>
+<li><strong>금지조건형성</strong> : 내담자에게 추가적 강화 없이 불안반응을 일으킬만한 단서를 지속적으로 제시함으로써, 불안 감정을 점차로 소거시키는 기법이다.</li>
+</ol>
+<h4>학습촉진기법</h4>
+<ol>
+<li><strong>강화</strong> : 학습자에게 강화물을 제공하여, 특정행동의 빈도가 높아지도록 하는 행동수정방법이다.</li>
+<li><strong>변별학습</strong> : 자극의 차이에 따라 서로 다른 반응을 보이도록 유도하는 학습촉진기법이다.</li>
+<li><strong>모델링(모방)</strong> : 다른 사람들의 행동이나 결과를 관찰함으로써 결정행동학습을 촉진시킨다.</li>
+<li><strong>토큰법</strong> : 내담자의 바람직한 행동이 일어날 때 원하는 다양한 물건과 교환할 수 있는 강화물로 토큰이 주어지는 체계적인 강화기법이다.</li>
+</ol>`,tips:`출제빈도가 높은 문제입니다. 반드시 숙지하세요. 제시된 답안 중 3가지씩만 쓰시면 됩니다.`,partialScore:`각 1점`},{num:3,title:`진로상담 과정에서 관계수립을 위한 기본 상담기술 5가지를 기술하시오.`,points:5,frequency:`23-1, 20-1, 05-3`,keyword:`기본 상담기술`,answer:`<ol>
+<li><strong>공감</strong> : 상담자가 자신이 직접 경험하지 않고도 내담자의 감정을 거의 같은 수준으로 이해하는 능력이다.</li>
+<li><strong>적극적 경청</strong> : 내담자가 표현하는 언어적 의미 외에 비언어적인 의미까지 세심하게 주목하는 것을 말한다.</li>
+<li><strong>반영</strong> : 내담자의 생각과 말을 상담자가 다른 참신한 말로 부연하는 것을 말한다.</li>
+<li><strong>직면</strong> : 상담사가 내담자로 하여금 자신의 문제에 회피하지 않고 도전하도록 하는 것이다.</li>
+<li><strong>명료화</strong> : 내담자의 모호한 생각과 감정의 표현을 상담사가 분명하게 밝히는 것이다.</li>
+<li><strong>수용</strong> : 내담자의 이야기에 주의 집중하고 내담자를 인격적으로 존중하는 기법이다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 1점`},{num:4,title:`성향검사의 종류를 6가지 쓰시오.`,points:6,frequency:`23-3`,keyword:`성향검사(습관적 수행검사)`,answer:`<ol>
+<li>성격유형검사(MBTI)</li>
+<li>성격 5요인(Big-5) 검사</li>
+<li>미네소타 다면적 인성검사(MMPI)</li>
+<li>직업선호도 검사 중 흥미검사</li>
+<li>스트롱-캠밸 흥미검사(SCII)</li>
+<li>직무만족도 검사</li>
+</ol>`,advanced:`<p><strong>성향검사의 분류</strong></p>
+<ul>
+<li><strong>성격검사</strong> : 성격유형검사(MBTI), 성격 5요인(Big-5) 검사, 미네소타 다면적 인성검사(MMPI), 캘리포니아 성격검사(CPI)</li>
+<li><strong>흥미검사</strong> : 직업선호도 검사 중 흥미검사, 스트롱-캠밸 흥미검사(SCII), 쿠더 직업흥미검사(KOIS)</li>
+<li><strong>태도검사</strong> : 직무만족도 검사, 구직욕구검사</li>
+</ul>`,tips:null,partialScore:`각 1점`},{num:5,title:`내담자 중심 상담을 성공적으로 이끌기 위해 상담자가 갖춰야 할 기본적인 태도 3가지를 설명하시오.`,points:6,frequency:`23-3, 16-1, 15-3, 15-1, 09-3, 07-3, 06-1`,keyword:`내담자중심 상담의 상담자 태도`,answer:`<ol>
+<li><strong>일치성 또는 진실성</strong><br/>내담자와의 관계에서 상담자의 감정이나 생각을 있는 그대로 인정하고 일치화시키되, 있는 그대로 솔직하게 표현하는 것을 말한다.</li>
+<li><strong>무조건적인 수용</strong><br/>내담자의 말을 비판하거나 평가하지 않고 그대로 수용함으로 내담자를 존중하는 상담자의 태도이다.</li>
+<li><strong>공감적 이해</strong><br/>내담자의 감정과 경험을 마치 상담자 자신의 경험인 것처럼 이해하고자 하는 태도이다.</li>
+</ol>`,advanced:null,tips:`기출빈도가 높은 문제입니다. 반드시 숙지하세요.`,partialScore:`각 2점, 설명이 없으면 1점`},{num:6,title:`규준의 종류 중 백분위 점수(percentile score), 표준점수(standard score), 표준등급(stanine scale)의 의미를 각각 설명하시오.`,points:6,frequency:`23-1·2·3, 21-2, 19-1, 18-3, 17-3, 15-1, 14-3, 12-2, 12-3, 10-4, 09-10, 09-3, 08-1, 07-1`,keyword:`집단 내 규준`,answer:`<ol>
+<li><strong>백분위 점수</strong><br/>개인이 표준화된 집단에서 차지하는 상대적 위치를 가리키는 것으로 개인의 점수를 100개의 동일한 구간에서 순위를 정한다.</li>
+<li><strong>표준점수</strong><br/>원점수를 주어진 집단의 평균을 중심으로 분포의 표준편차로 나누어 전환시킨 점수이다.</li>
+<li><strong>표준등급</strong><br/>9등급 또는 스테나인 점수라고 하며, 원점수를 1~9등급까지 범주로 나누는 것이다.</li>
+</ol>`,advanced:null,tips:`매우 기출빈도가 높은 문제입니다. 반드시 숙지하세요.`,partialScore:`각 2점, 설명이 없으면 1점`},{num:7,title:`다음은 준거타당도에 관한 사항이다. 물음에 답하시오.`,points:7,frequency:`23-3`,keyword:`준거타당도`,answer:`<h4>(1) 준거타당도의 종류 2가지</h4>
+<ol>
+<li><strong>예언타당도</strong><br/>피험자의 미래 행위를 측정하는 것이다. 예로써 적성검사에서 높은 점수를 받은 사람들일수록 입사 후 업무 수행이 우수한 것으로 나타났다면, 이 검사는 예언 타당도가 높은 것으로 볼 수 있다.</li>
+<li><strong>동시타당도</strong><br/>피험자의 현재 상태를 측정하는 것이다. 예로써 영어면접 시험의 타당도를 입증하기 위해 동시 실시된 토익 등 공인영어시험 점수와 비교하는 것이다.</li>
+</ol>
+<h4>(2) 준거타당도가 직업상담에서 중요한 이유</h4>
+<ol>
+<li>직업에서의 성공가능성이나 장래의 직무수행 성과를 예측할 수 있다.</li>
+<li>인사관리에 관한 의사결정의 공정성을 높일 수 있다.</li>
+</ol>
+<h4>(3) 실제연구 보다 타당도 계수가 낮은 이유</h4>
+<ol>
+<li>표집오차</li>
+<li>준거측정치의 타당도</li>
+<li>준거측정치의 신뢰도</li>
+</ol>`,advanced:`<p>실제연구가 아닌 실증연구에서 타당도가 낮아지는 이유는 준거타당도의 크기에 영향을 미치는 요인과 같습니다.</p>
+<ol>
+<li>표집오차</li>
+<li>범위제한</li>
+<li>준거측정치의 타당도</li>
+<li>준거측정치의 신뢰도</li>
+</ol>
+<p><strong>실제연구에서 타당도가 낮아지는 이유</strong></p>
+<ol>
+<li>실제 연구는 실증 연구에 비해 독립변인의 조작 및 가외변인의 통제가 어렵다.</li>
+<li>실제 연구에서는 독립변인에 의한 효과와 가외변인의 효과를 명확히 구분하기 어렵다.</li>
+<li>실제 연구는 실증연구에 비해 내적 타당도가 취약하다.</li>
+</ol>`,tips:`준거타당도는 출제 빈도가 높은 문제입니다. 숙지하시길 바랍니다. 또한 문제에서 '실제(현장)연구의 타당도'를 묻는지 '실증(실험실)연구의 타당도'를 묻는지에 따라 답안이 달라질 수 있습니다.`,partialScore:`각 1점`},{num:8,title:`실험실 연구의 장점 3가지를 쓰시오.`,points:6,frequency:`23-3`,keyword:`실험실(실증) 연구`,answer:`<ol>
+<li>연구대상 변수의 완벽한 통제가 가능한 실험이다.</li>
+<li>단순한 예측을 넘어 원인 - 결과의 관계를 파악할 수 있다.</li>
+<li>변인들 사이에 존재하는 인과관계를 설명하기에 유리하다.</li>
+<li>인과관계가 잘 설명되어 내적 타당성이 높다.</li>
+</ol>`,advanced:`<p><strong>현장(실제)연구</strong></p>
+<p>현장 연구는 현장에서 이루어지는 연구로 독립변인을 조작하지 않고 현장에서 면접, 설문조사, 관찰 등을 이용해서 이루어지는 연구를 말하는 것으로 관련 방법으로는 전수조사, 표본조사, 참여관찰법 등이 있고 현장 실험처럼 외적타당도가 높다.</p>`,tips:null,partialScore:`각 2점`},{num:9,title:`질문지법(설문법)의 장점과 단점을 각각 2가지씩 쓰시오.`,points:4,frequency:`23-3`,keyword:`직무분석의 질문지법(설문법)`,answer:`<h4>장점</h4>
+<ol>
+<li>관찰법이나 면접법과는 달리 양적인 정보를 얻는 데 적합하다.</li>
+<li>많은 사람들로부터 짧은 시간 내에 정보를 얻을 수 있다.</li>
+</ol>
+<h4>단점</h4>
+<ol>
+<li>질문지의 설계 및 작성이 어렵고, 완전한 사실을 얻기 힘들다.</li>
+<li>응답자가 성실성이 부족할 경우 회수율이 낮을 수 있다.</li>
+</ol>`,advanced:`<ul>
+<li>설문지를 배부해 직무담당자가 기록하도록 하여 정보를 얻는 방법이다.</li>
+<li>직무수행에 요구되는 지식, 기술, 능력들이 얼마나 자주 사용되는지, 얼마나 중요한지 등을 평가한다.</li>
+</ul>`,tips:null,partialScore:`각 1점`},{num:10,title:`홀랜드(Holland) 직업흥미검사의 6가지 유형을 쓰고, 각각에 대해 간략히 설명하시오.`,points:6,frequency:`23-3, 23-2, 23-1, 22-1, 19-2, 18-2, 16-1, 14-3, 09-1, 08-1, 07-1, 04-1`,keyword:`홀랜드(Holland)의 흥미유형`,answer:`<ol>
+<li><strong>현실형</strong> : 기계, 도구, 동물에 관한 체계적인 조작활동을 좋아하며 현장 일을 선호하나 사회적 기술이 부족하다.</li>
+<li><strong>탐구형</strong> : 호기심이 많고 분석적이여서 과학적 탐구활동을 선호하나 리더십 기술이 부족하다.</li>
+<li><strong>예술형</strong> : 창의적이며 감성이 풍부하고 개방적이나 틀에 박힌 일을 싫어하며 규범적인 기술이 부족하다.</li>
+<li><strong>사회형</strong> : 친절하고 이해심이 많으며 다른 사람을 돕는 것을 즐기나 과학적이거나 기계적인 활동 능력이 부족하다.</li>
+<li><strong>진취형</strong> : 외향적이며 지도력이 있고, 말을 잘하나 상징적, 체계적, 과학적 활동에 대한 능력은 부족하다.</li>
+<li><strong>관습형</strong> : 자료를 잘 정리하고 순응적이며 책임감이 강한 반면, 변화에 약하고 융통성이 부족하다.</li>
+</ol>`,advanced:null,tips:`출제빈도가 높은 문제입니다. 반드시 숙지하세요.`,partialScore:`각 1점`},{num:11,title:`인지·정서적 상담에서 인간에 대한 기본가정, 기본개념, 상담의 목표를 쓰시오.`,points:6,frequency:`23-3, 20-4, 12-2`,keyword:`인지·정서 상담`,answer:`<h4>(1) 인간에 대한 기본가정</h4>
+<ol>
+<li>인간을 합리적인 사고를 할 수 있는 동시에 비합리적인 사고의 가능성도 가지고 있는 존재로 보았다.</li>
+<li>모든 내담자의 행동적·정서적 문제는 비논리적이고 비합리적인 사고에서 발생한 것이다.</li>
+</ol>
+<h4>(2) 기본개념</h4>
+<ol>
+<li>문제해결을 위해 사고의 분석과 논박 그리고 상담사의 교육적 접근을 강조한다.</li>
+<li>비합리적 사고를 합리적 사고로 전환하고자 ABCDE모형을 적용한다.</li>
+</ol>
+<h4>(3) 상담의 목표</h4>
+<ol>
+<li>자기관심, 자기수용, 불확실성의 수용, 관용, 융통성 등을 통해 자기 책임감 등 합리적인 신념의 변화를 유도한다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 2점`},{num:12,title:`정신역동 직업상담 모형을 구체화시킨 보딘의 3단계 직업상담과정을 쓰고 각각에 대해 설명하시오.`,points:6,frequency:`23-3, 20-3, 18-2, 17-3, 15-3, 12-1`,keyword:`보딘(Bordin)의 직업상담과정`,answer:`<ol>
+<li><strong>탐색과 계약설정의 단계</strong><br/>내담자의 욕구와 정신역동을 탐색할 수 있도록 돕고, 상담전략을 합의하는 단계이다.</li>
+<li><strong>중대한(핵심)결정의 단계</strong><br/>개인의 성격에 맞추어 직업을 변경할 것인지, 직업에 맞추어 성격을 변경할 것인지 결정한다.</li>
+<li><strong>변화를 위한 노력의 단계</strong><br/>자신의 선택한 직업이 필요로 하는 부분에 대하여 변화를 모색하고 자신의 성격, 욕구 등을 변화시키고자 하는 노력의 단계이다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 2점, 설명이 없으면 각 1점`},{num:13,title:`내담자와의 초기면담 수행 시 상담자가 유의해야 할 사항 4가지를 쓰시오.`,points:4,frequency:`23-3, 20-3, 07-01, 07-02`,keyword:`초기면담 수행 시 상담자 유의사항`,answer:`<ol>
+<li>상담 전 모든 사례 자료 검토하기</li>
+<li>내담자와 만나기</li>
+<li>내담자의 초기 목표를 명확히 제시하기</li>
+<li>비밀 유지에 대해 설명하기</li>
+<li>상담시의 필수질문들을 확인하기</li>
+</ol>`,advanced:`<ol>
+<li>면담시작 전에 내담자 유형에 관한 가능한 모든 사례자료를 검토하기</li>
+<li>내담자와 만나기</li>
+<li>내담자의 초기목표를 명확히 하기</li>
+<li>내담자의 직업상담에 대한 기대를 결정하기</li>
+<li>내담자가 상담자의 기대를 얼마나 잘 수용하는지 관찰하기</li>
+<li>비밀유지에 대해 설명하기</li>
+<li>초기면담의 내용 요약하기</li>
+<li>반드시 짚고 넘어가야 할 상담시의 필수질문들을 확인하기</li>
+<li>과제물 부여하기</li>
+</ol>`,tips:`5가지 중 4가지만 적으시면 됩니다.`,partialScore:`각 1점`}]},{id:`2023-2`,year:2023,round:2,title:`2023년 제2회 직업상담사 실기`,totalPoints:100,questions:[{num:1,title:`보딘의 심리적 원인 5가지를 쓰고 설명하시오.`,points:10,frequency:`23-2, 21-1, 19-2, 18-3, 15-3, 14-1, 14-3, 13-3, 11-1, 10-2, 09-2, 06-1`,keyword:`보딘(Bordin)의 심리적 원인`,answer:`<ol>
+<li><strong>내적갈등(자아갈등)</strong><br/>자아개념과 다른 심리적 기능 간의 갈등으로 직업결정의 어려움을 가지는 경우이다.</li>
+<li><strong>정보의 부족</strong><br/>개인이 진로에 관련정보를 받지 못하는 경우, 직업선택과 진로문제 해결에 어려움을 가지게 된다.</li>
+<li><strong>의존성</strong><br/>개인의 진로문제를 책임을 지는 것이 어렵다고 느끼며, 스스로 해결하지 못하고 주변이나 타인에 의존하는 경우이다.</li>
+<li><strong>확신의 결여(문제없음)</strong><br/>잠정적인 진로 및 직업선택과 미래 진로에 대한 확신이 부족한 상황으로 내담자가 진로에 관한 선택을 내린 이후에도 단지 그것을 확인하기 위해서 상담자를 찾는 경우이다.</li>
+<li><strong>진로선택의 불안</strong><br/>자신이 원하는 일과 중요한 타인의 요구가 다를 때 개인은 진로선택의 불안을 느끼게 된다.</li>
+</ol>`,advanced:null,tips:`이 문제는 빈출 문제를 확장한 문제로 여러 차례 3가지만 요구하다가 처음 5가지를 모두 쓰도록 요구한 문제입니다.`,partialScore:`각 2점, 설명이 없으면 1점`},{num:2,title:`롭퀴스트와 데이비스의 직업적응이론에서 직업적응방식의 유형 3가지를 쓰고 설명하시오.`,points:6,frequency:`23-2, 19-1`,keyword:`직업적응방식`,answer:`<ol>
+<li><strong>끈기</strong> : 환경이 맞지 않아도 오래 견딜 수 있는 정도를 의미한다.</li>
+<li><strong>적극성</strong> : 자신과 환경을 좀 더 조화롭게 하려는 노력을 말한다.</li>
+<li><strong>반응성</strong> : 작업성격의 변화 시 환경에 반응 정도를 말한다.</li>
+<li><strong>융통성</strong> : 개인이 작업환경과 개인적 환경 간의 부조화를 참아내는 정도를 말한다.</li>
+</ol>`,advanced:null,tips:`이 문제는 기출 문제를 확장한 문제로 3가지 쓰기만 요구하다가 쓰고 설명하기를 요구한 문제입니다.`,partialScore:`각 2점, 설명이 없으면 1점`},{num:3,title:`틴슬레이와 브레들리(Tinsley & Bradley)가 제시한 검사 해석의 4단계를 설명하시오.`,points:4,frequency:`23-2, 20-4`,keyword:`Tinsley & Bradley의 검사 해석 4단계`,answer:`<ol>
+<li><strong>해석 준비</strong><br/>검사결과와 내담자의 개인적 정보들과 어떻게 통합되어 해석되는지를 검토한다.</li>
+<li><strong>내담자 준비시키기</strong><br/>내담자가 검사결과 해석을 받아들일 수 있도록 준비시킨다.</li>
+<li><strong>결과 전달하기</strong><br/>내담자가 이해하기 쉬운 용어를 사용하여 검사결과가 의미하는 바를 전달한다.</li>
+<li><strong>추후활동</strong><br/>상담결과에 대한 의견을 나누며 내담자가 그것을 어떻게 이해했는지 확인한다.</li>
+</ol>`,advanced:`<p><strong>틴슬레이와 브레들리가 제시한 검사 결과 검토의 2단계</strong></p>
+<ol>
+<li><strong>1단계 : 이해</strong><br/>내담자의 검사결과 해석에 있어 규준과 참조하여 검사점수의 의미를 충분히 이해한다.</li>
+<li><strong>2단계 : 통합</strong><br/>이해를 통해 얻어진 검사 정보와 상담사가 수집한 내담자에 대한 다른 정보들과 통합한다.</li>
+</ol>`,tips:null,partialScore:`각 1점`},{num:4,title:`Gottfredson의 직업과 관련된 개인발달의 4단계를 쓰고, 각각에 대해 설명하시오.`,points:4,frequency:`23-2, 16-3, 15-3, 11-3, 11-2`,keyword:`고트프레드슨(Gottfredson)의 직업포부 발달단계`,answer:`<ol>
+<li><strong>힘과 크기 지향성</strong><br/>사고과정이 구체화되며 어른이 된다는 것의 의미를 알게 된다.</li>
+<li><strong>성역할 지향성</strong><br/>자아개념이 성의 발달에 의해서 영향을 받게 된다.</li>
+<li><strong>사회적 가치 지향성</strong><br/>사회계층에 대한 개념이 생겨나기 시작하면서 '상황 속 자아'를 인식하기에 이른다.</li>
+<li><strong>내적, 고유한 자아 지향성</strong><br/>자아성찰과 사회계층의 맥락에서 직업적 포부가 더욱 발달하게 된다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 1점, 설명이 없으면 0.5점`},{num:5,title:`형태주의(게슈탈트) 상담의 상담기법을 4가지만 쓰시오.`,points:4,frequency:`23-2, 19-3, 18-2, 15-3, 13-2, 12-1, 11-1, 10-4`,keyword:`게슈탈트(형태주의) 이론의 상담기법`,answer:`<ol>
+<li><strong>욕구와 감정의 자각</strong> : 내담자의 현재 느껴지는 욕구와 감정을 자각시킨다.</li>
+<li><strong>신체자각</strong> : 현재 내담자 신체적 느낌을 통해 자신의 감정을 자각한다.</li>
+<li><strong>언어자각</strong> : 내담자의 언어를 통해 자신의 욕구에 대한 책임을 자각한다.</li>
+<li><strong>과장하기</strong> : 욕구와 감정을 명확히 지각하도록 자신의 행동과 언어를 과장하게 한다.</li>
+<li><strong>빈 의자 기법</strong> : 중요한 타인을 빈 의자에 투사하여 자신의 감정을 표현한다.</li>
+<li><strong>꿈 작업</strong> : 마치 꿈이 현재 사건인 것처럼 상상 꿈의 각 부분을 연기하게 한다.</li>
+</ol>`,advanced:`<p>게슈탈트(형태주의) 이론의 상담기법은 내담자 자신의 욕구와 감정을 자각시키는 방법들로 자각(알아차림)은 개체가 자신의 욕구나 감정을 지각한 다음 게슈탈트로 형성하여 전경으로 떠올리는 행위를 말한다. 이러한 알아차림은 누구에게나 자연적으로 갖추어져 있는 능력이다.</p>`,tips:`제시된 답안 중 4가지만 쓰시면 됩니다.`,partialScore:`각 1점 (설명은 적지 않아도 됩니다.)`},{num:6,title:`Super의 발달단계 5단계를 쓰고, 각 단계에 대해 설명하시오.`,points:5,frequency:`23-2, 20-4, 19-2, 17-1, 09-2, 03-3`,keyword:`Super의 발달단계`,answer:`<ol>
+<li><strong>성장기</strong><br/>가정이나 학교에서 중요한 타인을 동일시하여 자아개념을 발달시키는 시기로, 초기에는 욕구와 환상이 지배적이나 점차 흥미와 능력을 중시한다.</li>
+<li><strong>탐색기</strong><br/>학교·여가활동, 시간제 일과 같은 활동을 통해 자아를 검증하고 역할을 수행하며 자신에게 적합한 직업을 탐색하는 시기이다.</li>
+<li><strong>확립기</strong><br/>자신에게 적합한 직업을 발견·종사하여 기반을 다져 나가는 시기이다.</li>
+<li><strong>유지기</strong><br/>직업에서 자신의 위치가 공고해지고 자신의 자리를 유지하기 위해 노력하며 안정된 삶을 살아가는 시기이다.</li>
+<li><strong>쇠퇴기</strong><br/>정신적·육체적으로 기능이 쇠퇴함에 따라 직업에서 은퇴하게 되어 새로운 역할과 활동을 찾게 되는 시기이다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 1점, 설명이 없으면 0.5점`},{num:7,title:`구성타당도를 분석하는 대표적인 방법 2가지를 쓰고 설명하시오.`,points:4,frequency:`23-2, 19-3, 16-1, 15-1, 15-2, 10-1, 10-4, 09-3, 08-1, 06-3, 03-1, 03-3, 01-1`,keyword:`구성타당도의 종류`,answer:`<ol>
+<li><strong>변별타당도</strong> : 검사의 결과가 그 속성과 관계없는 변인들과 낮은 상관관계를 지니고 있는지 정도를 측정, 상관계수가 낮을수록 변별타당도가 높다.</li>
+<li><strong>수렴타당도</strong> : 검사의 결과가 그 속성과 관계있는 변인들과 높은 상관관계를 지니고 있는지 정도를 측정, 상관계수가 높을수록 수렴타당도가 높다.</li>
+<li><strong>요인분석법</strong> : 검사 문항들 간의 상관관계를 분석하여 상관이 높은 문항들을 요인으로 묶어주는 통계방법</li>
+</ol>`,advanced:`<p><strong>다속성·다측정방법행렬표(MTMM)</strong> : 둘 이상의 특성에 대해 둘이상의 방법으로 측정하여 그 결과를 분석한 후 두 가지 측정결과가 어느 정도 상관관계가 있는지 알아보는 방법으로 순서는 수렴타당도의 시행 후 변별타당도 실시하고 다시 이 두 점수간의 상관관계를 본다.</p>`,tips:`변별타당도, 수렴타당도, 요인분석법 중 변별타당도, 수렴타당도 2가지를 답안으로 작성하시는 것을 추천 드립니다.`,partialScore:`각 2점, 설명이 없으면 1점`},{num:8,title:`직무평가방법 3가지를 쓰고 설명하시오.`,points:6,frequency:`23-2, 21-3`,keyword:`직무평가방법`,answer:`<ol>
+<li><strong>서열법</strong> : 가장 오래되고 간단한 방법으로 전체적·포괄적인 관점에서 각 직무를 상호 비교하여 순위를 결정하는 방법이다.</li>
+<li><strong>분류법</strong> : 서열법에서 좀 더 발전된 방식으로 어떠한 기준에 따라 사전에 만들어 놓은 등급에 각 직무를 적절히 판정하여 맞추어 넣는 평가방법이다.</li>
+<li><strong>점수법</strong> : 직무를 구성요소로 분해하고 각 요소별로 중요도에 따라 점수를 부여한 후, 각 점수를 계산하여 각 직무별 가치를 평가하는 방법이다.</li>
+<li><strong>요인(소)비교법</strong> : 가장 핵심이 되는 몇 개의 기준 직무를 선정하고 각 직무의 평가요소를 기준직무의 평가요소와 결부시켜 비교함으로써 모든 직무의 상대적 가치를 결정하는 방법이다.</li>
+</ol>`,advanced:`<p><strong>질적 평가방법</strong></p>
+<ol>
+<li>서열법(ranking method)</li>
+<li>분류법(classification method)</li>
+</ol>
+<p><strong>양적 평가방법</strong></p>
+<ol>
+<li>점수법(point method)</li>
+<li>요인(소)비교법(factor comparison method)</li>
+</ol>`,tips:`제시된 답안 중 3가지만 적으면 됩니다.`,partialScore:`각 2점`},{num:9,title:`홀랜드(Holland) 직업흥미검사의 6가지 유형을 쓰고, 각각에 대해 간략히 설명하시오.`,points:6,frequency:`23-2, 23-1, 22-1, 19-2, 18-2, 16-1, 14-3, 09-1, 08-1, 07-1, 04-1`,keyword:`홀랜드(Holland)의 흥미유형`,answer:`<ol>
+<li><strong>현실형</strong> : 기계, 도구, 동물에 관한 체계적인 조작활동을 좋아하며 현장 일을 선호하나 사회적 기술이 부족하다.</li>
+<li><strong>탐구형</strong> : 호기심이 많고 분석적이여서 과학적 탐구활동을 선호하나 리더십 기술이 부족하다.</li>
+<li><strong>예술형</strong> : 창의적이며 감성이 풍부하고 개방적이나 틀에 박힌 일을 싫어하며 규범적인 기술이 부족하다.</li>
+<li><strong>사회형</strong> : 친절하고 이해심이 많으며 다른 사람을 돕는 것을 즐기나 과학적이거나 기계적인 활동 능력이 부족하다.</li>
+<li><strong>진취형</strong> : 외향적이며 지도력이 있고, 말을 잘하나 상징적, 체계적, 과학적 활동에 대한 능력은 부족하다.</li>
+<li><strong>관습형</strong> : 자료를 잘 정리하고 순응적이며 책임감이 강한 반면, 변화에 약하고 융통성이 부족하다.</li>
+</ol>`,advanced:null,tips:`출제빈도가 높은 문제입니다. 반드시 숙지하세요.`,partialScore:`각 1점`},{num:10,title:`집단 내 규준의 종류 3가지를 쓰고 설명하시오.`,points:6,frequency:`23-2, 23-1, 21-2, 20-1, 19-1, 18-3, 17-3, 15-1, 14-3, 12-2, 12-3, 10-4, 09-10, 09-3, 08-1, 07-1`,keyword:`집단 내 규준`,answer:`<ol>
+<li><strong>백분위 점수</strong><br/>개인이 표준화된 집단에서 차지하는 상대적 위치를 가리키는 것으로 개인의 점수를 100개의 동일한 구간에서 순위를 정한다.</li>
+<li><strong>표준점수</strong><br/>원점수를 주어진 집단의 평균을 중심으로 분포의 표준편차(등간 척도)로 전환시킨 점수이다.</li>
+<li><strong>표준등급</strong><br/>9등급 또는 스테나인 점수라고 하며, 원점수를 1~9등급까지 범주로 나누는 것이다.</li>
+</ol>`,advanced:null,tips:`매우 기출빈도가 높은 문제입니다. 반드시 숙지하세요.`,partialScore:`각 2점`},{num:11,title:`직업심리검사의 신뢰도를 추정하는 방법 3가지를 쓰고 설명하시오.`,points:6,frequency:`23-2, 21-3, 18-3, 18-1`,keyword:`신뢰도를 추정하는 방법(종류)`,answer:`<ol>
+<li><strong>동형검사신뢰도</strong> : 동형의 2가지 검사를 동일인에게 시행하여 두 검사점수 간의 일관성을 추정하는 방법이다.</li>
+<li><strong>반분신뢰도</strong> : 한 개의 검사를 적절히 두 부분으로 나누어 시행하는 방법이다.</li>
+<li><strong>검사-재검사신뢰도</strong> : 시간차를 두고 동일검사를 반복 측정하는 방법이다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 2점, 설명이 없으면 1점`},{num:12,title:`실존주의 상담자들이 내담자의 궁극적 관심사와 관련하여 중요하게 생각하는 주제를 3가지 쓰고 설명하시오.`,points:6,frequency:`23-2, 20-2, 17-2, 12-3, 10-2, 09-3`,keyword:`실존주의의 궁극적 관심사`,answer:`<ol>
+<li><strong>죽음</strong> : 죽음의 불가피성의 삶의 유한성을 더욱 가치있게 만든다.</li>
+<li><strong>자유</strong> : 인간은 자기결정적인 존재로서 선택할 능력과 책임이 있다.</li>
+<li><strong>소외(고립)</strong> : 인간은 자신의 실존적 고립에 직면함으로써, 타인과 성숙한 관계를 맺을 수 있다.</li>
+<li><strong>무의미성</strong> : 인간은 인생을 살아가면서 끊임없는 삶의 의미를 추구한다.</li>
+</ol>`,advanced:`<p>이 문제는 두 가지 답안이 존재합니다. 제시된 해설 답안은 얄롬(Yalom)이란 학자가 제시한 답안이고 또 하나는 일반적인 실존주의 상담사들의 견해가 있습니다.</p>
+<p><strong>일반적인 실존주의 상담사들의 견해</strong></p>
+<ol>
+<li><strong>삶의 의미성</strong> : 인간은 삶을 통해 스스로의 존재 의미를 발견해야 한다.</li>
+<li><strong>진실성</strong> : 개인의 실존을 회복하기 위한 진실성 있는 노력을 해야 한다.</li>
+<li><strong>자유와 책임</strong> : 인간은 자기결정적인 존재로서 선택할 능력과 책임이 있다.</li>
+<li><strong>죽음과 비존재</strong> : 삶과 죽음은 분리될 수 없는 연속성이며, 인간은 비존재에 대한 불안감을 가진다.</li>
+</ol>`,tips:`제시된 답안 중 3가지만 작성하시면 됩니다.`,partialScore:`각 2점`},{num:13,title:`내부노동시장의 형성요인 3가지를 쓰고 각각 설명하시오.`,points:6,frequency:`23-2, 18-1, 09-3`,keyword:`내부노동시장의 형성요인`,answer:`<ol>
+<li><strong>숙련의 특수성</strong> : 기업 내의 내부노동력만이 유일하게 소유하게 되는 숙련으로 기업의 특수적 인적자본을 형성하게 한다.</li>
+<li><strong>현장훈련</strong> : 실제 현장의 노하우는 실무현장에서 전임자의 경험적 지식전달을 말한다.</li>
+<li><strong>기업 내의 관습</strong> : 근로자들 사이의 관습과 기업의 문화가 존재하여 기업의 내부노동시장을 발전시킨다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 2점`},{num:14,title:`한국직업사전의 부가 직업정보 중 육체활동의 구분 5가지를 쓰시오.`,points:5,frequency:`23-2, 20-4`,keyword:`한국직업사전 육체활동 구분`,answer:`<ol>
+<li>균형감각</li>
+<li>웅크림</li>
+<li>손사용</li>
+<li>시각</li>
+<li>언어력</li>
+<li>청각</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 1점`},{num:15,title:`한국표준직업분류(KSCO)의 대분류와 직능수준의 관계를 묻는 표 안의 답란을 채우시오.`,points:5,frequency:`23-2, 21-1`,keyword:`KSCO 대분류와 직능수준`,answer:`<table>
+<tr><th>대분류 항목</th><th>직능수준</th></tr>
+<tr><td>관리자</td><td>제<strong>4</strong>직능수준 혹은 제<strong>3</strong>직능수준 필요</td></tr>
+<tr><td>판매종사자</td><td>제<strong>2</strong>직능수준 필요</td></tr>
+<tr><td>장치·기계 조작 및 조립종사자</td><td>제<strong>2</strong>직능수준 필요</td></tr>
+<tr><td>군인</td><td>제<strong>2</strong>직능수준 이상 필요</td></tr>
+</table>`,advanced:null,tips:null,partialScore:`각 1점`},{num:16,title:`한국표준산업분류(KSIC)의 생산단위의 활동 형태 중 주된활동과 보조활동을 각각 설명하시오.`,points:6,frequency:`23-2, 22-3, 21-2`,keyword:`KSIC 생산단위 활동 형태`,answer:`<ol>
+<li><strong>주된 산업활동</strong> : 생산된 재화 또는 제공된 서비스 중 부가가치가 가장 큰 활동을 말한다.</li>
+<li><strong>부차적 산업활동</strong> : 주된 산업활동 이외의 재화 생산 및 서비스 제공 활동을 말한다.</li>
+<li><strong>보조활동(보조적 활동)</strong> : 모 생산단위에서 사용되는 비내구재 또는 서비스를 제공하는 활동을 말한다.</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 2점`},{num:17,title:`실업과 관련된 제호다(Jahoda)의 박탈이론에 따르면 일반적으로 고용상태에 있는 것이 실직상태에 있는 것보다 여러 가지 잠재효과가 있다고 한다. 5가지 잠재효과를 기술하시오.`,points:6,frequency:`23-2, 05-3, 01-1`,keyword:`제호다(Jahoda)의 박탈이론`,answer:`<ol>
+<li><strong>공동의 목표</strong></li>
+<li><strong>시간의 조직화</strong></li>
+<li><strong>사회적 접촉</strong></li>
+<li><strong>의미 있는 활동</strong></li>
+<li><strong>사회적 정체감과 지위</strong></li>
+</ol>`,advanced:null,tips:null,partialScore:`각 1점`},{num:18,title:`기혼여성의 경제활동참가율을 낮게 하는 요인 6가지를 쓰시오.`,points:6,frequency:`23-2, 14-2, 12-1, 11-3, 10-3, 07-1, 05-3, 03-1`,keyword:`기혼여성 경제활동참가율 저해요인`,answer:`<ol>
+<li>여성의 교육수준</li>
+<li>사회적 요인</li>
+<li>법, 제도적 요인</li>
+<li>배우자의 경제활동</li>
+<li>가사부담 경감시설</li>
+<li>자녀의 수</li>
+</ol>`,advanced:null,tips:null,partialScore:`각 1점`}]}];function Sa(e){return xa.find(t=>t.id===e)||null}function Ca(){return[...xa].sort((e,t)=>t.year===e.year?t.round-e.round:t.year-e.year)}function wa(){let e=Ca();return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`실기 기출문제`,description:`직업상담사 2급 실기 기출문제 해설 - 회차별 기출문제와 상세 해설`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsx)(`h1`,{children:`실기 기출문제 해설`}),(0,g.jsx)(`p`,{className:`page-desc`,children:`회차별 실기 기출문제와 상세 해설을 확인하세요`})]})}),(0,g.jsxs)(`div`,{className:`container silgi-exam-page`,children:[(0,g.jsxs)(`div`,{className:`silgi-exam-stats-row`,children:[(0,g.jsxs)(`div`,{className:`silgi-exam-stat`,children:[(0,g.jsx)(`span`,{className:`silgi-exam-stat-value`,children:e.length}),(0,g.jsx)(`span`,{className:`silgi-exam-stat-label`,children:`수록 회차`})]}),(0,g.jsxs)(`div`,{className:`silgi-exam-stat`,children:[(0,g.jsx)(`span`,{className:`silgi-exam-stat-value`,children:e.reduce((e,t)=>e+t.questions.length,0)}),(0,g.jsx)(`span`,{className:`silgi-exam-stat-label`,children:`총 문항 수`})]}),(0,g.jsxs)(`div`,{className:`silgi-exam-stat`,children:[(0,g.jsx)(`span`,{className:`silgi-exam-stat-value`,children:`주관식`}),(0,g.jsx)(`span`,{className:`silgi-exam-stat-label`,children:`출제 유형`})]})]}),(0,g.jsx)(`div`,{className:`silgi-exam-grid`,children:e.map(e=>(0,g.jsxs)(c,{to:`/silgi/past/${e.id}`,className:`silgi-exam-card`,children:[(0,g.jsxs)(`div`,{className:`silgi-exam-card-badge`,children:[e.year,`년 제`,e.round,`회`]}),(0,g.jsx)(`h3`,{children:e.title}),(0,g.jsxs)(`div`,{className:`silgi-exam-card-info`,children:[(0,g.jsxs)(`div`,{className:`silgi-exam-card-info-item`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-file-lines`}),(0,g.jsxs)(`span`,{children:[e.questions.length,`문항`]})]}),(0,g.jsxs)(`div`,{className:`silgi-exam-card-info-item`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-star`}),(0,g.jsxs)(`span`,{children:[e.totalPoints,`점 만점`]})]}),(0,g.jsxs)(`div`,{className:`silgi-exam-card-info-item`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-clock`}),(0,g.jsx)(`span`,{children:`150분`})]})]}),(0,g.jsx)(`div`,{className:`silgi-exam-card-arrow`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-right`})})]},e.id))}),(0,g.jsxs)(`div`,{className:`silgi-exam-notice`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-circle-info`}),(0,g.jsx)(`p`,{children:`기출문제 데이터는 지속적으로 추가됩니다. 해설은 학습 참고용이며, 실제 시험에서는 출제 의도에 맞게 답안을 작성하세요.`})]})]})]})}function Ta({question:e,isOpen:t,onToggle:n}){return(0,g.jsxs)(`div`,{className:`sq-card ${t?`sq-card--open`:``}`,children:[(0,g.jsxs)(`button`,{className:`sq-card-header`,onClick:n,type:`button`,children:[(0,g.jsxs)(`div`,{className:`sq-card-num`,children:[`Q`,e.num]}),(0,g.jsxs)(`div`,{className:`sq-card-title-area`,children:[(0,g.jsx)(`h3`,{className:`sq-card-title`,children:e.title}),(0,g.jsxs)(`div`,{className:`sq-card-meta`,children:[(0,g.jsxs)(`span`,{className:`sq-badge sq-badge--points`,children:[e.points,`점`]}),(0,g.jsx)(`span`,{className:`sq-badge sq-badge--keyword`,children:e.keyword})]})]}),(0,g.jsx)(`div`,{className:`sq-card-toggle`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-${t?`up`:`down`}`})})]}),t&&(0,g.jsxs)(`div`,{className:`sq-card-body`,children:[(0,g.jsxs)(`div`,{className:`sq-frequency`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-bar`}),(0,g.jsxs)(`span`,{children:[`출제 이력: `,e.frequency]})]}),(0,g.jsxs)(`div`,{className:`sq-section`,children:[(0,g.jsxs)(`div`,{className:`sq-section-label`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-check-circle`}),(0,g.jsx)(`span`,{children:`해설`})]}),(0,g.jsx)(`div`,{className:`sq-section-content`,dangerouslySetInnerHTML:{__html:e.answer}})]}),e.advanced&&(0,g.jsxs)(`div`,{className:`sq-section sq-section--advanced`,children:[(0,g.jsxs)(`div`,{className:`sq-section-label`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-graduation-cap`}),(0,g.jsx)(`span`,{children:`더 나아가기`})]}),(0,g.jsx)(`div`,{className:`sq-section-content`,dangerouslySetInnerHTML:{__html:e.advanced}})]}),e.tips&&(0,g.jsxs)(`div`,{className:`sq-section sq-section--tips`,children:[(0,g.jsxs)(`div`,{className:`sq-section-label`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-lightbulb`}),(0,g.jsx)(`span`,{children:`꿀팁`})]}),(0,g.jsx)(`p`,{className:`sq-section-content`,children:e.tips})]}),(0,g.jsxs)(`div`,{className:`sq-partial-score`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-pen`}),(0,g.jsxs)(`span`,{children:[`부분 점수: `,e.partialScore]})]})]})]})}function Ea(){let{examId:e}=a(),t=Sa(e),[n,r]=(0,h.useState)(new Set);if(!t)return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsx)(`div`,{className:`container`,children:(0,g.jsx)(`h1`,{children:`시험을 찾을 수 없습니다`})})}),(0,g.jsxs)(`div`,{className:`container`,style:{padding:`60px 0`,textAlign:`center`},children:[(0,g.jsx)(`p`,{children:`요청하신 기출문제를 찾을 수 없습니다.`}),(0,g.jsx)(c,{to:`/silgi/past`,className:`btn btn-primary`,style:{marginTop:20},children:`목록으로 돌아가기`})]})]});let i=e=>{r(t=>{let n=new Set(t);return n.has(e)?n.delete(e):n.add(e),n})},o=()=>{r(new Set(t.questions.map(e=>e.num)))},s=()=>{r(new Set)},l=t.questions.reduce((e,t)=>e+t.points,0);return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:t.title,description:`${t.title} 기출문제 ${t.questions.length}문항 상세 해설`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(c,{to:`/silgi/past`,className:`sq-back-link`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-left`}),` 기출문제 목록`]}),(0,g.jsx)(`h1`,{children:t.title}),(0,g.jsxs)(`p`,{className:`page-desc`,children:[`총 `,t.questions.length,`문항 · `,l,`점 만점 · 150분`]})]})}),(0,g.jsxs)(`div`,{className:`container silgi-exam-page`,children:[(0,g.jsxs)(`div`,{className:`sq-controls`,children:[(0,g.jsxs)(`button`,{className:`sq-control-btn`,onClick:o,type:`button`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-angles-down`}),` 전체 펼치기`]}),(0,g.jsxs)(`button`,{className:`sq-control-btn`,onClick:s,type:`button`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-angles-up`}),` 전체 접기`]}),(0,g.jsxs)(`span`,{className:`sq-control-count`,children:[n.size,` / `,t.questions.length,` 펼침`]})]}),(0,g.jsx)(`div`,{className:`sq-list`,children:t.questions.map(e=>(0,g.jsx)(Ta,{question:e,isOpen:n.has(e.num),onToggle:()=>i(e.num)},e.num))}),(0,g.jsxs)(`div`,{className:`sq-bottom-nav`,children:[(0,g.jsxs)(c,{to:`/silgi/past`,className:`btn btn-secondary`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-list`}),` 기출문제 목록`]}),(0,g.jsxs)(c,{to:`/silgi`,className:`btn btn-primary`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-pen-to-square`}),` 실기 연습하기`]})]})]})]})}function Da({sessions:e}){if(!e?.length)return(0,g.jsxs)(`div`,{className:`prediction-card`,children:[(0,g.jsxs)(`h3`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-line`}),` 합격 예측`]}),(0,g.jsx)(`p`,{className:`prediction-empty`,children:`시험 기록이 없습니다. 시험을 응시하면 합격 예측이 표시됩니다.`})]});let t=e.slice(-5),n=t.reduce((e,t)=>e+(t.score_total||0),0)/t.length,r=t.filter(e=>e.is_pass).length/t.length*100,i;i=n>=80?95:n>=70?80:n>=60?60:n>=50?35:15;let a=i>=80?`high`:i>=50?`medium`:`low`;return(0,g.jsxs)(`div`,{className:`prediction-card`,children:[(0,g.jsxs)(`h3`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-line`}),` 합격 예측`]}),(0,g.jsx)(`div`,{className:`prediction-score`,children:(0,g.jsxs)(`div`,{className:`prediction-circle`,"data-level":a,children:[(0,g.jsxs)(`span`,{className:`prediction-percent`,children:[Math.round(i),`%`]}),(0,g.jsx)(`span`,{className:`prediction-label`,children:`합격 확률`})]})}),(0,g.jsxs)(`div`,{className:`prediction-stats`,children:[(0,g.jsxs)(`div`,{className:`prediction-stat`,children:[(0,g.jsx)(`span`,{className:`prediction-stat-label`,children:`최근 평균`}),(0,g.jsxs)(`span`,{className:`prediction-stat-value`,children:[n.toFixed(1),`점`]})]}),(0,g.jsxs)(`div`,{className:`prediction-stat`,children:[(0,g.jsx)(`span`,{className:`prediction-stat-label`,children:`합격률`}),(0,g.jsxs)(`span`,{className:`prediction-stat-value`,children:[r.toFixed(0),`%`]})]}),(0,g.jsxs)(`div`,{className:`prediction-stat`,children:[(0,g.jsx)(`span`,{className:`prediction-stat-label`,children:`응시 횟수`}),(0,g.jsxs)(`span`,{className:`prediction-stat-value`,children:[t.length,`회`]})]})]})]})}function Oa({children:e}){let{user:t,loading:n}=Z();return n?(0,g.jsx)(`div`,{className:`loading-page`,children:(0,g.jsx)(`div`,{className:`loading-spinner`})}):t?e:(0,g.jsx)(i,{to:`/login`,replace:!0})}function ka(){let{user:e}=Z(),[t,n]=(0,h.useState)([]),[r,i]=(0,h.useState)(!0),[a,o]=(0,h.useState)({});(0,h.useEffect)(()=>{e&&s()},[e]);let s=async()=>{i(!0);try{let{data:t}=await J.from(X.EXAM_SESSIONS).select(`*`).eq(`user_id`,e.id).eq(`exam_type`,`pilgi`).not(`completed_at`,`is`,null).order(`completed_at`,{ascending:!1});if(n(t||[]),t?.length){let e={},n={};Q.forEach(t=>{e[t.code]=0,n[t.code]=0}),t.forEach(t=>{t.score_by_subject&&Object.entries(t.score_by_subject).forEach(([t,r])=>{e[t]=(e[t]||0)+r,n[t]=(n[t]||0)+1})});let r={};Object.keys(e).forEach(t=>{r[t]=n[t]?Math.round(e[t]/n[t]):0}),o(r)}}catch(e){console.error(e)}i(!1)};if(r)return(0,g.jsx)(`div`,{className:`loading-page`,children:(0,g.jsx)(`div`,{className:`loading-spinner`})});let l=t.length,u=l?Math.round(t.reduce((e,t)=>e+(t.score_total||0),0)/l):0,d=t.filter(e=>e.is_pass).length,f=l?Math.round(d/l*100):0,p=0,m=new Date,_=new Set(t.map(e=>new Date(e.completed_at).toDateString()));for(let e=0;e<365;e++){let t=new Date(m);if(t.setDate(t.getDate()-e),_.has(t.toDateString()))p++;else if(e>0)break}let v=Q.filter(e=>(a[e.code]||0)<60),y=t.slice(0,5);return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`대시보드`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-pie`}),` 학습 대시보드`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`학습 현황을 확인하고 약점을 분석하세요`})]})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsxs)(`div`,{className:`dashboard-stats-grid`,children:[(0,g.jsxs)(`div`,{className:`stat-card`,children:[(0,g.jsx)(`div`,{className:`stat-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-file-lines`})}),(0,g.jsx)(`span`,{className:`stat-number`,children:l}),(0,g.jsx)(`span`,{className:`stat-label`,children:`총 시험 수`})]}),(0,g.jsxs)(`div`,{className:`stat-card`,children:[(0,g.jsx)(`div`,{className:`stat-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-percentage`})}),(0,g.jsxs)(`span`,{className:`stat-number`,children:[u,`점`]}),(0,g.jsx)(`span`,{className:`stat-label`,children:`평균 점수`})]}),(0,g.jsxs)(`div`,{className:`stat-card`,children:[(0,g.jsx)(`div`,{className:`stat-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-trophy`})}),(0,g.jsxs)(`span`,{className:`stat-number`,children:[f,`%`]}),(0,g.jsx)(`span`,{className:`stat-label`,children:`합격률`})]}),(0,g.jsxs)(`div`,{className:`stat-card`,children:[(0,g.jsx)(`div`,{className:`stat-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-fire`})}),(0,g.jsxs)(`span`,{className:`stat-number`,children:[p,`일`]}),(0,g.jsx)(`span`,{className:`stat-label`,children:`연속 학습`})]})]}),(0,g.jsxs)(`div`,{className:`dashboard-grid`,children:[(0,g.jsxs)(`div`,{className:`dashboard-card`,children:[(0,g.jsxs)(`h3`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-pie`}),` 과목별 평균 점수`]}),l>0?(0,g.jsx)(fa,{scores:a}):(0,g.jsx)(`p`,{className:`dashboard-empty`,children:`시험 기록이 없습니다.`})]}),(0,g.jsx)(Da,{sessions:t}),(0,g.jsxs)(`div`,{className:`dashboard-card`,children:[(0,g.jsxs)(`h3`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chart-line`}),` 점수 추이`]}),t.length>0?(0,g.jsx)(pa,{sessions:[...t].reverse().slice(-10)}):(0,g.jsx)(`p`,{className:`dashboard-empty`,children:`시험 기록이 없습니다.`})]}),(0,g.jsxs)(`div`,{className:`dashboard-card`,children:[(0,g.jsxs)(`h3`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-triangle-exclamation`}),` 약점 과목`]}),v.length>0?(0,g.jsx)(`div`,{className:`weakness-list`,children:v.map(e=>(0,g.jsxs)(`div`,{className:`weakness-item`,children:[(0,g.jsxs)(`span`,{style:{color:e.color},children:[(0,g.jsx)(`i`,{className:e.icon}),` `,e.name]}),(0,g.jsxs)(`span`,{className:`weakness-score`,children:[a[e.code]||0,`점`]})]},e.code))}):l>0?(0,g.jsx)(`p`,{className:`dashboard-good`,children:`모든 과목이 60점 이상입니다!`}):(0,g.jsx)(`p`,{className:`dashboard-empty`,children:`시험 기록이 없습니다.`})]})]}),(0,g.jsxs)(`div`,{className:`dashboard-card mt-4`,children:[(0,g.jsxs)(`div`,{style:{display:`flex`,justifyContent:`space-between`,alignItems:`center`,marginBottom:16},children:[(0,g.jsxs)(`h3`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-clock-rotate-left`}),` 최근 시험`]}),(0,g.jsx)(c,{to:`/dashboard/history`,className:`btn btn-sm btn-secondary`,children:`전체 보기`})]}),y.length>0?(0,g.jsx)(`div`,{className:`history-table-wrapper`,children:(0,g.jsxs)(`table`,{className:`history-table`,children:[(0,g.jsx)(`thead`,{children:(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`날짜`}),(0,g.jsx)(`th`,{children:`총점`}),(0,g.jsx)(`th`,{children:`정답`}),(0,g.jsx)(`th`,{children:`소요시간`}),(0,g.jsx)(`th`,{children:`결과`})]})}),(0,g.jsx)(`tbody`,{children:y.map(e=>(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`td`,{children:new Date(e.completed_at).toLocaleDateString(`ko-KR`)}),(0,g.jsx)(`td`,{children:(0,g.jsxs)(`strong`,{children:[e.score_total,`점`]})}),(0,g.jsxs)(`td`,{children:[e.correct_count,`/`,e.total_questions]}),(0,g.jsxs)(`td`,{children:[Math.floor(e.time_spent_sec/60),`분`]}),(0,g.jsx)(`td`,{children:(0,g.jsx)(`span`,{className:`pass-badge ${e.is_pass?`pass`:`fail`}`,children:e.is_pass?`합격`:`불합격`})})]},e.id))})]})}):(0,g.jsx)(`p`,{className:`dashboard-empty`,children:`시험 기록이 없습니다.`})]})]})]})}function Aa(){return(0,g.jsx)(Oa,{children:(0,g.jsx)(ka,{})})}function ja(){let{user:e}=Z(),[t,n]=(0,h.useState)([]),[r,i]=(0,h.useState)(!0);return(0,h.useEffect)(()=>{e&&J.from(X.EXAM_SESSIONS).select(`*`).eq(`user_id`,e.id).not(`completed_at`,`is`,null).order(`completed_at`,{ascending:!1}).then(({data:e})=>{n(e||[]),i(!1)})},[e]),(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`시험 이력`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-clock-rotate-left`}),` 시험 이력`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`지금까지의 시험 기록을 확인하세요`})]})}),(0,g.jsx)(`div`,{className:`container`,style:{paddingBottom:80},children:r?(0,g.jsx)(`div`,{className:`loading-page`,children:(0,g.jsx)(`div`,{className:`loading-spinner`})}):t.length===0?(0,g.jsx)(`div`,{className:`text-center mt-4`,children:(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`},children:`시험 기록이 없습니다.`})}):(0,g.jsx)(`div`,{className:`history-table-wrapper`,children:(0,g.jsxs)(`table`,{className:`history-table`,children:[(0,g.jsx)(`thead`,{children:(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`#`}),(0,g.jsx)(`th`,{children:`날짜`}),(0,g.jsx)(`th`,{children:`유형`}),(0,g.jsx)(`th`,{children:`모드`}),(0,g.jsx)(`th`,{children:`총점`}),(0,g.jsx)(`th`,{children:`정답`}),(0,g.jsx)(`th`,{children:`소요시간`}),(0,g.jsx)(`th`,{children:`결과`})]})}),(0,g.jsx)(`tbody`,{children:t.map((e,n)=>(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`td`,{children:t.length-n}),(0,g.jsx)(`td`,{children:new Date(e.completed_at).toLocaleDateString(`ko-KR`)}),(0,g.jsx)(`td`,{children:e.exam_type===`pilgi`?`필기`:`실기`}),(0,g.jsx)(`td`,{children:e.mode===`exam`?`시험`:`학습`}),(0,g.jsx)(`td`,{children:(0,g.jsxs)(`strong`,{children:[e.score_total,`점`]})}),(0,g.jsxs)(`td`,{children:[e.correct_count,`/`,e.total_questions]}),(0,g.jsx)(`td`,{children:ua(e.time_spent_sec)}),(0,g.jsx)(`td`,{children:(0,g.jsx)(`span`,{className:`pass-badge ${e.is_pass?`pass`:`fail`}`,children:e.is_pass?`합격`:`불합격`})})]},e.id))})]})})})]})}function Ma(){return(0,g.jsx)(Oa,{children:(0,g.jsx)(ja,{})})}function Na(){let{user:e}=Z(),{showToast:t}=ae(),[n,r]=(0,h.useState)([]),[i,a]=(0,h.useState)(!0),[o,s]=(0,h.useState)(0),[c,l]=(0,h.useState)({}),[u,d]=(0,h.useState)({});(0,h.useEffect)(()=>{e&&f()},[e]);let f=async()=>{a(!0);let{data:t}=await J.from(X.BOOKMARKS).select(`question_id`).eq(`user_id`,e.id);if(t?.length){let e=t.map(e=>e.question_id),{data:n}=await J.from(X.QUESTIONS).select(`*`).in(`id`,e).order(`subject_id`).order(`question_number`);r(n||[])}else r([]);a(!1)},p=async i=>{await J.from(X.BOOKMARKS).delete().eq(`user_id`,e.id).eq(`question_id`,i),r(e=>e.filter(e=>e.id!==i)),t(`북마크가 해제되었습니다.`,`info`),o>=n.length-1&&s(Math.max(0,o-1))},m=(e,t)=>{l(n=>({...n,[e]:t})),d(t=>({...t,[e]:!0}))},_=n[o],v=_?Q.find(e=>e.id===_.subject_id):null;return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`북마크`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-bookmark`}),` 북마크`]}),(0,g.jsxs)(`p`,{className:`page-desc`,children:[`북마크한 문제를 복습하세요 (`,n.length,`개)`]})]})}),(0,g.jsx)(`div`,{className:`container`,style:{paddingBottom:80},children:i?(0,g.jsx)(`div`,{className:`loading-page`,children:(0,g.jsx)(`div`,{className:`loading-spinner`})}):n.length===0?(0,g.jsxs)(`div`,{className:`text-center mt-4`,children:[(0,g.jsx)(`i`,{className:`fa-regular fa-bookmark`,style:{fontSize:48,color:`var(--text-light)`,opacity:.3,marginBottom:16,display:`block`}}),(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`},children:`북마크한 문제가 없습니다.`}),(0,g.jsx)(`p`,{style:{color:`var(--text-light)`,fontSize:14,marginTop:8},children:`학습 모드에서 문제를 북마크해보세요.`})]}):(0,g.jsxs)(g.Fragment,{children:[v&&(0,g.jsxs)(`div`,{className:`study-subject-badge`,style:{background:`${v.color}15`,color:v.color},children:[(0,g.jsx)(`i`,{className:v.icon}),` `,v.name]}),(0,g.jsx)(na,{question:_,selectedAnswer:c[_.id],onSelectAnswer:e=>m(_.id,e),showResult:!!u[_.id],showExplanation:!!u[_.id],questionIndex:o,isBookmarked:!0,onToggleBookmark:p}),(0,g.jsxs)(`div`,{className:`exam-nav-buttons mt-3`,children:[(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>s(e=>Math.max(0,e-1)),disabled:o===0,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-left`}),` 이전`]}),(0,g.jsxs)(`span`,{className:`exam-page-info`,children:[o+1,` / `,n.length]}),(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>s(e=>Math.min(n.length-1,e+1)),disabled:o>=n.length-1,children:[`다음 `,(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})]})]})]})})]})}function Pa(){return(0,g.jsx)(Oa,{children:(0,g.jsx)(Na,{})})}function Fa(){let{user:e}=Z(),{showToast:t}=ae(),[n,r]=(0,h.useState)([]),[i,a]=(0,h.useState)([]),[o,s]=(0,h.useState)(!0),[c,l]=(0,h.useState)(0),[u,d]=(0,h.useState)({}),[f,p]=(0,h.useState)({}),[m,_]=(0,h.useState)(`unresolved`);(0,h.useEffect)(()=>{e&&v()},[e]);let v=async()=>{s(!0);let{data:t}=await J.from(X.WRONG_ANSWERS).select(`*`).eq(`user_id`,e.id).order(`wrong_count`,{ascending:!1});if(r(t||[]),t?.length){let e=t.map(e=>e.question_id),{data:n}=await J.from(X.QUESTIONS).select(`*`).in(`id`,e);a(n||[])}else a([]);s(!1)},y=async e=>{let i=n.find(t=>t.question_id===e);i&&(await J.from(X.WRONG_ANSWERS).update({resolved:!i.resolved}).eq(`id`,i.id),r(e=>e.map(e=>e.id===i.id?{...e,resolved:!e.resolved}:e)),t(i.resolved?`미해결로 변경했습니다.`:`해결 완료로 표시했습니다.`,`success`))},b=i.filter(e=>{let t=n.find(t=>t.question_id===e.id);return t?m===`unresolved`?!t.resolved:m===`resolved`?t.resolved:!0:!1}),x=(e,t)=>{d(n=>({...n,[e]:t})),p(t=>({...t,[e]:!0}))},S=b[c],ee=S?n.find(e=>e.question_id===S.id):null,C=S?Q.find(e=>e.id===S.subject_id):null;return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`오답노트`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-rotate-left`}),` 오답노트`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`틀린 문제를 반복 학습하여 실력을 올리세요`})]})}),(0,g.jsxs)(`div`,{className:`container`,style:{paddingBottom:80},children:[(0,g.jsx)(`div`,{className:`study-filters`,children:[{key:`unresolved`,label:`미해결`},{key:`resolved`,label:`해결`},{key:`all`,label:`전체`}].map(e=>(0,g.jsxs)(`button`,{className:`study-filter-btn ${m===e.key?`active`:``}`,onClick:()=>{_(e.key),l(0)},children:[e.label,` (`,i.filter(t=>{let r=n.find(e=>e.question_id===t.id);return r?e.key===`unresolved`?!r.resolved:e.key===`resolved`?r.resolved:!0:!1}).length,`)`]},e.key))}),o?(0,g.jsx)(`div`,{className:`loading-page`,children:(0,g.jsx)(`div`,{className:`loading-spinner`})}):b.length===0?(0,g.jsxs)(`div`,{className:`text-center mt-4`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-circle-check`,style:{fontSize:48,color:`var(--color-correct)`,opacity:.3,marginBottom:16,display:`block`}}),(0,g.jsx)(`p`,{style:{color:`var(--text-secondary)`},children:m===`unresolved`?`미해결 오답이 없습니다!`:`오답 기록이 없습니다.`})]}):(0,g.jsxs)(g.Fragment,{children:[C&&(0,g.jsxs)(`div`,{className:`study-subject-badge`,style:{background:`${C.color}15`,color:C.color},children:[(0,g.jsx)(`i`,{className:C.icon}),` `,C.name,ee&&(0,g.jsxs)(`span`,{className:`wrong-count-badge`,children:[ee.wrong_count,`회 오답`]})]}),(0,g.jsx)(na,{question:S,selectedAnswer:u[S.id],onSelectAnswer:e=>x(S.id,e),showResult:!!f[S.id],showExplanation:!!f[S.id],questionIndex:i.indexOf(S)}),(0,g.jsx)(`div`,{className:`wrong-answer-actions mt-2`,children:(0,g.jsxs)(`button`,{className:`btn btn-sm ${ee?.resolved?`btn-secondary`:`btn-primary`}`,onClick:()=>y(S.id),children:[(0,g.jsx)(`i`,{className:ee?.resolved?`fa-solid fa-rotate-left`:`fa-solid fa-check`}),ee?.resolved?`미해결로 변경`:`해결 완료`]})}),(0,g.jsxs)(`div`,{className:`exam-nav-buttons mt-3`,children:[(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>l(e=>Math.max(0,e-1)),disabled:c===0,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-left`}),` 이전`]}),(0,g.jsxs)(`span`,{className:`exam-page-info`,children:[c+1,` / `,b.length]}),(0,g.jsxs)(`button`,{className:`btn btn-secondary btn-sm`,onClick:()=>l(e=>Math.min(b.length-1,e+1)),disabled:c>=b.length-1,children:[`다음 `,(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})]})]})]})]})]})}function Ia(){return(0,g.jsx)(Oa,{children:(0,g.jsx)(Fa,{})})}function La(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`시험 안내`,description:`직업상담사 2급 자격시험 안내 - 시험 개요, 일정, 합격 기준, 공부 방법`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsx)(`h1`,{children:`직업상담사 2급 시험 안내`}),(0,g.jsx)(`p`,{className:`page-desc`,children:`국가기술자격 시험에 대한 핵심 정보를 안내합니다`})]})}),(0,g.jsxs)(`div`,{className:`container info-page`,children:[(0,g.jsxs)(`section`,{className:`info-card`,children:[(0,g.jsxs)(`div`,{className:`info-card-header`,children:[(0,g.jsx)(`span`,{className:`info-card-icon overview`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-clipboard-list`})}),(0,g.jsx)(`h2`,{children:`시험 개요`})]}),(0,g.jsxs)(`p`,{className:`info-card-text`,children:[`직업상담사 2급은 `,(0,g.jsx)(`strong`,{children:`한국산업인력공단`}),`에서 시행하는 국가기술자격으로, 구직자와 구인자에게 직업정보를 제공하고 직업상담을 수행할 수 있는 전문 인력을 양성하기 위한 자격입니다. 학력, 경력, 연령 제한 없이 `,(0,g.jsx)(`strong`,{children:`누구나 응시 가능`}),`합니다.`]}),(0,g.jsxs)(`div`,{className:`info-highlight-row`,children:[(0,g.jsxs)(`div`,{className:`info-highlight`,children:[(0,g.jsx)(`span`,{className:`info-highlight-label`,children:`응시 자격`}),(0,g.jsx)(`span`,{className:`info-highlight-value`,children:`제한 없음`})]}),(0,g.jsxs)(`div`,{className:`info-highlight`,children:[(0,g.jsx)(`span`,{className:`info-highlight-label`,children:`시행 기관`}),(0,g.jsx)(`span`,{className:`info-highlight-value`,children:`한국산업인력공단`})]}),(0,g.jsxs)(`div`,{className:`info-highlight`,children:[(0,g.jsx)(`span`,{className:`info-highlight-label`,children:`문제 유형`}),(0,g.jsx)(`span`,{className:`info-highlight-value`,children:`객관식 4지택일`})]}),(0,g.jsxs)(`div`,{className:`info-highlight`,children:[(0,g.jsx)(`span`,{className:`info-highlight-label`,children:`연 시행`}),(0,g.jsx)(`span`,{className:`info-highlight-value`,children:`3회`})]})]})]}),(0,g.jsxs)(`div`,{className:`info-grid-2`,children:[(0,g.jsxs)(`section`,{className:`info-card`,children:[(0,g.jsxs)(`div`,{className:`info-card-header`,children:[(0,g.jsx)(`span`,{className:`info-card-icon pilgi`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-pen-to-square`})}),(0,g.jsx)(`h2`,{children:`필기시험`})]}),(0,g.jsx)(`table`,{className:`info-table`,children:(0,g.jsxs)(`tbody`,{children:[(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`과목 수`}),(0,g.jsx)(`td`,{children:`5과목`})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`문항 수`}),(0,g.jsx)(`td`,{children:`총 100문항 (과목당 20문항)`})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`문제 유형`}),(0,g.jsx)(`td`,{children:`객관식 4지 택일형`})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`시험 시간`}),(0,g.jsxs)(`td`,{children:[(0,g.jsx)(`strong`,{children:`150분`}),` (2시간 30분)`]})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`합격 기준`}),(0,g.jsxs)(`td`,{children:[`전 과목 평균 `,(0,g.jsx)(`strong`,{children:`60점`}),` 이상 + 과목당 `,(0,g.jsx)(`strong`,{children:`40점`}),` 이상`]})]})]})}),(0,g.jsxs)(`div`,{className:`info-alert`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-triangle-exclamation`}),(0,g.jsxs)(`span`,{children:[`한 과목이라도 `,(0,g.jsx)(`strong`,{children:`40점 미만`}),`이면 과락으로 불합격됩니다.`]})]}),(0,g.jsx)(`div`,{className:`info-card-action`,children:(0,g.jsx)(c,{to:`/pilgi`,className:`btn btn-primary`,children:`필기 학습 시작`})})]}),(0,g.jsxs)(`section`,{className:`info-card`,children:[(0,g.jsxs)(`div`,{className:`info-card-header`,children:[(0,g.jsx)(`span`,{className:`info-card-icon silgi`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-file-pen`})}),(0,g.jsx)(`h2`,{children:`실기시험`})]}),(0,g.jsx)(`table`,{className:`info-table`,children:(0,g.jsxs)(`tbody`,{children:[(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`과목`}),(0,g.jsx)(`td`,{children:`직업상담 실무`})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`문제 유형`}),(0,g.jsx)(`td`,{children:`주관식 (단답형, 서술형, 계산형)`})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`시험 시간`}),(0,g.jsxs)(`td`,{children:[(0,g.jsx)(`strong`,{children:`150분`}),` (2시간 30분)`]})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`합격 기준`}),(0,g.jsxs)(`td`,{children:[`100점 만점 중 `,(0,g.jsx)(`strong`,{children:`60점`}),` 이상`]})]})]})}),(0,g.jsxs)(`div`,{className:`info-alert info-alert-info`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-circle-info`}),(0,g.jsx)(`span`,{children:`필기시험 합격 후 2년 이내에 실기시험에 합격해야 합니다.`})]}),(0,g.jsx)(`div`,{className:`info-card-action`,children:(0,g.jsx)(c,{to:`/silgi`,className:`btn btn-primary`,children:`실기 학습 시작`})})]})]}),(0,g.jsxs)(`section`,{className:`info-card`,children:[(0,g.jsxs)(`div`,{className:`info-card-header`,children:[(0,g.jsx)(`span`,{className:`info-card-icon subjects`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-book-open`})}),(0,g.jsx)(`h2`,{children:`필기 과목 (5과목)`})]}),(0,g.jsx)(`div`,{className:`info-subjects-grid`,children:Q.map((e,t)=>(0,g.jsxs)(`div`,{className:`info-subject-item`,style:{"--accent":e.color},children:[(0,g.jsx)(`div`,{className:`info-subject-num`,children:t+1}),(0,g.jsxs)(`div`,{className:`info-subject-body`,children:[(0,g.jsx)(`h4`,{children:e.name}),(0,g.jsxs)(`p`,{children:[e.code===`counseling`&&`직업상담의 개념, 상담이론(파슨스/로저스/엘리스), 상담기법, 직업상담 과정, 직업적응이론`,e.code===`psychology`&&`직업발달이론(Super/Holland/Ginzberg), 직업심리검사, 직업적성·흥미·성격검사, 타당도·신뢰도`,e.code===`jobinfo`&&`직업정보 제공·수집, 직업분류, 한국표준직업분류(KSCO), 한국표준산업분류(KSIC), 직무분석`,e.code===`labor_market`&&`노동시장 이론, 노동공급·수요, 임금이론, 실업이론, 인적자본론, 노동이동`,e.code===`labor_law`&&`근로기준법, 고용보험법, 직업안정법, 근로자직업능력개발법, 파견법, 남녀고용평등법`]})]}),(0,g.jsx)(c,{to:`/learn/${e.code}`,className:`info-subject-link`,title:`${e.name} 학습하기`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-right`})})]},e.code))})]}),(0,g.jsxs)(`section`,{className:`info-card`,children:[(0,g.jsxs)(`div`,{className:`info-card-header`,children:[(0,g.jsx)(`span`,{className:`info-card-icon schedule`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-calendar-days`})}),(0,g.jsx)(`h2`,{children:`2026년 시험 일정`})]}),(0,g.jsx)(`div`,{className:`info-table-wrap`,children:(0,g.jsxs)(`table`,{className:`info-table schedule`,children:[(0,g.jsx)(`thead`,{children:(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`th`,{children:`구분`}),(0,g.jsx)(`th`,{children:`1회`}),(0,g.jsx)(`th`,{children:`2회`}),(0,g.jsx)(`th`,{children:`3회`})]})}),(0,g.jsxs)(`tbody`,{children:[(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`td`,{children:(0,g.jsx)(`span`,{className:`info-round-badge`,children:`필기 접수`})}),(0,g.jsx)(`td`,{children:`1월 12일 ~ 1월 15일`}),(0,g.jsx)(`td`,{children:`4월 20일 ~ 4월 23일`}),(0,g.jsx)(`td`,{children:`7월 20일 ~ 7월 23일`})]}),(0,g.jsxs)(`tr`,{children:[(0,g.jsx)(`td`,{children:(0,g.jsx)(`span`,{className:`info-round-badge`,children:`필기 시험`})}),(0,g.jsx)(`td`,{children:`1월 30일 ~ 3월 3일`}),(0,g.jsx)(`td`,{children:`5월 9일 ~ 5월 29일`}),(0,g.jsx)(`td`,{children:`8월 7일 ~ 9월 1일`})]})]})]})}),(0,g.jsxs)(`div`,{className:`info-alert info-alert-info`,style:{marginTop:16},children:[(0,g.jsx)(`i`,{className:`fa-solid fa-clock`}),(0,g.jsxs)(`span`,{children:[`접수는 첫날 `,(0,g.jsx)(`strong`,{children:`10:00`}),`부터 마지막 날 `,(0,g.jsx)(`strong`,{children:`18:00`}),`까지 진행됩니다.`]})]}),(0,g.jsxs)(`p`,{className:`info-note`,children:[`* 시험 접수 및 상세 일정은 `,(0,g.jsx)(`a`,{href:`https://www.q-net.or.kr`,target:`_blank`,rel:`noopener noreferrer`,children:(0,g.jsx)(`strong`,{children:`큐넷(Q-Net)`})}),`에서 반드시 확인하세요. 공단 사정에 따라 변경될 수 있으므로 정기적으로 체크하시기 바랍니다.`]})]}),(0,g.jsxs)(`section`,{className:`info-card`,children:[(0,g.jsxs)(`div`,{className:`info-card-header`,children:[(0,g.jsx)(`span`,{className:`info-card-icon tips`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-lightbulb`})}),(0,g.jsx)(`h2`,{children:`효율적인 공부 방법`})]}),(0,g.jsxs)(`div`,{className:`info-tips-grid`,children:[(0,g.jsxs)(`div`,{className:`info-tip-card`,children:[(0,g.jsx)(`div`,{className:`info-tip-num`,children:`1`}),(0,g.jsxs)(`div`,{className:`info-tip-body`,children:[(0,g.jsx)(`h4`,{children:`기출문제 중심 학습`}),(0,g.jsxs)(`p`,{children:[`직업상담사 필기 시험은 `,(0,g.jsx)(`strong`,{children:`문제은행 방식`}),`의 비중이 높습니다. 이론을 완벽히 이해하기보다는, 기출문제를 반복해서 풀며 자주 나오는 개념을 익히는 것이 훨씬 효율적입니다.`]})]})]}),(0,g.jsxs)(`div`,{className:`info-tip-card`,children:[(0,g.jsx)(`div`,{className:`info-tip-num`,children:`2`}),(0,g.jsxs)(`div`,{className:`info-tip-body`,children:[(0,g.jsx)(`h4`,{children:`오답 노트 작성`}),(0,g.jsxs)(`p`,{children:[`틀린 문제는 `,(0,g.jsx)(`strong`,{children:`왜 틀렸는지 확인`}),`하고, 관련 이론을 가볍게 찾아보는 방식으로 보완하세요. 같은 유형의 문제를 다시 틀리지 않는 것이 핵심입니다.`]})]})]}),(0,g.jsxs)(`div`,{className:`info-tip-card`,children:[(0,g.jsx)(`div`,{className:`info-tip-num`,children:`3`}),(0,g.jsxs)(`div`,{className:`info-tip-body`,children:[(0,g.jsx)(`h4`,{children:`반복 횟수 늘리기`}),(0,g.jsxs)(`p`,{children:[`최소 `,(0,g.jsx)(`strong`,{children:`3~5개년`}),` 이상의 기출문제를`,(0,g.jsx)(`strong`,{children:` 3회 이상 반복`}),`해서 풀어보시는 것을 추천합니다. 반복할수록 출제 패턴이 눈에 들어옵니다.`]})]})]})]}),(0,g.jsxs)(`div`,{className:`info-card-action`,style:{marginTop:28},children:[(0,g.jsx)(c,{to:`/pilgi`,className:`btn btn-primary`,style:{marginRight:12},children:`기출문제 풀기`}),(0,g.jsx)(c,{to:`/wrong-answers`,className:`btn btn-secondary`,children:`오답노트 보기`})]})]}),(0,g.jsxs)(`section`,{className:`info-card`,children:[(0,g.jsxs)(`div`,{className:`info-card-header`,children:[(0,g.jsx)(`span`,{className:`info-card-icon links`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-link`})}),(0,g.jsx)(`h2`,{children:`유용한 링크`})]}),(0,g.jsxs)(`div`,{className:`info-links-grid`,children:[(0,g.jsxs)(`a`,{href:`https://www.q-net.or.kr`,target:`_blank`,rel:`noopener noreferrer`,className:`info-link-card`,children:[(0,g.jsx)(`div`,{className:`info-link-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-award`})}),(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`strong`,{children:`Q-Net (큐넷)`}),(0,g.jsx)(`p`,{children:`시험 접수 및 합격자 조회`})]}),(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-up-right-from-square info-link-ext`})]}),(0,g.jsxs)(`a`,{href:`https://www.work.go.kr`,target:`_blank`,rel:`noopener noreferrer`,className:`info-link-card`,children:[(0,g.jsx)(`div`,{className:`info-link-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-briefcase`})}),(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`strong`,{children:`워크넷`}),(0,g.jsx)(`p`,{children:`직업정보 및 채용공고`})]}),(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-up-right-from-square info-link-ext`})]}),(0,g.jsxs)(`a`,{href:`https://www.keis.or.kr`,target:`_blank`,rel:`noopener noreferrer`,className:`info-link-card`,children:[(0,g.jsx)(`div`,{className:`info-link-icon`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-building-columns`})}),(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`strong`,{children:`한국고용정보원`}),(0,g.jsx)(`p`,{children:`고용동향 및 직업연구`})]}),(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-up-right-from-square info-link-ext`})]})]})]})]})]})}var Ra={counseling:{name:`직업상담학`,code:`counseling`,color:`#3B82F6`,icon:`fa-solid fa-comments`,description:`직업상담의 이론과 기법, 상담 과정 전반을 학습합니다.`,chapters:[{title:`직업상담의 개념`,topics:[{title:`직업상담의 정의와 목적`,content:`<h4>직업상담의 정의</h4>
+<p>직업상담이란 내담자가 자신의 적성, 흥미, 능력 등을 이해하고 직업세계에 대한 정보를 바탕으로 합리적인 직업선택과 적응을 할 수 있도록 도와주는 전문적 활동입니다.</p>
+<ul>
+  <li><strong>광의의 정의:</strong> 개인의 진로발달을 촉진하는 모든 활동 (정보제공, 심리검사, 상담 등)</li>
+  <li><strong>협의의 정의:</strong> 상담자와 내담자 간의 1:1 면담을 통한 직업 관련 문제 해결</li>
+</ul>
+<h4>직업상담의 목적</h4>
+<ul>
+  <li>자기이해 증진: 적성, 흥미, 가치관, 성격 파악</li>
+  <li>직업정보 제공: 직업세계에 대한 이해 증진</li>
+  <li>합리적 의사결정: 직업선택 능력 향상</li>
+  <li>직업적응 지원: 직장생활 적응 및 만족도 향상</li>
+  <li>진로발달 촉진: 생애 전반의 진로발달 지원</li>
+</ul>`},{title:`직업상담의 역사`,content:`<h4>직업상담의 발전 과정</h4>
+<ul>
+  <li><strong>파슨스(Parsons, 1909):</strong> 직업지도 운동의 창시자, 보스턴에 직업국(Vocation Bureau) 설립</li>
+  <li><strong>1920~1930년대:</strong> 심리검사의 발전, 특성요인 상담 이론 등장</li>
+  <li><strong>1940~1950년대:</strong> 로저스의 인간중심 상담, 비지시적 상담 대두</li>
+  <li><strong>1950~1960년대:</strong> Super의 진로발달이론, 직업발달 관점 도입</li>
+  <li><strong>1970~1980년대:</strong> 인지행동 상담, Holland의 유형론 확산</li>
+  <li><strong>1990년대 이후:</strong> 구성주의, 다문화 상담, 평생진로개발</li>
+</ul>
+<h4>한국의 직업상담 발전</h4>
+<ul>
+  <li>1960년대: 직업안정법 제정, 공공 직업안정기관 설립</li>
+  <li>1998년: 직업상담사 국가자격 제도 도입</li>
+  <li>2006년: 워크넷(Work-Net) 고도화</li>
+  <li>현재: 고용센터, 대학 진로센터, 민간 상담기관 등 다양화</li>
+</ul>`},{title:`직업상담의 윤리`,content:`<h4>직업상담사의 윤리 원칙</h4>
+<ul>
+  <li><strong>비밀보장:</strong> 내담자의 개인정보 및 상담내용 비밀 유지</li>
+  <li><strong>성실성:</strong> 전문적 역량 범위 내에서 성실하게 상담 수행</li>
+  <li><strong>내담자 복지 우선:</strong> 내담자의 이익을 최우선으로 고려</li>
+  <li><strong>자율성 존중:</strong> 내담자의 자기결정권 존중</li>
+  <li><strong>전문성 유지:</strong> 지속적인 교육과 수련을 통한 전문성 향상</li>
+</ul>
+<h4>비밀보장의 예외</h4>
+<ul>
+  <li>내담자가 자신이나 타인의 생명을 위협하는 경우</li>
+  <li>법적으로 보고 의무가 있는 경우 (아동학대 등)</li>
+  <li>내담자가 동의한 경우</li>
+  <li>법원의 명령이 있는 경우</li>
+</ul>`}]},{title:`직업상담 이론`,topics:[{title:`파슨스의 특성요인이론`,content:`<h4>특성요인이론 (Trait-Factor Theory)</h4>
+<p>파슨스(Frank Parsons)가 창시한 최초의 체계적 직업지도 이론으로, 개인의 특성과 직업의 요인을 매칭하는 접근입니다.</p>
+<h4>직업선택의 3단계</h4>
+<ol>
+  <li><strong>자기이해:</strong> 자신의 적성, 능력, 흥미, 한계 등을 명확히 이해</li>
+  <li><strong>직업이해:</strong> 다양한 직업의 조건, 보상, 기회, 전망 등을 파악</li>
+  <li><strong>합리적 추론:</strong> 자기이해와 직업이해를 바탕으로 합리적인 직업 선택</li>
+</ol>
+<h4>윌리엄슨(Williamson)의 특성요인 상담 6단계</h4>
+<ol>
+  <li><strong>분석(Analysis):</strong> 내담자에 대한 정보 수집</li>
+  <li><strong>종합(Synthesis):</strong> 수집된 정보의 요약 정리</li>
+  <li><strong>진단(Diagnosis):</strong> 문제의 원인 파악</li>
+  <li><strong>예언(Prognosis):</strong> 문제 해결의 가능성 예측</li>
+  <li><strong>상담(Counseling):</strong> 적절한 개입과 조력</li>
+  <li><strong>추수지도(Follow-up):</strong> 상담 후 적응 확인</li>
+</ol>`},{title:`로저스의 인간중심 상담`,content:`<h4>인간중심 상담 (Person-Centered Counseling)</h4>
+<p>칼 로저스(Carl Rogers)가 개발한 비지시적 상담 이론으로, 내담자의 자기실현 경향성을 신뢰합니다.</p>
+<h4>핵심 조건 (필요충분조건)</h4>
+<ul>
+  <li><strong>무조건적 긍정적 존중:</strong> 내담자를 조건 없이 수용하고 존중</li>
+  <li><strong>공감적 이해:</strong> 내담자의 내적 준거 틀로 세상을 이해</li>
+  <li><strong>일치성(진솔성):</strong> 상담자가 진정성 있고 투명하게 행동</li>
+</ul>
+<h4>주요 개념</h4>
+<ul>
+  <li><strong>자기실현 경향성:</strong> 인간은 자신의 잠재력을 실현하려는 선천적 동기를 가짐</li>
+  <li><strong>자기개념:</strong> 자신에 대한 지각과 신념의 조직화된 체계</li>
+  <li><strong>경험과 자기개념의 불일치:</strong> 심리적 부적응의 원인</li>
+  <li><strong>충분히 기능하는 사람:</strong> 경험에 개방적이고, 실존적 삶을 영위하는 사람</li>
+</ul>`},{title:`엘리스의 합리정서행동치료(REBT)`,content:`<h4>합리정서행동치료 (REBT)</h4>
+<p>앨버트 엘리스(Albert Ellis)가 개발한 인지적 상담 이론으로, 비합리적 신념이 정서적 문제를 유발한다고 봅니다.</p>
+<h4>ABCDE 모델</h4>
+<ul>
+  <li><strong>A (Activating event):</strong> 선행사건 - 촉발 사건</li>
+  <li><strong>B (Belief):</strong> 신념 체계 - 합리적/비합리적 신념</li>
+  <li><strong>C (Consequence):</strong> 결과 - 정서적, 행동적 결과</li>
+  <li><strong>D (Disputing):</strong> 논박 - 비합리적 신념에 대한 도전</li>
+  <li><strong>E (Effect):</strong> 효과 - 새로운 합리적 신념과 정서</li>
+</ul>
+<h4>비합리적 신념의 특징</h4>
+<ul>
+  <li><strong>당위적 사고:</strong> "반드시 ~해야 한다" (musturbation)</li>
+  <li><strong>파국화:</strong> "이것은 끔찍하다" (awfulizing)</li>
+  <li><strong>좌절에 대한 낮은 인내력:</strong> "나는 견딜 수 없다"</li>
+  <li><strong>자기비하:</strong> "나는 무가치한 사람이다"</li>
+</ul>`},{title:`행동주의 상담`,content:`<h4>행동주의 상담 이론</h4>
+<p>관찰 가능한 행동에 초점을 맞추고, 학습 원리를 적용하여 부적응 행동을 수정하는 접근입니다.</p>
+<h4>주요 기법</h4>
+<ul>
+  <li><strong>체계적 둔감법:</strong> 불안 위계표를 작성하고 이완 훈련을 통해 점진적으로 불안 감소</li>
+  <li><strong>강화(Reinforcement):</strong> 바람직한 행동에 보상을 제공하여 행동 빈도 증가</li>
+  <li><strong>소거(Extinction):</strong> 강화를 중단하여 부적응 행동 감소</li>
+  <li><strong>모델링:</strong> 관찰학습을 통한 새로운 행동 습득 (반두라)</li>
+  <li><strong>자기주장훈련:</strong> 적절한 자기표현 능력 향상</li>
+  <li><strong>토큰경제:</strong> 토큰을 이용한 보상 체계</li>
+  <li><strong>혐오치료:</strong> 부적응 행동에 불쾌 자극을 연합</li>
+</ul>
+<h4>크럼볼츠(Krumboltz)의 사회학습 진로이론</h4>
+<ul>
+  <li>유전적 요인과 특별한 능력</li>
+  <li>환경적 조건과 사건</li>
+  <li>학습경험 (도구적 학습, 연합적 학습)</li>
+  <li>과제접근기술</li>
+</ul>
+<h4>크럼볼츠의 계획된 우연 이론 (2009)</h4>
+<p>우연한 사건이 진로발달에 중요한 역할을 하며, 우연을 기회로 만드는 5가지 기술이 필요합니다:</p>
+<ol>
+  <li><strong>호기심(Curiosity):</strong> 새로운 학습 기회 탐색</li>
+  <li><strong>인내(Persistence):</strong> 좌절에도 불구하고 노력 지속</li>
+  <li><strong>유연성(Flexibility):</strong> 태도와 상황을 변화시키는 의지</li>
+  <li><strong>낙관성(Optimism):</strong> 새로운 기회가 가능하다는 긍정적 태도</li>
+  <li><strong>위험감수(Risk-taking):</strong> 불확실한 상황에서도 행동하는 용기</li>
+</ol>`},{title:`벡의 인지치료`,content:`<h4>벡의 인지치료 (Cognitive Therapy)</h4>
+<p>아론 벡(Aaron Beck)이 개발한 인지적 상담 이론으로, <strong>인지적 오류</strong>와 <strong>자동적 사고</strong>의 수정을 목표로 합니다.</p>
+<h4>인지삼제 (Cognitive Triad)</h4>
+<p>우울증 환자에게 공통적으로 나타나는 3가지 부정적 인지:</p>
+<ol>
+  <li><strong>자기 자신에 대한 부정적 사고:</strong> "나는 무능하다"</li>
+  <li><strong>세상(환경)에 대한 부정적 사고:</strong> "세상은 불공평하다"</li>
+  <li><strong>미래에 대한 부정적 사고:</strong> "앞으로도 나아지지 않을 것이다"</li>
+</ol>
+<h4>인지 구조의 3수준</h4>
+<ul>
+  <li><strong>핵심신념(Core Belief/Schema):</strong> 가장 깊은 수준, 어린 시절 형성된 근본적 믿음 ("나는 사랑받을 자격이 없다")</li>
+  <li><strong>중간신념(Intermediate Belief):</strong> 규칙, 태도, 가정 ("완벽하지 않으면 실패다")</li>
+  <li><strong>자동적 사고(Automatic Thought):</strong> 특정 상황에서 자동으로 떠오르는 사고 (가장 표면적)</li>
+</ul>
+<h4>주요 인지적 오류</h4>
+<table>
+  <tr><th>인지적 오류</th><th>설명</th><th>예시</th></tr>
+  <tr><td><strong>이분법적 사고</strong></td><td>흑백논리, 전부 아니면 전무</td><td>"완벽하지 않으면 실패"</td></tr>
+  <tr><td><strong>과잉일반화</strong></td><td>한두 번의 사건으로 일반화</td><td>"항상 나만 안 돼"</td></tr>
+  <tr><td><strong>선택적 추상화</strong></td><td>부정적 측면만 선택적으로 주목</td><td>칭찬 10개, 비판 1개 중 비판만 기억</td></tr>
+  <tr><td><strong>확대/축소</strong></td><td>부정은 확대, 긍정은 축소</td><td>실수는 크게, 성공은 운으로</td></tr>
+  <tr><td><strong>개인화</strong></td><td>관련 없는 사건을 자기 탓으로</td><td>"그 사람이 화난 건 내 때문"</td></tr>
+  <tr><td><strong>재앙화(파국화)</strong></td><td>최악의 결과를 예상</td><td>"면접 망하면 인생 끝"</td></tr>
+  <tr><td><strong>감정적 추론</strong></td><td>감정을 근거로 현실 판단</td><td>"불안하니까 위험한 거야"</td></tr>
+  <tr><td><strong>당위적 사고</strong></td><td>"~해야 한다"는 경직된 사고</td><td>"나는 반드시 성공해야 한다"</td></tr>
+</table>
+<h4>상담 기법</h4>
+<ul>
+  <li><strong>소크라테스식 질문:</strong> 질문을 통해 인지적 오류 스스로 발견</li>
+  <li><strong>사고 기록지:</strong> 상황-자동적사고-감정-대안적사고 기록</li>
+  <li><strong>행동 실험:</strong> 부정적 예측을 실제로 검증</li>
+  <li><strong>인지적 재구조화:</strong> 왜곡된 사고를 합리적으로 교정</li>
+</ul>`},{title:`게슈탈트 상담`,content:`<h4>게슈탈트 상담 (Gestalt Therapy)</h4>
+<p>프리츠 펄스(Fritz Perls)가 개발한 상담 이론으로, '지금-여기(here and now)'에서의 알아차림을 강조합니다.</p>
+<h4>핵심 개념</h4>
+<ul>
+  <li><strong>알아차림(Awareness):</strong> 현재 순간의 감각, 감정, 사고를 자각</li>
+  <li><strong>접촉(Contact):</strong> 환경과의 상호작용</li>
+  <li><strong>미해결 과제:</strong> 완결되지 않은 경험이 현재 행동에 영향</li>
+  <li><strong>전경과 배경:</strong> 의미 있는 것이 전경으로, 나머지는 배경으로</li>
+</ul>
+<h4>주요 기법</h4>
+<ul>
+  <li><strong>빈 의자 기법:</strong> 빈 의자에 대상을 놓고 대화하는 역할극</li>
+  <li><strong>실험:</strong> 새로운 행동을 시도해보는 체험적 활동</li>
+  <li><strong>과장법:</strong> 특정 행동이나 감정을 과장하여 알아차림 증진</li>
+  <li><strong>반대로 하기:</strong> 평소와 반대되는 행동을 시도</li>
+  <li><strong>나 언어 사용:</strong> "나는 ~한다"로 책임감 표현</li>
+</ul>`}]},{title:`직업상담 이론 II - 추가 주요 이론`,topics:[{title:`정신분석적 상담 (프로이트)`,content:`<h4>프로이트의 정신분석 이론</h4>
+<p>지그문트 프로이트(Sigmund Freud)가 창시한 최초의 체계적 심리치료 이론으로, <strong>무의식</strong>의 역할을 강조합니다.</p>
+<h4>의식의 3수준</h4>
+<ul>
+  <li><strong>의식(Conscious):</strong> 현재 자각하고 있는 정신 내용</li>
+  <li><strong>전의식(Preconscious):</strong> 노력하면 의식으로 떠올릴 수 있는 내용</li>
+  <li><strong>무의식(Unconscious):</strong> 억압된 충동, 욕구, 기억 (빙산의 수면 아래 대부분)</li>
+</ul>
+<h4>성격 구조</h4>
+<ul>
+  <li><strong>원초아(Id):</strong> 쾌락 원칙, 본능적 충동, 즉각적 만족 추구</li>
+  <li><strong>자아(Ego):</strong> 현실 원칙, 원초아와 초자아를 중재, 적응적 기능</li>
+  <li><strong>초자아(Superego):</strong> 도덕 원칙, 양심과 자아이상, 사회적 규범 내면화</li>
+</ul>
+<h4>심리성적 발달단계</h4>
+<ol>
+  <li><strong>구강기(0~1세):</strong> 빨기, 물기 등 구강 자극으로 만족</li>
+  <li><strong>항문기(1~3세):</strong> 배변훈련, 통제와 자율성</li>
+  <li><strong>남근기(3~6세):</strong> 오이디푸스/엘렉트라 콤플렉스</li>
+  <li><strong>잠복기(6~12세):</strong> 성적 충동 잠복, 지적 활동에 집중</li>
+  <li><strong>생식기(12세~):</strong> 성숙한 성적 관심, 이성 관계 형성</li>
+</ol>
+<h4>주요 방어기제</h4>
+<table>
+  <tr><th>방어기제</th><th>설명</th><th>예시</th></tr>
+  <tr><td><strong>억압</strong></td><td>위협적 생각/감정을 무의식으로 밀어냄</td><td>충격적 사건 기억 못함</td></tr>
+  <tr><td><strong>투사</strong></td><td>자신의 감정을 타인에게 귀인</td><td>"그 사람이 나를 싫어해"</td></tr>
+  <tr><td><strong>합리화</strong></td><td>그럴듯한 이유로 정당화</td><td>"포도가 시다"(여우와 포도)</td></tr>
+  <tr><td><strong>반동형성</strong></td><td>무의식과 반대되는 행동 표현</td><td>미움→과잉친절</td></tr>
+  <tr><td><strong>승화</strong></td><td>충동을 사회적으로 수용 가능한 형태로 전환</td><td>공격성→운동선수</td></tr>
+  <tr><td><strong>퇴행</strong></td><td>이전 발달단계로 되돌아감</td><td>동생 태어나면 아기짓</td></tr>
+  <tr><td><strong>전치(전위)</strong></td><td>감정 대상을 안전한 대상으로 바꿈</td><td>상사에게 화→가족에게 화풀이</td></tr>
+  <tr><td><strong>부정(부인)</strong></td><td>고통스러운 현실을 인정하지 않음</td><td>사망 소식 거부</td></tr>
+  <tr><td><strong>보상</strong></td><td>한 영역의 약점을 다른 영역에서 만회</td><td>공부 약→운동 잘</td></tr>
+  <tr><td><strong>동일시</strong></td><td>타인의 특성을 자기 것으로 내면화</td><td>존경하는 사람 모방</td></tr>
+</table>
+<h4>정신분석적 상담 기법</h4>
+<ul>
+  <li><strong>자유연상:</strong> 떠오르는 생각을 검열 없이 자유롭게 말하기</li>
+  <li><strong>꿈의 분석:</strong> 현재몽(기억하는 내용) → 잠재몽(무의식적 의미) 해석</li>
+  <li><strong>전이 분석:</strong> 과거 중요 인물에 대한 감정이 상담자에게 전이되는 현상 분석</li>
+  <li><strong>저항 분석:</strong> 무의식적 내용 노출을 회피하는 현상 탐색</li>
+  <li><strong>해석:</strong> 무의식적 의미를 의식 수준으로 가져오는 작업</li>
+</ul>`},{title:`아들러의 개인심리학`,content:`<h4>아들러의 개인심리학 (Individual Psychology)</h4>
+<p>알프레드 아들러(Alfred Adler)는 인간을 <strong>사회적 존재</strong>로 보고, 열등감 극복과 사회적 관심을 강조했습니다.</p>
+<h4>핵심 개념</h4>
+<ul>
+  <li><strong>열등감과 보상:</strong> 인간은 본래 열등감을 느끼며, 이를 극복하려는 우월성 추구가 성장의 동력</li>
+  <li><strong>열등감 콤플렉스:</strong> 열등감이 과도하여 정상적 보상이 이루어지지 않는 상태</li>
+  <li><strong>우월성 콤플렉스:</strong> 열등감을 과잉보상하여 허세, 과시적 행동을 보이는 상태</li>
+  <li><strong>가상적 목적론:</strong> 인간은 과거가 아닌 <strong>미래 목표</strong>에 의해 동기화됨 (프로이트의 결정론과 대비)</li>
+  <li><strong>사회적 관심(Gemeinschaftsgefühl):</strong> 타인에 대한 관심과 공동체 의식 → 정신건강의 핵심 지표</li>
+  <li><strong>생활양식(Lifestyle):</strong> 개인의 독특한 삶의 패턴, 4~5세경 형성</li>
+  <li><strong>창조적 자아:</strong> 유전과 환경을 능동적으로 해석하고 활용하는 주체적 힘</li>
+</ul>
+<h4>생활양식의 4유형</h4>
+<table>
+  <tr><th>유형</th><th>사회적 관심</th><th>활동 수준</th><th>특징</th></tr>
+  <tr><td><strong>지배형</strong></td><td>낮음</td><td>높음</td><td>독단적, 공격적</td></tr>
+  <tr><td><strong>획득형(기대형)</strong></td><td>낮음</td><td>낮음</td><td>의존적, 수동적, 기생적</td></tr>
+  <tr><td><strong>회피형</strong></td><td>낮음</td><td>낮음</td><td>문제 회피, 위축, 고립</td></tr>
+  <tr><td><strong>사회적 유용형</strong></td><td>높음</td><td>높음</td><td>건강하고 성숙한 유형 (이상적)</td></tr>
+</table>
+<h4>출생순위의 영향</h4>
+<ul>
+  <li><strong>맏이:</strong> 책임감, 보수적, 권위적 (동생 출생 시 '폐위' 경험)</li>
+  <li><strong>둘째:</strong> 경쟁적, 야망적, 맏이를 따라잡으려는 경향</li>
+  <li><strong>막내:</strong> 응석받이 가능성, 독특한 방향 추구</li>
+  <li><strong>독자:</strong> 관심의 중심, 사회적 관계 형성에 어려움 가능</li>
+</ul>
+<h4>상담 기법</h4>
+<ul>
+  <li><strong>격려(Encouragement):</strong> 내담자의 강점과 자원을 인정, 용기 부여 (가장 핵심적 기법)</li>
+  <li><strong>초기기억 분석:</strong> 가장 오래된 기억을 통해 생활양식 파악</li>
+  <li><strong>가족구도 분석:</strong> 형제 관계, 출생순위를 통한 생활양식 탐색</li>
+  <li><strong>"마치 ~인 것처럼" 기법:</strong> 원하는 모습처럼 행동해보기 (as if 기법)</li>
+  <li><strong>수프에 침 뱉기:</strong> 부적응적 행동의 숨은 목적을 자각시켜 그 매력을 잃게 함</li>
+  <li><strong>역설적 의도:</strong> 증상을 의도적으로 과장하여 통제감 회복</li>
+</ul>`},{title:`글래서의 현실치료`,content:`<h4>글래서의 현실치료 (Reality Therapy)</h4>
+<p>윌리엄 글래서(William Glasser)가 개발한 이론으로, <strong>선택이론</strong>에 기반하여 현재 행동과 책임을 강조합니다.</p>
+<h4>선택이론 (Choice Theory)</h4>
+<p>모든 행동은 자신의 <strong>선택</strong>이며, 외부가 아닌 내부(기본 욕구)에서 동기화된다는 이론입니다. 타인의 행동을 통제할 수 없고 자신의 행동만 통제할 수 있습니다.</p>
+<h4>5가지 기본 욕구</h4>
+<ol>
+  <li><strong>생존(Survival):</strong> 음식, 주거, 안전, 건강 (유일한 생리적 욕구)</li>
+  <li><strong>사랑과 소속(Love & Belonging):</strong> 대인관계, 가족, 소속감</li>
+  <li><strong>힘/성취(Power):</strong> 인정, 성취, 자존감, 경쟁</li>
+  <li><strong>자유(Freedom):</strong> 자율성, 독립성, 선택의 자유</li>
+  <li><strong>즐거움(Fun):</strong> 놀이, 유머, 학습의 즐거움</li>
+</ol>
+<h4>전행동(Total Behavior) 개념</h4>
+<p>모든 행동은 4가지 구성요소로 이루어져 있습니다 (자동차의 4바퀴 비유):</p>
+<ul>
+  <li><strong>활동하기(Acting):</strong> 외현적 행동 → <em>직접 통제 가능 (앞바퀴)</em></li>
+  <li><strong>생각하기(Thinking):</strong> 인지 → <em>직접 통제 가능 (앞바퀴)</em></li>
+  <li><strong>느끼기(Feeling):</strong> 감정 → 간접적 통제 (뒷바퀴)</li>
+  <li><strong>신체반응(Physiology):</strong> 생리 반응 → 간접적 통제 (뒷바퀴)</li>
+</ul>
+<p>★ 핵심: 활동하기와 생각하기(앞바퀴)를 바꾸면 느끼기와 신체반응(뒷바퀴)도 변화합니다.</p>
+<h4>WDEP 체계</h4>
+<ul>
+  <li><strong>W (Want/바람):</strong> "무엇을 원하십니까?" - 바람, 욕구, 지각 탐색</li>
+  <li><strong>D (Doing/행동):</strong> "지금 무엇을 하고 있습니까?" - 현재 행동과 방향 탐색</li>
+  <li><strong>E (Evaluation/평가):</strong> "지금 하는 것이 원하는 것을 얻는 데 도움이 됩니까?" - 자기 평가 (핵심)</li>
+  <li><strong>P (Planning/계획):</strong> 변화를 위한 실행 계획 수립</li>
+</ul>
+<h4>좋은 계획의 조건: SAMI²C³</h4>
+<p>Simple(단순), Attainable(달성가능), Measurable(측정가능), Immediate(즉시실행), Involved(관여), Controlled(통제가능), Committed(헌신), Continuous(지속적)</p>`},{title:`해결중심 단기상담`,content:`<h4>해결중심 단기상담 (Solution-Focused Brief Therapy, SFBT)</h4>
+<p>드 셰이저(Steve de Shazer)와 인수 김 버그(Insoo Kim Berg)가 개발한 단기 상담 모델로, <strong>문제가 아닌 해결</strong>에 초점을 맞춥니다.</p>
+<h4>기본 가정</h4>
+<ul>
+  <li>변화는 불가피하며 항상 일어나고 있다</li>
+  <li>내담자는 자신의 문제 해결에 필요한 <strong>강점과 자원</strong>을 이미 가지고 있다</li>
+  <li>작은 변화가 큰 변화를 이끈다 (눈덩이 효과)</li>
+  <li>문제의 원인을 알 필요 없이 해결 가능하다</li>
+  <li><strong>효과가 있으면 계속하고, 효과가 없으면 다른 것을 하라</strong></li>
+  <li>문제가 항상 일어나는 것은 아니다 (예외는 반드시 존재)</li>
+</ul>
+<h4>핵심 질문 기법</h4>
+<ul>
+  <li><strong>기적질문:</strong> "오늘 밤 기적이 일어나 문제가 해결되었다면, 내일 아침 무엇이 달라져 있을까요?"</li>
+  <li><strong>예외질문:</strong> "문제가 일어나지 않았던 때는 언제였나요? 그때 무엇이 달랐나요?"</li>
+  <li><strong>척도질문:</strong> "1~10점 중 현재 상태는 몇 점? 1점 올리려면 무엇이 필요할까요?"</li>
+  <li><strong>대처질문:</strong> "이렇게 힘든 상황에서 어떻게 견뎌오셨나요?" (내담자 강점 발견)</li>
+  <li><strong>관계성질문:</strong> "주변 사람들은 당신이 어떻게 달라졌다고 말할까요?"</li>
+  <li><strong>첫 회기 전 변화 질문:</strong> "상담 예약 후부터 지금까지 달라진 것이 있나요?"</li>
+</ul>
+<h4>내담자 유형과 상담 전략</h4>
+<table>
+  <tr><th>유형</th><th>특징</th><th>전략</th></tr>
+  <tr><td><strong>방문형</strong></td><td>자발적 동기 없음 (타인에 의해 의뢰)</td><td>칭찬, 관계 형성에 집중</td></tr>
+  <tr><td><strong>불평형</strong></td><td>문제 인식 있으나 자신의 역할 인식 부족</td><td>관찰 과제 부여</td></tr>
+  <tr><td><strong>고객형</strong></td><td>문제 인식 + 해결 의지 있음</td><td>행동 과제 부여</td></tr>
+</table>
+<h4>상담 구조: 메시지 전달</h4>
+<ul>
+  <li><strong>칭찬:</strong> 내담자의 강점과 노력 인정</li>
+  <li><strong>연결문(브릿지):</strong> 칭찬과 과제를 연결하는 근거</li>
+  <li><strong>과제:</strong> 관찰 과제 또는 행동 과제 제시</li>
+</ul>`},{title:`교류분석(TA)과 실존주의 상담`,content:`<h4>교류분석 (Transactional Analysis, TA)</h4>
+<p>에릭 번(Eric Berne)이 개발한 성격이론 및 상담 접근으로, <strong>자아상태</strong>와 대인 교류 패턴을 분석합니다.</p>
+<h4>자아상태 (PAC 모델)</h4>
+<ul>
+  <li><strong>부모 자아(Parent, P):</strong> 부모에게 배운 가치관, 규칙
+    <ul><li>양육적 부모(NP): 돌봄, 격려</li><li>비판적 부모(CP): 비판, 통제</li></ul></li>
+  <li><strong>성인 자아(Adult, A):</strong> 객관적, 합리적 사고와 현실적 판단 (가장 바람직한 상태)</li>
+  <li><strong>아동 자아(Child, C):</strong> 어린 시절의 감정과 충동
+    <ul><li>자유로운 아동(FC): 자발적, 창의적</li><li>순응적 아동(AC): 순종적, 의존적</li></ul></li>
+</ul>
+<h4>교류(Transaction)의 유형</h4>
+<ul>
+  <li><strong>상보교류(Complementary):</strong> 기대한 자아상태에서 반응 → 원활한 의사소통 지속</li>
+  <li><strong>교차교류(Crossed):</strong> 기대하지 않은 자아상태에서 반응 → 의사소통 단절/갈등</li>
+  <li><strong>이면교류(Ulterior):</strong> 표면적 메시지와 이면적 메시지가 다름 → 게임의 원인</li>
+</ul>
+<h4>인생태도(Life Position) 4유형</h4>
+<table>
+  <tr><th>유형</th><th>태도</th><th>특징</th></tr>
+  <tr><td><strong>I'm OK, You're OK</strong></td><td>자타 긍정</td><td>건강한 인생태도 (목표)</td></tr>
+  <tr><td><strong>I'm OK, You're not OK</strong></td><td>자기 긍정, 타인 부정</td><td>투사적, 비난적, 우월감</td></tr>
+  <tr><td><strong>I'm not OK, You're OK</strong></td><td>자기 부정, 타인 긍정</td><td>열등감, 우울, 의존</td></tr>
+  <tr><td><strong>I'm not OK, You're not OK</strong></td><td>자타 부정</td><td>절망적, 무기력, 포기</td></tr>
+</table>
+<h4>기타 주요 개념</h4>
+<ul>
+  <li><strong>스트로크(Stroke):</strong> 상대를 인정하는 자극 (긍정적/부정적, 조건적/무조건적)</li>
+  <li><strong>인생각본(Life Script):</strong> 어린 시절에 무의식적으로 형성된 인생 계획</li>
+  <li><strong>게임(Game):</strong> 이면교류에 기반한 반복적 대인관계 패턴</li>
+</ul>
+<hr/>
+<h4>실존주의 상담</h4>
+<p>빅터 프랭클(Frankl), 롤로 메이(May), 어빈 얄롬(Yalom)이 대표적입니다.</p>
+<h4>실존적 핵심 주제 (얄롬의 4가지 궁극적 관심사)</h4>
+<ul>
+  <li><strong>죽음:</strong> 죽음의 자각이 삶의 의미를 부여하고 참된 삶을 살게 함</li>
+  <li><strong>자유와 책임:</strong> 인간은 선택의 자유가 있으며, 그에 따른 책임도 짐</li>
+  <li><strong>실존적 고독:</strong> 궁극적으로 타인과 완전히 합일될 수 없는 존재</li>
+  <li><strong>무의미:</strong> 삶에는 미리 정해진 의미가 없으므로, 스스로 의미를 창조해야 함</li>
+</ul>
+<h4>프랭클의 로고테라피(Logotherapy) 기법</h4>
+<ul>
+  <li><strong>역설적 의도:</strong> 두려워하는 것을 의도적으로 행하거나 바라기 (예: 불면증 환자에게 "잠들지 않으려고 노력하세요")</li>
+  <li><strong>탈숙고(Dereflection):</strong> 과도한 자기관찰/분석에서 벗어나 외부 대상에 주의 전환</li>
+  <li><strong>소크라테스식 대화:</strong> 질문을 통해 스스로 삶의 의미를 발견하도록 안내</li>
+  <li><strong>의미에의 의지:</strong> 인간의 가장 근본적 동기는 삶의 의미를 찾는 것</li>
+</ul>`}]},{title:`직업상담 기법`,topics:[{title:`경청과 공감`,content:`<h4>경청 (Active Listening)</h4>
+<p>상담의 가장 기본적인 기법으로, 내담자의 언어적/비언어적 메시지에 주의를 기울이는 것입니다.</p>
+<ul>
+  <li><strong>수동적 경청:</strong> 조용히 듣기, 고개 끄덕이기, "음", "네" 등</li>
+  <li><strong>적극적 경청:</strong> 재진술, 반영, 명료화를 통한 깊은 이해</li>
+  <li><strong>비언어적 주의:</strong> 눈맞춤, 몸 기울이기, 개방적 자세</li>
+</ul>
+<h4>공감 (Empathy)</h4>
+<ul>
+  <li><strong>1차적 공감:</strong> 내담자가 표현한 감정을 정확히 반영</li>
+  <li><strong>고급 공감:</strong> 표면 아래의 감정이나 의미를 포착하여 전달</li>
+</ul>
+<h4>공감적 반응의 예</h4>
+<p>"직장에서 인정받지 못한다고 느끼시니 많이 답답하시겠네요."</p>`},{title:`질문 기법`,content:`<h4>질문의 유형</h4>
+<ul>
+  <li><strong>개방형 질문:</strong> "어떻게", "무엇을" 등으로 시작, 자유로운 응답 유도
+    <br/>예: "직업을 선택할 때 가장 중요하게 생각하는 것은 무엇인가요?"</li>
+  <li><strong>폐쇄형 질문:</strong> "예/아니오"로 답할 수 있는 질문
+    <br/>예: "현재 구직활동을 하고 계신가요?"</li>
+  <li><strong>척도 질문:</strong> 수치로 상태를 평가
+    <br/>예: "1~10점으로 현재 직업만족도를 평가한다면?"</li>
+  <li><strong>기적 질문:</strong> 해결중심 접근의 핵심 기법
+    <br/>예: "오늘 밤 자는 동안 기적이 일어나서 문제가 해결되었다면, 내일 아침 가장 먼저 무엇이 달라져 있을까요?"</li>
+</ul>
+<h4>효과적 질문의 원칙</h4>
+<ul>
+  <li>한 번에 하나의 질문만 하기</li>
+  <li>"왜"로 시작하는 질문은 방어를 유발할 수 있으므로 주의</li>
+  <li>내담자의 탐색을 촉진하는 질문 사용</li>
+</ul>`},{title:`명료화, 직면, 해석`,content:`<h4>명료화 (Clarification)</h4>
+<p>내담자의 모호하거나 불분명한 표현을 분명하게 하는 기법입니다.</p>
+<ul>
+  <li>"지금 말씀하신 것은 ~라는 뜻인가요?"</li>
+  <li>"좀 더 구체적으로 설명해 주시겠어요?"</li>
+</ul>
+<h4>직면 (Confrontation)</h4>
+<p>내담자의 모순, 왜곡, 회피를 지적하여 자각을 촉진하는 기법입니다.</p>
+<ul>
+  <li>내담자의 말과 행동의 불일치를 지적</li>
+  <li>충분한 라포(rapport) 형성 후 사용</li>
+  <li>비난이 아닌 관찰의 형태로 전달</li>
+  <li>"한편으로는 ~라고 하시면서, 다른 한편으로는 ~라고 하시는 것 같은데요."</li>
+</ul>
+<h4>해석 (Interpretation)</h4>
+<p>내담자의 행동, 사고, 감정 아래에 있는 무의식적 의미나 패턴을 설명하는 기법입니다.</p>
+<ul>
+  <li>정신분석적 상담에서 주로 사용</li>
+  <li>시기적절하고 내담자가 수용할 수 있는 수준에서 제공</li>
+</ul>`}]},{title:`직업상담 과정`,topics:[{title:`상담 과정의 단계`,content:`<h4>직업상담의 5단계</h4>
+<ol>
+  <li><strong>관계형성 단계</strong>
+    <ul>
+      <li>라포(rapport) 형성</li>
+      <li>상담 구조화 (상담의 목적, 과정, 비밀보장 등 안내)</li>
+      <li>내담자의 기대 파악</li>
+    </ul>
+  </li>
+  <li><strong>진단 단계</strong>
+    <ul>
+      <li>내담자의 문제 파악</li>
+      <li>심리검사 실시 (적성, 흥미, 가치관 검사)</li>
+      <li>직업경력 및 교육배경 분석</li>
+    </ul>
+  </li>
+  <li><strong>목표설정 단계</strong>
+    <ul>
+      <li>상담 목표의 구체적 설정</li>
+      <li>내담자와 상담자 간 합의</li>
+      <li>달성 가능하고 측정 가능한 목표</li>
+    </ul>
+  </li>
+  <li><strong>개입(실행) 단계</strong>
+    <ul>
+      <li>직업정보 탐색 및 제공</li>
+      <li>의사결정 지원</li>
+      <li>구직기술 훈련 (이력서, 면접)</li>
+    </ul>
+  </li>
+  <li><strong>평가 및 종결 단계</strong>
+    <ul>
+      <li>목표 달성 여부 평가</li>
+      <li>상담 성과 정리</li>
+      <li>추수상담(follow-up) 계획</li>
+    </ul>
+  </li>
+</ol>`},{title:`집단 직업상담`,content:`<h4>집단상담의 특징</h4>
+<ul>
+  <li>여러 내담자를 동시에 상담하여 효율적</li>
+  <li>구성원 간 상호작용을 통한 학습 효과</li>
+  <li>사회적 지지와 보편성 경험</li>
+</ul>
+<h4>집단상담의 유형</h4>
+<ul>
+  <li><strong>구직기술 훈련 집단:</strong> 이력서 작성, 면접 기술 등</li>
+  <li><strong>진로탐색 집단:</strong> 자기이해, 직업세계 탐색</li>
+  <li><strong>직업적응 집단:</strong> 직장생활 적응 지원</li>
+  <li><strong>실직자 지원 집단:</strong> 실직 스트레스 관리, 재취업 지원</li>
+</ul>
+<h4>집단상담의 발달 단계</h4>
+<ol>
+  <li>초기 단계: 탐색과 오리엔테이션</li>
+  <li>과도기 단계: 갈등과 저항</li>
+  <li>작업 단계: 응집력과 생산성</li>
+  <li>종결 단계: 통합과 마무리</li>
+</ol>`}]}]},psychology:{name:`직업심리학`,code:`psychology`,color:`#8B5CF6`,icon:`fa-solid fa-brain`,description:`직업발달이론, 유형론, 심리검사 등을 학습합니다.`,chapters:[{title:`직업발달이론`,topics:[{title:`Super의 진로발달이론`,content:`<h4>Super의 생애진로발달이론</h4>
+<p>Donald Super는 진로발달을 전 생애에 걸친 과정으로 보았으며, 자아개념이 핵심입니다.</p>
+<h4>진로발달의 5단계</h4>
+<ol>
+  <li><strong>성장기 (0~14세):</strong> 자아개념 발달, 욕구와 환상이 지배적</li>
+  <li><strong>탐색기 (15~24세):</strong> 학교, 여가활동, 아르바이트를 통한 자기 탐색
+    <ul><li>잠정기(15~17) → 전환기(18~21) → 시행기(22~24)</li></ul>
+  </li>
+  <li><strong>확립기 (25~44세):</strong> 적절한 분야를 찾아 안정적 위치 확보</li>
+  <li><strong>유지기 (45~64세):</strong> 획득한 지위를 유지하려는 노력</li>
+  <li><strong>쇠퇴기 (65세~):</strong> 은퇴와 새로운 역할 조정</li>
+</ol>
+<h4>핵심 개념</h4>
+<ul>
+  <li><strong>진로성숙도:</strong> 개인의 진로발달 수준</li>
+  <li><strong>생애역할:</strong> 자녀, 학생, 여가인, 시민, 근로자, 가정관리자</li>
+  <li><strong>생애무지개(Life-Career Rainbow):</strong> 생애역할과 발달단계를 통합한 모델</li>
+  <li><strong>아치 모형(Archway Model):</strong> 개인적 요인과 환경적 요인의 통합</li>
+</ul>`},{title:`Ginzberg의 진로선택이론`,content:`<h4>Ginzberg의 진로발달이론</h4>
+<p>Ginzberg는 직업선택을 발달적 과정으로 최초 제시했으며, 비가역적이고 타협의 과정이라고 보았습니다.</p>
+<h4>진로발달의 3단계</h4>
+<ol>
+  <li><strong>환상기 (6~11세):</strong> 현실적 제약 없이 욕구에 따라 직업 선호</li>
+  <li><strong>잠정기 (11~17세):</strong>
+    <ul>
+      <li>흥미 단계(11~12): 좋아하는 활동 중심 선택</li>
+      <li>능력 단계(13~14): 자신의 능력 고려</li>
+      <li>가치 단계(15~16): 직업적 가치관 형성</li>
+      <li>전환 단계(17): 현실적 제약 인식</li>
+    </ul>
+  </li>
+  <li><strong>현실기 (17세~성인초기):</strong>
+    <ul>
+      <li>탐색 단계: 다양한 경험 탐색</li>
+      <li>구체화 단계: 직업 범위 좁히기</li>
+      <li>특수화 단계: 특정 직업 선택</li>
+    </ul>
+  </li>
+</ol>
+<h4>수정된 이론 (1972)</h4>
+<p>초기 이론을 수정하여 직업선택은 비가역적이 아니라 개방적이며, 전 생애에 걸친 과정으로 재정의했습니다.</p>`},{title:`Gottfredson의 제한-타협이론`,content:`<h4>Gottfredson의 직업포부 발달이론</h4>
+<p>직업선택에서 성유형화, 사회적 지위, 자아개념의 역할을 강조합니다.</p>
+<h4>직업포부 발달의 4단계</h4>
+<ol>
+  <li><strong>크기와 힘의 지향 (3~5세):</strong> 성인과 아동의 역할 구분</li>
+  <li><strong>성역할 지향 (6~8세):</strong> 성별에 따른 직업 구분</li>
+  <li><strong>사회적 가치 지향 (9~13세):</strong> 사회적 지위 인식, 직업의 서열화</li>
+  <li><strong>내적 고유자아 지향 (14세~):</strong> 흥미, 능력 등 내적 특성에 기반한 직업 선택</li>
+</ol>
+<h4>타협(Compromise)의 원리</h4>
+<p>직업선택 시 현실적 제약으로 인해 포기하는 순서:</p>
+<ol>
+  <li>흥미를 가장 먼저 포기</li>
+  <li>사회적 지위를 그 다음으로 포기</li>
+  <li>성유형을 가장 마지막에 포기 (가장 강하게 유지)</li>
+</ol>`}]},{title:`직업발달이론 II - 추가 주요 이론`,topics:[{title:`Roe의 욕구이론`,content:`<h4>Roe의 욕구이론 (Need Theory)</h4>
+<p>앤 로(Anne Roe)는 <strong>매슬로우의 욕구위계</strong>와 <strong>어린 시절 부모-자녀 관계</strong>를 직업선택에 연결한 이론입니다.</p>
+<h4>부모의 양육태도 3유형</h4>
+<table>
+  <tr><th>양육태도</th><th>하위유형</th><th>자녀 영향</th><th>직업 선택 경향</th></tr>
+  <tr><td><strong>정서적 집중</strong></td><td>과보호, 과잉요구</td><td>타인의 관심/인정 추구</td><td>대인 지향 직업 (서비스, 예술, 경영)</td></tr>
+  <tr><td><strong>회피</strong></td><td>거부, 무시/방임</td><td>타인으로부터 회피 경향</td><td>비대인 지향 직업 (과학, 기술, 자연)</td></tr>
+  <tr><td><strong>수용</strong></td><td>애정적 수용, 비의도적 수용</td><td>균형 잡힌 발달</td><td>다양한 직업 선택 가능</td></tr>
+</table>
+<h4>직업분류 체계 (8개 직업군)</h4>
+<ol>
+  <li>서비스 (Service)</li>
+  <li>비즈니스 접촉 (Business Contact)</li>
+  <li>조직/관리 (Organization)</li>
+  <li>기술 (Technology)</li>
+  <li>야외활동 (Outdoor)</li>
+  <li>과학 (Science)</li>
+  <li>일반문화 (General Culture)</li>
+  <li>예술/오락 (Arts & Entertainment)</li>
+</ol>
+<p>★ 1~3: <strong>대인 지향</strong>(사람 중심) / 4~8: <strong>비대인 지향</strong>(사물/아이디어 중심)</p>`},{title:`Tiedeman과 O'Hara의 진로의사결정이론`,content:`<h4>Tiedeman-O'Hara의 진로의사결정 발달이론</h4>
+<p>진로발달을 <strong>의사결정의 연속적 과정</strong>으로 보며, 에릭슨의 심리사회적 발달이론에 영향을 받았습니다.</p>
+<h4>의사결정의 2단계</h4>
+<h4>1단계: 예상기(Anticipation Period)</h4>
+<ol>
+  <li><strong>탐색(Exploration):</strong> 가능한 대안들을 폭넓게 탐색</li>
+  <li><strong>구체화(Crystallization):</strong> 대안들을 평가하여 범위를 좁힘</li>
+  <li><strong>선택(Choice):</strong> 특정 대안을 선택</li>
+  <li><strong>명료화(Clarification):</strong> 선택에 대한 확신과 세부 계획 수립</li>
+</ol>
+<h4>2단계: 실행기(Implementation Period)</h4>
+<ol>
+  <li><strong>순응(Induction):</strong> 새로운 환경에 적응, 집단 규범 수용</li>
+  <li><strong>변혁/쇄신(Reformation):</strong> 자신의 주장을 집단에 반영하려는 시도</li>
+  <li><strong>통합(Integration):</strong> 개인과 집단의 목표가 조화, 균형 달성</li>
+</ol>
+<p>★ 핵심: 자아정체감의 분화(차별화)와 통합을 반복하면서 진로가 발달합니다.</p>`},{title:`사회인지진로이론 (SCCT)`,content:`<h4>사회인지진로이론 (Social Cognitive Career Theory)</h4>
+<p>렌트(Lent), 브라운(Brown), 해킷(Hackett)이 <strong>반두라의 사회학습이론</strong>을 진로 영역에 적용한 이론입니다.</p>
+<h4>3가지 핵심 변인</h4>
+<ul>
+  <li><strong>자기효능감(Self-efficacy):</strong> 특정 과제를 성공적으로 수행할 수 있다는 자신감
+    <ul>
+      <li>수행성취 경험 (가장 강력한 영향)</li>
+      <li>대리경험 (모델 관찰)</li>
+      <li>언어적 설득 (격려)</li>
+      <li>정서적/생리적 상태</li>
+    </ul>
+  </li>
+  <li><strong>결과기대(Outcome Expectations):</strong> 특정 행동을 수행하면 어떤 결과가 나타날 것이라는 기대</li>
+  <li><strong>개인적 목표(Personal Goals):</strong> 특정 활동에 참여하거나 미래 결과를 달성하겠다는 결심</li>
+</ul>
+<h4>SCCT의 3가지 모델</h4>
+<ol>
+  <li><strong>흥미발달 모델:</strong> 자기효능감 + 결과기대 → 흥미 형성 → 활동선택 → 수행경험 (순환)</li>
+  <li><strong>진로선택 모델:</strong> 흥미 + 자기효능감 + 결과기대 → 선택목표 → 선택행동</li>
+  <li><strong>수행 모델:</strong> 능력 + 자기효능감 + 결과기대 + 목표 → 수행수준 → 성취</li>
+</ol>
+<p>★ 개인 요인(성별, 인종, 건강)과 환경 요인(지지, 장벽)이 자기효능감과 결과기대에 영향을 미칩니다.</p>`},{title:`Savickas의 진로구성이론`,content:`<h4>Savickas의 진로구성이론 (Career Construction Theory)</h4>
+<p>마크 사비카스(Mark Savickas)가 Super의 이론을 <strong>사회구성주의</strong> 관점에서 재구성한 이론입니다.</p>
+<h4>핵심 개념: 진로적응성 (Career Adaptability)</h4>
+<p>변화하는 직업세계에 대처하는 심리사회적 자원으로, <strong>4C</strong>로 구성됩니다:</p>
+<table>
+  <tr><th>차원</th><th>질문</th><th>태도/역량</th></tr>
+  <tr><td><strong>관심(Concern)</strong></td><td>"나의 미래가 있는가?"</td><td>미래지향적 태도, 계획성</td></tr>
+  <tr><td><strong>통제(Control)</strong></td><td>"누가 나의 미래를 만드는가?"</td><td>자기주도성, 책임감, 결단력</td></tr>
+  <tr><td><strong>호기심(Curiosity)</strong></td><td>"미래에 무엇을 하고 싶은가?"</td><td>직업세계 탐색, 개방성</td></tr>
+  <tr><td><strong>자신감(Confidence)</strong></td><td>"할 수 있는가?"</td><td>자기효능감, 문제해결력</td></tr>
+</table>
+<h4>생애주제(Life Theme)</h4>
+<p>개인이 일에 부여하는 <strong>주관적 의미</strong>로, 생애 이야기(career story)를 통해 발견됩니다.</p>
+<h4>진로상담의 3단계</h4>
+<ol>
+  <li><strong>구성(Construction):</strong> 내담자의 진로 이야기를 듣고 생애주제 파악</li>
+  <li><strong>해체(Deconstruction):</strong> 제한적 가정과 편견을 인식하고 해체</li>
+  <li><strong>재구성(Reconstruction):</strong> 새로운 관점으로 진로 이야기를 재구성</li>
+</ol>
+<p>★ 진로상담 = 내담자가 자신의 <strong>진로 내러티브</strong>(이야기)를 구성하도록 돕는 과정</p>`}]},{title:`Holland 유형론`,topics:[{title:`RIASEC 6유형`,content:`<h4>Holland의 직업적 성격유형론</h4>
+<p>John Holland은 직업적 흥미를 6가지 유형(RIASEC)으로 분류했습니다.</p>
+<h4>6가지 유형</h4>
+<table>
+  <tr><th>유형</th><th>특성</th><th>대표 직업</th></tr>
+  <tr><td><strong>R (현실형)</strong></td><td>기계, 도구, 동물, 야외활동 선호</td><td>기술자, 농부, 정비사</td></tr>
+  <tr><td><strong>I (탐구형)</strong></td><td>관찰, 학습, 분석, 과학적 탐구</td><td>과학자, 연구원, 의사</td></tr>
+  <tr><td><strong>A (예술형)</strong></td><td>창의적 표현, 자유로운 활동</td><td>예술가, 작가, 음악가</td></tr>
+  <tr><td><strong>S (사회형)</strong></td><td>타인 돕기, 교육, 봉사</td><td>교사, 상담사, 사회복지사</td></tr>
+  <tr><td><strong>E (진취형)</strong></td><td>설득, 리더십, 목표 달성</td><td>경영자, 영업사원, 정치인</td></tr>
+  <tr><td><strong>C (관습형)</strong></td><td>자료 정리, 규칙 준수, 체계적 작업</td><td>회계사, 사무원, 은행원</td></tr>
+</table>
+<h4>육각형 모형</h4>
+<p>RIASEC 유형은 정육각형 꼭짓점에 배치되며, 인접한 유형은 유사하고 대각선 유형은 상반됩니다.</p>`},{title:`일관성, 분화, 정체성`,content:`<h4>Holland 이론의 핵심 개념</h4>
+<h4>일관성 (Consistency)</h4>
+<ul>
+  <li>개인의 유형 코드 간 유사성 정도</li>
+  <li>인접 유형 조합(예: RI, AS) → 높은 일관성</li>
+  <li>대각 유형 조합(예: RA, SI) → 낮은 일관성</li>
+  <li>일관성이 높을수록 직업선택이 예측 가능</li>
+</ul>
+<h4>분화 (Differentiation)</h4>
+<ul>
+  <li>6유형 중 특정 유형이 얼마나 두드러지는지</li>
+  <li>최고 점수와 최저 점수의 차이로 측정</li>
+  <li>분화가 높을수록 명확한 직업적 정체성</li>
+</ul>
+<h4>정체성 (Identity)</h4>
+<ul>
+  <li>자신의 목표, 흥미, 능력에 대한 명확한 상(picture)</li>
+  <li>직업적 정체성이 높을수록 안정적 직업선택</li>
+</ul>
+<h4>일치성 (Congruence)</h4>
+<ul>
+  <li>개인의 성격유형과 직업환경의 일치 정도</li>
+  <li>일치성이 높을수록 직업만족, 안정성, 성취도 높음</li>
+</ul>`}]},{title:`직업심리검사`,topics:[{title:`심리검사의 유형`,content:`<h4>직업심리검사의 분류</h4>
+<h4>표준화 검사</h4>
+<ul>
+  <li><strong>직업적성검사:</strong> 일반학습능력, 언어능력, 수리능력, 공간판단력 등 측정</li>
+  <li><strong>직업흥미검사:</strong> Holland 유형에 기반한 직업흥미 측정 (스트롱 직업흥미검사 등)</li>
+  <li><strong>직업가치관검사:</strong> 능력발휘, 보수, 안정성, 사회봉사 등 가치관 측정</li>
+  <li><strong>성격검사:</strong> MBTI, MMPI, 16PF, Big Five 등</li>
+  <li><strong>지능검사:</strong> 웩슬러(WAIS), 스탠포드-비네</li>
+</ul>
+<h4>비표준화 검사</h4>
+<ul>
+  <li>면접, 관찰, 자서전, 일화기록, 사회성측정</li>
+</ul>
+<h4>검사의 질적 기준</h4>
+<ul>
+  <li><strong>타당도:</strong> 검사가 측정하려는 것을 정확히 측정하는 정도
+    <ul><li>내용타당도, 준거타당도(예언/공인), 구인타당도</li></ul>
+  </li>
+  <li><strong>신뢰도:</strong> 검사 결과의 일관성
+    <ul><li>검사-재검사, 동형검사, 반분, 내적일관성(Cronbach α)</li></ul>
+  </li>
+</ul>`},{title:`타당도와 신뢰도 상세`,content:`<h4>타당도 (Validity) - 검사의 정확성</h4>
+<p>"이 검사가 측정하려는 것을 정확히 측정하고 있는가?"</p>
+<table>
+  <tr><th>타당도 유형</th><th>의미</th><th>확인 방법</th></tr>
+  <tr><td><strong>내용타당도</strong></td><td>검사 내용이 측정 영역을 대표하는 정도</td><td>전문가 판단 (통계적 방법 아님)</td></tr>
+  <tr><td><strong>준거타당도</strong></td><td>외부 준거와의 관련성</td><td>상관계수 산출</td></tr>
+  <tr><td> - 예언(예측)타당도</td><td>미래 행동/성과 예측</td><td>검사→시간경과→준거 측정</td></tr>
+  <tr><td> - 공인(동시)타당도</td><td>현재 상태의 정확한 반영</td><td>검사와 준거를 동시에 측정</td></tr>
+  <tr><td><strong>구인(구성)타당도</strong></td><td>이론적 구인을 측정하는 정도</td><td>요인분석, 수렴/변별타당도</td></tr>
+  <tr><td> - 수렴타당도</td><td>유사 구인 측정 검사와 높은 상관</td><td>다특성다방법(MTMM)</td></tr>
+  <tr><td> - 변별(판별)타당도</td><td>다른 구인 측정 검사와 낮은 상관</td><td>다특성다방법(MTMM)</td></tr>
+</table>
+<h4>신뢰도 (Reliability) - 검사의 일관성</h4>
+<p>"이 검사를 반복 실시하면 같은 결과가 나오는가?"</p>
+<table>
+  <tr><th>신뢰도 유형</th><th>방법</th><th>특징</th></tr>
+  <tr><td><strong>검사-재검사 신뢰도</strong></td><td>같은 검사를 시간 간격을 두고 2회 실시</td><td>안정성 계수, 기억효과/성숙효과 주의</td></tr>
+  <tr><td><strong>동형검사 신뢰도</strong></td><td>동등한 2개 검사를 같은 집단에 실시</td><td>동등성 계수, 동형 검사 제작 어려움</td></tr>
+  <tr><td><strong>반분 신뢰도</strong></td><td>하나의 검사를 반으로 나누어 비교</td><td>내적일관성, 스피어만-브라운 공식으로 교정</td></tr>
+  <tr><td><strong>내적일관성 (Cronbach α)</strong></td><td>문항 간 상관의 평균에 기반</td><td>가장 널리 사용, 0.7 이상이면 양호</td></tr>
+  <tr><td><strong>채점자간 신뢰도</strong></td><td>다른 채점자의 평가 일치도</td><td>주관식 평가에서 중요</td></tr>
+</table>
+<h4>타당도와 신뢰도의 관계</h4>
+<ul>
+  <li>신뢰도가 높다고 타당도가 높은 것은 아님</li>
+  <li>타당도가 높으면 신뢰도도 높음</li>
+  <li>신뢰도는 타당도의 <strong>필요조건</strong>이지만 충분조건은 아님</li>
+  <li>★ 타당도의 상한 = √신뢰도</li>
+</ul>`},{title:`규준과 검사 해석`,content:`<h4>규준 (Norm)</h4>
+<p>개인의 검사 점수를 해석하기 위한 비교 기준으로, <strong>규준집단(표준화 집단)</strong>의 점수 분포를 기반으로 합니다.</p>
+<h4>점수 유형</h4>
+<table>
+  <tr><th>점수 유형</th><th>설명</th><th>특징</th></tr>
+  <tr><td><strong>원점수</strong></td><td>검사에서 직접 얻은 점수</td><td>그 자체로는 의미 해석 불가</td></tr>
+  <tr><td><strong>백분위 점수</strong></td><td>규준집단에서 그 점수 이하인 비율 (%)</td><td>해석 용이, 등간격 아님</td></tr>
+  <tr><td><strong>표준점수 (Z점수)</strong></td><td>Z = (원점수 - 평균) / 표준편차</td><td>평균=0, 표준편차=1</td></tr>
+  <tr><td><strong>T점수</strong></td><td>T = 10Z + 50</td><td>평균=50, 표준편차=10</td></tr>
+  <tr><td><strong>스테나인(Stanine)</strong></td><td>1~9점 척도</td><td>평균=5, 표준편차≈2</td></tr>
+  <tr><td><strong>IQ점수(편차IQ)</strong></td><td>IQ = 15Z + 100</td><td>평균=100, 표준편차=15</td></tr>
+</table>
+<h4>측정의 표준오차 (SEM)</h4>
+<div class="formula-box">
+  <p><strong>SEM = SD × √(1 - r)</strong></p>
+  <p>SD = 표준편차, r = 신뢰도 계수</p>
+  <p>★ 신뢰도가 높을수록 SEM이 작아짐 → 점수 해석의 정확성 증가</p>
+</div>
+<h4>검사 해석 시 유의사항</h4>
+<ul>
+  <li>하나의 검사 점수만으로 판단하지 말고 <strong>종합적</strong>으로 해석</li>
+  <li>점수를 범위(신뢰구간)로 해석하기: 진점수 ± 1.96×SEM (95% 신뢰구간)</li>
+  <li>규준집단의 적절성 확인 (연령, 성별, 학력 등)</li>
+  <li>검사 실시 조건과 내담자 상태 고려</li>
+  <li>내담자에게 결과를 <strong>이해하기 쉽게</strong> 설명하고 상담에 활용</li>
+</ul>`},{title:`MBTI와 주요 검사`,content:`<h4>MBTI (Myers-Briggs Type Indicator)</h4>
+<p>Jung의 심리유형론에 기반한 성격유형 검사로, 4가지 선호 지표의 조합으로 16유형을 분류합니다.</p>
+<h4>4가지 선호 지표</h4>
+<table>
+  <tr><th>지표</th><th>유형 A</th><th>유형 B</th></tr>
+  <tr><td>에너지 방향</td><td>외향(E)</td><td>내향(I)</td></tr>
+  <tr><td>인식 기능</td><td>감각(S)</td><td>직관(N)</td></tr>
+  <tr><td>판단 기능</td><td>사고(T)</td><td>감정(F)</td></tr>
+  <tr><td>생활 양식</td><td>판단(J)</td><td>인식(P)</td></tr>
+</table>
+<h4>기타 주요 심리검사</h4>
+<ul>
+  <li><strong>스트롱 직업흥미검사(SII):</strong> 일반직업주제(GOT) + 기본흥미척도(BIS) + 개인특성척도(PSS)</li>
+  <li><strong>직업선호도검사:</strong> Holland의 RIASEC 모형 기반</li>
+  <li><strong>커리어넷 심리검사:</strong> 한국고용정보원 제공, 워크넷 활용</li>
+  <li><strong>성인용 직업적성검사:</strong> 11개 적성요인 측정</li>
+</ul>`}]},{title:`직업적응이론`,topics:[{title:`직업적응이론과 직무만족`,content:`<h4>Dawis & Lofquist의 직업적응이론 (TWA)</h4>
+<p>개인과 환경의 상호작용에서 '조응(correspondence)'을 강조하는 이론입니다.</p>
+<h4>핵심 개념</h4>
+<ul>
+  <li><strong>만족(Satisfaction):</strong> 직업환경이 개인의 욕구/가치를 충족시키는 정도</li>
+  <li><strong>충족(Satisfactoriness):</strong> 개인이 직업환경의 요구를 충족시키는 정도</li>
+  <li><strong>조응(Correspondence):</strong> 만족과 충족이 모두 높은 상태 → 직업적응</li>
+</ul>
+<h4>직무만족 이론</h4>
+<ul>
+  <li><strong>허즈버그(Herzberg)의 2요인 이론:</strong>
+    <ul>
+      <li>위생요인(불만족 요인): 급여, 작업조건, 회사정책 → 불만족 감소</li>
+      <li>동기요인(만족 요인): 성취감, 인정, 책임감 → 만족 증가</li>
+    </ul>
+  </li>
+  <li><strong>매슬로우(Maslow)의 욕구위계:</strong> 생리 → 안전 → 소속 → 존경 → 자아실현</li>
+  <li><strong>브룸(Vroom)의 기대이론:</strong> 동기 = 기대 × 수단성 × 유인가</li>
+</ul>`},{title:`직무동기이론 상세`,content:`<h4>내용이론 (Content Theories) - 무엇이 동기를 유발하는가?</h4>
+<h4>매슬로우(Maslow)의 욕구위계이론</h4>
+<ol>
+  <li><strong>생리적 욕구:</strong> 음식, 물, 수면 등 기본 생존 욕구</li>
+  <li><strong>안전 욕구:</strong> 신체적·경제적 안전, 직업 안정</li>
+  <li><strong>소속·애정 욕구:</strong> 사랑, 우정, 소속감, 대인관계</li>
+  <li><strong>존경 욕구:</strong> 자존감, 타인으로부터의 인정과 존경</li>
+  <li><strong>자아실현 욕구:</strong> 잠재력 실현, 성장 (결핍욕구가 아닌 성장욕구)</li>
+</ol>
+<p>★ 하위 욕구가 충족되어야 상위 욕구가 동기로 작용 (위계적 순서)</p>
+<h4>앨더퍼(Alderfer)의 ERG 이론</h4>
+<ul>
+  <li><strong>E (Existence/존재):</strong> 생리적·물질적 욕구 (생리+안전)</li>
+  <li><strong>R (Relatedness/관계):</strong> 대인관계 욕구 (소속+존경 일부)</li>
+  <li><strong>G (Growth/성장):</strong> 개인적 성장과 발전 욕구 (존경 일부+자아실현)</li>
+</ul>
+<p>★ 매슬로우와 차이점: <strong>좌절-퇴행 가설</strong> (상위 욕구 좌절 시 하위 욕구가 강화), 여러 욕구 동시 작동 가능</p>
+<h4>맥클렐란드(McClelland)의 성취동기이론</h4>
+<ul>
+  <li><strong>성취 욕구(nAch):</strong> 우수한 결과를 달성하려는 욕구, 중간 수준의 위험 선호</li>
+  <li><strong>권력 욕구(nPow):</strong> 타인에게 영향력을 행사하려는 욕구</li>
+  <li><strong>친화 욕구(nAff):</strong> 타인과 친밀한 관계를 맺으려는 욕구</li>
+</ul>
+<h4>과정이론 (Process Theories) - 어떻게 동기가 유발되는가?</h4>
+<h4>애덤스(Adams)의 공정성이론</h4>
+<div class="formula-box">
+  <p><strong>자기의 투입 대비 산출 비율</strong>과 <strong>타인의 투입 대비 산출 비율</strong>을 비교</p>
+  <p>불공정 인식 시 → 투입 변경, 산출 변경, 인지적 왜곡, 비교대상 변경, 이직 등으로 해소</p>
+</div>
+<h4>로크(Locke)의 목표설정이론</h4>
+<ul>
+  <li>구체적이고 도전적인 목표가 높은 성과를 이끔</li>
+  <li>피드백이 주어질 때 목표 효과 증대</li>
+  <li>목표에 대한 수용과 몰입이 중요</li>
+</ul>
+<h4>맥그리거(McGregor)의 XY 이론</h4>
+<table>
+  <tr><th>X 이론</th><th>Y 이론</th></tr>
+  <tr><td>인간은 본래 게으름</td><td>인간은 본래 일을 좋아함</td></tr>
+  <tr><td>통제와 감독 필요</td><td>자율성과 책임감 부여</td></tr>
+  <tr><td>외적 동기 (급여, 처벌)</td><td>내적 동기 (성취, 자아실현)</td></tr>
+  <tr><td>권위적 관리 스타일</td><td>참여적 관리 스타일</td></tr>
+</table>`}]}]},jobinfo:{name:`직업정보론`,code:`jobinfo`,color:`#10B981`,icon:`fa-solid fa-circle-info`,description:`직업분류체계, 직업정보 수집/제공 방법을 학습합니다.`,chapters:[{title:`직업분류체계`,topics:[{title:`한국표준직업분류(KSCO)`,content:`<h4>한국표준직업분류 (KSCO)</h4>
+<p>통계청이 고시하는 공식 직업분류 체계로, 국제표준직업분류(ISCO)를 기초로 한국 실정에 맞게 작성합니다.</p>
+<h4>분류 기준</h4>
+<ul>
+  <li><strong>직무(Job):</strong> 한 사람이 수행하는 일의 묶음</li>
+  <li><strong>직능수준(Skill Level):</strong> 직무 수행에 필요한 교육/훈련/경험 수준 (4단계)</li>
+  <li><strong>직능유형(Skill Type):</strong> 직무 수행에 필요한 지식/도구/장비의 종류</li>
+</ul>
+<h4>대분류 (10개)</h4>
+<ol>
+  <li>관리자</li>
+  <li>전문가 및 관련 종사자</li>
+  <li>사무 종사자</li>
+  <li>서비스 종사자</li>
+  <li>판매 종사자</li>
+  <li>농림어업 숙련 종사자</li>
+  <li>기능원 및 관련 기능 종사자</li>
+  <li>장치·기계 조작 및 조립 종사자</li>
+  <li>단순노무 종사자</li>
+  <li>군인 (0)</li>
+</ol>
+<h4>분류 단계</h4>
+<p>대분류(1자리) → 중분류(2자리) → 소분류(3자리) → 세분류(4자리) → 세세분류(5자리)</p>`},{title:`한국고용직업분류(KECO)`,content:`<h4>한국고용직업분류 (KECO)</h4>
+<p>한국고용정보원이 개발한 직업분류로, 고용서비스 현장에서 활용됩니다.</p>
+<h4>KSCO와의 차이점</h4>
+<table>
+  <tr><th>구분</th><th>KSCO</th><th>KECO</th></tr>
+  <tr><td>관리기관</td><td>통계청</td><td>고용노동부(고용정보원)</td></tr>
+  <tr><td>목적</td><td>통계 조사</td><td>고용서비스, 직업상담</td></tr>
+  <tr><td>분류 기준</td><td>직무 유사성</td><td>직업활동의 현실적 유사성</td></tr>
+  <tr><td>직능수준</td><td>별도 구분</td><td>동일 직업 내 통합</td></tr>
+</table>
+<h4>KECO 대분류 (10개)</h4>
+<ol>
+  <li>관리직</li>
+  <li>경영·사무·금융·보험직</li>
+  <li>연구직 및 공학기술직</li>
+  <li>교육·법률·사회복지·경찰·소방직 및 군인</li>
+  <li>보건·의료직</li>
+  <li>예술·디자인·방송·스포츠직</li>
+  <li>미용·여행·숙박·음식·경비·청소직</li>
+  <li>영업·판매·운전·운송직</li>
+  <li>건설·채굴직</li>
+  <li>설치·정비·생산직</li>
+</ol>`}]},{title:`직업정보 수집`,topics:[{title:`워크넷과 직업정보시스템`,content:`<h4>워크넷 (Work-Net)</h4>
+<p>고용노동부와 한국고용정보원이 운영하는 대표적 고용정보 포털사이트입니다.</p>
+<h4>워크넷의 주요 서비스</h4>
+<ul>
+  <li><strong>구인구직 매칭:</strong> 기업의 구인정보와 구직자의 이력서 매칭</li>
+  <li><strong>직업심리검사:</strong> 적성, 흥미, 가치관 등 온라인 검사</li>
+  <li><strong>직업정보:</strong> 한국직업사전, 직업전망, 직업동영상</li>
+  <li><strong>훈련정보:</strong> 직업훈련 과정 검색</li>
+  <li><strong>고용지원정책:</strong> 정부 고용지원 사업 안내</li>
+</ul>
+<h4>한국직업사전</h4>
+<ul>
+  <li>직무개요, 수행직무, 정규교육, 숙련기간</li>
+  <li>직업분류코드, 자격/면허, 조사연도</li>
+  <li>부가직업정보: 작업강도, 작업장소, 육체활동 등</li>
+</ul>
+<h4>기타 직업정보 시스템</h4>
+<ul>
+  <li><strong>커리어넷:</strong> 한국직업능력연구원 운영 (청소년 진로 중심)</li>
+  <li><strong>HRD-Net:</strong> 직업훈련 정보 시스템</li>
+  <li><strong>Q-Net:</strong> 한국산업인력공단 자격정보</li>
+</ul>`},{title:`직업정보 수집 방법`,content:`<h4>직업정보 수집 방법</h4>
+<h4>1차 자료 수집</h4>
+<ul>
+  <li><strong>직업조사:</strong> 직접 현장 방문, 관찰, 면접</li>
+  <li><strong>직무분석:</strong> 직무의 내용, 요건, 조건을 체계적으로 분석</li>
+  <li><strong>설문조사:</strong> 근로자, 기업 대상 설문</li>
+</ul>
+<h4>2차 자료 수집</h4>
+<ul>
+  <li>한국직업사전, 직업전망서</li>
+  <li>통계자료 (경제활동인구조사, 사업체노동력조사)</li>
+  <li>학술논문, 보고서, 인터넷 자료</li>
+</ul>
+<h4>직무분석의 방법</h4>
+<ul>
+  <li><strong>최초분석법:</strong> 직무에 대한 기존 정보 없이 처음 분석</li>
+  <li><strong>비교확인법(DACUM):</strong> 현직자 패널을 활용한 교육과정 개발법</li>
+  <li><strong>면접법:</strong> 재직자와의 면담을 통한 정보 수집</li>
+  <li><strong>관찰법:</strong> 작업자의 활동을 직접 관찰</li>
+  <li><strong>체험법:</strong> 분석가가 직접 작업을 수행</li>
+  <li><strong>설문지법:</strong> 구조화된 설문지를 통한 정보 수집</li>
+</ul>`}]},{title:`직무분석의 이해`,topics:[{title:`직무분석의 개념과 절차`,content:`<h4>직무분석 (Job Analysis)의 정의</h4>
+<p>특정 직무의 <strong>내용, 요건, 조건, 책임</strong> 등을 체계적으로 조사·분석하여 직무에 관한 정보를 수집·정리하는 과정입니다.</p>
+<h4>직무 관련 용어</h4>
+<ul>
+  <li><strong>요소(Element):</strong> 더 이상 분할할 수 없는 최소 작업 단위</li>
+  <li><strong>과업(Task):</strong> 요소들의 묶음, 독립적으로 의미 있는 작업 단위</li>
+  <li><strong>직위(Position):</strong> 한 사람에게 부여된 과업의 묶음</li>
+  <li><strong>직무(Job):</strong> 유사한 직위의 집합</li>
+  <li><strong>직업(Occupation):</strong> 유사한 직무의 집합, 사회적으로 인정된 활동</li>
+  <li><strong>직군(Job Family):</strong> 유사한 직업의 집합</li>
+</ul>
+<h4>직무분석의 절차</h4>
+<ol>
+  <li><strong>준비 단계:</strong> 목적 설정, 대상 직무 선정, 분석방법 결정</li>
+  <li><strong>정보수집 단계:</strong> 면접, 관찰, 설문, 작업일지 등으로 자료 수집</li>
+  <li><strong>분석 단계:</strong> 수집된 정보의 정리·분석</li>
+  <li><strong>결과물 작성:</strong> 직무기술서(Job Description)와 직무명세서(Job Specification) 작성</li>
+</ol>
+<h4>직무분석의 결과물</h4>
+<table>
+  <tr><th>구분</th><th>직무기술서 (Job Description)</th><th>직무명세서 (Job Specification)</th></tr>
+  <tr><td>초점</td><td><strong>직무</strong> 자체에 대한 정보</td><td><strong>직무수행자</strong>에 대한 요건</td></tr>
+  <tr><td>내용</td><td>직무명, 수행업무, 책임, 작업조건</td><td>학력, 경력, 자격, 능력, 신체조건</td></tr>
+  <tr><td>용도</td><td>직무 설계, 업무 배분</td><td>채용, 선발, 배치</td></tr>
+</table>`},{title:`직무분석 기법 상세`,content:`<h4>주요 직무분석 기법</h4>
+<h4>1. 최초분석법 (시간연구법)</h4>
+<ul>
+  <li>직무에 대한 기존 정보 없이 <strong>처음부터</strong> 분석</li>
+  <li>새로운 직무 또는 기존 정보가 없는 경우에 사용</li>
+</ul>
+<h4>2. DACUM (Developing A CurriculUM)</h4>
+<ul>
+  <li><strong>현직 종사자 패널</strong>(5~12명)을 활용한 직무분석 및 교육과정 개발 기법</li>
+  <li>직무(Duty) → 과업(Task)을 DACUM 차트로 도식화</li>
+  <li>장점: 비용 효율적, 단기간 가능 (2~3일), 현장 중심</li>
+  <li>단점: 패널의 대표성 문제, 미래 변화 예측 어려움</li>
+</ul>
+<h4>3. 기능적 직무분석법 (FJA, Functional Job Analysis)</h4>
+<p>미국 노동부가 개발한 방법으로, 직무를 <strong>자료(Data)-사람(People)-사물(Things)</strong>의 3가지 기능 영역으로 분류합니다.</p>
+<table>
+  <tr><th>자료(Data)</th><th>사람(People)</th><th>사물(Things)</th></tr>
+  <tr><td>종합(0) ~ 비교(6)</td><td>자문(0) ~ 지시수행(8)</td><td>설치(0) ~ 단순작업(7)</td></tr>
+  <tr><td>숫자가 낮을수록 복잡</td><td>숫자가 낮을수록 복잡</td><td>숫자가 낮을수록 복잡</td></tr>
+</table>
+<h4>4. 직위분석 설문지 (PAQ, Position Analysis Questionnaire)</h4>
+<ul>
+  <li>맥코믹(McCormick) 개발, <strong>194개 직무요소</strong>를 6개 영역으로 분류</li>
+  <li>정보입력 → 정신과정 → 작업출력 → 대인관계 → 직무맥락 → 기타특성</li>
+  <li>장점: 표준화되어 직무 간 비교 용이, 양적 분석 가능</li>
+</ul>
+<h4>5. 중요사건 기법 (CIT, Critical Incident Technique)</h4>
+<ul>
+  <li>플래너건(Flanagan) 개발, 직무수행 중 <strong>성공/실패에 결정적인 사건</strong>을 수집·분석</li>
+  <li>효과적/비효과적 행동을 구체적 사례로 파악</li>
+  <li>평가도구 개발, 교육훈련 설계에 활용</li>
+</ul>
+<h4>6. 워크샘플링 (Work Sampling)</h4>
+<ul>
+  <li>무작위 시점에서 작업자의 활동을 관찰·기록</li>
+  <li>각 활동에 소요되는 시간 비율을 통계적으로 추정</li>
+</ul>`}]},{title:`직업정보 제공`,topics:[{title:`직업정보 제공 방법`,content:`<h4>직업정보 제공 방법</h4>
+<ul>
+  <li><strong>직업카드:</strong> 카드 형태의 직업정보로, 분류/정렬 활동에 활용</li>
+  <li><strong>직업동영상:</strong> 실제 직업현장을 영상으로 제공</li>
+  <li><strong>직업체험 프로그램:</strong> 직접 체험을 통한 직업이해</li>
+  <li><strong>직업박람회:</strong> 다양한 직업정보를 한곳에서 제공</li>
+  <li><strong>멘토링:</strong> 현직자와의 만남을 통한 정보 제공</li>
+</ul>
+<h4>직업전망</h4>
+<ul>
+  <li>한국직업전망서: 한국고용정보원 발간 (격년)</li>
+  <li>고용동향: 통계청 경제활동인구조사 기반</li>
+  <li>신직업: 기술변화, 사회변화에 따른 새로운 직업</li>
+</ul>
+<h4>직업정보의 질적 기준</h4>
+<ul>
+  <li>정확성: 사실에 기반한 정보</li>
+  <li>최신성: 최신 동향 반영</li>
+  <li>충분성: 의사결정에 필요한 충분한 정보</li>
+  <li>접근성: 이해하기 쉽고 활용하기 편리</li>
+</ul>`}]},{title:`산업분류`,topics:[{title:`한국표준산업분류(KSIC)`,content:`<h4>한국표준산업분류 (KSIC)</h4>
+<p>통계청이 고시하는 산업 분류 체계로, 국제표준산업분류(ISIC)를 기반으로 합니다.</p>
+<h4>분류 기준</h4>
+<ul>
+  <li><strong>산출물(생산된 재화나 서비스)의 특성</strong></li>
+  <li>투입물의 특성</li>
+  <li>생산 활동의 일반적인 과정</li>
+</ul>
+<h4>대분류 (21개)</h4>
+<ul>
+  <li>A. 농업, 임업 및 어업</li>
+  <li>B. 광업</li>
+  <li>C. 제조업</li>
+  <li>D. 전기, 가스, 증기 및 공기조절 공급업</li>
+  <li>E. 수도, 하수 및 폐기물 처리, 원료 재생업</li>
+  <li>F. 건설업</li>
+  <li>G. 도매 및 소매업</li>
+  <li>H. 운수 및 창고업</li>
+  <li>I. 숙박 및 음식점업</li>
+  <li>J. 정보통신업</li>
+  <li>K. 금융 및 보험업</li>
+  <li>... (총 21개 대분류)</li>
+</ul>
+<h4>분류 단계</h4>
+<p>대분류(알파벳) → 중분류(2자리) → 소분류(3자리) → 세분류(4자리) → 세세분류(5자리)</p>`}]}]},labor_market:{name:`노동시장론`,code:`labor_market`,color:`#F59E0B`,icon:`fa-solid fa-chart-line`,description:`노동시장 이론, 임금, 실업, 인적자본을 학습합니다.`,chapters:[{title:`노동시장 기초`,topics:[{title:`노동공급과 노동수요`,content:`<h4>노동공급</h4>
+<p>개인이 시장에 제공하려는 노동의 양으로, 임금률과 여가의 기회비용에 의해 결정됩니다.</p>
+<ul>
+  <li><strong>대체효과:</strong> 임금 상승 → 여가의 기회비용 증가 → 노동공급 증가</li>
+  <li><strong>소득효과:</strong> 임금 상승 → 소득 증가 → 여가 수요 증가 → 노동공급 감소</li>
+  <li><strong>후방굴절 노동공급곡선:</strong> 일정 임금 수준 이후 소득효과 > 대체효과</li>
+</ul>
+<h4>노동수요</h4>
+<p>기업이 고용하려는 노동의 양으로, 노동의 한계생산물가치에 의해 결정됩니다.</p>
+<ul>
+  <li><strong>노동의 한계생산물(MPL):</strong> 노동 1단위 추가 투입 시 추가되는 생산량</li>
+  <li><strong>한계생산물가치(VMPL):</strong> MPL × 생산물 가격(P)</li>
+  <li><strong>한계수입생산(MRPL):</strong> MPL × 한계수입(MR)</li>
+  <li>이윤극대화 조건: MRPL = 임금(W)</li>
+  <li><strong>파생수요:</strong> 노동수요는 생산물 수요에서 파생됨</li>
+</ul>
+<h4>균형임금</h4>
+<p>노동공급곡선과 노동수요곡선이 교차하는 점에서 균형임금과 균형고용량이 결정됩니다.</p>`},{title:`노동시장의 유형`,content:`<h4>노동시장 구조별 유형</h4>
+<table>
+  <tr><th>시장 유형</th><th>노동수요</th><th>노동공급</th><th>임금 결정</th></tr>
+  <tr><td><strong>완전경쟁</strong></td><td>다수 기업</td><td>다수 근로자</td><td>시장에서 결정 (W=VMPL=MRPL)</td></tr>
+  <tr><td><strong>수요독점</strong></td><td>1개 기업</td><td>다수 근로자</td><td>기업이 결정 (W < MRPL, 착취 발생)</td></tr>
+  <tr><td><strong>공급독점(노조)</strong></td><td>다수 기업</td><td>노조 독점</td><td>노조가 결정 (W > 경쟁임금)</td></tr>
+  <tr><td><strong>쌍방독점</strong></td><td>수요독점</td><td>공급독점</td><td>협상으로 결정 (불확정적)</td></tr>
+</table>
+<h4>수요독점 (Monopsony) 상세</h4>
+<ul>
+  <li>노동의 한계비용(MLC) > 평균비용(임금) → <strong>MLC 곡선이 노동공급곡선 위</strong>에 위치</li>
+  <li>이윤극대화: MRPL = MLC인 점에서 고용량 결정</li>
+  <li>임금은 해당 고용량에 대응하는 노동공급곡선상의 점 → <strong>MRPL보다 낮은 임금</strong></li>
+  <li><strong>착취:</strong> W < MRPL (노동의 한계생산가치보다 낮은 임금 지급)</li>
+  <li>최저임금제 도입 시 오히려 <strong>고용이 증가</strong>할 수 있음 (경쟁시장과 차이)</li>
+</ul>
+<h4>노동조합의 임금 효과</h4>
+<ul>
+  <li><strong>임금 인상 방법:</strong>
+    <ul>
+      <li>노동공급 제한 (면허제, 자격요건 강화) → 공급곡선 좌측 이동</li>
+      <li>노동수요 증가 유도 (생산성 향상, 정치적 로비) → 수요곡선 우측 이동</li>
+      <li>단체교섭으로 최저임금 직접 설정</li>
+    </ul>
+  </li>
+  <li><strong>노조의 임금 프리미엄:</strong> 노조 부문이 비노조 부문보다 10~25% 높은 임금</li>
+</ul>`}]},{title:`임금이론`,topics:[{title:`한계생산성 이론과 임금격차`,content:`<h4>한계생산성 임금이론</h4>
+<p>완전경쟁 노동시장에서 노동의 가격(임금)은 노동의 한계생산물가치(VMPL)에 의해 결정됩니다.</p>
+<ul>
+  <li>기업은 VMPL = W인 점까지 노동을 고용</li>
+  <li>노동수요곡선 = VMPL 곡선 (우하향)</li>
+</ul>
+<h4>보상적 임금격차</h4>
+<p>동질적 노동자 간에도 직업의 비금전적 특성 차이로 인해 임금격차가 발생합니다.</p>
+<ul>
+  <li>위험한 직업 → 높은 임금 (위험 프리미엄)</li>
+  <li>열악한 근무환경 → 보상적 높은 임금</li>
+  <li>애덤 스미스(Adam Smith)가 최초 제시</li>
+</ul>
+<h4>효율임금 이론</h4>
+<p>기업이 시장균형 임금보다 높은 임금을 자발적으로 지급하는 이론입니다.</p>
+<ul>
+  <li>높은 임금 → 이직률 감소, 사기 진작</li>
+  <li>역선택 방지: 우수 인재 유치</li>
+  <li>도덕적 해이 방지: 태만 감소 (셔플리 모형)</li>
+</ul>`},{title:`임금격차와 차별이론`,content:`<h4>임금격차의 원인</h4>
+<ul>
+  <li><strong>보상적 임금격차:</strong> 비금전적 직업 특성(위험, 환경)에 따른 차이 (애덤 스미스)</li>
+  <li><strong>인적자본 차이:</strong> 교육, 훈련, 경험의 차이</li>
+  <li><strong>노동시장 분단:</strong> 1차/2차 시장 간 이동 제한</li>
+  <li><strong>차별:</strong> 동일한 생산성에도 불구하고 특성(성별, 인종)에 따른 임금 차이</li>
+</ul>
+<h4>노동시장 차별이론</h4>
+<table>
+  <tr><th>이론</th><th>학자</th><th>내용</th></tr>
+  <tr><td><strong>개인적 편견 모형</strong></td><td>베커(Becker)</td><td>차별은 고용주/근로자/고객의 편견(taste)에서 비롯. 차별계수(d)만큼 추가 비용 인식</td></tr>
+  <tr><td><strong>통계적 차별</strong></td><td>Phelps, Arrow</td><td>개인 정보 부족 → 집단의 평균적 특성으로 판단 (예: 여성의 이직률이 높다는 통계에 기반한 차별)</td></tr>
+  <tr><td><strong>이중노동시장론</strong></td><td>Doeringer, Piore</td><td>1차(고임금, 안정)/2차(저임금, 불안정) 시장 간 구조적 장벽</td></tr>
+  <tr><td><strong>직업분리</strong></td><td>Bergmann</td><td>특정 집단이 특정 직종에 밀집(과밀효과) → 해당 직종 임금 하락</td></tr>
+</table>
+<h4>남녀 임금격차 관련</h4>
+<ul>
+  <li><strong>동일노동 동일임금 원칙:</strong> 같은 직무에 대해 성별에 관계없이 동일 임금 지급</li>
+  <li><strong>동일가치노동 동일임금:</strong> 다른 직무라도 동등한 가치의 노동이면 동일 임금</li>
+  <li>오악사카(Oaxaca) 분해법: 임금격차를 생산성 차이와 차별로 분해하는 통계 기법</li>
+</ul>`}]},{title:`실업이론`,topics:[{title:`실업의 유형과 측정`,content:`<h4>실업의 유형</h4>
+<ul>
+  <li><strong>마찰적 실업:</strong> 직업 탐색 과정에서 발생하는 일시적 실업 (자발적)</li>
+  <li><strong>구조적 실업:</strong> 산업구조 변화, 기술변화로 인한 노동력 수요-공급 불일치</li>
+  <li><strong>경기적(순환적) 실업:</strong> 경기침체로 인한 총수요 부족</li>
+  <li><strong>계절적 실업:</strong> 계절적 요인에 따른 노동수요 변동</li>
+</ul>
+<h4>실업률 계산</h4>
+<div class="formula-box">
+  <p><strong>실업률 = (실업자 수 / 경제활동인구) × 100</strong></p>
+  <p>경제활동인구 = 취업자 + 실업자</p>
+  <p>경제활동참가율 = (경제활동인구 / 15세 이상 인구) × 100</p>
+  <p>고용률 = (취업자 / 15세 이상 인구) × 100</p>
+</div>
+<h4>자연실업률</h4>
+<ul>
+  <li>마찰적 실업 + 구조적 실업으로 구성</li>
+  <li>완전고용 상태에서도 존재하는 실업률</li>
+  <li>인플레이션을 가속시키지 않는 실업률 (NAIRU)</li>
+</ul>
+<h4>실업 대책</h4>
+<ul>
+  <li>마찰적 실업: 직업정보 제공, 직업소개 활성화</li>
+  <li>구조적 실업: 직업훈련, 재교육</li>
+  <li>경기적 실업: 재정정책, 통화정책으로 총수요 확대</li>
+</ul>`},{title:`필립스곡선과 오쿤의 법칙`,content:`<h4>필립스곡선 (Phillips Curve)</h4>
+<p>영국의 경제학자 필립스(A.W. Phillips)가 발견한 <strong>임금상승률(물가상승률)과 실업률 간의 역(-)의 관계</strong>입니다.</p>
+<h4>단기 필립스곡선</h4>
+<ul>
+  <li>실업률↓ → 물가상승률(인플레이션)↑ (역의 관계)</li>
+  <li>실업률↑ → 물가상승률↓</li>
+  <li>★ 정부는 실업과 인플레이션 사이에서 <strong>상충관계(trade-off)</strong>에 직면</li>
+</ul>
+<h4>장기 필립스곡선 (프리드먼-펠프스)</h4>
+<ul>
+  <li>장기적으로 필립스곡선은 자연실업률 수준에서 <strong>수직</strong></li>
+  <li>기대인플레이션이 조정되면 실업률은 자연실업률로 회귀</li>
+  <li>자연실업률 = <strong>NAIRU</strong> (Non-Accelerating Inflation Rate of Unemployment)</li>
+  <li>장기적으로 실업률-인플레이션 상충관계 없음</li>
+</ul>
+<h4>스태그플레이션 (Stagflation)</h4>
+<p>경기침체(높은 실업률)와 물가상승(인플레이션)이 <strong>동시</strong>에 발생하는 현상 (1970년대 석유파동)</p>
+<h4>오쿤의 법칙 (Okun's Law)</h4>
+<div class="formula-box">
+  <p><strong>실업률이 자연실업률보다 1%p 높으면, 실질GDP가 잠재GDP보다 약 2~3% 낮다</strong></p>
+  <p>(실질GDP - 잠재GDP) / 잠재GDP ≈ -2 × (실업률 - 자연실업률)</p>
+</div>
+<ul>
+  <li>오쿤 계수: 약 2~3 (국가와 시기에 따라 다름)</li>
+  <li>실업의 경제적 비용을 수량화하는 데 활용</li>
+</ul>
+<h4>베버리지 곡선 (Beveridge Curve)</h4>
+<p><strong>실업률과 빈일자리율(구인율)</strong> 간의 역(-)의 관계를 나타내는 곡선</p>
+<ul>
+  <li>곡선이 원점에서 멀어지면 → 노동시장의 <strong>매칭 효율성 악화</strong> (구조적 실업 증가)</li>
+  <li>곡선 위 이동: 경기침체 (실업↑, 빈일자리↓)</li>
+  <li>곡선 아래 이동: 경기회복 (실업↓, 빈일자리↑)</li>
+</ul>`}]},{title:`인적자본론`,topics:[{title:`인적자본과 노동이동`,content:`<h4>인적자본론 (Human Capital Theory)</h4>
+<p>슐츠(T.W. Schultz)와 베커(G.S. Becker)가 발전시킨 이론으로, 교육/훈련을 투자로 봅니다.</p>
+<h4>교육 투자의 분석</h4>
+<ul>
+  <li><strong>교육의 수익률:</strong> 교육 투자로 인한 미래 소득 증가분의 현재가치</li>
+  <li><strong>직접비용:</strong> 학비, 교재비 등</li>
+  <li><strong>간접비용(기회비용):</strong> 교육 기간 동안 포기한 소득</li>
+  <li><strong>내부수익률법:</strong> 순현재가치 = 0이 되는 할인율</li>
+</ul>
+<h4>일반훈련 vs 특수훈련</h4>
+<ul>
+  <li><strong>일반훈련:</strong> 모든 기업에 적용 가능 → 근로자 부담</li>
+  <li><strong>특수훈련:</strong> 해당 기업에서만 유용 → 기업 부담 (또는 분담)</li>
+</ul>
+<h4>노동이동</h4>
+<ul>
+  <li><strong>자발적 이동:</strong> 더 나은 기회를 위한 이직</li>
+  <li><strong>비자발적 이동:</strong> 해고, 정리해고</li>
+  <li>이동 결정 요인: 임금격차, 이동비용, 연령, 심리적 비용</li>
+</ul>
+<h4>이중노동시장론</h4>
+<ul>
+  <li><strong>1차 노동시장:</strong> 고임금, 고용안정, 승진기회, 양호한 근로조건</li>
+  <li><strong>2차 노동시장:</strong> 저임금, 고용불안, 승진제한, 열악한 근로조건</li>
+  <li>시장 간 이동이 제한적 (비경쟁 집단)</li>
+</ul>`}]}]},labor_law:{name:`노동관계법규`,code:`labor_law`,color:`#EF4444`,icon:`fa-solid fa-scale-balanced`,description:`근로기준법, 고용보험법, 직업안정법 등을 학습합니다.`,chapters:[{title:`근로기준법`,topics:[{title:`근로계약과 근로조건`,content:`<h4>근로기준법의 기본 원칙</h4>
+<ul>
+  <li>근로조건은 근로자와 사용자가 동등한 지위에서 자유의사로 결정</li>
+  <li>근로기준법에서 정하는 기준은 <strong>최저기준</strong></li>
+  <li>국적, 신앙, 사회적 신분에 따른 차별 금지</li>
+  <li>강제근로 금지, 폭행 금지</li>
+</ul>
+<h4>근로계약</h4>
+<ul>
+  <li>서면으로 명시해야 할 사항: 임금, 소정근로시간, 휴일, 연차유급휴가</li>
+  <li>근로계약 기간: 기간의 정함이 없는 것이 원칙 (기간제는 2년 이내)</li>
+  <li>위약 예정의 금지: 근로계약 불이행에 대한 위약금/손해배상 예정 금지</li>
+  <li>전차금 상계 금지: 전차금과 임금의 상계 금지</li>
+</ul>
+<h4>근로시간</h4>
+<ul>
+  <li><strong>법정 근로시간:</strong> 1주 40시간, 1일 8시간</li>
+  <li><strong>연장근로:</strong> 당사자 합의 시 1주 12시간 한도</li>
+  <li><strong>야간근로:</strong> 오후 10시 ~ 오전 6시</li>
+  <li><strong>가산임금:</strong> 연장·야간·휴일근로 시 통상임금의 50% 가산</li>
+</ul>`},{title:`임금과 해고`,content:`<h4>임금</h4>
+<ul>
+  <li><strong>임금의 정의:</strong> 사용자가 근로의 대가로 근로자에게 지급하는 모든 금품</li>
+  <li><strong>통상임금:</strong> 정기적·일률적·고정적으로 지급되는 임금</li>
+  <li><strong>평균임금:</strong> 산정사유 발생일 이전 3개월간 지급된 임금총액 ÷ 총 일수</li>
+  <li><strong>최저임금:</strong> 최저임금법에 의한 최저 한도</li>
+</ul>
+<h4>임금 지급 원칙 (4대 원칙)</h4>
+<ol>
+  <li><strong>직접 지급:</strong> 근로자에게 직접 지급</li>
+  <li><strong>전액 지급:</strong> 법령/단체협약에 의한 경우 외 공제 불가</li>
+  <li><strong>통화 지급:</strong> 한국은행에서 발행한 통화로 지급</li>
+  <li><strong>정기 지급:</strong> 매월 1회 이상 일정 기일에 지급</li>
+</ol>
+<h4>해고</h4>
+<ul>
+  <li><strong>정당한 이유:</strong> 해고는 정당한 이유가 있어야 함</li>
+  <li><strong>해고 예고:</strong> 30일 전 예고 또는 30일분 통상임금 지급</li>
+  <li><strong>해고 서면 통지:</strong> 해고 사유와 해고시기를 서면으로 통지</li>
+  <li><strong>경영상 해고(정리해고):</strong> 긴박한 경영상의 필요, 해고회피 노력, 합리적 기준, 근로자대표 50일 전 통보</li>
+  <li><strong>부당해고 구제:</strong> 노동위원회에 구제신청 (해고일로부터 3개월 이내)</li>
+</ul>`},{title:`휴일·휴가·취업규칙`,content:`<h4>휴일</h4>
+<ul>
+  <li><strong>주휴일:</strong> 1주간 소정근로일을 개근한 근로자에게 1일 유급휴일 (주 15시간 이상)</li>
+  <li><strong>근로자의 날:</strong> 5월 1일 (유급휴일, 근로자의날법)</li>
+  <li>관공서 공휴일: 5인 이상 사업장에서 유급휴일로 보장</li>
+</ul>
+<h4>연차유급휴가</h4>
+<ul>
+  <li><strong>1년 미만 근무자:</strong> 1개월 개근 시 1일 (최대 11일)</li>
+  <li><strong>1년 이상 근무자:</strong> 80% 이상 출근 시 15일</li>
+  <li><strong>가산휴가:</strong> 3년 이상 계속 근로 시 최초 1년 초과 매 2년마다 1일 가산 (최대 25일)</li>
+  <li><strong>사용촉진:</strong> 사용자가 사용을 촉구했는데도 미사용 시 보상 의무 소멸</li>
+  <li><strong>미사용 수당:</strong> 연차휴가 미사용분에 대해 통상임금 지급</li>
+</ul>
+<h4>취업규칙</h4>
+<ul>
+  <li>상시 <strong>10인 이상</strong> 사업장에서 작성·신고 의무</li>
+  <li>기재 사항: 근로시간, 임금, 휴일·휴가, 퇴직, 징계 등</li>
+  <li><strong>불이익 변경:</strong> 근로자 과반수 동의 필요 (근로자대표/노조 동의)</li>
+  <li>취업규칙은 법령, 단체협약에 반할 수 없음</li>
+  <li><strong>효력 순서:</strong> 법령 > 단체협약 > 취업규칙 > 근로계약</li>
+</ul>
+<h4>여성·연소근로자 보호</h4>
+<ul>
+  <li><strong>최저 고용연령:</strong> 15세 미만 (취직인허증 필요)</li>
+  <li><strong>산전후휴가:</strong> 출산 전후 90일 (쌍둥이 120일), 산전 45일 이상 확보</li>
+  <li><strong>육아휴직:</strong> 만 8세 이하 자녀 대상, 1년 이내</li>
+  <li><strong>야간·휴일근로 제한:</strong> 임신 중 여성 금지, 18세 미만 근로자 본인 동의+근로감독관 인가</li>
+  <li><strong>생리휴가:</strong> 월 1일 무급 휴가</li>
+</ul>`}]},{title:`고용보험법`,topics:[{title:`실업급여와 고용안정`,content:`<h4>고용보험제도의 구성</h4>
+<ul>
+  <li><strong>실업급여사업:</strong> 실직자에 대한 생활 안정 지원</li>
+  <li><strong>고용안정사업:</strong> 기업의 고용유지 지원</li>
+  <li><strong>직업능력개발사업:</strong> 근로자의 직업능력 향상 지원</li>
+</ul>
+<h4>구직급여 수급요건</h4>
+<ul>
+  <li>이직일 이전 18개월간 피보험단위기간이 180일 이상</li>
+  <li>비자발적 이직 (정당한 사유 없는 자기 사정으로 이직 시 제한)</li>
+  <li>근로 의사와 능력이 있으나 취업하지 못한 상태</li>
+  <li>재취업 활동을 적극적으로 할 것</li>
+  <li>수급자격 제한 사유에 해당하지 않을 것</li>
+</ul>
+<h4>구직급여 지급</h4>
+<ul>
+  <li><strong>급여수준:</strong> 이직 전 평균임금의 60% × 소정급여일수</li>
+  <li><strong>소정급여일수:</strong> 연령과 피보험기간에 따라 120~270일</li>
+  <li><strong>대기기간:</strong> 수급자격 인정일부터 7일간</li>
+  <li><strong>실업인정:</strong> 1~4주 마다 출석하여 구직활동 확인</li>
+</ul>
+<h4>고용안정사업</h4>
+<ul>
+  <li>고용유지지원금: 경영악화로 고용조정 불가피 시 휴업, 훈련 등에 대한 지원</li>
+  <li>고용촉진장려금: 취업 취약계층 고용 시 지원</li>
+</ul>`}]},{title:`직업안정법`,topics:[{title:`직업소개와 직업지도`,content:`<h4>직업안정법의 목적</h4>
+<p>모든 근로자가 각자의 능력에 적합한 직업에 취업할 기회를 제공하고, 산업에 필요한 노동력의 충원을 원활히 하는 것입니다.</p>
+<h4>직업소개</h4>
+<ul>
+  <li><strong>무료직업소개사업:</strong> 고용센터(공공), 비영리법인(민간)</li>
+  <li><strong>유료직업소개사업:</strong> 등록 후 영리 목적으로 운영</li>
+  <li>허위 구인광고 금지</li>
+  <li>강제근로 및 부당 소개 금지</li>
+</ul>
+<h4>직업지도</h4>
+<ul>
+  <li>직업적성검사, 직업정보 제공, 직업상담</li>
+  <li>구인자에 대한 고용관리 진단 및 지도</li>
+  <li>취업 취약계층에 대한 우선적 직업지도</li>
+</ul>
+<h4>고용센터의 업무</h4>
+<ul>
+  <li>직업소개 및 직업지도</li>
+  <li>고용보험 관련 업무</li>
+  <li>직업훈련 안내 및 알선</li>
+  <li>취업지원 프로그램 운영</li>
+</ul>`}]},{title:`근로자직업능력개발법`,topics:[{title:`직업능력개발 훈련`,content:`<h4>근로자직업능력개발법의 목적</h4>
+<p>근로자의 생애에 걸친 직업능력개발을 촉진하고 산업현장에서 필요한 기술인력을 양성하는 것입니다.</p>
+<h4>직업능력개발훈련의 유형</h4>
+<ul>
+  <li><strong>양성훈련:</strong> 기초적 직무수행능력을 습득시키기 위한 훈련</li>
+  <li><strong>향상훈련:</strong> 양성훈련을 받은 자의 직무수행능력을 향상시키기 위한 훈련</li>
+  <li><strong>전직훈련:</strong> 다른 직업에 필요한 직무수행능력을 습득시키기 위한 훈련</li>
+</ul>
+<h4>훈련 실시 방법</h4>
+<ul>
+  <li>집체훈련: 훈련기관에서 집합 교육</li>
+  <li>현장훈련(OJT): 사업장에서 실시</li>
+  <li>원격훈련: 인터넷, 통신매체 활용</li>
+  <li>혼합훈련: 위 방법들을 병행</li>
+</ul>
+<h4>국가기술자격</h4>
+<ul>
+  <li>기술사 → 기능장 → 기사 → 산업기사 → 기능사</li>
+  <li>국가전문자격: 직업상담사, 사회복지사 등</li>
+</ul>`}]},{title:`파견근로자보호법 및 기간제법`,topics:[{title:`비정규직 근로자 보호`,content:`<h4>파견근로자보호법</h4>
+<ul>
+  <li><strong>근로자파견:</strong> 파견사업주가 근로자를 고용한 후 사용사업주의 지휘·명령을 받아 근무하게 하는 것</li>
+  <li><strong>파견기간:</strong> 원칙 1년, 파견 당사자 합의 시 1회에 한해 연장 (최대 2년)</li>
+  <li><strong>파견 금지 업무:</strong> 건설, 하역, 유해·위험 업무 등</li>
+  <li><strong>직접고용 의무:</strong> 2년 초과 사용 시 직접고용 간주</li>
+  <li><strong>차별 금지:</strong> 파견근로자에 대한 불합리한 차별적 처우 금지</li>
+</ul>
+<h4>기간제 및 단시간근로자 보호법</h4>
+<ul>
+  <li><strong>기간제근로자:</strong> 근로계약 기간을 정한 근로자</li>
+  <li><strong>사용기간:</strong> 총 2년 초과 불가 (초과 시 기간의 정함이 없는 근로자로 간주)</li>
+  <li><strong>단시간근로자:</strong> 통상 근로자보다 소정근로시간이 짧은 근로자</li>
+  <li><strong>차별 금지:</strong> 합리적 이유 없는 차별적 처우 금지</li>
+  <li><strong>차별 시정:</strong> 노동위원회에 시정신청 (차별적 처우가 있은 날로부터 6개월 이내)</li>
+</ul>`}]},{title:`기타 주요 노동관계법규`,topics:[{title:`최저임금법`,content:`<h4>최저임금법의 목적</h4>
+<p>근로자에 대하여 임금의 <strong>최저수준</strong>을 보장하여 근로자의 생활안정과 노동력의 질적 향상을 기함으로써 국민경제의 건전한 발전에 이바지하는 것입니다.</p>
+<h4>최저임금 결정</h4>
+<ul>
+  <li><strong>최저임금위원회:</strong> 근로자 위원 9인 + 사용자 위원 9인 + 공익위원 9인 (총 27인)</li>
+  <li>매년 8월 5일까지 결정, 다음 연도 1월 1일부터 적용</li>
+  <li>고용노동부 장관이 결정·고시</li>
+  <li>시간급 기준으로 결정</li>
+</ul>
+<h4>적용 대상</h4>
+<ul>
+  <li>근로자 1인 이상 모든 사업장</li>
+  <li><strong>적용 제외:</strong> 동거하는 친족만을 사용하는 사업, 가사사용인</li>
+  <li><strong>감액 적용:</strong> 수습 3개월 이내 (1년 이상 계약 시 10% 감액 가능), 장애인 등</li>
+</ul>
+<h4>위반 시 제재</h4>
+<ul>
+  <li>최저임금 미만 지급: <strong>3년 이하 징역 또는 2천만원 이하 벌금</strong></li>
+  <li>최저임금에 미달하는 근로계약은 그 부분에 한하여 <strong>무효</strong> → 최저임금으로 간주</li>
+  <li>최저임금 주지 의무: 사업장에 게시 또는 근로자에게 알려야 함</li>
+</ul>`},{title:`남녀고용평등법과 고용정책기본법`,content:`<h4>남녀고용평등과 일·가정 양립 지원에 관한 법률</h4>
+<h4>주요 내용</h4>
+<ul>
+  <li><strong>고용에서의 남녀 차별 금지:</strong> 모집·채용, 임금, 배치·승진, 교육, 정년·퇴직·해고에서 차별 금지</li>
+  <li><strong>동일가치노동 동일임금 원칙:</strong> 같은 사업 내 동일 가치 노동에 동일 임금</li>
+  <li><strong>직장 내 성희롱 금지:</strong> 사업주·상급자·근로자의 성희롱 금지, 예방교육 연 1회 의무</li>
+  <li><strong>적극적 고용개선조치:</strong> 500인 이상 사업장, 여성 고용비율이 일정 기준 미달 시 시행계획 수립</li>
+</ul>
+<h4>일·가정 양립 지원</h4>
+<ul>
+  <li><strong>육아휴직:</strong> 만 8세(초등학교 2학년) 이하 자녀, 1년 이내</li>
+  <li><strong>육아기 근로시간 단축:</strong> 육아휴직 대신 주 15~35시간 단축 근무</li>
+  <li><strong>배우자 출산휴가:</strong> 10일 유급</li>
+  <li><strong>가족돌봄휴직:</strong> 부모·배우자·자녀·배우자부모 돌봄, 90일</li>
+</ul>
+<h4>고용정책기본법</h4>
+<ul>
+  <li>국가의 고용정책 기본 방향과 수립 절차 규정</li>
+  <li><strong>고용영향평가:</strong> 주요 정책이 고용에 미치는 영향 사전 평가</li>
+  <li><strong>지역고용촉진:</strong> 지역별 특성에 맞는 고용 창출 지원</li>
+  <li><strong>고용정보 수집·제공:</strong> 고용동향, 직업 전망 등 정보 체계 구축</li>
+</ul>`}]}]},silgi:{name:`실기 - 직업상담 실무`,code:`silgi`,color:`#6366F1`,icon:`fa-solid fa-file-pen`,description:`실기 시험 대비 상담 실무, 계산 문제, 핵심 공식을 정리합니다.`,chapters:[{title:`상담 실무`,topics:[{title:`상담과정과 사례분석`,content:`<h4>직업상담 실무 절차</h4>
+<ol>
+  <li><strong>접수 면접:</strong> 내담자의 기본정보 수집, 주호소 문제 파악</li>
+  <li><strong>구조화:</strong> 상담의 목적, 과정, 비밀보장 안내</li>
+  <li><strong>심리검사 실시:</strong> 적성, 흥미, 가치관 검사 실시 및 해석</li>
+  <li><strong>직업정보 탐색:</strong> 워크넷, 직업사전 등 활용</li>
+  <li><strong>의사결정 지원:</strong> 합리적 직업선택 돕기</li>
+  <li><strong>구직활동 지원:</strong> 이력서 작성, 면접 기술 훈련</li>
+  <li><strong>추수상담:</strong> 취업 후 적응 확인</li>
+</ol>
+<h4>사례분석 포인트</h4>
+<ul>
+  <li>내담자의 주호소 문제를 정확히 파악</li>
+  <li>적절한 상담이론과 기법 적용</li>
+  <li>구체적인 상담 계획 수립</li>
+  <li>활용 가능한 직업정보와 심리검사 제시</li>
+</ul>
+<h4>서술형 답안 작성 요령</h4>
+<ul>
+  <li>질문에서 요구하는 핵심 키워드를 반드시 포함</li>
+  <li>번호를 매겨 체계적으로 작성</li>
+  <li>간결하고 명확하게 서술</li>
+  <li>이론적 근거를 함께 제시</li>
+</ul>`},{title:`실기 서술형 빈출 유형`,content:`<h4>상담이론 관련 빈출 유형</h4>
+<ul>
+  <li>특정 상담이론의 <strong>핵심 개념 3가지</strong> 서술 (예: REBT의 비합리적 신념 4유형)</li>
+  <li>특정 이론의 <strong>상담 기법</strong> 나열 (예: 게슈탈트 상담 기법 5가지)</li>
+  <li>상담이론 간 <strong>비교</strong> (예: 파슨스 vs 로저스, 행동주의 vs 인지적 접근)</li>
+  <li>사례를 읽고 적절한 <strong>상담이론/기법</strong> 적용 (예: "이 내담자에게 적합한 상담 접근은?")</li>
+</ul>
+<h4>자주 출제되는 이론별 핵심 키워드</h4>
+<table>
+  <tr><th>이론</th><th>반드시 기억할 핵심 키워드</th></tr>
+  <tr><td>파슨스</td><td>자기이해, 직업이해, 합리적 추론 (3단계)</td></tr>
+  <tr><td>윌리엄슨</td><td>분석-종합-진단-예언-상담-추수지도 (6단계)</td></tr>
+  <tr><td>로저스</td><td>무조건적 긍정적 존중, 공감적 이해, 일치성</td></tr>
+  <tr><td>REBT</td><td>ABCDE 모델, 당위적 사고, 파국화</td></tr>
+  <tr><td>벡</td><td>인지삼제, 자동적 사고, 핵심신념, 인지적 오류</td></tr>
+  <tr><td>현실치료</td><td>선택이론, 5가지 욕구, WDEP, 전행동</td></tr>
+  <tr><td>게슈탈트</td><td>알아차림, 지금-여기, 빈의자, 미해결과제</td></tr>
+  <tr><td>아들러</td><td>열등감, 생활양식, 사회적 관심, 격려, 출생순위</td></tr>
+  <tr><td>해결중심</td><td>기적질문, 예외질문, 척도질문, 방문형/불평형/고객형</td></tr>
+  <tr><td>교류분석</td><td>PAC 자아상태, 상보/교차/이면 교류, 인생태도</td></tr>
+</table>
+<h4>진로이론 빈출 유형</h4>
+<ul>
+  <li>Super의 <strong>5단계</strong>와 각 단계의 특징</li>
+  <li>Ginzberg의 <strong>3기</strong>와 하위단계</li>
+  <li>Gottfredson의 <strong>4단계</strong>와 타협의 순서</li>
+  <li>Holland의 <strong>RIASEC 6유형</strong> 특성과 대표 직업</li>
+  <li>크럼볼츠의 사회학습이론 <strong>4가지 요인</strong></li>
+  <li>SCCT의 <strong>3가지 핵심 변인</strong> (자기효능감, 결과기대, 개인적 목표)</li>
+</ul>`}]},{title:`노동시장 계산`,topics:[{title:`실업률과 경제활동참가율`,content:`<h4>핵심 공식</h4>
+<div class="formula-box">
+  <p><strong>실업률 = 실업자 / 경제활동인구 × 100</strong></p>
+  <p><strong>경제활동참가율 = 경제활동인구 / 15세 이상 인구 × 100</strong></p>
+  <p><strong>고용률 = 취업자 / 15세 이상 인구 × 100</strong></p>
+  <p>경제활동인구 = 취업자 + 실업자</p>
+  <p>비경제활동인구 = 15세 이상 인구 - 경제활동인구</p>
+</div>
+<h4>예제</h4>
+<p><strong>문제:</strong> 15세 이상 인구 1,000만 명, 취업자 600만 명, 실업자 40만 명일 때:</p>
+<ul>
+  <li>경제활동인구 = 600 + 40 = 640만 명</li>
+  <li>경제활동참가율 = 640/1000 × 100 = 64%</li>
+  <li>실업률 = 40/640 × 100 = 6.25%</li>
+  <li>고용률 = 600/1000 × 100 = 60%</li>
+</ul>`},{title:`노동수요탄력성과 한계수입생산`,content:`<h4>노동수요의 임금탄력성</h4>
+<div class="formula-box">
+  <p><strong>노동수요 탄력성 = 노동수요량의 변화율 / 임금의 변화율</strong></p>
+  <p>= (ΔL/L) / (ΔW/W)</p>
+</div>
+<ul>
+  <li>|탄력성| > 1: 탄력적 (임금 변화에 민감)</li>
+  <li>|탄력성| < 1: 비탄력적 (임금 변화에 둔감)</li>
+  <li>|탄력성| = 1: 단위탄력적</li>
+</ul>
+<h4>마셜의 파생수요 법칙 (탄력성이 큰 경우)</h4>
+<ol>
+  <li>생산물 수요의 가격탄력성이 클수록</li>
+  <li>다른 생산요소의 대체가 용이할수록</li>
+  <li>총비용에서 해당 노동비용이 차지하는 비중이 클수록</li>
+  <li>다른 생산요소의 공급탄력성이 클수록</li>
+</ol>
+<h4>한계수입생산(MRPL)</h4>
+<div class="formula-box">
+  <p><strong>MRPL = MPL × MR</strong></p>
+  <p>완전경쟁: MRPL = VMPL = MPL × P</p>
+  <p>이윤극대화: MRPL = W (임금)</p>
+</div>
+<h4>예제</h4>
+<p><strong>문제:</strong> 근로자 1명 추가 고용 시 생산량 10개 증가, 생산물 가격 5,000원일 때:</p>
+<ul>
+  <li>MPL = 10개</li>
+  <li>VMPL = 10 × 5,000 = 50,000원</li>
+  <li>임금이 50,000원 이하면 고용, 이상이면 비고용</li>
+</ul>`},{title:`임금 계산과 퇴직금`,content:`<h4>평균임금 계산</h4>
+<div class="formula-box">
+  <p><strong>평균임금 = 산정사유 발생일 이전 3개월간 지급된 임금총액 ÷ 그 기간의 총 일수</strong></p>
+</div>
+<h4>예제 1: 평균임금 계산</h4>
+<p><strong>문제:</strong> 퇴직일: 6월 30일, 최근 3개월(4·5·6월) 임금: 기본급 300만원/월, 식대 20만원/월. 총 일수 = 30+31+30 = 91일</p>
+<ul>
+  <li>3개월 임금총액 = (300+20)×3 = 960만원</li>
+  <li>평균임금 = 9,600,000 / 91 = <strong>105,495원/일</strong></li>
+  <li>★ 평균임금이 통상임금보다 낮으면 통상임금을 평균임금으로 함</li>
+</ul>
+<h4>퇴직금 계산</h4>
+<div class="formula-box">
+  <p><strong>퇴직금 = 1일 평균임금 × 30일 × (재직일수 / 365)</strong></p>
+</div>
+<h4>예제 2: 퇴직금 계산</h4>
+<p><strong>문제:</strong> 1일 평균임금 = 100,000원, 재직기간 = 3년(1,095일)</p>
+<ul>
+  <li>퇴직금 = 100,000 × 30 × (1,095/365)</li>
+  <li>= 100,000 × 30 × 3 = <strong>9,000,000원</strong></li>
+</ul>
+<h4>연장근로수당 계산</h4>
+<div class="formula-box">
+  <p><strong>연장근로수당 = 시간당 통상임금 × 1.5 × 연장근로시간</strong></p>
+  <p>야간(22시~06시) 또는 휴일에 연장근로 시: 통상임금 × 2.0</p>
+</div>
+<h4>예제 3: 연장근로수당</h4>
+<p><strong>문제:</strong> 시간당 통상임금 = 15,000원, 연장근로 4시간(그 중 야간 2시간)</p>
+<ul>
+  <li>일반 연장 2시간 = 15,000 × 1.5 × 2 = 45,000원</li>
+  <li>야간 연장 2시간 = 15,000 × 2.0 × 2 = 60,000원</li>
+  <li>합계 = <strong>105,000원</strong></li>
+</ul>
+<h4>구직급여 계산</h4>
+<div class="formula-box">
+  <p><strong>구직급여일액 = 이직 전 평균임금의 60%</strong></p>
+  <p><strong>구직급여 총액 = 구직급여일액 × 소정급여일수</strong></p>
+  <p>상한액: 1일 66,000원 (2023년 기준) / 하한액: 최저임금 × 80% × 1일 소정근로시간</p>
+</div>`}]},{title:`직업정보 활용`,topics:[{title:`직업분류와 정보수집 실무`,content:`<h4>직업분류 실무</h4>
+<ul>
+  <li>한국표준직업분류(KSCO) 코드 읽기</li>
+  <li>한국고용직업분류(KECO) 코드 읽기</li>
+  <li>직업분류의 차이점과 활용처 구분</li>
+</ul>
+<h4>워크넷 활용 실무</h4>
+<ul>
+  <li><strong>구인구직 검색:</strong> 직종, 지역, 학력 등 조건 검색</li>
+  <li><strong>이력서 등록:</strong> 구직자 이력서 작성 및 등록</li>
+  <li><strong>심리검사 실시:</strong> 직업선호도검사, 직업적성검사 온라인 실시</li>
+  <li><strong>검사 결과 해석:</strong> 검사 결과를 상담에 활용</li>
+</ul>
+<h4>직업사전 활용</h4>
+<ul>
+  <li>직무개요: 해당 직업의 주요 업무 내용</li>
+  <li>수행직무: 구체적인 작업 내용</li>
+  <li>정규교육: 필요한 학력 수준</li>
+  <li>숙련기간: 직무수행에 필요한 경력/훈련 기간</li>
+  <li>자격/면허: 관련 자격증 정보</li>
+</ul>`}]},{title:`핵심 공식 정리`,topics:[{title:`계산형 문제 공식 모음`,content:`<h4>노동시장 공식</h4>
+<div class="formula-box">
+  <p><strong>실업률</strong> = 실업자 / 경제활동인구 × 100</p>
+  <p><strong>경제활동참가율</strong> = 경제활동인구 / 15세 이상 인구 × 100</p>
+  <p><strong>고용률</strong> = 취업자 / 15세 이상 인구 × 100</p>
+  <p><strong>노동수요 탄력성</strong> = (ΔL/L) / (ΔW/W)</p>
+</div>
+<h4>임금 관련 공식</h4>
+<div class="formula-box">
+  <p><strong>평균임금</strong> = 3개월간 임금총액 / 3개월간 총 일수</p>
+  <p><strong>퇴직금</strong> = 1일 평균임금 × 30일 × (재직일수/365)</p>
+  <p><strong>연장근로 가산</strong> = 통상임금 × 1.5 (50% 가산)</p>
+  <p><strong>야간/휴일근로 가산</strong> = 통상임금 × 1.5</p>
+</div>
+<h4>생산성 공식</h4>
+<div class="formula-box">
+  <p><strong>한계생산물(MPL)</strong> = ΔQ / ΔL</p>
+  <p><strong>한계생산물가치(VMPL)</strong> = MPL × P</p>
+  <p><strong>한계수입생산(MRPL)</strong> = MPL × MR</p>
+  <p><strong>이윤극대화 조건:</strong> MRPL = W</p>
+</div>
+<h4>인적자본 공식</h4>
+<div class="formula-box">
+  <p><strong>교육의 순현재가치(NPV)</strong> = Σ[수익/(1+r)^t] - Σ[비용/(1+r)^t]</p>
+  <p><strong>내부수익률(IRR):</strong> NPV = 0이 되는 할인율(r)</p>
+  <p>NPV > 0 → 교육투자 실행</p>
+</div>
+<h4>고용보험 계산</h4>
+<div class="formula-box">
+  <p><strong>구직급여일액</strong> = 이직 전 평균임금의 60%</p>
+  <p><strong>구직급여 총액</strong> = 구직급여일액 × 소정급여일수</p>
+  <p>소정급여일수: 연령·피보험기간에 따라 120~270일</p>
+</div>`},{title:`시험 빈출 수치·기간 총정리`,content:`<h4>근로기준법 핵심 수치</h4>
+<table>
+  <tr><th>항목</th><th>수치/기간</th></tr>
+  <tr><td>법정 근로시간</td><td><strong>1주 40시간, 1일 8시간</strong></td></tr>
+  <tr><td>연장근로 한도</td><td>1주 <strong>12시간</strong></td></tr>
+  <tr><td>가산임금 (연장·야간·휴일)</td><td>통상임금의 <strong>50%</strong> 가산</td></tr>
+  <tr><td>해고예고 기간</td><td><strong>30일</strong> 전 또는 30일분 통상임금</td></tr>
+  <tr><td>경영상 해고 통보</td><td><strong>50일</strong> 전 근로자대표에 통보</td></tr>
+  <tr><td>부당해고 구제신청</td><td>해고일로부터 <strong>3개월</strong> 이내</td></tr>
+  <tr><td>연차유급휴가 (1년 이상)</td><td><strong>15일</strong> (최대 25일)</td></tr>
+  <tr><td>산전후휴가</td><td><strong>90일</strong> (쌍둥이 120일)</td></tr>
+  <tr><td>취업규칙 작성 의무</td><td>상시 <strong>10인</strong> 이상</td></tr>
+  <tr><td>최저 고용연령</td><td><strong>15세</strong> 미만 금지</td></tr>
+  <tr><td>야간근로 시간</td><td>오후 <strong>10시</strong> ~ 오전 <strong>6시</strong></td></tr>
+</table>
+<h4>고용보험법 핵심 수치</h4>
+<table>
+  <tr><th>항목</th><th>수치/기간</th></tr>
+  <tr><td>구직급여 피보험단위기간</td><td>이직일 이전 18개월 중 <strong>180일</strong> 이상</td></tr>
+  <tr><td>구직급여 수준</td><td>평균임금의 <strong>60%</strong></td></tr>
+  <tr><td>소정급여일수</td><td><strong>120~270일</strong> (연령·피보험기간별)</td></tr>
+  <tr><td>대기기간</td><td><strong>7일</strong></td></tr>
+  <tr><td>육아휴직급여</td><td>통상임금의 <strong>80%</strong> (상한 150만원)</td></tr>
+</table>
+<h4>기타 법규 핵심 수치</h4>
+<table>
+  <tr><th>항목</th><th>수치/기간</th></tr>
+  <tr><td>기간제 사용기간</td><td>최대 <strong>2년</strong></td></tr>
+  <tr><td>파견기간</td><td>원칙 <strong>1년</strong>, 최대 <strong>2년</strong></td></tr>
+  <tr><td>차별 시정신청</td><td>차별 발생일로부터 <strong>6개월</strong> 이내</td></tr>
+  <tr><td>최저임금위원회</td><td><strong>27인</strong> (노사공 각 9인)</td></tr>
+  <tr><td>적극적 고용개선조치</td><td><strong>500인</strong> 이상 사업장</td></tr>
+  <tr><td>배우자 출산휴가</td><td><strong>10일</strong></td></tr>
+</table>
+<h4>경제활동 관련 공식 총정리</h4>
+<div class="formula-box">
+  <p>15세 이상 인구 = 경제활동인구 + 비경제활동인구</p>
+  <p>경제활동인구 = 취업자 + 실업자</p>
+  <p>실업률 = 실업자 / 경제활동인구 × 100</p>
+  <p>경제활동참가율 = 경제활동인구 / 15세 이상 인구 × 100</p>
+  <p>고용률 = 취업자 / 15세 이상 인구 × 100</p>
+  <p>노동수요 탄력성 = (ΔL/L) / (ΔW/W)</p>
+  <p>VMPL = MPL × P (완전경쟁)</p>
+  <p>MRPL = MPL × MR (불완전경쟁)</p>
+  <p>이윤극대화: MRPL = W</p>
+  <p>평균임금 = 3개월 임금총액 / 3개월 총 일수</p>
+  <p>퇴직금 = 1일 평균임금 × 30 × (재직일수/365)</p>
+</div>`}]}]}},za=[`counseling`,`psychology`,`jobinfo`,`labor_market`,`labor_law`,`silgi`];function Ba(e){return Ra[e]||null}function Va(e){let t=za.indexOf(e);return{prev:t>0?za[t-1]:null,next:t<za.length-1?za[t+1]:null}}function Ha(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`과목별 학습하기`,description:`직업상담사 2급 과목별 핵심 이론과 개념을 정리한 학습 페이지입니다.`}),(0,g.jsx)(`div`,{className:`page-header`,children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:`fa-solid fa-graduation-cap`}),` 과목별 학습하기`]}),(0,g.jsx)(`p`,{className:`page-desc`,children:`직업상담사 2급 시험 핵심 이론과 개념을 과목별로 정리했습니다.`})]})}),(0,g.jsx)(`section`,{className:`container`,style:{paddingTop:40,paddingBottom:60},children:(0,g.jsx)(`div`,{className:`learn-grid`,children:za.map(e=>{let t=Ra[e],n=t.chapters.reduce((e,t)=>e+t.topics.length,0);return(0,g.jsxs)(c,{to:`/learn/${e}`,className:`learn-card`,style:{"--card-color":t.color},children:[(0,g.jsx)(`div`,{className:`learn-card-icon`,style:{background:t.color},children:(0,g.jsx)(`i`,{className:t.icon})}),(0,g.jsxs)(`div`,{className:`learn-card-body`,children:[(0,g.jsx)(`h3`,{className:`learn-card-title`,children:t.name}),(0,g.jsx)(`p`,{className:`learn-card-desc`,children:t.description}),(0,g.jsxs)(`div`,{className:`learn-card-meta`,children:[(0,g.jsxs)(`span`,{className:`learn-card-badge`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-layer-group`}),` `,t.chapters.length,`개 챕터`]}),(0,g.jsxs)(`span`,{className:`learn-card-badge`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-file-lines`}),` `,n,`개 토픽`]})]})]}),(0,g.jsx)(`div`,{className:`learn-card-arrow`,children:(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-right`})})]},e)})})})]})}function Ua(){let{subjectCode:e}=a(),t=n(),r=Ba(e),{prev:i,next:o}=Va(e),[s,l]=(0,h.useState)({}),[u,d]=(0,h.useState)({}),f=(0,h.useRef)({});if((0,h.useEffect)(()=>{if(!r){t(`/learn`,{replace:!0});return}l({0:!0}),d({}),window.scrollTo(0,0)},[e,r,t]),!r)return null;let p=e=>{l(t=>({...t,[e]:!t[e]}))},m=(e,t)=>{let n=`${e}-${t}`;d(e=>({...e,[n]:!e[n]}))},_=e=>{l(t=>({...t,[e]:!0})),f.current[e]?.scrollIntoView({behavior:`smooth`,block:`start`})},v=i?Ra[i]:null,y=o?Ra[o]:null;return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)($,{title:`${r.name} 학습`,description:r.description}),(0,g.jsx)(`div`,{className:`page-header`,style:{"--subject-color":r.color},children:(0,g.jsxs)(`div`,{className:`container`,children:[(0,g.jsxs)(c,{to:`/learn`,className:`subject-back-link`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-left`}),` 과목 목록`]}),(0,g.jsxs)(`h1`,{children:[(0,g.jsx)(`i`,{className:r.icon,style:{color:r.color}}),` `,r.name]}),(0,g.jsx)(`p`,{className:`page-desc`,children:r.description})]})}),(0,g.jsxs)(`div`,{className:`container subject-study-layout`,children:[(0,g.jsxs)(`aside`,{className:`chapter-nav`,children:[(0,g.jsx)(`div`,{className:`chapter-nav-title`,children:`목차`}),(0,g.jsx)(`ul`,{className:`chapter-nav-list`,children:r.chapters.map((e,t)=>(0,g.jsx)(`li`,{children:(0,g.jsxs)(`button`,{className:`chapter-nav-item ${s[t]?`active`:``}`,onClick:()=>_(t),children:[(0,g.jsx)(`span`,{className:`chapter-nav-num`,children:t+1}),e.title]})},t))})]}),(0,g.jsxs)(`div`,{className:`subject-study-main`,children:[r.chapters.map((e,t)=>(0,g.jsxs)(`div`,{className:`chapter-accordion`,ref:e=>f.current[t]=e,children:[(0,g.jsxs)(`button`,{className:`chapter-header ${s[t]?`open`:``}`,onClick:()=>p(t),style:{"--chapter-color":r.color},children:[(0,g.jsxs)(`div`,{className:`chapter-header-left`,children:[(0,g.jsx)(`span`,{className:`chapter-num`,style:{background:r.color},children:t+1}),(0,g.jsx)(`span`,{className:`chapter-title`,children:e.title}),(0,g.jsxs)(`span`,{className:`chapter-count`,children:[e.topics.length,`개 토픽`]})]}),(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-down chapter-toggle-icon ${s[t]?`open`:``}`})]}),s[t]&&(0,g.jsx)(`div`,{className:`chapter-body`,children:e.topics.map((e,n)=>{let i=`${t}-${n}`;return(0,g.jsxs)(`div`,{className:`topic-item`,children:[(0,g.jsxs)(`button`,{className:`topic-header ${u[i]?`open`:``}`,onClick:()=>m(t,n),children:[(0,g.jsxs)(`span`,{className:`topic-title-text`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-bookmark`,style:{color:r.color,opacity:.7}}),e.title]}),(0,g.jsx)(`i`,{className:`fa-solid fa-chevron-down topic-toggle-icon ${u[i]?`open`:``}`})]}),u[i]&&(0,g.jsx)(`div`,{className:`topic-content`,style:{"--topic-accent":r.color},dangerouslySetInnerHTML:{__html:e.content}})]},n)})})]},t)),(0,g.jsxs)(`div`,{className:`subject-nav-bottom`,children:[v?(0,g.jsxs)(c,{to:`/learn/${i}`,className:`subject-nav-btn prev`,children:[(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-left`}),(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`span`,{className:`subject-nav-label`,children:`이전 과목`}),(0,g.jsx)(`span`,{className:`subject-nav-name`,children:v.name})]})]}):(0,g.jsx)(`div`,{}),y?(0,g.jsxs)(c,{to:`/learn/${o}`,className:`subject-nav-btn next`,children:[(0,g.jsxs)(`div`,{children:[(0,g.jsx)(`span`,{className:`subject-nav-label`,children:`다음 과목`}),(0,g.jsx)(`span`,{className:`subject-nav-name`,children:y.name})]}),(0,g.jsx)(`i`,{className:`fa-solid fa-arrow-right`})]}):(0,g.jsx)(`div`,{})]})]})]})]})}function Wa(){return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)(Ji,{}),(0,g.jsx)(`main`,{id:`main-content`,children:(0,g.jsxs)(s,{children:[(0,g.jsx)(t,{path:`/`,element:(0,g.jsx)(Xi,{})}),(0,g.jsx)(t,{path:`/login`,element:(0,g.jsx)(Qi,{})}),(0,g.jsx)(t,{path:`/learn`,element:(0,g.jsx)(Ha,{})}),(0,g.jsx)(t,{path:`/learn/:subjectCode`,element:(0,g.jsx)(Ua,{})}),(0,g.jsx)(t,{path:`/pilgi`,element:(0,g.jsx)($i,{})}),(0,g.jsx)(t,{path:`/pilgi/select`,element:(0,g.jsx)(ea,{})}),(0,g.jsx)(t,{path:`/pilgi/study`,element:(0,g.jsx)(ra,{})}),(0,g.jsx)(t,{path:`/pilgi/exam/:id`,element:(0,g.jsx)(da,{})}),(0,g.jsx)(t,{path:`/pilgi/result/:id`,element:(0,g.jsx)(ma,{})}),(0,g.jsx)(t,{path:`/pilgi/review/:id`,element:(0,g.jsx)(ha,{})}),(0,g.jsx)(t,{path:`/silgi`,element:(0,g.jsx)(ga,{})}),(0,g.jsx)(t,{path:`/silgi/practice/:id`,element:(0,g.jsx)(_a,{})}),(0,g.jsx)(t,{path:`/silgi/result/:id`,element:(0,g.jsx)(va,{})}),(0,g.jsx)(t,{path:`/silgi/terms`,element:(0,g.jsx)(ba,{})}),(0,g.jsx)(t,{path:`/silgi/past`,element:(0,g.jsx)(wa,{})}),(0,g.jsx)(t,{path:`/silgi/past/:examId`,element:(0,g.jsx)(Ea,{})}),(0,g.jsx)(t,{path:`/dashboard`,element:(0,g.jsx)(Aa,{})}),(0,g.jsx)(t,{path:`/dashboard/history`,element:(0,g.jsx)(Ma,{})}),(0,g.jsx)(t,{path:`/bookmarks`,element:(0,g.jsx)(Pa,{})}),(0,g.jsx)(t,{path:`/wrong-answers`,element:(0,g.jsx)(Ia,{})}),(0,g.jsx)(t,{path:`/info`,element:(0,g.jsx)(La,{})}),(0,g.jsx)(t,{path:`*`,element:(0,g.jsx)(Zi,{})})]})}),(0,g.jsx)(Yi,{})]})}function Ga(){return(0,g.jsx)(S,{children:(0,g.jsx)(ie,{children:(0,g.jsx)(Wi,{children:(0,g.jsx)(o,{children:(0,g.jsx)(Wa,{})})})})})}(0,m.createRoot)(document.getElementById(`root`)).render((0,g.jsx)(h.StrictMode,{children:(0,g.jsx)(Ga,{})}));
