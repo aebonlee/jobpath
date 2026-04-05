@@ -461,13 +461,13 @@ function LandingHome() {
         <div className="container">
           <div className="home-cta-content">
             <h2>지금 바로 시작하세요</h2>
-            <p>무료 회원가입 후 기출문제와 모의시험을 무제한으로 이용하세요</p>
+            <p>첫 필기 CBT 1회 무료 체험! 합리적인 이용권으로 모든 학습 콘텐츠를 이용하세요.</p>
             <div className="home-cta-buttons">
-              <Link to="/login" className="btn btn-primary btn-lg">
-                <i className="fa-solid fa-rocket" /> 무료로 시작하기
+              <Link to="/about/pricing" className="btn btn-primary btn-lg">
+                <i className="fa-solid fa-tags" /> 요금제 보기
               </Link>
-              <Link to="/pilgi" className="btn btn-secondary btn-lg">
-                <i className="fa-solid fa-play" /> 바로 학습하기
+              <Link to="/login" className="btn btn-secondary btn-lg">
+                <i className="fa-solid fa-rocket" /> 무료 체험하기
               </Link>
             </div>
           </div>

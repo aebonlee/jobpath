@@ -57,4 +57,17 @@ export const NAV_ITEMS = [
       { path: '/wrong-answers', label: '오답노트' },
     ]
   },
+  { path: '/about', label: '서비스', icon: 'fa-solid fa-circle-info',
+    children: [
+      { path: '/about', label: '서비스 소개' },
+      { path: '/about/guide', label: '이용 안내' },
+      { path: '/about/pricing', label: '요금제' },
+    ]
+  },
+];
+
+export const PLANS = [
+  { id: '30day', label: '30일 이용권', price: 9900, days: 30 },
+  { id: '90day', label: '90일 이용권', price: 19900, days: 90, recommended: true },
+  { id: 'lifetime', label: '평생 이용권', price: 39900, days: null },
 ];

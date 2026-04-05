@@ -2,8 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { ToastProvider } from './contexts/ToastContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { CartProvider } from './contexts/CartContext';
+import { SubscriptionProvider } from './contexts/SubscriptionContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import SubscriptionBanner from './components/SubscriptionBanner';
+import PaidGuard from './components/PaidGuard';
 
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
@@ -38,43 +42,73 @@ import StudySummary from './pages/learn/StudySummary';
 
 import PracticeHome from './pages/practice/PracticeHome';
 
+import ServiceIntro from './pages/about/ServiceIntro';
+import UsageGuide from './pages/about/UsageGuide';
+import Pricing from './pages/about/Pricing';
+import Terms from './pages/about/Terms';
+import Privacy from './pages/about/Privacy';
+
+import Checkout from './pages/payment/Checkout';
+import Confirmation from './pages/payment/Confirmation';
+import OrderHistory from './pages/payment/OrderHistory';
+
 function AppLayout() {
   return (
     <div className="app-layout">
       <Navbar />
+      <SubscriptionBanner />
       <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
 
-          <Route path="/learn" element={<LearnHome />} />
-          <Route path="/learn/:subjectCode" element={<SubjectStudy />} />
-          <Route path="/summary" element={<StudySummary />} />
+          {/* 무료: 시험안내 */}
+          <Route path="/pilgi" element={<PilgiHome />} />
+          <Route path="/silgi" element={<SilgiHome />} />
+          <Route path="/info" element={<ExamInfo />} />
 
+          {/* 무료: 서비스 */}
+          <Route path="/about" element={<ServiceIntro />} />
+          <Route path="/about/guide" element={<UsageGuide />} />
+          <Route path="/about/pricing" element={<Pricing />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+
+          {/* 무료: 학습 홈 */}
+          <Route path="/learn" element={<LearnHome />} />
           <Route path="/practice" element={<PracticeHome />} />
 
-          <Route path="/pilgi" element={<PilgiHome />} />
+          {/* 유료: 학습 콘텐츠 */}
+          <Route path="/learn/:subjectCode" element={<PaidGuard><SubjectStudy /></PaidGuard>} />
+          <Route path="/summary" element={<PaidGuard><StudySummary /></PaidGuard>} />
+
+          {/* 유료(무료체험 1회): 필기 CBT */}
           <Route path="/pilgi/select" element={<ExamSelect />} />
-          <Route path="/pilgi/study" element={<StudyMode />} />
-          <Route path="/pilgi/exam/:id" element={<ExamMode />} />
+          <Route path="/pilgi/study" element={<PaidGuard><StudyMode /></PaidGuard>} />
+          <Route path="/pilgi/exam/:id" element={<PaidGuard allowFreeTrial><ExamMode /></PaidGuard>} />
           <Route path="/pilgi/result/:id" element={<ExamResult />} />
           <Route path="/pilgi/review/:id" element={<QuestionReview />} />
 
-          <Route path="/silgi" element={<SilgiHome />} />
-          <Route path="/silgi/practice" element={<PracticeMode />} />
+          {/* 유료: 실기 */}
+          <Route path="/silgi/practice" element={<PaidGuard><PracticeMode /></PaidGuard>} />
           <Route path="/silgi/result" element={<PracticeResult />} />
           <Route path="/silgi/terms" element={<KeyTerms />} />
           <Route path="/silgi/past" element={<SilgiExamList />} />
           <Route path="/silgi/past/:examId" element={<SilgiExamDetail />} />
           <Route path="/silgi/frequent" element={<SilgiFrequent />} />
 
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/history" element={<StudyHistory />} />
+          {/* 유료: 대시보드 */}
+          <Route path="/dashboard" element={<PaidGuard><Dashboard /></PaidGuard>} />
+          <Route path="/dashboard/history" element={<PaidGuard><StudyHistory /></PaidGuard>} />
 
-          <Route path="/bookmarks" element={<Bookmarks />} />
-          <Route path="/wrong-answers" element={<WrongAnswers />} />
+          {/* 유료: 학습 도구 */}
+          <Route path="/bookmarks" element={<PaidGuard><Bookmarks /></PaidGuard>} />
+          <Route path="/wrong-answers" element={<PaidGuard><WrongAnswers /></PaidGuard>} />
 
-          <Route path="/info" element={<ExamInfo />} />
+          {/* 결제 */}
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/orders" element={<OrderHistory />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -89,9 +123,13 @@ export default function App() {
     <ThemeProvider>
       <ToastProvider>
         <AuthProvider>
-          <BrowserRouter>
-            <AppLayout />
-          </BrowserRouter>
+          <CartProvider>
+            <SubscriptionProvider>
+              <BrowserRouter>
+                <AppLayout />
+              </BrowserRouter>
+            </SubscriptionProvider>
+          </CartProvider>
         </AuthProvider>
       </ToastProvider>
     </ThemeProvider>

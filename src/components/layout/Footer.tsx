@@ -28,6 +28,16 @@ export default function Footer() {
             </ul>
           </div>
 
+          <div className="footer-links">
+            <h4>서비스</h4>
+            <ul className="footer-link-list">
+              <li><Link to="/about">서비스 소개</Link></li>
+              <li><Link to="/about/guide">이용 안내</Link></li>
+              <li><Link to="/about/pricing">요금제</Link></li>
+              <li><Link to="/orders">주문 내역</Link></li>
+            </ul>
+          </div>
+
           <div className="footer-contact">
             <h4>문의</h4>
             <p className="footer-email">
@@ -59,6 +69,9 @@ export default function Footer() {
           <p>&copy; 2026 DreamIT Biz. All rights reserved.</p>
           <p className="footer-bottom-info">
             Designed by Ph.D Aebon Lee | 대표이사: 이애본 | 사업자등록번호: 601-45-20154
+          </p>
+          <p className="footer-bottom-links">
+            <Link to="/terms">이용약관</Link> | <Link to="/privacy">개인정보처리방침</Link>
           </p>
         </div>
       </div>
