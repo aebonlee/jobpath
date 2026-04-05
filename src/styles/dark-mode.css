@@ -1351,6 +1351,57 @@ html[data-theme="dark"] .summary-sidebar-inner::-webkit-scrollbar-thumb {
     background: var(--border-light);
 }
 
+/* ===== Practice Setup Dark ===== */
+html[data-theme="dark"] .practice-setup-section {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .practice-setup-btn {
+    background: var(--bg-light-gray);
+    border-color: var(--border-light);
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .practice-setup-btn:hover {
+    border-color: var(--primary-blue-light);
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .practice-setup-btn.active {
+    border-color: var(--primary-blue-light);
+    background: rgba(61, 109, 181, 0.12);
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .practice-setup-note {
+    background: var(--bg-light-gray);
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .practice-comparison-col {
+    background: var(--bg-light-gray);
+}
+html[data-theme="dark"] mark.kw-highlight {
+    background: rgba(234, 179, 8, 0.25);
+    color: #FDE68A;
+}
+html[data-theme="dark"] .practice-result-banner.pass {
+    background: linear-gradient(135deg, #047857 0%, #059669 100%);
+}
+html[data-theme="dark"] .practice-result-banner.fail {
+    background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+}
+html[data-theme="dark"] .practice-result-stat {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .practice-result--weak {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+html[data-theme="dark"] .practice-result-bar-track {
+    background: var(--bg-light-gray);
+}
+html[data-theme="dark"] .practice-result-q-num {
+    background: var(--bg-light-gray);
+}
+
 /* ===== Focus Visible Dark ===== */
 html[data-theme="dark"] :focus-visible {
     outline-color: var(--primary-blue-light);

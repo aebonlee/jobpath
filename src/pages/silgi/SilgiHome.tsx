@@ -14,7 +14,7 @@ export default function SilgiHome() {
 
       <div className="container" style={{ paddingBottom: 80 }}>
         <div className="pilgi-modes">
-          <Link to="/silgi/practice/1" className="pilgi-mode-card">
+          <Link to="/silgi/practice" className="pilgi-mode-card">
             <div className="pilgi-mode-icon study">
               <i className="fa-solid fa-pen" />
             </div>

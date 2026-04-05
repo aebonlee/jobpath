@@ -61,8 +61,8 @@ function AppLayout() {
           <Route path="/pilgi/review/:id" element={<QuestionReview />} />
 
           <Route path="/silgi" element={<SilgiHome />} />
-          <Route path="/silgi/practice/:id" element={<PracticeMode />} />
-          <Route path="/silgi/result/:id" element={<PracticeResult />} />
+          <Route path="/silgi/practice" element={<PracticeMode />} />
+          <Route path="/silgi/result" element={<PracticeResult />} />
           <Route path="/silgi/terms" element={<KeyTerms />} />
           <Route path="/silgi/past" element={<SilgiExamList />} />
           <Route path="/silgi/past/:examId" element={<SilgiExamDetail />} />

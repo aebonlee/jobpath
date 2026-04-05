@@ -16,6 +16,21 @@
     grid-column: 1 / -1;
 }
 
+/* ===== Dashboard Section Title ===== */
+.dashboard-section-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.dashboard-section-title i {
+    color: var(--primary-blue);
+    font-size: 15px;
+}
+
 /* ===== Dashboard Stats Grid ===== */
 .dashboard-stats-grid {
     display: grid;
