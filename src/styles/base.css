@@ -43,18 +43,18 @@
     --radius-full: 9999px;
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Subject Colors */
-    --color-counseling: #3B82F6;
-    --color-psychology: #8B5CF6;
-    --color-jobinfo: #10B981;
-    --color-labor-market: #F59E0B;
-    --color-labor-law: #EF4444;
+    /* Subject Colors — 주컬러 네이비 톤 통일 */
+    --color-counseling: #1B3A6B;
+    --color-psychology: #2A4F8A;
+    --color-jobinfo: #3D6DB5;
+    --color-labor-market: #1E4D80;
+    --color-labor-law: #0F2444;
 
     /* Exam Colors */
-    --color-correct: #10B981;
-    --color-wrong: #EF4444;
-    --color-pass: #10B981;
-    --color-fail: #EF4444;
+    --color-correct: #1B3A6B;
+    --color-wrong: #94A3B8;
+    --color-pass: #1B3A6B;
+    --color-fail: #94A3B8;
 }
 
 /* Color Theme Overrides */

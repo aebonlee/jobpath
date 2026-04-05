@@ -8,22 +8,22 @@ export const SITE = {
 
 /* ── 2급 과목 ── */
 export const SUBJECTS_2 = [
-  { id: 1, code: 'counseling', name: '직업상담학', color: '#3B82F6', icon: 'fa-solid fa-comments', sortOrder: 1 },
-  { id: 2, code: 'psychology', name: '직업심리학', color: '#8B5CF6', icon: 'fa-solid fa-brain', sortOrder: 2 },
-  { id: 3, code: 'jobinfo', name: '직업정보론', color: '#10B981', icon: 'fa-solid fa-circle-info', sortOrder: 3 },
-  { id: 4, code: 'labor_market', name: '노동시장론', color: '#F59E0B', icon: 'fa-solid fa-chart-line', sortOrder: 4 },
-  { id: 5, code: 'labor_law', name: '노동관계법규', color: '#EF4444', icon: 'fa-solid fa-scale-balanced', sortOrder: 5 },
+  { id: 1, code: 'counseling', name: '직업상담학', color: '#1B3A6B', icon: 'fa-solid fa-comments', sortOrder: 1 },
+  { id: 2, code: 'psychology', name: '직업심리학', color: '#2A4F8A', icon: 'fa-solid fa-brain', sortOrder: 2 },
+  { id: 3, code: 'jobinfo', name: '직업정보론', color: '#3D6DB5', icon: 'fa-solid fa-circle-info', sortOrder: 3 },
+  { id: 4, code: 'labor_market', name: '노동시장론', color: '#1E4D80', icon: 'fa-solid fa-chart-line', sortOrder: 4 },
+  { id: 5, code: 'labor_law', name: '노동관계법규', color: '#0F2444', icon: 'fa-solid fa-scale-balanced', sortOrder: 5 },
 ];
 /** 기존 코드 호환 alias */
 export const SUBJECTS = SUBJECTS_2;
 
 /* ── 1급 과목 ── */
 export const SUBJECTS_1 = [
-  { id: 1, code: 'job_psychology', name: '직업심리 및 전직지원', color: '#6366F1', icon: 'fa-solid fa-brain', sortOrder: 1 },
-  { id: 2, code: 'deep_counseling', name: '심층직업상담 및 슈퍼비전', color: '#EC4899', icon: 'fa-solid fa-comments', sortOrder: 2 },
-  { id: 3, code: 'job_info_proc', name: '직업정보가공', color: '#14B8A6', icon: 'fa-solid fa-database', sortOrder: 3 },
-  { id: 4, code: 'labor_analysis', name: '노동시장분석', color: '#F97316', icon: 'fa-solid fa-chart-line', sortOrder: 4 },
-  { id: 5, code: 'labor_law_2', name: '고용노동관계법규(II)', color: '#EF4444', icon: 'fa-solid fa-scale-balanced', sortOrder: 5 },
+  { id: 1, code: 'job_psychology', name: '직업심리 및 전직지원', color: '#1B3A6B', icon: 'fa-solid fa-brain', sortOrder: 1 },
+  { id: 2, code: 'deep_counseling', name: '심층직업상담 및 슈퍼비전', color: '#2A4F8A', icon: 'fa-solid fa-comments', sortOrder: 2 },
+  { id: 3, code: 'job_info_proc', name: '직업정보가공', color: '#3D6DB5', icon: 'fa-solid fa-database', sortOrder: 3 },
+  { id: 4, code: 'labor_analysis', name: '노동시장분석', color: '#1E4D80', icon: 'fa-solid fa-chart-line', sortOrder: 4 },
+  { id: 5, code: 'labor_law_2', name: '고용노동관계법규(II)', color: '#0F2444', icon: 'fa-solid fa-scale-balanced', sortOrder: 5 },
 ];
 
 /* ── 2급 시험설정 (기존) ── */

@@ -916,9 +916,9 @@ html[data-theme="dark"] .pass-rate-info h3 {
     color: #F1F5F9;
 }
 html[data-theme="dark"] .pass-rate-highlight {
-    background: rgba(16, 185, 129, 0.12);
-    border-color: rgba(16, 185, 129, 0.25);
-    color: #6EE7B7;
+    background: rgba(61, 109, 181, 0.15);
+    border-color: rgba(61, 109, 181, 0.25);
+    color: var(--primary-blue-light);
 }
 html[data-theme="dark"] .pass-rate-chart {
     background: var(--bg-white);
@@ -1551,15 +1551,15 @@ html[data-theme="dark"] .ph-stat-chip {
 html[data-theme="dark"] .ph-stat-chip-value {
     color: #F1F5F9;
 }
-html[data-theme="dark"] .ph-stat-badge.pass { background: rgba(16,185,129,0.15); color: #6EE7B7; }
-html[data-theme="dark"] .ph-stat-badge.fail { background: rgba(239,68,68,0.15); color: #FCA5A5; }
+html[data-theme="dark"] .ph-stat-badge.pass { background: rgba(61,109,181,0.15); color: var(--primary-blue-light); }
+html[data-theme="dark"] .ph-stat-badge.fail { background: rgba(148,163,184,0.15); color: #94A3B8; }
 html[data-theme="dark"] .ph-section-title { color: #F1F5F9; }
 html[data-theme="dark"] .ph-section-title i { color: var(--primary-blue-light); }
 html[data-theme="dark"] .ph-alert {
-    background: rgba(239,68,68,0.08);
-    border-color: rgba(239,68,68,0.2);
+    background: rgba(61,109,181,0.08);
+    border-color: rgba(61,109,181,0.2);
 }
-html[data-theme="dark"] .ph-alert strong { color: #FCA5A5; }
+html[data-theme="dark"] .ph-alert strong { color: var(--primary-blue-light); }
 html[data-theme="dark"] .ph-alert-link { color: var(--primary-blue-light); }
 html[data-theme="dark"] .ph-action-card {
     background: var(--bg-white);
@@ -1608,11 +1608,11 @@ html[data-theme="dark"] .my-status-stat-value {
     color: var(--primary-blue-light);
 }
 html[data-theme="dark"] .my-status-weak {
-    background: rgba(239, 68, 68, 0.1);
+    background: rgba(61, 109, 181, 0.1);
     color: var(--text-secondary);
 }
 html[data-theme="dark"] .my-status-weak strong {
-    color: #FCA5A5;
+    color: var(--primary-blue-light);
 }
 html[data-theme="dark"] .my-status-login-banner {
     background: var(--bg-white);
@@ -1626,9 +1626,9 @@ html[data-theme="dark"] .my-status-login-banner a {
     color: var(--primary-blue-light);
 }
 html[data-theme="dark"] .my-status-dday {
-    background: rgba(239, 68, 68, 0.12);
-    border-color: rgba(239, 68, 68, 0.25);
-    color: #FCA5A5;
+    background: rgba(61, 109, 181, 0.12);
+    border-color: rgba(61, 109, 181, 0.25);
+    color: var(--primary-blue-light);
 }
 
 /* ===== About Pages Dark ===== */

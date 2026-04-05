@@ -169,7 +169,7 @@ function LoggedInHome({ user }: { user: any }) {
         <div className="container">
           <div className="ph-stats-row">
             <div className="ph-stat-chip">
-              <div className="ph-stat-chip-icon" style={{ background: 'rgba(59,130,246,0.1)', color: '#3B82F6' }}>
+              <div className="ph-stat-chip-icon" style={{ background: 'rgba(27,58,107,0.1)', color: '#1B3A6B' }}>
                 <i className="fa-solid fa-pen-to-square" />
               </div>
               <div className="ph-stat-chip-body">
@@ -185,7 +185,7 @@ function LoggedInHome({ user }: { user: any }) {
               )}
             </div>
             <div className="ph-stat-chip">
-              <div className="ph-stat-chip-icon" style={{ background: 'rgba(16,185,129,0.1)', color: '#10B981' }}>
+              <div className="ph-stat-chip-icon" style={{ background: 'rgba(61,109,181,0.1)', color: '#3D6DB5' }}>
                 <i className="fa-solid fa-file-pen" />
               </div>
               <div className="ph-stat-chip-body">
@@ -196,7 +196,7 @@ function LoggedInHome({ user }: { user: any }) {
               </div>
             </div>
             <div className="ph-stat-chip">
-              <div className="ph-stat-chip-icon" style={{ background: 'rgba(139,92,246,0.1)', color: '#8B5CF6' }}>
+              <div className="ph-stat-chip-icon" style={{ background: 'rgba(42,79,138,0.1)', color: '#2A4F8A' }}>
                 <i className="fa-solid fa-list-check" />
               </div>
               <div className="ph-stat-chip-body">
@@ -205,7 +205,7 @@ function LoggedInHome({ user }: { user: any }) {
               </div>
             </div>
             <div className="ph-stat-chip">
-              <div className="ph-stat-chip-icon" style={{ background: 'rgba(245,158,11,0.1)', color: '#F59E0B' }}>
+              <div className="ph-stat-chip-icon" style={{ background: 'rgba(30,77,128,0.1)', color: '#1E4D80' }}>
                 <i className="fa-solid fa-bookmark" />
               </div>
               <div className="ph-stat-chip-body">
@@ -450,12 +450,12 @@ function LandingHome() {
           </div>
           <div className="home-features-grid">
             {[
-              { icon: 'fa-solid fa-desktop', title: 'CBT 모의시험', desc: '실제 시험과 동일한 환경의 온라인 CBT로 실전 감각을 키우세요', color: '#3B82F6' },
-              { icon: 'fa-solid fa-book-open', title: '학습 모드', desc: '답 선택 즉시 정답과 해설을 확인하며 효율적으로 학습하세요', color: '#10B981' },
-              { icon: 'fa-solid fa-chart-pie', title: '과목별 분석', desc: '레이더 차트로 강점과 약점을 한눈에 파악하세요', color: '#8B5CF6' },
-              { icon: 'fa-solid fa-rotate-left', title: '오답 노트', desc: '틀린 문제를 모아 반복 학습으로 실력을 올리세요', color: '#EF4444' },
-              { icon: 'fa-solid fa-trophy', title: '합격 예측', desc: '최근 시험 결과를 분석하여 합격 확률을 예측합니다', color: '#F59E0B' },
-              { icon: 'fa-solid fa-file-pen', title: '실기 연습', desc: '서술형 문제와 모범답안 비교로 실기도 준비하세요', color: '#06B6D4' },
+              { icon: 'fa-solid fa-desktop', title: 'CBT 모의시험', desc: '실제 시험과 동일한 환경의 온라인 CBT로 실전 감각을 키우세요', color: '#1B3A6B' },
+              { icon: 'fa-solid fa-book-open', title: '학습 모드', desc: '답 선택 즉시 정답과 해설을 확인하며 효율적으로 학습하세요', color: '#2A4F8A' },
+              { icon: 'fa-solid fa-chart-pie', title: '과목별 분석', desc: '레이더 차트로 강점과 약점을 한눈에 파악하세요', color: '#3D6DB5' },
+              { icon: 'fa-solid fa-rotate-left', title: '오답 노트', desc: '틀린 문제를 모아 반복 학습으로 실력을 올리세요', color: '#1E4D80' },
+              { icon: 'fa-solid fa-trophy', title: '합격 예측', desc: '최근 시험 결과를 분석하여 합격 확률을 예측합니다', color: '#0F2444' },
+              { icon: 'fa-solid fa-file-pen', title: '실기 연습', desc: '서술형 문제와 모범답안 비교로 실기도 준비하세요', color: '#1B3A6B' },
             ].map((feat, idx) => (
               <div key={idx} className="home-feature-card" style={{ borderLeftColor: feat.color }}>
                 <div className="home-feature-icon" style={{ color: feat.color, background: `${feat.color}12` }}>
