@@ -1143,6 +1143,87 @@ html[data-theme="dark"] .info-tip-body p {
     color: var(--text-secondary);
 }
 
+/* ===== Silgi Exam Pages Dark ===== */
+html[data-theme="dark"] .silgi-exam-stat {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .silgi-exam-card {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .silgi-exam-card:hover {
+    border-color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .silgi-exam-card h3 {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .silgi-exam-card-arrow {
+    background: var(--bg-light-gray);
+}
+html[data-theme="dark"] .silgi-exam-notice {
+    background: rgba(59, 130, 246, 0.08);
+}
+html[data-theme="dark"] .sq-card {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .sq-card--open {
+    border-color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .sq-card-title {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .sq-card-body {
+    border-top-color: var(--border-light);
+}
+html[data-theme="dark"] .sq-frequency {
+    background: rgba(245, 158, 11, 0.1);
+    color: #FCD34D;
+}
+html[data-theme="dark"] .sq-section-content {
+    color: var(--text-primary);
+}
+html[data-theme="dark"] .sq-section-content strong {
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .sq-section--advanced {
+    background: var(--bg-light-gray);
+}
+html[data-theme="dark"] .sq-section--advanced .sq-section-content strong {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .sq-section--tips {
+    background: rgba(234, 179, 8, 0.08);
+    border-left-color: #EAB308;
+}
+html[data-theme="dark"] .sq-section--tips .sq-section-label {
+    color: #FCD34D;
+}
+html[data-theme="dark"] .sq-section--tips .sq-section-content {
+    color: #FDE68A;
+}
+html[data-theme="dark"] .sq-partial-score {
+    background: rgba(61, 109, 181, 0.1);
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .sq-section-content table th {
+    background: var(--bg-light-gray);
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .sq-section-content table th,
+html[data-theme="dark"] .sq-section-content table td {
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .sq-control-btn {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .sq-back-link {
+    color: rgba(255, 255, 255, 0.7);
+}
+
 /* ===== Focus Visible Dark ===== */
 html[data-theme="dark"] :focus-visible {
     outline-color: var(--primary-blue-light);

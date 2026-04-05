@@ -23,6 +23,15 @@ export default function SilgiHome() {
             <span className="pilgi-mode-badge">모범답안 비교</span>
           </Link>
 
+          <Link to="/silgi/past" className="pilgi-mode-card">
+            <div className="pilgi-mode-icon exam">
+              <i className="fa-solid fa-scroll" />
+            </div>
+            <h3>기출문제 해설</h3>
+            <p>회차별 기출문제와 상세 해설을 확인하세요</p>
+            <span className="pilgi-mode-badge">해설 포함</span>
+          </Link>
+
           <Link to="/silgi/terms" className="pilgi-mode-card">
             <div className="pilgi-mode-icon exam">
               <i className="fa-solid fa-book" />

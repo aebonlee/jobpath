@@ -20,6 +20,8 @@ import SilgiHome from './pages/silgi/SilgiHome';
 import PracticeMode from './pages/silgi/PracticeMode';
 import PracticeResult from './pages/silgi/PracticeResult';
 import KeyTerms from './pages/silgi/KeyTerms';
+import SilgiExamList from './pages/silgi/SilgiExamList';
+import SilgiExamDetail from './pages/silgi/SilgiExamDetail';
 
 import Dashboard from './pages/dashboard/Dashboard';
 import StudyHistory from './pages/dashboard/StudyHistory';
@@ -55,6 +57,8 @@ function AppLayout() {
           <Route path="/silgi/practice/:id" element={<PracticeMode />} />
           <Route path="/silgi/result/:id" element={<PracticeResult />} />
           <Route path="/silgi/terms" element={<KeyTerms />} />
+          <Route path="/silgi/past" element={<SilgiExamList />} />
+          <Route path="/silgi/past/:examId" element={<SilgiExamDetail />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/history" element={<StudyHistory />} />
