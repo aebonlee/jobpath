@@ -113,6 +113,7 @@
     /* Info */
     .info-grid-2 { grid-template-columns: 1fr; }
     .info-links-grid { grid-template-columns: 1fr; }
+    .info-highlight-row { grid-template-columns: repeat(2, 1fr); }
 
     /* Footer */
     .footer-content { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -216,6 +217,9 @@
     .info-subject-item { padding: 14px 16px; gap: 12px; }
     .info-table th { width: 90px; font-size: 13px; padding: 10px 12px; }
     .info-table td { font-size: 13px; padding: 10px 12px; }
+    .info-tip-card { padding: 18px 16px; gap: 14px; }
+    .info-tip-num { width: 32px; height: 32px; font-size: 14px; }
+    .info-tip-body h4 { font-size: 15px; }
 
     /* Footer */
     .footer-content { grid-template-columns: 1fr; gap: 32px; }

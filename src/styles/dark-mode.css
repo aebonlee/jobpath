@@ -1125,6 +1125,23 @@ html[data-theme="dark"] .info-link-icon {
 html[data-theme="dark"] .info-link-card strong {
     color: #F1F5F9;
 }
+html[data-theme="dark"] .info-alert {
+    background: rgba(239, 68, 68, 0.1);
+    color: #FCA5A5;
+}
+html[data-theme="dark"] .info-alert.info-alert-info {
+    background: rgba(59, 130, 246, 0.1);
+    color: #93C5FD;
+}
+html[data-theme="dark"] .info-tip-card {
+    background: var(--bg-light-gray);
+}
+html[data-theme="dark"] .info-tip-body h4 {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .info-tip-body p {
+    color: var(--text-secondary);
+}
 
 /* ===== Focus Visible Dark ===== */
 html[data-theme="dark"] :focus-visible {
