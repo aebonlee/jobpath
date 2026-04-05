@@ -484,7 +484,8 @@ export default function Home() {
   return (
     <>
       <SEOHead />
-      {user ? <LoggedInHome user={user} /> : <LandingHome />}
+      {user && <LoggedInHome user={user} />}
+      <LandingHome />
     </>
   );
 }
