@@ -1015,6 +1015,14 @@
     font-size: 11px;
 }
 
+/* ===== Keynote stars badge ===== */
+.sq-badge--stars {
+    background: #EFF6FF !important;
+    color: #D97706 !important;
+    font-size: 11px;
+    letter-spacing: -0.5px;
+}
+
 /* ===== Study Summary Sidebar Layout ===== */
 .summary-layout {
     display: grid;

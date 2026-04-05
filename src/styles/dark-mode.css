@@ -1233,6 +1233,10 @@ html[data-theme="dark"] .sq-badge--freq {
     background: rgba(217, 119, 6, 0.15) !important;
     color: #FCD34D !important;
 }
+html[data-theme="dark"] .sq-badge--stars {
+    background: rgba(217, 119, 6, 0.12) !important;
+    color: #FCD34D !important;
+}
 html[data-theme="dark"] .sq-card {
     background: var(--bg-white);
     border-color: var(--border-light);
