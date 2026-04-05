@@ -21,11 +21,11 @@ html[data-theme="dark"] {
 
 /* ===== Navbar Dark Mode ===== */
 html[data-theme="dark"] .navbar {
-    background: rgba(17, 24, 39, 0.85);
+    background: rgba(17, 24, 39, 0.92);
     border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 html[data-theme="dark"] .navbar.scrolled {
-    background: rgba(17, 24, 39, 0.95);
+    background: rgba(17, 24, 39, 0.98);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 html[data-theme="dark"] .logo-main { color: var(--primary-blue-light); }
