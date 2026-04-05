@@ -26,12 +26,25 @@ export default function ExamMode() {
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [startTime] = useState(Date.now());
+  const [displayMode, setDisplayMode] = useState(() =>
+    localStorage.getItem('forjob-exam-layout') || 'single'
+  );
+  const [questionSize, setQuestionSize] = useState(() =>
+    localStorage.getItem('forjob-exam-size') || 'md'
+  );
 
   useEffect(() => {
     if (!questions.length) {
       navigate('/pilgi/select', { replace: true });
     }
   }, [questions, navigate]);
+
+  useEffect(() => {
+    localStorage.setItem('forjob-exam-layout', displayMode);
+  }, [displayMode]);
+  useEffect(() => {
+    localStorage.setItem('forjob-exam-size', questionSize);
+  }, [questionSize]);
 
   const handleSelectAnswer = useCallback((questionId, answer) => {
     setAnswers(prev => ({ ...prev, [questionId]: answer }));
@@ -125,6 +138,16 @@ export default function ExamMode() {
   const currentQuestion = questions[currentIndex];
   const currentSubject = SUBJECTS.find(s => s.id === currentQuestion?.subject_id);
   const answeredCount = Object.keys(answers).length;
+  const step = displayMode === 'dual' ? 2 : 1;
+  const visibleQuestions = displayMode === 'dual'
+    ? questions.slice(currentIndex, currentIndex + 2)
+    : [currentQuestion];
+  const pageInfo = displayMode === 'dual'
+    ? `${currentIndex + 1}–${Math.min(currentIndex + 2, questions.length)} / ${questions.length}`
+    : `${currentIndex + 1} / ${questions.length}`;
+  const isLastPage = displayMode === 'dual'
+    ? currentIndex + 2 >= questions.length
+    : currentIndex >= questions.length - 1;
 
   return (
     <div className="exam-container">
@@ -146,33 +169,62 @@ export default function ExamMode() {
       </div>
 
       {/* Exam Body */}
-      <div className="exam-body">
-        <div className="exam-main">
-          <QuestionCard
-            question={currentQuestion}
-            selectedAnswer={answers[currentQuestion.id]}
-            onSelectAnswer={(answer) => handleSelectAnswer(currentQuestion.id, answer)}
-            questionIndex={currentIndex}
-            isBookmarked={bookmarkedIds.includes(currentQuestion.id)}
-            onToggleBookmark={handleToggleBookmark}
-          />
+      <div className={`exam-body ${displayMode === 'dual' ? 'dual-mode' : ''}`}>
+        <div className={`exam-main size-${questionSize}`}>
+          {/* Display Toolbar */}
+          <div className="exam-display-toolbar">
+            <div className="display-toggle-group display-layout-toggle">
+              <span className="display-toggle-label">보기</span>
+              <button
+                className={`display-toggle-btn ${displayMode === 'single' ? 'active' : ''}`}
+                onClick={() => setDisplayMode('single')}
+              >
+                <i className="fa-solid fa-square" /> 1열
+              </button>
+              <button
+                className={`display-toggle-btn ${displayMode === 'dual' ? 'active' : ''}`}
+                onClick={() => setDisplayMode('dual')}
+              >
+                <i className="fa-solid fa-table-columns" /> 2열
+              </button>
+            </div>
+            <div className="display-toggle-group">
+              <span className="display-toggle-label">크기</span>
+              <button className={`display-toggle-btn ${questionSize === 'sm' ? 'active' : ''}`} onClick={() => setQuestionSize('sm')}>작게</button>
+              <button className={`display-toggle-btn ${questionSize === 'md' ? 'active' : ''}`} onClick={() => setQuestionSize('md')}>보통</button>
+              <button className={`display-toggle-btn ${questionSize === 'lg' ? 'active' : ''}`} onClick={() => setQuestionSize('lg')}>크게</button>
+            </div>
+          </div>
+
+          {/* Question Cards */}
+          <div className={displayMode === 'dual' ? 'exam-questions-dual' : ''}>
+            {visibleQuestions.map((q, i) => (
+              <QuestionCard
+                key={q.id}
+                question={q}
+                selectedAnswer={answers[q.id]}
+                onSelectAnswer={(answer) => handleSelectAnswer(q.id, answer)}
+                questionIndex={currentIndex + i}
+                isBookmarked={bookmarkedIds.includes(q.id)}
+                onToggleBookmark={handleToggleBookmark}
+              />
+            ))}
+          </div>
 
           {/* Navigation */}
           <div className="exam-nav-buttons">
             <button
               className="btn btn-secondary btn-sm"
-              onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
+              onClick={() => setCurrentIndex(prev => Math.max(0, prev - step))}
               disabled={currentIndex === 0}
             >
               <i className="fa-solid fa-chevron-left" /> 이전
             </button>
-
-            <span className="exam-page-info">{currentIndex + 1} / {questions.length}</span>
-
-            {currentIndex < questions.length - 1 ? (
+            <span className="exam-page-info">{pageInfo}</span>
+            {!isLastPage ? (
               <button
                 className="btn btn-secondary btn-sm"
-                onClick={() => setCurrentIndex(prev => Math.min(questions.length - 1, prev + 1))}
+                onClick={() => setCurrentIndex(prev => Math.min(questions.length - 1, prev + step))}
               >
                 다음 <i className="fa-solid fa-chevron-right" />
               </button>

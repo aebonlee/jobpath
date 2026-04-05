@@ -19,6 +19,8 @@
     .key-terms-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-content { gap: 32px; }
     .practice-container { grid-template-columns: 1fr 340px; }
+    .display-layout-toggle { display: none; }
+    .exam-questions-dual { grid-template-columns: 1fr; }
 }
 
 /* ===== Tablet Landscape (768px - 1023px) ===== */
@@ -180,6 +182,8 @@
 
     /* Exam */
     .exam-main { padding: 24px; }
+    .exam-display-toolbar { gap: 8px; }
+    .display-toggle-btn { padding: 4px 10px; font-size: 12px; }
     .question-card { padding: 24px; }
     .question-nav-grid { grid-template-columns: repeat(10, 1fr); }
     .exam-header { flex-direction: column; align-items: stretch; }
@@ -314,6 +318,8 @@
     .exam-main { padding: 16px; }
     .question-card { padding: 20px; }
     .option-item { padding: 12px 14px; }
+    .exam-display-toolbar { flex-wrap: wrap; justify-content: center; }
+    .display-toggle-label { display: none; }
     .question-nav-grid { grid-template-columns: repeat(8, 1fr); }
     .subject-tabs { gap: 2px; }
     .subject-tab { padding: 8px 14px; font-size: 12px; }
