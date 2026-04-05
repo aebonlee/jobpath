@@ -79,6 +79,7 @@ function OrderHistoryContent() {
                         {order.plan_type === '30day' && '30일 이용권'}
                         {order.plan_type === '90day' && '90일 이용권'}
                         {order.plan_type === 'lifetime' && '평생 이용권'}
+                        {order.plan_type === '1day_trial' && '1일 체험 이용권'}
                       </strong>
                       {isActive && <span className="badge-active">이용중</span>}
                     </div>

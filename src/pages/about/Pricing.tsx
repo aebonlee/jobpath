@@ -89,6 +89,16 @@ export default function Pricing() {
           </table>
         </div>
 
+        <div className="coupon-banner" style={{ background: 'rgba(27, 58, 107, 0.05)', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-lg)', padding: '24px 28px', marginBottom: 40, textAlign: 'center' }}>
+          <p style={{ fontSize: 15, color: 'var(--text-secondary)', marginBottom: 12 }}>
+            <i className="fa-solid fa-ticket" style={{ marginRight: 8, color: 'var(--primary-blue)' }} />
+            쿠폰이 있으신가요?
+          </p>
+          <Link to="/coupon" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            <i className="fa-solid fa-gift" /> 쿠폰 등록하기
+          </Link>
+        </div>
+
         <div className="guide-faq">
           <h2><i className="fa-solid fa-circle-question" /> 결제 FAQ</h2>
           <div className="faq-item">

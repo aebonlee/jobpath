@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { useToast } from './ToastContext';
+import { ADMIN_EMAILS } from '../config/admin';
 
 const AuthContext = createContext({});
 
@@ -9,11 +10,24 @@ const SITE_URL = import.meta.env.VITE_SITE_URL || window.location.origin;
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
   const { showToast } = useToast();
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null);
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
+
+      if (currentUser) {
+        const allEmails = [
+          session?.user?.email,
+          session?.user?.user_metadata?.email,
+        ].filter(Boolean).map(e => (e as string).toLowerCase());
+        setIsAdmin(allEmails.some(e => ADMIN_EMAILS.includes(e)));
+      } else {
+        setIsAdmin(false);
+      }
+
       if (event === 'INITIAL_SESSION') {
         setLoading(false);
       }
@@ -22,6 +36,7 @@ export function AuthProvider({ children }) {
       }
       if (event === 'SIGNED_OUT') {
         setUser(null);
+        setIsAdmin(false);
         setLoading(false);
       }
     });
@@ -88,7 +103,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, signInWithGoogle, signInWithKakao, signOut }}>
+    <AuthContext.Provider value={{ user, loading, isAdmin, signInWithGoogle, signInWithKakao, signOut }}>
       {children}
     </AuthContext.Provider>
   );

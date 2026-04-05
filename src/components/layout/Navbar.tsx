@@ -6,7 +6,7 @@ import { NAV_ITEMS } from '../../config/site';
 
 export default function Navbar() {
   const { mode, toggleTheme, colorTheme, setColorTheme, COLOR_OPTIONS } = useTheme();
-  const { user, signOut } = useAuth();
+  const { user, signOut, isAdmin } = useAuth();
   const location = useLocation();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,6 +110,9 @@ export default function Navbar() {
 
             {user ? (
               <div className="user-menu">
+                {isAdmin && (
+                  <Link to="/admin" className="admin-link">관리자</Link>
+                )}
                 {user.user_metadata?.avatar_url && (
                   <img src={user.user_metadata.avatar_url} alt="" className="user-avatar" />
                 )}
@@ -163,6 +166,13 @@ export default function Navbar() {
               )}
             </li>
           ))}
+          {user && isAdmin && (
+            <li>
+              <Link to="/admin" className="mobile-nav-link" style={{ color: 'var(--primary-blue)', fontWeight: 700 }}>
+                <i className="fa-solid fa-shield-halved" style={{ marginRight: 8 }} />관리자
+              </Link>
+            </li>
+          )}
           <li>
             {user ? (
               <button className="mobile-nav-link" onClick={signOut} style={{ background: 'none', border: 'none', cursor: 'pointer', width: '100%', textAlign: 'left', fontFamily: 'inherit', fontSize: 16 }}>

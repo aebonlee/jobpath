@@ -95,6 +95,8 @@ export const NAV_ITEMS = [
   },
 ];
 
+export const TRIAL_PLAN = { id: '1day_trial', label: '1일 체험 이용권', price: 0, days: 1, desc: '쿠폰 무료 체험' };
+
 export const PLANS = [
   { id: '3month', label: '3개월 이용권', price: 9900, days: 90, desc: '1회차 시험 준비' },
   { id: '6month', label: '6개월 이용권', price: 19900, days: 180, recommended: true, desc: '2회차 시험 준비' },

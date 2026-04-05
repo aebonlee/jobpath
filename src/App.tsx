@@ -51,6 +51,10 @@ import Privacy from './pages/about/Privacy';
 import Checkout from './pages/payment/Checkout';
 import Confirmation from './pages/payment/Confirmation';
 import OrderHistory from './pages/payment/OrderHistory';
+import CouponRedeem from './pages/payment/CouponRedeem';
+
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminGuard from './components/AdminGuard';
 
 function AppLayout() {
   return (
@@ -109,6 +113,10 @@ function AppLayout() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/orders" element={<OrderHistory />} />
+          <Route path="/coupon" element={<CouponRedeem />} />
+
+          {/* 관리자 */}
+          <Route path="/admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

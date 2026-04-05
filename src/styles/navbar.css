@@ -252,6 +252,22 @@
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
+.admin-link {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 200, 50, 0.5);
+    border-radius: var(--radius-full);
+    background: rgba(255, 200, 50, 0.15);
+    color: #FCD34D;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+.admin-link:hover {
+    border-color: rgba(255, 200, 50, 0.8);
+    background: rgba(255, 200, 50, 0.25);
+    color: #FDE68A;
+}
 .logout-btn {
     padding: 6px 14px;
     font-size: 13px;

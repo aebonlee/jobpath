@@ -628,6 +628,38 @@
 }
 
 
+/* ===== Admin Dashboard Responsive ===== */
+@media (max-width: 1023px) {
+    .admin-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px) {
+    .admin-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .admin-stat-card { padding: 18px 16px; }
+    .admin-stat-value { font-size: 22px; }
+    .admin-tabs { gap: 0; overflow-x: auto; }
+    .admin-tab { padding: 10px 16px; font-size: 13px; white-space: nowrap; }
+    .admin-panel { padding: 16px; }
+    .admin-table { font-size: 13px; }
+    .admin-table th, .admin-table td { padding: 8px 8px; }
+    .coupon-form-row { flex-direction: column; align-items: stretch; gap: 10px; }
+    .coupon-form-row .btn { width: 100%; justify-content: center; }
+    .admin-coupon-form { padding: 16px; }
+}
+@media (max-width: 639px) {
+    .admin-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .admin-stat-card { padding: 16px 12px; }
+    .admin-stat-icon { width: 40px; height: 40px; font-size: 16px; }
+    .admin-stat-value { font-size: 20px; }
+    .admin-stat-label { font-size: 12px; }
+    .coupon-redeem { padding: 24px 0 60px; }
+    .coupon-form-card { padding: 32px 20px; }
+    .coupon-input-group { flex-direction: column; }
+    .coupon-input-group .btn { width: 100%; justify-content: center; }
+    .coupon-success { padding: 32px 20px; }
+    .coupon-success-actions { flex-direction: column; }
+    .coupon-success-actions .btn { width: 100%; text-align: center; justify-content: center; }
+}
+
 /* ===== Landscape Orientation Fixes ===== */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero { min-height: auto; padding: 80px 0 40px; }

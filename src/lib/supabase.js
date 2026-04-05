@@ -24,4 +24,6 @@ export const TABLES = {
   BOOKMARKS: `${PREFIX}bookmarks`,
   WRONG_ANSWERS: `${PREFIX}wrong_answers`,
   ORDERS: `${PREFIX}orders`,
+  COUPONS: `${PREFIX}coupons`,
+  COUPON_REDEMPTIONS: `${PREFIX}coupon_redemptions`,
 };
