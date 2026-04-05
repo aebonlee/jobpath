@@ -63,7 +63,7 @@ export default function ExamSelect() {
         examSession !== 'random' ? parseInt(examSession) : null,
       );
       navigate(`/pilgi/exam/${session.id}`, { state: { questions: limitedQuestions, session } });
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       showToast('시험 시작에 실패했습니다.', 'error');
     }

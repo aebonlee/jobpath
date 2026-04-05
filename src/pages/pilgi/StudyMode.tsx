@@ -34,7 +34,7 @@ export default function StudyMode() {
       setCurrentIndex(0);
       setAnswers({});
       setShowResult({});
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       showToast('문제를 불러오는데 실패했습니다.', 'error');
     }

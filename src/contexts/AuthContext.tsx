@@ -50,7 +50,7 @@ export function AuthProvider({ children }) {
         console.error('Google login error:', error.message);
         showToast('Google 로그인에 실패했습니다.', 'error');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Google login error:', err);
       showToast('Google 로그인에 실패했습니다.', 'error');
     }
@@ -66,7 +66,7 @@ export function AuthProvider({ children }) {
         console.error('Kakao login error:', error.message);
         showToast('카카오 로그인에 실패했습니다.', 'error');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Kakao login error:', err);
       showToast('카카오 로그인에 실패했습니다.', 'error');
     }
@@ -81,7 +81,7 @@ export function AuthProvider({ children }) {
       } else {
         showToast('로그아웃되었습니다.', 'success');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Logout error:', err);
       showToast('로그아웃에 실패했습니다.', 'error');
     }

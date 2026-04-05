@@ -108,7 +108,7 @@ export default function ExamMode() {
         state: { questions, answers, session: { ...session, ...resultData }, subjectScores },
         replace: true,
       });
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       showToast('결과 저장에 실패했습니다.', 'error');
       // Navigate anyway

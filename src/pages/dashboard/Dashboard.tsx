@@ -53,7 +53,7 @@ function DashboardContent() {
         });
         setAvgScores(avgs);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
     }
     setLoading(false);
