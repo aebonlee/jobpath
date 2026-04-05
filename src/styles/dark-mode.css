@@ -1351,6 +1351,26 @@ html[data-theme="dark"] .summary-sidebar-inner::-webkit-scrollbar-thumb {
     background: var(--border-light);
 }
 
+/* ===== Study Filters Dark (오답노트) ===== */
+html[data-theme="dark"] .study-filter-btn {
+    background: var(--bg-light-gray);
+    border-color: var(--border-light);
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .study-filter-btn:hover {
+    border-color: var(--primary-blue-light);
+    color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .study-filter-btn.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: #FFFFFF;
+}
+html[data-theme="dark"] .wrong-count-badge {
+    background: rgba(239, 68, 68, 0.2);
+    color: #FCA5A5;
+}
+
 /* ===== Practice Setup Dark ===== */
 html[data-theme="dark"] .practice-setup-section {
     background: var(--bg-white);

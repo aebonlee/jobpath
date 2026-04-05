@@ -38,6 +38,70 @@
     font-weight: 600;
 }
 
+/* ===== Study Filters (오답노트) ===== */
+.study-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.study-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--bg-white);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: inherit;
+}
+.study-filter-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    background: rgba(27, 58, 107, 0.03);
+}
+.study-filter-btn.active {
+    background: var(--primary-blue);
+    color: #FFFFFF;
+    border-color: var(--primary-blue);
+}
+
+/* ===== Study Subject Badge ===== */
+.study-subject-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    margin-bottom: 16px;
+}
+.study-subject-badge i {
+    font-size: 13px;
+}
+.wrong-count-badge {
+    margin-left: 8px;
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(239, 68, 68, 0.12);
+    color: #DC2626;
+    border-radius: var(--radius-full);
+}
+
+/* ===== Wrong Answer Actions ===== */
+.wrong-answer-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
 /* ===== Bookmark List ===== */
 .bookmark-list {
     display: flex;
