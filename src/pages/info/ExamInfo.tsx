@@ -794,8 +794,159 @@ function Level1Content() {
             </tbody>
           </table>
         </div>
+        <div className="info-alert info-alert-info" style={{ marginTop: 16 }}>
+          <i className="fa-solid fa-clock" />
+          <span>접수는 첫날 <strong>10:00</strong>부터 마지막 날 <strong>18:00</strong>까지 · 수수료: 필기 <strong>19,400원</strong> / 실기 <strong>20,800원</strong></span>
+        </div>
         <p className="info-note">
-          * 시험 접수 및 상세 일정은 <a href="https://www.q-net.or.kr" target="_blank" rel="noopener noreferrer"><strong>큐넷(Q-Net)</strong></a>에서 반드시 확인하세요.
+          * 시�� 접수 및 상��� 일정은 <a href="https://www.q-net.or.kr" target="_blank" rel="noopener noreferrer"><strong>큐넷(Q-Net)</strong></a>에서 ��드시 확인하세요.
+          시험 일정은 종목별, 지역별로 상이할 수 있으며, 접수 일정 전에 공지되는 해당 회별 수험자 안내(Q-net 공지사항)를 참조하세요.
+        </p>
+      </section>
+
+      {/* 검정현황 */}
+      <section className="info-card">
+        <div className="info-card-header">
+          <span className="info-card-icon stats"><i className="fa-solid fa-chart-column" /></span>
+          <h2>검정���황 (합격률 추이)</h2>
+        </div>
+        <p className="info-card-text">
+          1급은 응시 인원이 적지만, 최근 필기 합격률은 <strong>약 70~83%</strong>, 실기 합격률은 <strong>약 67~72%</strong>로 상승 추세입니다.
+          2024년 기준 필기 <strong>81.6%</strong>, 실기 <strong>70.8%</strong>입니다.
+        </p>
+        <div className="info-table-wrap">
+          <table className="info-table schedule stats-table">
+            <thead>
+              <tr>
+                <th rowSpan={2}>연도</th>
+                <th colSpan={3} className="info-th-group pilgi">필기</th>
+                <th colSpan={3} className="info-th-group silgi">실기</th>
+              </tr>
+              <tr>
+                <th>응시</th><th>합격</th><th>합격률</th>
+                <th>응시</th><th>합격</th><th>합격률</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { y: '2024', pa: 755, pp: 616, pr: '81.6%', sa: 600, sp: 425, sr: '70.8%' },
+                { y: '2023', pa: 650, pp: 538, pr: '82.8%', sa: 512, sp: 343, sr: '67.0%' },
+                { y: '2022', pa: 622, pp: 477, pr: '76.7%', sa: 459, sp: 330, sr: '71.9%' },
+                { y: '2021', pa: 435, pp: 303, pr: '69.7%', sa: 389, sp: 259, sr: '66.6%' },
+                { y: '2020', pa: 406, pp: 291, pr: '71.7%', sa: 325, sp: 72, sr: '22.2%' },
+                { y: '2019', pa: 584, pp: 328, pr: '56.2%', sa: 352, sp: 247, sr: '70.2%' },
+                { y: '2018', pa: 340, pp: 165, pr: '48.5%', sa: 198, sp: 66, sr: '33.3%' },
+                { y: '2017', pa: 362, pp: 172, pr: '47.5%', sa: 256, sp: 91, sr: '35.5%' },
+                { y: '2016', pa: 276, pp: 117, pr: '42.4%', sa: 220, sp: 51, sr: '23.2%' },
+                { y: '2015', pa: 336, pp: 198, pr: '58.9%', sa: 238, sp: 109, sr: '45.8%' },
+                { y: '2014', pa: 252, pp: 136, pr: '54.0%', sa: 186, sp: 50, sr: '26.9%' },
+                { y: '2013', pa: 212, pp: 83, pr: '39.2%', sa: 179, sp: 30, sr: '16.8%' },
+                { y: '2012', pa: 189, pp: 107, pr: '56.6%', sa: 163, sp: 25, sr: '15.3%' },
+                { y: '2011', pa: 137, pp: 69, pr: '50.4%', sa: 107, sp: 16, sr: '15.0%' },
+                { y: '2010', pa: 110, pp: 55, pr: '50.0%', sa: 75, sp: 12, sr: '16.0%' },
+                { y: '2009', pa: 62, pp: 27, pr: '43.5%', sa: 35, sp: 0, sr: '0%' },
+                { y: '2008', pa: 72, pp: 26, pr: '36.1%', sa: 50, sp: 7, sr: '14.0%' },
+                { y: '2007', pa: 98, pp: 33, pr: '33.7%', sa: 51, sp: 31, sr: '60.8%' },
+                { y: '2006', pa: 96, pp: 44, pr: '45.8%', sa: 55, sp: 2, sr: '3.6%' },
+                { y: '2005', pa: 90, pp: 47, pr: '52.2%', sa: 53, sp: 18, sr: '34.0%' },
+                { y: '2004', pa: 43, pp: 10, pr: '23.3%', sa: 19, sp: 0, sr: '0%' },
+                { y: '2003', pa: 67, pp: 15, pr: '22.4%', sa: 11, sp: 0, sr: '0%' },
+              ].map(row => (
+                <tr key={row.y}>
+                  <td><strong>{row.y}</strong></td>
+                  <td>{row.pa.toLocaleString()}</td>
+                  <td>{row.pp.toLocaleString()}</td>
+                  <td><strong className="rate-pilgi">{row.pr}</strong></td>
+                  <td>{row.sa.toLocaleString()}</td>
+                  <td>{row.sp.toLocaleString()}</td>
+                  <td><strong className="rate-silgi">{row.sr}</strong></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="info-stats-summary">
+          <div className="info-stats-summary-item">
+            <span className="info-stats-summary-label">누적 합계</span>
+            <span>필기 응시 <strong>6,194</strong>명 / 합격 <strong>3,857</strong>명 (<strong>62.3%</strong>)</span>
+          </div>
+          <div className="info-stats-summary-item">
+            <span className="info-stats-summary-label">누적 합계</span>
+            <span>실기 응시 <strong>4,533</strong>명 / 합격 <strong>2,184</strong>명 (<strong>48.2%</strong>)</span>
+          </div>
+        </div>
+
+        {/* 2024 수험자 동향 */}
+        <div className="info-trend-2024">
+          <h3><i className="fa-solid fa-users" /> 2024년 수험자 동향 (필기)</h3>
+          <div className="info-trend-grid">
+            <div className="info-trend-card male">
+              <div className="info-trend-icon"><i className="fa-solid fa-mars" /></div>
+              <div className="info-trend-body">
+                <span className="info-trend-label">남성</span>
+                <span className="info-trend-numbers">접수 92 / 응시 66 / 합격 43</span>
+                <span className="info-trend-rate">합격률 <strong>65.2%</strong></span>
+              </div>
+            </div>
+            <div className="info-trend-card female">
+              <div className="info-trend-icon"><i className="fa-solid fa-venus" /></div>
+              <div className="info-trend-body">
+                <span className="info-trend-label">여성</span>
+                <span className="info-trend-numbers">접수 845 / 응시 689 / 합격 573</span>
+                <span className="info-trend-rate">합격��� <strong>83.2%</strong></span>
+              </div>
+            </div>
+          </div>
+          <p className="info-note" style={{ marginTop: 12 }}>
+            * 수험자동향 데이터는 원서접수 시 수집된 데이터로, 종목별 검정현황 데이터와 다를 수 있음
+          </p>
+        </div>
+      </section>
+
+      {/* 우대��황 */}
+      <section className="info-card">
+        <div className="info-card-header">
+          <span className="info-card-icon benefit"><i className="fa-solid fa-medal" /></span>
+          <h2>자격증 우대현황</h2>
+        </div>
+        <p className="info-card-text">
+          직업상담사 1급 자격 취득 시 공무원 채용 가산점, 경력경쟁채용 응시 자격, 직업능력개발훈련교사 자격 취득 등
+          <strong>다양한 법적 우대</strong>를 받을 수 있습니다.
+        </p>
+        <div className="info-table-wrap">
+          <table className="info-table benefit-table">
+            <thead>
+              <tr><th>우�� 법령</th><th>활용 내용</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>공무원임용시험령 제27조</td><td>경력경��채용시험 등의 응시</td></tr>
+              <tr><td>공무원임용시험령 제31조</td><td>6��� 이하 공무원 채용시험 가산 대상 자격증</td></tr>
+              <tr><td>국가공무원법 제36조의2</td><td>공��원 채용시험 응시 가점</td></tr>
+              <tr><td>교육감소속지방공무원평정��칙 제23조</td><td>5급 이하 공무원, 연구사 및 지도사 가점</td></tr>
+              <tr><td>군무���인사법시행령 제10조</td><td>경력경쟁채용 신규채용 요건</td></tr>
+              <tr><td>군무원인사법시행규칙 제18조</td><td>채용시험의 특전</td></tr>
+              <tr><td>군인사법시행규칙 제14조</td><td>부��관 임용 자격</td></tr>
+              <tr><td>근로자직업능력��발법시행령 제24��</td><td>직업능력개발훈련시설의 지정 인력</td></tr>
+              <tr><td>근로자직��능력���발법시행령 ���27조</td><td>직��능력개발훈련교사의 정의</td></tr>
+              <tr><td>근로자직업능력개발법시행령 제28조</td><td>직업능력개발훈련교사 자격 취득</td></tr>
+              <tr><td>근로자직업능력개발법시행령 제44조</td><td>교원 임용 시 자격증 소지자 우대</td></tr>
+              <tr><td>기초연구진흥및기술개발지원에관한법률시행규칙 제2조</td><td>연구전담요원의 자격 기준</td></tr>
+              <tr><td>국가기술자격법 제14조</td><td>국가기술자��� 취득자 우대</td></tr>
+              <tr><td>국가기술자격법시행규칙 제21조</td><td>시험위원의 자격</td></tr>
+              <tr><td>국가기술자격법시행령 제27조</td><td>공공기관 등 채용 시 국가기술자��� 취득자 우대</td></tr>
+              <tr><td>중소기업인력지원특별�� 제28조</td><td>해당 직종 관련 분야 신기술 창업 지원</td></tr>
+              <tr><td>지방공무원수당등에관한규정 제14조</td><td>특수업무수당 지급</td></tr>
+              <tr><td>지방공무원임용령 제17조</td><td>경력경쟁시험 등의 임용 요건</td></tr>
+              <tr><td>지방공무원임용령 제55조의3</td><td>6급 이하 공��원 신��임용 시 필기시�� 점수 가산</td></tr>
+              <tr><td>지방공무원평���규칙 제23조</td><td>5급 이하 공��원, ���구사 및 지도사 가점</td></tr>
+              <tr><td>국회인사규칙 제20조</td><td>동종 직무 자격증 소��자 경력경쟁채용</td></tr>
+              <tr><td>비상대비자원관리법 제2조</td><td>비상대비 자원의 인력자원 범위</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="info-note">
+          * 본 자료는 2020년 하반기 법제처(law.go.kr) 조사 기준이며, 법령 개정에 따라 변경될 수 있습니다.<br />
+          * 법령별 세부 우대현황에 대한 적용은 관련 법령을 담당하는 부처의 유권해석에 따릅니다.
         </p>
       </section>
 
