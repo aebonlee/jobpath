@@ -10,12 +10,30 @@ const PDF_DIR = path.join(__dirname, '..', 'Dev_md', 'pdf');
 
 // PDF 파일 → (year, session) 매핑
 const PDF_MAP = [
+  // 2016 (1회 PDF 없음)
+  { file: '직업상담사2급20160508(교사용).pdf', year: 2016, session: 2 },
+  { file: '직업상담사2급20160821(교사용).pdf', year: 2016, session: 3 },
+  // 2017
+  { file: '직업상담사2급20170305(교사용).pdf', year: 2017, session: 1 },
+  { file: '직업상담사2급20170518(교사용).pdf', year: 2017, session: 2 },
+  { file: '직업상담사2급20170826(교사용).pdf', year: 2017, session: 3 },
+  // 2018
+  { file: '직업상담사2급20180304(교사용).pdf', year: 2018, session: 1 },
+  { file: '직업상담사2급20180428(교사용).pdf', year: 2018, session: 2 },
+  { file: '직업상담사2급20180819(교사용).pdf', year: 2018, session: 3 },
+  // 2019
+  { file: '직업상담사2급20190303(교사용).pdf', year: 2019, session: 1 },
+  { file: '직업상담사2급20190427(교사용).pdf', year: 2019, session: 2 },
+  { file: '직업상담사2급20190804(교사용).pdf', year: 2019, session: 3 },
+  // 2020
   { file: '직업상담사2급20200606(교사용).pdf', year: 2020, session: 1 },
   { file: '직업상담사2급20200822(교사용).pdf', year: 2020, session: 2 },
   { file: '직업상담사2급20200926(교사용).pdf', year: 2020, session: 3 },
+  // 2021
   { file: '직업상담사2급20210307(교사용).pdf', year: 2021, session: 1 },
   { file: '직업상담사2급20210515(교사용).pdf', year: 2021, session: 2 },
   { file: '직업상담사2급20210814(교사용).pdf', year: 2021, session: 3 },
+  // 2022
   { file: '직업상담사2급20220305(교사용).pdf', year: 2022, session: 1 },
   { file: '직업상담사2급20220424(교사용).pdf', year: 2022, session: 2 },
 ];
