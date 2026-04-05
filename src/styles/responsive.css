@@ -45,6 +45,9 @@
     .hero-buttons { justify-content: center; }
     .hero-stats { justify-content: center; }
 
+    /* Home Subjects */
+    .home-subjects-grid { grid-template-columns: repeat(3, 1fr); }
+
     /* Home Features */
     .home-features-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -146,6 +149,10 @@
     .pilgi-subjects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .pilgi-subject-card { padding: 20px 16px; }
     .pilgi-subject-icon { width: 48px; height: 48px; font-size: 20px; }
+
+    /* Home Subjects */
+    .home-subjects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .home-subject-card { padding: 20px 16px; }
 
     /* Home Features */
     .home-features-grid { grid-template-columns: 1fr; gap: 20px; }

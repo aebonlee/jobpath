@@ -59,7 +59,7 @@ export default function Navbar() {
                   to={item.path}
                   className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
                 >
-                  <i className={item.icon} /> {item.label}
+                  {item.label}
                 </Link>
                 {item.children && (
                   <ul className="nav-dropdown">
@@ -112,7 +112,7 @@ export default function Navbar() {
               </div>
             ) : (
               <Link to="/login" className="login-link">
-                <i className="fa-solid fa-right-to-bracket" /> 로그인
+                로그인
               </Link>
             )}
 
@@ -138,7 +138,7 @@ export default function Navbar() {
                     className="mobile-subnav-toggle"
                     onClick={() => toggleMobileSubnav(item.path)}
                   >
-                    <span><i className={item.icon} style={{ marginRight: 8 }} /> {item.label}</span>
+                    <span>{item.label}</span>
                     <i className={`fa-solid fa-chevron-down toggle-arrow ${mobileSubnavOpen[item.path] ? 'open' : ''}`} />
                   </button>
                   {mobileSubnavOpen[item.path] && (
@@ -156,7 +156,7 @@ export default function Navbar() {
                 </>
               ) : (
                 <Link to={item.path} className="mobile-nav-link">
-                  <i className={item.icon} style={{ marginRight: 8 }} /> {item.label}
+                  {item.label}
                 </Link>
               )}
             </li>

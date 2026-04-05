@@ -115,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="home-section" style={{ padding: 'var(--section-padding) 0' }}>
+      <section className="home-stats-section">
         <div className="container">
           <div className="home-stats-grid">
             <div className="home-stat-item">
@@ -139,7 +139,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="home-cta">
+      <section className="home-cta-section">
         <div className="container">
           <div className="home-cta-content">
             <h2>지금 바로 시작하세요</h2>

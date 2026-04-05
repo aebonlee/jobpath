@@ -2,6 +2,61 @@
    ForJob - Home Page Sections
    ============================================ */
 
+/* ===== Subjects Grid ===== */
+.home-subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+.home-subject-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    text-align: center;
+    transition: var(--transition-base);
+}
+.home-subject-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+.home-subject-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 14px;
+    transition: var(--transition-base);
+}
+.home-subject-card:hover .home-subject-icon {
+    transform: scale(1.1);
+}
+.home-subject-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+.home-subject-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+.home-subject-questions {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    background: rgba(27, 58, 107, 0.06);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+}
+
 /* ===== Features Section (5 Exam Subjects) ===== */
 .home-features-section {
     padding: var(--section-padding) 0;
@@ -204,7 +259,11 @@
     gap: 32px;
     text-align: center;
 }
-.home-stat {}
+.home-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .home-stat-number {
     font-size: 40px;
     font-weight: 900;

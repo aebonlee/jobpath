@@ -100,6 +100,25 @@ html[data-theme="dark"] .pilgi-subject-card p {
     color: var(--text-light);
 }
 
+/* ===== Subject Cards Dark ===== */
+html[data-theme="dark"] .home-subject-card {
+    background: var(--bg-white);
+    border-color: var(--border-light);
+}
+html[data-theme="dark"] .home-subject-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+html[data-theme="dark"] .home-subject-card h4 {
+    color: #F1F5F9;
+}
+html[data-theme="dark"] .home-subject-desc {
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .home-subject-questions {
+    background: rgba(61, 109, 181, 0.15);
+    color: var(--primary-blue-light);
+}
+
 /* ===== Cards Dark Mode ===== */
 html[data-theme="dark"] .card,
 html[data-theme="dark"] .home-feature-card,
