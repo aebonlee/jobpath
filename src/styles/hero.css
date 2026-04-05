@@ -114,7 +114,7 @@
     letter-spacing: 0.06em;
 }
 .hero-schedule-title i {
-    color: #60A5FA;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 16px;
 }
 
@@ -143,21 +143,21 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* 색상 좌측 보더 */
-.hero-schedule-card.exam { border-left: 3px solid #60A5FA; }
-.hero-schedule-card.register { border-left: 3px solid #34D399; }
-.hero-schedule-card.announce { border-left: 3px solid #A78BFA; }
+/* 좌측 보더 — 주컬러 톤 통일 */
+.hero-schedule-card.exam { border-left: 3px solid rgba(255, 255, 255, 0.35); }
+.hero-schedule-card.register { border-left: 3px solid rgba(255, 255, 255, 0.25); }
+.hero-schedule-card.announce { border-left: 3px solid rgba(255, 255, 255, 0.20); }
 
 /* 가장 가까운 일정 강조 */
 .hero-schedule-card.nearest {
-    background: rgba(251, 191, 36, 0.07);
-    border-color: rgba(251, 191, 36, 0.2);
-    border-left: 3px solid #FBBF24;
-    box-shadow: 0 4px 16px rgba(251, 191, 36, 0.08);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    border-left: 3px solid #FFFFFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 .hero-schedule-card.nearest:hover {
-    background: rgba(251, 191, 36, 0.12);
-    box-shadow: 0 8px 24px rgba(251, 191, 36, 0.12);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* ── 카드 내부: 좌측 영역(배지+라벨+날짜) ── */
@@ -183,9 +183,12 @@
     width: fit-content;
 }
 .hero-schedule-type i { font-size: 12px; }
-.hero-schedule-type.exam { background: #2563EB; color: #FFFFFF; }
-.hero-schedule-type.register { background: #059669; color: #FFFFFF; }
-.hero-schedule-type.announce { background: #7C3AED; color: #FFFFFF; }
+.hero-schedule-type.exam,
+.hero-schedule-type.register,
+.hero-schedule-type.announce {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+}
 
 /* ── 라벨 ── */
 .hero-schedule-label {
@@ -215,22 +218,16 @@
     text-align: center;
     flex-shrink: 0;
 }
-.hero-schedule-dday.exam {
-    background: rgba(96, 165, 250, 0.15);
-    color: #93C5FD;
-}
-.hero-schedule-dday.register {
-    background: rgba(52, 211, 153, 0.15);
-    color: #6EE7B7;
-}
+.hero-schedule-dday.exam,
+.hero-schedule-dday.register,
 .hero-schedule-dday.announce {
-    background: rgba(167, 139, 250, 0.15);
-    color: #C4B5FD;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
 }
 /* 가장 가까운 카드 D-day 강조 */
 .hero-schedule-card.nearest .hero-schedule-dday {
-    background: rgba(251, 191, 36, 0.2);
-    color: #FDE68A;
+    background: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
     font-size: 26px;
 }
 

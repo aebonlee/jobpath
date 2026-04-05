@@ -1137,7 +1137,7 @@ html[data-theme="dark"] .info-table.schedule tr:hover td {
     background: var(--bg-light-gray);
 }
 html[data-theme="dark"] .info-schedule-extra {
-    color: #FBBF24;
+    color: var(--primary-blue-light);
 }
 html[data-theme="dark"] .info-round-badge {
     background: rgba(61, 109, 181, 0.15);
@@ -1223,7 +1223,7 @@ html[data-theme="dark"] .info-criteria-subtitle i { color: var(--primary-blue-li
 html[data-theme="dark"] .info-criteria-card { background: var(--bg-light-gray); }
 html[data-theme="dark"] .info-criteria-card h4 { color: #F1F5F9; }
 html[data-theme="dark"] .info-criteria-items li { color: var(--text-secondary); }
-html[data-theme="dark"] .info-criteria-badge-new { background: rgba(239, 68, 68, 0.2); color: #FCA5A5; }
+html[data-theme="dark"] .info-criteria-badge-new { background: rgba(61, 109, 181, 0.2); color: var(--primary-blue-light); }
 
 /* ===== Silgi Exam Pages Dark ===== */
 html[data-theme="dark"] .silgi-exam-stat {

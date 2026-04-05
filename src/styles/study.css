@@ -344,13 +344,19 @@
     font-size: 20px;
     flex-shrink: 0;
 }
-.info-card-icon.overview { background: rgba(59, 130, 246, 0.1); color: #3B82F6; }
-.info-card-icon.pilgi { background: rgba(27, 58, 107, 0.08); color: var(--primary-blue); }
-.info-card-icon.silgi { background: rgba(16, 185, 129, 0.08); color: #10B981; }
-.info-card-icon.subjects { background: rgba(139, 92, 246, 0.08); color: #8B5CF6; }
-.info-card-icon.schedule { background: rgba(245, 158, 11, 0.08); color: #F59E0B; }
-.info-card-icon.links { background: rgba(99, 102, 241, 0.08); color: #6366F1; }
-.info-card-icon.tips { background: rgba(234, 179, 8, 0.08); color: #EAB308; }
+.info-card-icon.overview,
+.info-card-icon.pilgi,
+.info-card-icon.silgi,
+.info-card-icon.subjects,
+.info-card-icon.schedule,
+.info-card-icon.links,
+.info-card-icon.tips,
+.info-card-icon.stats,
+.info-card-icon.benefit,
+.info-card-icon.criteria {
+    background: rgba(27, 58, 107, 0.08);
+    color: var(--primary-blue);
+}
 
 /* ── 자격증 명칭 (한글 + 영문) ── */
 .info-cert-name {
@@ -693,10 +699,13 @@
 .info-card-icon.benefit { background: rgba(217, 119, 6, 0.08); color: #D97706; }
 
 /* ── Schedule Badge Variants ── */
-.info-round-badge.register { background: rgba(5, 150, 105, 0.1); color: #059669; }
-.info-round-badge.exam { background: rgba(37, 99, 235, 0.1); color: #2563EB; }
-.info-round-badge.exam.silgi { background: rgba(16, 185, 129, 0.1); color: #059669; }
-.info-round-badge.announce { background: rgba(124, 58, 237, 0.1); color: #7C3AED; }
+.info-round-badge.register,
+.info-round-badge.exam,
+.info-round-badge.exam.silgi,
+.info-round-badge.announce {
+    background: rgba(27, 58, 107, 0.08);
+    color: var(--primary-blue);
+}
 
 /* Full Schedule Table */
 .info-table.full-schedule th {
@@ -722,7 +731,7 @@
     display: block;
     margin-top: 6px;
     font-size: 11px;
-    color: #F59E0B;
+    color: var(--primary-blue-light, #3D6DB5);
     font-weight: 600;
 }
 
@@ -747,13 +756,13 @@
     color: var(--primary-blue);
 }
 .info-th-group.silgi {
-    color: #059669;
+    color: var(--primary-blue-light, #3D6DB5);
 }
 .rate-pilgi {
     color: var(--primary-blue) !important;
 }
 .rate-silgi {
-    color: #059669 !important;
+    color: var(--primary-blue-light, #3D6DB5) !important;
 }
 
 /* Stats Summary */
@@ -822,12 +831,12 @@
     border: 1px solid var(--border-light);
 }
 .info-trend-card.male {
-    border-left: 4px solid #3B82F6;
-    background: rgba(59, 130, 246, 0.03);
+    border-left: 4px solid var(--primary-blue);
+    background: rgba(27, 58, 107, 0.03);
 }
 .info-trend-card.female {
-    border-left: 4px solid #EC4899;
-    background: rgba(236, 72, 153, 0.03);
+    border-left: 4px solid var(--primary-blue-light, #3D6DB5);
+    background: rgba(61, 109, 181, 0.03);
 }
 .info-trend-icon {
     width: 40px;
@@ -840,12 +849,12 @@
     flex-shrink: 0;
 }
 .info-trend-card.male .info-trend-icon {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3B82F6;
+    background: rgba(27, 58, 107, 0.1);
+    color: var(--primary-blue);
 }
 .info-trend-card.female .info-trend-icon {
-    background: rgba(236, 72, 153, 0.1);
-    color: #EC4899;
+    background: rgba(61, 109, 181, 0.1);
+    color: var(--primary-blue-light, #3D6DB5);
 }
 .info-trend-body {
     display: flex;
@@ -870,7 +879,7 @@
     font-weight: 800;
 }
 .info-trend-card.female .info-trend-rate strong {
-    color: #EC4899;
+    color: var(--primary-blue-light, #3D6DB5);
 }
 
 /* ── Benefit Table ── */
@@ -977,7 +986,6 @@
 }
 
 /* ===== 출제기준 (Criteria) ===== */
-.info-card-icon.criteria { background: rgba(99, 102, 241, 0.08); color: #6366F1; }
 
 .info-criteria-subtitle {
     font-size: 16px;
@@ -1060,8 +1068,8 @@
     padding: 1px 8px;
     font-size: 10px;
     font-weight: 800;
-    background: rgba(239, 68, 68, 0.1);
-    color: #DC2626;
+    background: rgba(27, 58, 107, 0.1);
+    color: var(--primary-blue);
     border-radius: var(--radius-full);
     letter-spacing: 0.02em;
 }
