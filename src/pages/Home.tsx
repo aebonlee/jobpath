@@ -5,20 +5,63 @@ import { SUBJECTS } from '../config/site';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase, TABLES } from '../lib/supabase';
 
-/* ───────── D-day helper ───────── */
-function getDday(): { label: string; type: string; days: number } | null {
-  const exams = [
-    { label: '2회 필기시험', type: '시험일', date: new Date(2026, 4, 9) },
-    { label: '3회 필기 접수', type: '접수일', date: new Date(2026, 6, 20) },
-    { label: '3회 필기시험', type: '시험일', date: new Date(2026, 7, 7) },
+/* ───────── 시험 일정 데이터 ───────── */
+const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
+
+interface ExamEvent {
+  label: string;
+  type: '필기접수' | '필기시험' | '필기발표' | '실기접수' | '실기시험' | '최종발표';
+  startDate: Date;
+  endDate?: Date;          // 기간이 있는 경우
+  days: number;            // D-day (startDate 기준)
+  dateStr: string;         // "5.9(토)~5.29(금)" 또는 "6.10(수)"
+}
+
+function fmtDate(d: Date) {
+  return `${d.getMonth() + 1}.${d.getDate()}(${DAY_NAMES[d.getDay()]})`;
+}
+
+function getExamEvents(): ExamEvent[] {
+  const raw: { label: string; type: ExamEvent['type']; start: Date; end?: Date }[] = [
+    // ── 2회 ──
+    { label: '2회 필기접수', type: '필기접수', start: new Date(2026, 3, 20), end: new Date(2026, 3, 23) },
+    { label: '2회 필기시험', type: '필기시험', start: new Date(2026, 4, 9), end: new Date(2026, 4, 29) },
+    { label: '2회 필기발표', type: '필기발표', start: new Date(2026, 5, 10) },
+    { label: '2회 실기접수', type: '실기접수', start: new Date(2026, 5, 22), end: new Date(2026, 5, 25) },
+    { label: '2회 실기시험', type: '실기시험', start: new Date(2026, 6, 18), end: new Date(2026, 7, 5) },
+    { label: '2회 최종발표', type: '최종발표', start: new Date(2026, 8, 11) },
+    // ── 3회 ──
+    { label: '3회 필기접수', type: '필기접수', start: new Date(2026, 6, 20), end: new Date(2026, 6, 23) },
+    { label: '3회 필기시험', type: '필기시험', start: new Date(2026, 7, 7), end: new Date(2026, 8, 1) },
+    { label: '3회 필기발표', type: '필기발표', start: new Date(2026, 8, 9) },
+    { label: '3회 실기접수', type: '실기접수', start: new Date(2026, 8, 21), end: new Date(2026, 8, 28) },
+    { label: '3회 실기시험', type: '실기시험', start: new Date(2026, 9, 24), end: new Date(2026, 10, 13) },
+    { label: '3회 최종발표', type: '최종발표', start: new Date(2026, 11, 18) },
   ];
+
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  for (const exam of exams) {
-    const diff = Math.ceil((exam.date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-    if (diff >= 0) return { label: exam.label, type: exam.type, days: diff };
-  }
-  return null;
+
+  return raw
+    .map(e => {
+      const diff = Math.ceil((e.start.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+      const dateStr = e.end ? `${fmtDate(e.start)}~${fmtDate(e.end)}` : fmtDate(e.start);
+      return { label: e.label, type: e.type, startDate: e.start, endDate: e.end, days: diff, dateStr };
+    })
+    .filter(e => {
+      // 기간 이벤트: 종료일 이전이면 표시, 단일 이벤트: 당일까지 표시
+      const ref = e.endDate ?? e.startDate;
+      return Math.ceil((ref.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)) >= 0;
+    });
+}
+
+/** 가장 가까운 이벤트의 D-day (LoggedInHome 배지용) */
+function getDday(): { label: string; type: string; days: number; dateStr: string } | null {
+  const events = getExamEvents();
+  if (events.length === 0) return null;
+  const e = events[0];
+  const typeLabel = e.type === '필기시험' || e.type === '실기시험' ? '시험' : e.type === '필기접수' || e.type === '실기접수' ? '접수' : '발표';
+  return { label: e.label, type: typeLabel, days: e.days, dateStr: e.dateStr };
 }
 
 /* ═══════════════════════════════════════════
@@ -289,6 +332,7 @@ function LoggedInHome({ user }: { user: any }) {
    ═══════════════════════════════════════════ */
 function LandingHome() {
   const dday = getDday();
+  const allEvents = getExamEvents();
 
   return (
     <>
@@ -306,10 +350,10 @@ function LandingHome() {
         <div className="container">
           <div className="hero-content">
             <div className="hero-badge">
-              <i className="fa-solid fa-award" /> 2026년 직업상담사 2급
+              <i className="fa-solid fa-award" /> 2026년 직업상담사 1급·2급
             </div>
             <h1 className="hero-title">
-              직업상담사 2급<br />
+              직업상담사<br />
               <span className="highlight">합격을 위한 최적의 학습</span>
             </h1>
             <p className="hero-description">
@@ -324,19 +368,33 @@ function LandingHome() {
                 <i className="fa-solid fa-circle-info" /> 시험 안내
               </Link>
             </div>
-            {dday && (
-              <div className="hero-stats">
-                <div className="hero-stat-item">
-                  <div className="hero-stat-number">D-{dday.days === 0 ? 'Day' : dday.days}</div>
-                  <div className="hero-stat-label">{dday.label}</div>
+            {allEvents.length > 0 && (
+              <div className="hero-exam-schedule">
+                <div className="hero-schedule-title">
+                  <i className="fa-solid fa-calendar-check" /> 2026 시험 일정
                 </div>
-                <div className="hero-stat-item">
-                  <div className="hero-stat-number">5</div>
-                  <div className="hero-stat-label">필기 과목</div>
-                </div>
-                <div className="hero-stat-item">
-                  <div className="hero-stat-number">100</div>
-                  <div className="hero-stat-label">문항</div>
+                <div className="hero-schedule-list">
+                  {allEvents.map((evt, idx) => {
+                    const typeClass =
+                      evt.type === '필기시험' || evt.type === '실기시험' ? 'exam'
+                      : evt.type === '필기접수' || evt.type === '실기접수' ? 'register'
+                      : 'announce';
+                    const typeIcon =
+                      typeClass === 'exam' ? 'fa-solid fa-pen-to-square'
+                      : typeClass === 'register' ? 'fa-solid fa-clipboard-list'
+                      : 'fa-solid fa-bullhorn';
+                    const ddayText = evt.days < 0 ? '진행중' : evt.days === 0 ? 'D-Day' : `D-${evt.days}`;
+                    return (
+                      <div key={idx} className={`hero-schedule-item ${typeClass}${idx === 0 ? ' nearest' : ''}`}>
+                        <span className={`hero-schedule-type ${typeClass}`}>
+                          <i className={typeIcon} /> {evt.type}
+                        </span>
+                        <span className="hero-schedule-label">{evt.label}</span>
+                        <span className="hero-schedule-date">{evt.dateStr}</span>
+                        <span className={`hero-schedule-dday ${typeClass}`}>{ddayText}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -437,17 +495,19 @@ function LandingHome() {
       <section className="home-stats-section">
         <div className="container">
           <div className="home-stats-grid">
+            {dday && (
+              <div className="home-stat-item home-stat-dday">
+                <span className="home-stat-number">D-{dday.days === 0 ? 'Day' : dday.days}</span>
+                <span className="home-stat-label">{dday.label} ({dday.dateStr})</span>
+              </div>
+            )}
             <div className="home-stat-item">
               <span className="home-stat-number">5</span>
               <span className="home-stat-label">필기 과목</span>
             </div>
             <div className="home-stat-item">
               <span className="home-stat-number">100</span>
-              <span className="home-stat-label">문항</span>
-            </div>
-            <div className="home-stat-item">
-              <span className="home-stat-number">100</span>
-              <span className="home-stat-label">분 (필기시험)</span>
+              <span className="home-stat-label">문항 / 100분</span>
             </div>
             <div className="home-stat-item">
               <span className="home-stat-number">60</span>

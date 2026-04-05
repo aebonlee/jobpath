@@ -1181,6 +1181,39 @@ html[data-theme="dark"] .info-tip-body h4 {
 html[data-theme="dark"] .info-tip-body p {
     color: var(--text-secondary);
 }
+/* Schedule badge variants */
+html[data-theme="dark"] .info-round-badge.register { background: rgba(5, 150, 105, 0.15); color: #6EE7B7; }
+html[data-theme="dark"] .info-round-badge.exam { background: rgba(37, 99, 235, 0.15); color: #93C5FD; }
+html[data-theme="dark"] .info-round-badge.exam.silgi { background: rgba(16, 185, 129, 0.15); color: #6EE7B7; }
+html[data-theme="dark"] .info-round-badge.announce { background: rgba(124, 58, 237, 0.15); color: #C4B5FD; }
+/* Stats summary */
+html[data-theme="dark"] .info-stats-summary-item { background: var(--bg-light-gray); color: var(--text-secondary); }
+html[data-theme="dark"] .info-stats-summary-item strong { color: #F1F5F9; }
+/* Trend cards */
+html[data-theme="dark"] .info-trend-card { border-color: var(--border-light); }
+html[data-theme="dark"] .info-trend-card.male { background: rgba(59, 130, 246, 0.06); }
+html[data-theme="dark"] .info-trend-card.female { background: rgba(236, 72, 153, 0.06); }
+html[data-theme="dark"] .info-trend-label { color: #F1F5F9; }
+html[data-theme="dark"] .info-trend-numbers { color: var(--text-secondary); }
+html[data-theme="dark"] .info-trend-2024 h3 { color: #F1F5F9; }
+html[data-theme="dark"] .rate-pilgi { color: #93C5FD !important; }
+html[data-theme="dark"] .rate-silgi { color: #6EE7B7 !important; }
+/* Benefit table */
+html[data-theme="dark"] .benefit-table td:first-child { color: var(--text-secondary); }
+
+/* ===== Info Level Tabs Dark ===== */
+html[data-theme="dark"] .info-level-tabs { background: var(--bg-light-gray); }
+html[data-theme="dark"] .info-level-tab { color: var(--text-secondary); }
+html[data-theme="dark"] .info-level-tab:hover { color: var(--primary-blue-light); background: rgba(61, 109, 181, 0.1); }
+html[data-theme="dark"] .info-level-tab.active { background: var(--primary-blue); color: #FFFFFF; }
+
+/* ===== Criteria Dark ===== */
+html[data-theme="dark"] .info-criteria-subtitle { color: #F1F5F9; }
+html[data-theme="dark"] .info-criteria-subtitle i { color: var(--primary-blue-light); }
+html[data-theme="dark"] .info-criteria-card { background: var(--bg-light-gray); }
+html[data-theme="dark"] .info-criteria-card h4 { color: #F1F5F9; }
+html[data-theme="dark"] .info-criteria-items li { color: var(--text-secondary); }
+html[data-theme="dark"] .info-criteria-badge-new { background: rgba(239, 68, 68, 0.2); color: #FCA5A5; }
 
 /* ===== Silgi Exam Pages Dark ===== */
 html[data-theme="dark"] .silgi-exam-stat {

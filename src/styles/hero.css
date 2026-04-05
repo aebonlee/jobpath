@@ -88,26 +88,149 @@
     transform: translateY(-2px);
 }
 
-/* Hero Stats */
-.hero-stats {
-    display: flex;
-    gap: 40px;
-    margin-top: 48px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+/* Hero Exam Schedule */
+.hero-exam-schedule {
+    margin-top: 36px;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
 }
-.hero-stat-item {}
-.hero-stat-number {
-    font-size: 28px;
-    font-weight: 900;
+.hero-schedule-title {
+    font-size: 15px;
+    font-weight: 700;
     color: #FFFFFF;
-    line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.hero-stat-label {
+.hero-schedule-title i {
+    color: #60A5FA;
+    font-size: 16px;
+}
+.hero-schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ── 개별 일정 행 ── */
+.hero-schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border-left: 3px solid transparent;
+    transition: background 0.2s;
+}
+.hero-schedule-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* 가장 가까운 일정 강조 */
+.hero-schedule-item.nearest {
+    background: rgba(251, 191, 36, 0.1);
+    border-left-color: #FBBF24;
+}
+
+/* 시험 행 */
+.hero-schedule-item.exam {
+    border-left-color: #60A5FA;
+}
+/* 접수 행 */
+.hero-schedule-item.register {
+    border-left-color: #34D399;
+}
+/* 발표 행 */
+.hero-schedule-item.announce {
+    border-left-color: #A78BFA;
+}
+/* nearest 오버라이드 */
+.hero-schedule-item.nearest.exam,
+.hero-schedule-item.nearest.register,
+.hero-schedule-item.nearest.announce {
+    border-left-color: #FBBF24;
+}
+
+/* ── 타입 배지 ── */
+.hero-schedule-type {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 72px;
+    justify-content: center;
+    letter-spacing: 0.02em;
+}
+.hero-schedule-type i {
+    font-size: 10px;
+}
+.hero-schedule-type.exam {
+    background: #2563EB;
+    color: #FFFFFF;
+}
+.hero-schedule-type.register {
+    background: #059669;
+    color: #FFFFFF;
+}
+.hero-schedule-type.announce {
+    background: #7C3AED;
+    color: #FFFFFF;
+}
+
+/* ── 라벨 ── */
+.hero-schedule-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #F1F5F9;
+    flex: 1;
+    white-space: nowrap;
+}
+
+/* ── 날짜 ── */
+.hero-schedule-date {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 500;
+    font-weight: 600;
+    color: #CBD5E1;
+    white-space: nowrap;
+}
+
+/* ── D-day 뱃지 ── */
+.hero-schedule-dday {
+    font-size: 13px;
+    font-weight: 900;
+    min-width: 56px;
+    text-align: center;
+    padding: 3px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+.hero-schedule-dday.exam {
+    background: rgba(96, 165, 250, 0.2);
+    color: #93C5FD;
+}
+.hero-schedule-dday.register {
+    background: rgba(52, 211, 153, 0.2);
+    color: #6EE7B7;
+}
+.hero-schedule-dday.announce {
+    background: rgba(167, 139, 250, 0.2);
+    color: #C4B5FD;
+}
+/* 가장 가까운 일정 D-day 강조 */
+.hero-schedule-item.nearest .hero-schedule-dday {
+    background: rgba(251, 191, 36, 0.25);
+    color: #FDE68A;
+    font-size: 14px;
 }
 
 /* Scroll Indicator */

@@ -1,19 +1,32 @@
 export const SITE = {
   name: 'JobPath',
-  title: '직업상담사 2급 시험 준비 플랫폼',
-  description: '직업상담사 2급 필기·실기 시험 준비를 위한 CBT 학습 플랫폼',
+  title: '직업상담사 시험 준비 플랫폼',
+  description: '직업상담사 1급·2급 필기·실기 시험 준비를 위한 CBT 학습 플랫폼',
   url: 'https://jobpath.dreamitbiz.com',
   domain: 'jobpath.dreamitbiz.com',
 };
 
-export const SUBJECTS = [
+/* ── 2급 과목 ── */
+export const SUBJECTS_2 = [
   { id: 1, code: 'counseling', name: '직업상담학', color: '#3B82F6', icon: 'fa-solid fa-comments', sortOrder: 1 },
   { id: 2, code: 'psychology', name: '직업심리학', color: '#8B5CF6', icon: 'fa-solid fa-brain', sortOrder: 2 },
   { id: 3, code: 'jobinfo', name: '직업정보론', color: '#10B981', icon: 'fa-solid fa-circle-info', sortOrder: 3 },
   { id: 4, code: 'labor_market', name: '노동시장론', color: '#F59E0B', icon: 'fa-solid fa-chart-line', sortOrder: 4 },
   { id: 5, code: 'labor_law', name: '노동관계법규', color: '#EF4444', icon: 'fa-solid fa-scale-balanced', sortOrder: 5 },
 ];
+/** 기존 코드 호환 alias */
+export const SUBJECTS = SUBJECTS_2;
 
+/* ── 1급 과목 ── */
+export const SUBJECTS_1 = [
+  { id: 1, code: 'job_psychology', name: '직업심리 및 전직지원', color: '#6366F1', icon: 'fa-solid fa-brain', sortOrder: 1 },
+  { id: 2, code: 'deep_counseling', name: '심층직업상담 및 슈퍼비전', color: '#EC4899', icon: 'fa-solid fa-comments', sortOrder: 2 },
+  { id: 3, code: 'job_info_proc', name: '직업정보가공', color: '#14B8A6', icon: 'fa-solid fa-database', sortOrder: 3 },
+  { id: 4, code: 'labor_analysis', name: '노동시장분석', color: '#F97316', icon: 'fa-solid fa-chart-line', sortOrder: 4 },
+  { id: 5, code: 'labor_law_2', name: '고용노동관계법규(II)', color: '#EF4444', icon: 'fa-solid fa-scale-balanced', sortOrder: 5 },
+];
+
+/* ── 2급 시험설정 (기존) ── */
 export const EXAM_CONFIG = {
   pilgi: {
     totalQuestions: 100,
@@ -25,6 +38,22 @@ export const EXAM_CONFIG = {
   },
   silgi: {
     timeLimit: 150 * 60,
+    passScore: 60,
+  },
+};
+
+/* ── 1급 시험설정 ── */
+export const EXAM_CONFIG_1 = {
+  pilgi: {
+    totalQuestions: 100,
+    questionsPerSubject: 20,
+    timeLimit: 150 * 60, // 150분
+    passScore: 60,
+    subjectMinScore: 40,
+    optionCount: 4,
+  },
+  silgi: {
+    timeLimit: 150 * 60, // 150분
     passScore: 60,
   },
 };
