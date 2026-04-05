@@ -333,8 +333,15 @@ html[data-theme="dark"] .q-table td {
 html[data-theme="dark"] .question-number {
     background: var(--primary-blue-light);
 }
-html[data-theme="dark"] .question-bookmark {
+html[data-theme="dark"] .bookmark-btn {
     color: var(--text-light);
+}
+html[data-theme="dark"] .bookmark-tooltip {
+    background: #F8FAFC;
+    color: #1E293B;
+}
+html[data-theme="dark"] .bookmark-tooltip::after {
+    border-top-color: #F8FAFC;
 }
 
 /* Option Items Dark */
@@ -378,8 +385,9 @@ html[data-theme="dark"] .question-nav-btn:hover {
     color: var(--primary-blue-light);
 }
 html[data-theme="dark"] .question-nav-btn.answered {
-    background: var(--bg-medium-gray);
-    color: var(--text-primary);
+    background: rgba(59, 130, 246, 0.2);
+    color: #93C5FD;
+    border-color: rgba(59, 130, 246, 0.35);
 }
 html[data-theme="dark"] .question-nav-btn.bookmarked {
     background: rgba(245, 158, 11, 0.15);

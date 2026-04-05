@@ -50,11 +50,37 @@ export default function ExamMode() {
     setAnswers(prev => ({ ...prev, [questionId]: answer }));
   }, []);
 
-  const handleToggleBookmark = useCallback((questionId) => {
-    setBookmarkedIds(prev =>
-      prev.includes(questionId) ? prev.filter(id => id !== questionId) : [...prev, questionId]
-    );
-  }, []);
+  // Load bookmarks from Supabase
+  useEffect(() => {
+    if (!user) return;
+    supabase.from(TABLES.BOOKMARKS)
+      .select('question_id')
+      .eq('user_id', user.id)
+      .then(({ data }) => {
+        if (data) setBookmarkedIds(data.map(b => b.question_id));
+      });
+  }, [user]);
+
+  const handleToggleBookmark = useCallback(async (questionId) => {
+    const isBookmarked = bookmarkedIds.includes(questionId);
+    if (isBookmarked) {
+      setBookmarkedIds(prev => prev.filter(id => id !== questionId));
+      if (user) {
+        await supabase.from(TABLES.BOOKMARKS)
+          .delete()
+          .eq('user_id', user.id)
+          .eq('question_id', questionId);
+      }
+      showToast('북마크가 해제되었습니다.', 'info');
+    } else {
+      setBookmarkedIds(prev => [...prev, questionId]);
+      if (user) {
+        await supabase.from(TABLES.BOOKMARKS)
+          .insert({ user_id: user.id, question_id: questionId });
+      }
+      showToast('북마크에 추가되었습니다.', 'success');
+    }
+  }, [user, bookmarkedIds, showToast]);
 
   const handleTimeUp = useCallback(() => {
     showToast('시간이 종료되었습니다. 자동 제출합니다.', 'info');
