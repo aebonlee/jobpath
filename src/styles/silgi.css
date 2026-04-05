@@ -968,6 +968,53 @@
     color: var(--text-primary);
 }
 
+/* ===== Study Summary Tabs (필기/실기) ===== */
+.summary-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 24px;
+    margin-top: 8px;
+}
+.summary-tab {
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: -2px;
+}
+.summary-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-light-gray);
+}
+.summary-tab.active {
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-blue);
+    font-weight: 700;
+}
+.summary-tab i {
+    font-size: 14px;
+}
+
+/* ===== Silgi freq badge ===== */
+.sq-badge--freq {
+    background: #FEF3C7 !important;
+    color: #D97706 !important;
+    font-weight: 600;
+}
+.sq-badge--freq i {
+    font-size: 11px;
+}
+
 /* ===== Study Summary Sidebar Layout ===== */
 .summary-layout {
     display: grid;

@@ -1215,6 +1215,24 @@ html[data-theme="dark"] .silgi-exam-card-arrow {
 html[data-theme="dark"] .silgi-exam-notice {
     background: rgba(59, 130, 246, 0.08);
 }
+html[data-theme="dark"] .summary-tabs {
+    border-bottom-color: var(--border-light);
+}
+html[data-theme="dark"] .summary-tab {
+    color: var(--text-secondary);
+}
+html[data-theme="dark"] .summary-tab:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+html[data-theme="dark"] .summary-tab.active {
+    color: var(--primary-blue-light);
+    border-bottom-color: var(--primary-blue-light);
+}
+html[data-theme="dark"] .sq-badge--freq {
+    background: rgba(217, 119, 6, 0.15) !important;
+    color: #FCD34D !important;
+}
 html[data-theme="dark"] .sq-card {
     background: var(--bg-white);
     border-color: var(--border-light);
