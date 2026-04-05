@@ -1,6 +1,7 @@
 /* ============================================
-   ForJob - 실기 5개년 빈출 기출정리 (2019~2023)
-   총 177문항 (1~177번 전체) | 5개 과목 분류
+   ForJob - 실기 8개년 빈출 기출정리 (2018~2025)
+   총 201문항 (1~201번) | 4개 과목 분류
+   워크북 8개년 기출 데이터 기반 확장 (2026-04-06)
    ============================================ */
 
 export const FREQUENT_CATEGORIES = [
@@ -18,7 +19,7 @@ export const SILGI_FREQUENT = [
   {
     num: 1, category: 'counseling',
     title: '부처(Butcher)의 집단 직업상담의 과정 3단계 모델에 대해 쓰고 설명하시오.',
-    frequency: '22-3, 21-3, 21-1, 20-2',
+    frequency: '24-3, 22-3, 21-3, 21-1, 20-2',
     keyword: '부처(Butcher) 집단직업상담 3단계',
     answer: `<ol>
 <li><strong>탐색단계</strong><br/>자기개방, 흥미와 적성에 대한 탐색, 측정결과에 대한 피드백, 자아상과 피드백 내용 간 불일치의 해결</li>
@@ -29,7 +30,7 @@ export const SILGI_FREQUENT = [
   {
     num: 2, category: 'counseling',
     title: '아들러(Adler)의 개인주의 상담과정의 목표 5가지를 쓰시오.',
-    frequency: '22-3, 20-1',
+    frequency: '25-1, 22-3, 20-1, 18-2',
     keyword: '아들러(Adler) 개인주의 상담 목표',
     answer: `<ol>
 <li>사회적 관심을 갖도록 돕는다.</li>
@@ -78,14 +79,14 @@ export const SILGI_FREQUENT = [
   {
     num: 6, category: 'counseling',
     title: '직업적응 이론(TWA)에서 중요하게 다루는 직업가치 6가지를 쓰시오.',
-    frequency: '22-3',
+    frequency: '25-3, 24-1, 22-3',
     keyword: '직업적응이론(TWA) 직업가치',
     answer: `<ol><li>지위</li><li>성취</li><li>이타심</li><li>안정성</li><li>보호(안락함, 편안함)</li><li>자율성</li></ol>`,
   },
   {
     num: 7, category: 'counseling',
     title: '크롬볼츠(Krumboltz)가 제시한 진로선택에 영향을 주는 요인 4가지를 쓰시오.',
-    frequency: '22-3',
+    frequency: '22-3, 18-2',
     keyword: '크롬볼츠(Krumboltz) 진로선택 영향요인',
     answer: `<ol><li>유전적 요인과 특별한 능력</li><li>환경적 조건과 사건</li><li>학습경험</li><li>과제 접근 기술</li></ol>`,
   },
@@ -106,7 +107,7 @@ export const SILGI_FREQUENT = [
   {
     num: 49, category: 'counseling',
     title: '발달적 직업상담에서 진로 자서전과 의사결정 일기를 각각 설명하시오.',
-    frequency: '19-3',
+    frequency: '24-3, 19-3',
     keyword: '진로 자서전 / 의사결정 일기',
     answer: `<ol>
 <li><strong>진로 자서전</strong><br/>내담자가 과거에 어떤 의사결정을 했는지 자유롭게 기술하는 자료이다.</li>
@@ -116,7 +117,7 @@ export const SILGI_FREQUENT = [
   {
     num: 61, category: 'counseling',
     title: '보딘이 제시한 직업문제의 심리적 원인 5가지를 쓰고 설명하시오.',
-    frequency: '23-2, 21-1, 19-2',
+    frequency: '23-2, 21-1, 19-2, 18-3',
     keyword: '보딘(Bordin) 심리적 원인',
     answer: `<ol>
 <li><strong>의존성</strong> : 직업을 스스로 결정하지 못하고 타인에게 의존하는 경우</li>
@@ -129,7 +130,7 @@ export const SILGI_FREQUENT = [
   {
     num: 62, category: 'counseling',
     title: '보딘의 3단계 직업상담과정을 쓰고 각각에 대해 설명하시오.',
-    frequency: '20-3',
+    frequency: '20-3, 18-2',
     keyword: '보딘(Bordin) 3단계 직업상담과정',
     answer: `<ol>
 <li><strong>탐색과 계약설정 단계</strong><br/>내담자의 욕구와 정신 역동성을 탐색하고 상담을 구조화한다.</li>
@@ -140,7 +141,7 @@ export const SILGI_FREQUENT = [
   {
     num: 63, category: 'counseling',
     title: '형태주의(게슈탈트) 상담의 상담기법을 4가지 쓰시오.',
-    frequency: '23-2, 19-3',
+    frequency: '24-2, 23-2, 19-3, 18-2',
     keyword: '게슈탈트 상담기법',
     answer: `<ol>
 <li><strong>꿈작업</strong> : 꿈이 현재 일어난 일인 것처럼 연기하도록 하는 기법</li>
@@ -170,7 +171,7 @@ export const SILGI_FREQUENT = [
   {
     num: 65, category: 'counseling',
     title: '내담자중심 상담기법에서 상담자의 태도 3가지를 쓰시오.',
-    frequency: '20-1',
+    frequency: '25-3, 24-1, 20-1',
     keyword: '내담자중심 상담 상담자 태도',
     answer: `<ol>
 <li><strong>일치성 또는 진실성</strong> : 상담자가 자신의 감정이나 생각을 있는 그대로 솔직하게 표현하는 것</li>
@@ -208,7 +209,7 @@ export const SILGI_FREQUENT = [
   {
     num: 69, category: 'counseling',
     title: '홀랜드의 육각형 모델에서 일관성, 변별성, 정체성에 대해 설명하시오.',
-    frequency: '23-2',
+    frequency: '25-1, 23-2',
     keyword: '홀랜드 육각형 모델 해석차원',
     answer: `<ol>
 <li><strong>일관성</strong> : 육각형 모델에서 어떤 쌍들은 다른 쌍에 비해 더 많은 공통점을 갖고 있다.</li>
@@ -219,7 +220,7 @@ export const SILGI_FREQUENT = [
   {
     num: 70, category: 'counseling',
     title: '고트프레드슨의 직업과 관련된 개인발달의 4단계를 쓰시오.',
-    frequency: '23-2',
+    frequency: '25-1, 23-2',
     keyword: '고트프레드슨(Gottfredson) 직업포부 발달단계',
     answer: `<ol>
 <li><strong>힘과 크기 지향성</strong> : 사고과정이 구체화되며 어른이 된다는 것의 의미를 알게 된다.</li>
@@ -231,7 +232,7 @@ export const SILGI_FREQUENT = [
   {
     num: 73, category: 'counseling',
     title: '진로상담 과정에서 관계수립을 위한 기본 상담기술 6가지를 쓰시오.',
-    frequency: '23-1, 20-1',
+    frequency: '25-3, 23-1, 20-1',
     keyword: '기본 상담기술',
     answer: `<ol><li>공감</li><li>적극적 경청</li><li>명료화</li><li>반영</li><li>수용</li><li>요약과 재진술</li><li>감정이입</li><li>환언</li><li>직면</li></ol>`,
   },
@@ -257,7 +258,7 @@ export const SILGI_FREQUENT = [
   {
     num: 75, category: 'counseling',
     title: '행동주의 상담의 적응 행동 증진기법 3가지를 설명하시오.',
-    frequency: '21-2',
+    frequency: '24-1, 21-2, 18-1',
     keyword: '적응 행동 증진기법',
     answer: `<ol>
 <li><strong>강화</strong> : 내담자의 행동에 적절하게 긍정·부정적 반응을 보여 바람직한 행동을 강화</li>
@@ -270,7 +271,7 @@ export const SILGI_FREQUENT = [
   {
     num: 76, category: 'counseling',
     title: '윌리엄슨의 직업상담 문제유형 4가지를 쓰고 설명하시오.',
-    frequency: '22-2, 21-3, 20-4',
+    frequency: '25-2, 22-2, 21-3, 20-4, 18-1',
     keyword: '윌리엄슨 직업상담 문제유형',
     answer: `<ol>
 <li><strong>진로 무선택</strong> : 직업을 선택해 본 적이 없거나, 어떤 것을 선택할지 모르는 유형</li>
@@ -300,7 +301,7 @@ export const SILGI_FREQUENT = [
   {
     num: 79, category: 'counseling',
     title: '집단상담의 장점 6가지를 쓰시오.',
-    frequency: '23-1, 20-4, 19-1',
+    frequency: '24-2, 23-1, 20-4, 19-1',
     keyword: '집단상담 장점',
     answer: `<ol>
 <li>시간과 비용이 경제적이다.</li>
@@ -325,7 +326,7 @@ export const SILGI_FREQUENT = [
   {
     num: 81, category: 'counseling',
     title: '로저스의 인간중심 상담의 철학적 가정 4가지를 쓰시오.',
-    frequency: '23-1',
+    frequency: '23-1, 18-3',
     keyword: '로저스 인간중심 상담 철학적 가정',
     answer: `<ol>
 <li>인간은 가치를 지닌 유일한 존재이다.</li>
@@ -338,7 +339,7 @@ export const SILGI_FREQUENT = [
   {
     num: 87, category: 'counseling',
     title: '홀랜드 직업흥미검사의 6가지 유형을 쓰시오.',
-    frequency: '23-1, 22-1, 20-3, 20-1, 19-2',
+    frequency: '25-2, 23-1, 22-1, 20-3, 20-1, 19-2, 18-2',
     keyword: '홀랜드(Holland) 흥미유형 RIASEC',
     answer: `<ol><li>현실형</li><li>탐구형</li><li>예술형</li><li>사회형</li><li>진취형(기업형)</li><li>관습형</li></ol>`,
   },
@@ -352,7 +353,7 @@ export const SILGI_FREQUENT = [
   {
     num: 89, category: 'counseling',
     title: '내담자와의 상담목표 설정 시 유의사항 5가지를 쓰시오.',
-    frequency: '22-2, 20-3',
+    frequency: '25-2, 22-2, 20-3',
     keyword: '상담목표 설정 유의사항',
     answer: `<ol>
 <li>내담자가 바라고 원하는 것을 목표로 하여야 한다.</li>
@@ -372,7 +373,7 @@ export const SILGI_FREQUENT = [
   {
     num: 91, category: 'counseling',
     title: '내담자의 행동을 이해하고 해석하는 데 기본이 되는 상담 기법을 6가지 쓰시오.',
-    frequency: '21-2',
+    frequency: '25-3, 21-2',
     keyword: '상담 기법 (행동이해/해석)',
     answer: `<ol>
 <li>가정 사용하기</li><li>의미있는 질문하기</li><li>전이된 오류 정정하기</li><li>분류 및 재구성하기</li>
@@ -382,7 +383,7 @@ export const SILGI_FREQUENT = [
   {
     num: 95, category: 'counseling',
     title: '벡의 인지치료에서 인지적 오류의 유형을 쓰시오.',
-    frequency: '22-2, 19-3',
+    frequency: '25-3, 22-2, 19-3, 18-3',
     keyword: '벡(Beck) 인지적 오류',
     answer: `<ol>
 <li><strong>흑백논리</strong> : 중간이 없이 이분법적으로 사고할 때 생기는 오류</li>
@@ -407,7 +408,7 @@ export const SILGI_FREQUENT = [
   {
     num: 97, category: 'counseling',
     title: '벡의 인지행동적 상담에서 부정적 사고를 반박하는 방법 3가지를 설명하시오.',
-    frequency: '19-3',
+    frequency: '25-1, 19-3',
     keyword: '벡(Beck) 인지행동 상담기법',
     answer: `<ol>
 <li><strong>언어적 기법</strong> : 비합리적 신념을 논박하여 내담자의 언어를 변화시키는 방법</li>
@@ -429,7 +430,7 @@ export const SILGI_FREQUENT = [
   {
     num: 103, category: 'counseling',
     title: 'ABCDEF 모형의 의미를 쓰시오.',
-    frequency: '22-2, 21-3, 21-2, 20-3, 20-2',
+    frequency: '24-3, 22-2, 21-3, 21-2, 20-3, 20-2, 18-1, 18-3',
     keyword: 'REBT ABCDEF 모형',
     answer: `<ol>
 <li><strong>A (선행사건)</strong> : 내담자의 감정이나 행동에 영향을 미치는 사건</li>
@@ -461,7 +462,7 @@ export const SILGI_FREQUENT = [
   {
     num: 8, category: 'psychology',
     title: '규준 제작 시 사용되는 확률표집방법 3가지를 쓰고 설명하시오.',
-    frequency: '22-3, 20-2',
+    frequency: '25-3, 24-1, 22-3, 20-2, 18-3',
     keyword: '확률표집방법',
     answer: `<ol>
 <li><strong>단순 무선 표집</strong> : 구성원들에게 번호를 부여하고 무작위로 번호를 뽑아 표집. 모집단의 구성원이 표본에 속할 확률이 동일</li>
@@ -472,14 +473,14 @@ export const SILGI_FREQUENT = [
   {
     num: 9, category: 'psychology',
     title: '측정오차를 줄이기 위한 구체적인 방법 6가지를 쓰시오.',
-    frequency: '22-3, 19-2',
+    frequency: '25-2, 22-3, 19-2',
     keyword: '측정오차 감소 방법',
     answer: `<ol><li>검사 문항의 수를 늘린다.</li><li>신뢰도에 나쁜 영향을 주는 문항을 제거한다.</li><li>표준화된 검사를 사용한다.</li><li>균일한 검사 조건을 유지한다.</li><li>검사 실시와 채점 방식을 표준화한다.</li><li>적절한 표본을 추출하여 측정한다.</li></ol>`,
   },
   {
     num: 10, category: 'psychology',
     title: '준거 타당도 계수의 크기에 영향을 미치는 요인을 쓰고 설명하시오.',
-    frequency: '22-3, 22-2, 18-3',
+    frequency: '24-3, 22-3, 22-2, 18-1, 18-3',
     keyword: '준거타당도 계수 영향요인',
     answer: `<ol>
 <li><strong>표집오차</strong> : 표집집단이 전체 모집단을 대표하지 못하게 되어 발생하는 오차</li>
@@ -509,14 +510,14 @@ export const SILGI_FREQUENT = [
   {
     num: 13, category: 'psychology',
     title: '투사적 검사와 비교하여 객관적 검사의 장점 3가지를 쓰시오.',
-    frequency: '21-2',
+    frequency: '24-1, 21-2',
     keyword: '객관적 검사 장점',
     answer: `<ol><li>검사의 실시가 간편하다.</li><li>시간과 노력이 절감된다.</li><li>검사의 신뢰도와 타당도가 검증되어 있다.</li><li>검사의 객관성이 보장된다.</li><li>부적합한 응답을 최소화할 수 있다.</li><li>비용적 측면에서 경제적이다.</li></ol>`,
   },
   {
     num: 14, category: 'psychology',
     title: '투사적 검사의 장점과 단점을 각 3가지씩 쓰시오.',
-    frequency: '20-3',
+    frequency: '24-3, 20-3, 18-1',
     keyword: '투사적 검사 장단점',
     answer: `<h4>장점</h4><ol><li>수검자의 방어를 무력화할 수 있다.</li><li>수검자의 무의식을 이끌어 낼 수 있다.</li><li>수검자의 다양한 반응을 관찰할 수 있다.</li></ol>
 <h4>단점</h4><ol><li>검사 결과 해석을 위해 고도로 훈련된 전문가가 필요하다.</li><li>검사 시행에 비용과 시간이 많이 든다.</li><li>신뢰도와 타당도가 낮다.</li></ol>`,
@@ -532,7 +533,7 @@ export const SILGI_FREQUENT = [
   {
     num: 16, category: 'psychology',
     title: 'CMI검사에서 능력척도 3가지를 쓰고 설명하시오.',
-    frequency: '20-3',
+    frequency: '25-3, 20-3',
     keyword: 'CMI 능력척도 상세',
     answer: `<ol>
 <li><strong>자기평가</strong> : 자신의 능력과 성격, 흥미를 이해하는 능력</li>
@@ -565,7 +566,7 @@ export const SILGI_FREQUENT = [
   {
     num: 46, category: 'psychology',
     title: '수퍼의 직업발달(진로발달) 5단계를 쓰고 설명하시오.',
-    frequency: '23-2, 20-4',
+    frequency: '25-1, 23-2, 20-4',
     keyword: '수퍼(Super) 발달단계',
     answer: `<ol>
 <li><strong>성장기</strong> : 가정과 학교에서 자아개념을 발달시키는 시기</li>
@@ -589,7 +590,7 @@ export const SILGI_FREQUENT = [
   {
     num: 48, category: 'psychology',
     title: '수퍼의 발달적 직업상담에서 평가 3가지를 설명하시오.',
-    frequency: '20-4, 22-3',
+    frequency: '25-2, 22-3, 20-4',
     keyword: '수퍼(Super) 평가 유형',
     answer: `<ol>
 <li><strong>문제의 평가</strong> : 내담자가 겪고 있는 어려움이나 상담에 대한 기대를 평가</li>
@@ -600,7 +601,7 @@ export const SILGI_FREQUENT = [
   {
     num: 50, category: 'psychology',
     title: '집단 내 규준 3가지를 쓰고 설명하시오.',
-    frequency: '23-2, 23-1, 21-2, 20-1, 19-1',
+    frequency: '25-2, 24-2, 23-2, 23-1, 21-2, 20-1, 19-1, 18-3',
     keyword: '집단 내 규준',
     answer: `<ol>
 <li><strong>백분위 점수</strong> : 개인이 집단에서 차지하는 상대적 위치. 100개의 동일한 구간으로 나누어 측정</li>
@@ -621,7 +622,7 @@ export const SILGI_FREQUENT = [
   {
     num: 52, category: 'psychology',
     title: '직업심리검사의 신뢰도를 추정하는 방법 3가지를 쓰고 설명하시오.',
-    frequency: '23-2, 21-3, 20-2',
+    frequency: '23-2, 21-3, 20-2, 18-1',
     keyword: '신뢰도 추정 방법',
     answer: `<ol>
 <li><strong>검사-재검사 신뢰도</strong> : 동일한 사람에게 동일한 검사를 시간 간격을 두고 두 번 실시하여 상관관계로 추정</li>
@@ -632,7 +633,7 @@ export const SILGI_FREQUENT = [
   {
     num: 53, category: 'psychology',
     title: '반분 신뢰도를 추정하기 위해 사용하는 방법 3가지를 쓰고 설명하시오.',
-    frequency: '19-3',
+    frequency: '24-2, 19-3',
     keyword: '반분 신뢰도 추정 방법',
     answer: `<ol>
 <li><strong>전후 반분법</strong> : 검사 문항을 전반부와 후반부로 나누는 방법</li>
@@ -653,7 +654,7 @@ export const SILGI_FREQUENT = [
   {
     num: 55, category: 'psychology',
     title: '측정의 기본 단위인 척도의 4가지 유형을 쓰고 설명하시오.',
-    frequency: '20-2',
+    frequency: '24-2, 20-2',
     keyword: '척도의 4가지 유형',
     answer: `<ol>
 <li><strong>명명척도</strong> : 측정 대상 간 숫자의 차이만 있는 척도</li>
@@ -673,7 +674,7 @@ export const SILGI_FREQUENT = [
   {
     num: 57, category: 'psychology',
     title: '심리검사 사용의 윤리적 문제와 관련하여 주의할 사항 6가지를 쓰시오.',
-    frequency: '22-2, 19-3',
+    frequency: '24-1, 22-2, 19-3',
     keyword: '심리검사 윤리적 주의사항',
     answer: `<ol>
 <li>심리검사가 시대에 뒤떨어질 수 있음을 인정한다.</li>
@@ -687,14 +688,14 @@ export const SILGI_FREQUENT = [
   {
     num: 58, category: 'psychology',
     title: '검사-재검사 신뢰도에 영향을 미치는 요인 4가지를 쓰시오.',
-    frequency: '23-1, 20-3',
+    frequency: '25-2, 23-1, 20-3, 18-2',
     keyword: '검사-재검사 신뢰도 영향요인',
     answer: `<ol><li>검사와 재검사 사이의 시간 간격</li><li>검사가 시행되는 환경의 변화</li><li>응답자의 속성 변화</li><li>응답자가 검사를 치른 경험</li></ol>`,
   },
   {
     num: 59, category: 'psychology',
     title: '구성타당도의 유형에 속하는 타당도 2가지를 쓰고 설명하시오.',
-    frequency: '23-2, 20-4, 20-3, 19-3',
+    frequency: '25-3, 23-2, 20-4, 20-3, 19-3',
     keyword: '구성타당도 유형',
     answer: `<ol>
 <li><strong>수렴 타당도</strong> : 검사 결과가 그 속성과 관계 있는 변인들과 얼마나 높은 상관관계를 갖는지를 나타내는 타당도</li>
@@ -705,7 +706,7 @@ export const SILGI_FREQUENT = [
   {
     num: 83, category: 'psychology',
     title: '예언 타당도와 동시(공인) 타당도를 예를 포함하여 설명하시오.',
-    frequency: '23-1',
+    frequency: '23-1, 18-2',
     keyword: '예언타당도 / 동시타당도',
     answer: `<ol>
 <li><strong>예언타당도</strong> : 검사 점수가 미래 행위를 얼마나 잘 예측하는가의 타당도. 예) 적성검사에서 점수가 높았던 사람이 입사 후 우수한 업무 실적을 냈다면 예언타당도가 높다.</li>
@@ -742,7 +743,7 @@ export const SILGI_FREQUENT = [
   {
     num: 98, category: 'psychology',
     title: '부정적인 심리검사 결과를 내담자에게 통보하는 방법 4가지를 쓰시오.',
-    frequency: '22-2, 20-1',
+    frequency: '25-2, 22-2, 20-1',
     keyword: '부정적 검사결과 통보 방법',
     answer: `<ol>
 <li>내담자가 충격을 받지 않도록 주의하여 설명한다.</li>
@@ -766,7 +767,7 @@ export const SILGI_FREQUENT = [
   {
     num: 101, category: 'psychology',
     title: '표집 절차의 오류를 해결하기 위한 방법 3가지를 쓰고 설명하시오.',
-    frequency: '22-2, 19-3',
+    frequency: '24-3, 22-2, 19-3',
     keyword: '정규분포 이탈 해결 방법',
     answer: `<ol>
 <li><strong>완곡법</strong> : 검사결과가 정규분포와 비슷한 모양을 갖는 경우, 점수를 더하거나 빼서 정상분포 모양이 되도록 하는 방법</li>
@@ -781,7 +782,7 @@ export const SILGI_FREQUENT = [
   {
     num: 17, category: 'jobinfo',
     title: '직무분석 방법 중 최초분석법의 종류를 쓰시오.',
-    frequency: '22-3, 21-1',
+    frequency: '24-2, 22-3, 21-1',
     keyword: '최초분석법 종류',
     answer: `<ol><li>면접법</li><li>관찰법</li><li>체험법</li><li>설문지법</li><li>중요사건법(결정적 사건법)</li><li>녹화법</li><li>작업일지법</li></ol>`,
   },
@@ -849,7 +850,7 @@ export const SILGI_FREQUENT = [
   {
     num: 25, category: 'jobinfo',
     title: '한국직업사전에 수록된 부가 직업정보 5가지를 쓰시오.',
-    frequency: '21-1',
+    frequency: '25-2, 24-1, 21-1, 18-1',
     keyword: '부가직업정보 종류',
     answer: `<ol><li>작업 강도</li><li>작업 환경</li><li>작업 장소</li><li>육체활동</li><li>정규 교육</li></ol>`,
   },
@@ -882,14 +883,14 @@ export const SILGI_FREQUENT = [
   {
     num: 28, category: 'jobinfo',
     title: '한국 표준산업분류의 세 가지 분류기준을 쓰시오.',
-    frequency: '19-1',
+    frequency: '25-1, 19-1',
     keyword: 'KSIC 분류기준',
     answer: `<ol><li>산출물의 특성</li><li>투입물의 특성</li><li>생산활동의 일반적인 결합형태(생산공정)</li></ol>`,
   },
   {
     num: 29, category: 'jobinfo',
     title: '한국 표준직업분류에서 직업으로 보지 않는 활동을 쓰시오.',
-    frequency: '22-2, 20-1, 19-3',
+    frequency: '25-2, 24-2, 22-2, 20-1, 19-3',
     keyword: '직업으로 보지 않는 활동',
     answer: `<ol><li>이자, 임대료 등의 수입</li><li>연금법, 고용보험법 등에 의한 수입</li><li>경마, 경륜, 복권 등에 의한 수입</li><li>예금이나 적금의 인출</li><li>가사활동</li><li>사회 수용 시설 내 경제활동</li><li>수형자의 강제노동</li></ol>`,
   },
@@ -904,7 +905,7 @@ export const SILGI_FREQUENT = [
   {
     num: 31, category: 'jobinfo',
     title: '다수 직업 종사자의 분류 원칙을 순서대로 쓰고 설명하시오.',
-    frequency: '22-1, 21-3, 19-2',
+    frequency: '24-3, 22-1, 21-3, 19-2, 18-2',
     keyword: 'KSCO 다수직업 분류 원칙',
     answer: `<ol>
 <li><strong>취업시간 우선의 원칙</strong> : 투자하는 취업 시간이 가장 긴 직업으로 분류</li>
@@ -926,7 +927,7 @@ export const SILGI_FREQUENT = [
   {
     num: 33, category: 'jobinfo',
     title: '한국표준산업분류에서 생산단위 활동형태 3가지를 설명하시오.',
-    frequency: '22-3, 23-2, 21-2',
+    frequency: '25-2, 23-2, 22-3, 21-2',
     keyword: 'KSIC 생산단위 활동형태',
     answer: `<ol>
 <li><strong>주된 산업활동</strong> : 생산된 재화 또는 제공된 서비스 중에서 부가가치가 가장 큰 활동</li>
@@ -937,7 +938,7 @@ export const SILGI_FREQUENT = [
   {
     num: 34, category: 'jobinfo',
     title: '한국 표준산업분류의 산업, 산업활동, 산업활동의 범위, 산업분류의 정의를 쓰시오.',
-    frequency: '22-2, 21-1, 20-2, 20-1',
+    frequency: '24-1, 22-2, 21-1, 20-2, 20-1, 18-3',
     keyword: 'KSIC 기본 정의',
     answer: `<ol>
 <li><strong>산업</strong> : 유사한 산업활동에 종사하는 생산단위의 집합</li>
@@ -974,7 +975,7 @@ export const SILGI_FREQUENT = [
   {
     num: 37, category: 'jobinfo',
     title: '한국표준직업분류와 직능 수준의 관계 (빈칸 채우기)',
-    frequency: '23-2, 21-1',
+    frequency: '25-3, 23-2, 21-1',
     keyword: 'KSCO 대분류와 직능수준',
     answer: `<table>
 <tr><th>대분류 항목</th><th>직능수준</th></tr>
@@ -988,7 +989,7 @@ export const SILGI_FREQUENT = [
   {
     num: 45, category: 'jobinfo',
     title: '직무평가 방법을 쓰고 설명하시오.',
-    frequency: '23-2, 21-3',
+    frequency: '25-1, 23-2, 21-3',
     keyword: '직무평가방법',
     answer: `<ol>
 <li><strong>서열법</strong> : 직무의 상대적 중요도에 따라 순위를 정하는 방법</li>
@@ -1016,7 +1017,7 @@ export const SILGI_FREQUENT = [
   {
     num: 86, category: 'jobinfo',
     title: '한국 표준산업분류에서 통계 단위의 산업을 결정하는 방법을 쓰시오.',
-    frequency: '23-1, 21-3, 20-3',
+    frequency: '24-3, 23-1, 21-3, 20-3',
     keyword: 'KSIC 산업 결정 방법',
     answer: `<ol>
 <li>생산 단위가 수행하는 주된 산업활동의 종류에 따라 결정한다.</li>
@@ -1040,7 +1041,7 @@ export const SILGI_FREQUENT = [
   {
     num: 93, category: 'jobinfo',
     title: '직무분석 자료 활용의 용도 4가지를 쓰시오.',
-    frequency: '20-3',
+    frequency: '24-3, 24-1, 20-3, 18-1',
     keyword: '직무분석 자료 활용',
     answer: `<ol>
 <li>구인과 채용에 활용한다.</li><li>직무평가의 기초 자료로 활용한다.</li><li>승진, 배치 등에 활용한다.</li><li>교육과 훈련에 활용한다.</li>
@@ -1063,7 +1064,7 @@ export const SILGI_FREQUENT = [
   {
     num: 38, category: 'labor_market',
     title: '내부 노동시장의 형성 요인과 장점을 각각 3가지씩 쓰시오.',
-    frequency: '22-3, 23-2',
+    frequency: '23-2, 22-3, 18-1',
     keyword: '내부노동시장 형성요인/장점',
     answer: `<h4>형성 요인</h4><ol><li>숙련의 특수성</li><li>현장훈련</li><li>기업 내의 관습</li></ol>
 <h4>장점</h4><ol>
@@ -1097,7 +1098,7 @@ export const SILGI_FREQUENT = [
   {
     num: 40, category: 'labor_market',
     title: '산업별로 임금격차가 발생하는 원인을 쓰시오.',
-    frequency: '22-3, 19-3',
+    frequency: '25-1, 22-3, 19-3',
     keyword: '산업별 임금격차 원인',
     answer: `<ol>
 <li><strong>노동조합의 존재 여부</strong> : 강력한 노동조합이 존재하는 산업은 급여가 높음</li>
@@ -1117,14 +1118,14 @@ export const SILGI_FREQUENT = [
   {
     num: 67, category: 'labor_market',
     title: '기혼여성의 경제활동 참가율을 낮게 하는 요인 6가지를 쓰시오.',
-    frequency: '23-2, 21-1',
+    frequency: '23-2, 21-1, 18-3',
     keyword: '기혼여성 경제활동참가율 저해요인',
     answer: `<ol><li>배우자 소득의 증가</li><li>많은 자녀의 수</li><li>높은 사회 전체 실업률</li><li>낮은 자녀의 연령</li><li>열악한 법적, 제도적 환경</li><li>낮은 여성의 교육수준</li></ol>`,
   },
   {
     num: 71, category: 'labor_market',
     title: '노동수요의 탄력성 공식과 영향 요인을 쓰시오.',
-    frequency: '23-1, 21-3, 19-3, 19-2',
+    frequency: '25-2, 23-1, 21-3, 19-3, 19-2',
     keyword: '노동수요 탄력성',
     answer: `<h4>공식</h4>
 <p>노동수요 탄력성 = | 노동수요 변화율 / 임금 변화율 |</p>
@@ -1134,7 +1135,7 @@ export const SILGI_FREQUENT = [
   {
     num: 72, category: 'labor_market',
     title: '임금의 하방경직성의 의미와 원인 5가지를 쓰시오.',
-    frequency: '23-1',
+    frequency: '24-3, 23-1, 18-2',
     keyword: '임금 하방경직성',
     answer: `<h4>의미</h4>
 <p>한번 인상된 임금이 경제 여건의 변화에도 불구하고 하락하지 않고 현재 수준을 유지하는 현상</p>
@@ -1164,7 +1165,7 @@ export const SILGI_FREQUENT = [
   {
     num: 105, category: 'counseling',
     title: '직업상담사가 갖추어야 할 자질(자격요건) 5가지를 쓰시오.',
-    frequency: '22-1, 20-2',
+    frequency: '24-3, 22-1, 20-2',
     keyword: '직업상담사 자질/자격요건',
     answer: `<ol>
 <li><strong>인간에 대한 깊은 관심과 이해</strong> : 내담자의 감정, 경험, 가치관에 공감하고 이해하려는 태도가 필요하다.</li>
@@ -1227,7 +1228,7 @@ export const SILGI_FREQUENT = [
   {
     num: 118, category: 'counseling',
     title: '번(Berne)의 교류분석(TA)에서 자아상태 3가지를 쓰고 설명하시오.',
-    frequency: '23-2, 22-1, 20-3',
+    frequency: '23-2, 22-1, 20-3, 18-2',
     keyword: '교류분석(TA) 자아상태',
     answer: `<ol>
 <li><strong>부모자아(P, Parent)</strong> : 어린 시절 부모나 양육자로부터 배운 가치관, 태도, 행동양식을 반영하는 자아상태이다. 비판적 부모(CP)와 양육적 부모(NP)로 구분된다.</li>
@@ -1249,7 +1250,7 @@ export const SILGI_FREQUENT = [
   {
     num: 125, category: 'counseling',
     title: '생애진로사정(Life Career Assessment)의 구성요소 4가지를 쓰고 설명하시오.',
-    frequency: '22-1, 20-4',
+    frequency: '25-2, 24-3, 24-1, 22-1, 20-4, 18-1',
     keyword: '생애진로사정 구성요소',
     answer: `<ol>
 <li><strong>진로사정</strong> : 내담자의 직업적 경험, 직무 만족도, 직업적 성취 등 진로와 관련된 전반적인 정보를 평가하는 것이다.</li>
@@ -1298,7 +1299,7 @@ export const SILGI_FREQUENT = [
   {
     num: 132, category: 'counseling',
     title: '진로시간전망 검사의 개념과 구성요소를 설명하시오.',
-    frequency: '22-1, 19-2',
+    frequency: '25-1, 22-1, 19-2',
     keyword: '진로시간전망 검사',
     answer: `<p><strong>개념:</strong> 진로시간전망(Career Time Perspective)은 개인이 과거, 현재, 미래에 걸쳐 자신의 진로를 어떻게 인식하고 계획하는지를 측정하는 검사이다. 시간에 대한 관점이 진로 의사결정에 미치는 영향을 평가한다.</p>
 <h4>구성요소</h4>
@@ -1348,7 +1349,7 @@ export const SILGI_FREQUENT = [
   {
     num: 144, category: 'counseling',
     title: '체계적 둔감화(systematic desensitization)의 절차 3단계를 쓰고 설명하시오.',
-    frequency: '21-3, 19-1',
+    frequency: '24-2, 21-3, 19-1',
     keyword: '체계적 둔감화 절차',
     answer: `<p><strong>개념:</strong> 울프(Wolpe)가 개발한 행동치료 기법으로, 불안을 유발하는 자극에 점진적으로 노출시키면서 이완 반응을 연합시켜 불안을 감소시키는 방법이다.</p>
 <ol>
@@ -1425,7 +1426,7 @@ export const SILGI_FREQUENT = [
   {
     num: 165, category: 'counseling',
     title: '윌리엄슨의 특성-요인 상담의 과정(절차) 6단계를 쓰시오.',
-    frequency: '23-1, 22-1',
+    frequency: '25-2, 23-1, 22-1',
     keyword: '윌리엄슨 특성요인 상담과정',
     answer: `<ol>
 <li><strong>분석</strong> : 내담자에 관한 객관적인 자료를 수집하는 단계(심리검사, 학업성적, 이력서 등)</li>
@@ -1461,7 +1462,7 @@ export const SILGI_FREQUENT = [
   {
     num: 170, category: 'counseling',
     title: '로(Roe)의 직업분류에서 수직적 차원(직업의 수준) 6단계를 쓰시오.',
-    frequency: '21-1, 19-3',
+    frequency: '24-2, 21-1, 19-3',
     keyword: '로(Roe) 수직차원 직업수준',
     answer: `<ol>
 <li><strong>전문·관리직 (1수준, 독립적 책임)</strong> : 최고 수준의 전문적 지식과 독립적 판단이 요구되는 직업</li>
@@ -1502,7 +1503,7 @@ export const SILGI_FREQUENT = [
   {
     num: 107, category: 'psychology',
     title: '질적(비표준화) 측정도구 3가지를 쓰고 설명하시오.',
-    frequency: '21-3, 19-1',
+    frequency: '24-3, 21-3, 19-1',
     keyword: '질적 측정도구',
     answer: `<ol>
 <li><strong>직업카드분류</strong> : 다양한 직업이 적힌 카드를 선호 정도에 따라 분류하게 하여 내담자의 흥미, 가치관, 직업 선호를 파악하는 도구이다.</li>
@@ -1525,7 +1526,7 @@ export const SILGI_FREQUENT = [
   {
     num: 111, category: 'psychology',
     title: '검사-재검사 신뢰도의 단점(한계) 4가지를 쓰시오.',
-    frequency: '22-1, 20-2',
+    frequency: '25-3, 22-1, 20-2, 18-3',
     keyword: '검사-재검사 신뢰도 단점',
     answer: `<ol>
 <li><strong>연습효과(학습효과)</strong> : 동일한 검사를 두 번 실시하므로 두 번째 검사에서 점수가 높아지는 연습효과가 발생할 수 있다.</li>
@@ -1537,7 +1538,7 @@ export const SILGI_FREQUENT = [
   {
     num: 116, category: 'psychology',
     title: 'GATB(일반적성검사)의 적성(요인) 9가지를 쓰시오.',
-    frequency: '23-2, 22-1, 21-2',
+    frequency: '25-1, 23-2, 22-1, 21-2',
     keyword: 'GATB 9가지 적성요인',
     answer: `<ol>
 <li><strong>G (일반학습능력)</strong> : 일반적인 학습 및 이해 능력</li>
@@ -1554,7 +1555,7 @@ export const SILGI_FREQUENT = [
   {
     num: 122, category: 'psychology',
     title: '타당도의 종류를 쓰고 각각 설명하시오 (빈칸 채우기).',
-    frequency: '22-2, 21-1',
+    frequency: '25-1, 22-2, 21-1',
     keyword: '타당도 종류 종합',
     answer: `<ol>
 <li><strong>내용타당도</strong> : 검사 내용이 측정하고자 하는 영역을 얼마나 잘 대표하는지를 나타내는 타당도이다. 전문가의 논리적 판단에 의해 평가된다.</li>
@@ -1590,7 +1591,7 @@ export const SILGI_FREQUENT = [
   {
     num: 137, category: 'psychology',
     title: '성격 5요인 모델(Big Five)의 요인을 쓰고 설명하시오.',
-    frequency: '23-1, 21-3, 20-2',
+    frequency: '25-2, 24-1, 23-1, 21-3, 20-2',
     keyword: '성격 5요인(Big Five/OCEAN)',
     answer: `<ol>
 <li><strong>개방성(Openness)</strong> : 새로운 경험, 아이디어, 가치에 대해 열린 태도를 가지는 정도. 상상력이 풍부하고 창의적이며 지적 호기심이 강하다.</li>
@@ -1628,7 +1629,7 @@ export const SILGI_FREQUENT = [
   {
     num: 141, category: 'psychology',
     title: '스트롱(Strong) 흥미검사의 척도 구성을 설명하시오.',
-    frequency: '22-2, 21-1',
+    frequency: '25-3, 22-2, 21-1, 18-2',
     keyword: '스트롱 흥미검사 척도',
     answer: `<ol>
 <li><strong>일반직업주제(GOT, General Occupational Themes)</strong> : 홀랜드의 RIASEC 6유형에 기반한 척도로, 수검자의 전반적인 흥미 유형을 파악한다.</li>
@@ -1737,7 +1738,7 @@ export const SILGI_FREQUENT = [
   {
     num: 108, category: 'jobinfo',
     title: '한국표준산업분류의 적용 원칙 3가지를 쓰고 설명하시오.',
-    frequency: '22-2, 20-1',
+    frequency: '24-1, 22-2, 20-1',
     keyword: 'KSIC 산업분류 적용원칙',
     answer: `<ol>
 <li><strong>산출물의 특성</strong> : 생산되는 재화나 서비스의 물리적 구성, 가공 단계, 용도 등 산출물의 특성에 따라 분류한다. 가장 기본적인 분류 기준이다.</li>
@@ -1748,7 +1749,7 @@ export const SILGI_FREQUENT = [
   {
     num: 120, category: 'jobinfo',
     title: '브레이필드(Brayfield)가 제시한 직업정보의 기능 4가지를 쓰시오.',
-    frequency: '22-1, 21-1',
+    frequency: '25-1, 22-1, 21-1',
     keyword: '브레이필드 직업정보 기능',
     answer: `<ol>
 <li><strong>정보적 기능</strong> : 직업에 대한 사실적이고 객관적인 정보를 제공하여 내담자의 직업 세계 이해를 돕는 기능이다.</li>
@@ -1760,7 +1761,7 @@ export const SILGI_FREQUENT = [
   {
     num: 121, category: 'jobinfo',
     title: '공공직업정보의 특성(특징) 4가지를 쓰시오.',
-    frequency: '21-3, 19-1',
+    frequency: '25-3, 21-3, 19-1',
     keyword: '공공직업정보 특성',
     answer: `<ol>
 <li><strong>공공성</strong> : 공공기관에서 제공하므로 특정 집단이나 기업의 이익이 아닌 공익을 위해 제공된다.</li>
@@ -1800,7 +1801,7 @@ export const SILGI_FREQUENT = [
   {
     num: 110, category: 'labor_market',
     title: '고용률 계산 문제를 풀이하시오.',
-    frequency: '23-1, 21-2, 19-3',
+    frequency: '25-3, 23-1, 21-2, 19-3, 18-1',
     keyword: '고용률 계산',
     answer: `<h4>공식</h4>
 <p><strong>고용률 = (취업자 수 / 15세 이상 인구) × 100</strong></p>
@@ -1812,7 +1813,7 @@ export const SILGI_FREQUENT = [
   {
     num: 117, category: 'labor_market',
     title: '최저임금제의 기대효과(긍정적 효과) 4가지를 쓰시오.',
-    frequency: '23-2, 22-1, 20-3',
+    frequency: '25-2, 23-2, 22-1, 20-3, 18-2, 18-3',
     keyword: '최저임금제 기대효과',
     answer: `<ol>
 <li><strong>저임금 근로자의 생활 안정</strong> : 최소한의 임금을 보장하여 저임금 근로자의 기본적인 생활을 보장한다.</li>
@@ -1824,7 +1825,7 @@ export const SILGI_FREQUENT = [
   {
     num: 123, category: 'labor_market',
     title: '실업률 계산 문제를 풀이하시오.',
-    frequency: '23-2, 22-1, 21-3',
+    frequency: '25-3, 24-1, 23-2, 22-1, 21-3',
     keyword: '실업률 계산',
     answer: `<h4>공식</h4>
 <p><strong>실업률 = (실업자 수 / 경제활동인구) × 100</strong></p>
@@ -1889,7 +1890,7 @@ export const SILGI_FREQUENT = [
   {
     num: 135, category: 'labor_market',
     title: '비수요부족 실업의 유형 3가지를 쓰고 설명하시오.',
-    frequency: '22-2, 20-3',
+    frequency: '24-2, 22-2, 20-3, 18-1',
     keyword: '비수요부족 실업 유형',
     answer: `<ol>
 <li><strong>마찰적 실업</strong> : 근로자가 더 나은 직장을 찾기 위해 자발적으로 직장을 이동하는 과정에서 일시적으로 발생하는 실업이다. 노동시장의 정보 부족이나 탐색 시간 때문에 발생하며, 자연실업의 일부이다.</li>
@@ -1930,7 +1931,7 @@ export const SILGI_FREQUENT = [
   {
     num: 149, category: 'labor_market',
     title: '임금의 하방경직성의 의미와 발생 원인 5가지를 쓰시오.',
-    frequency: '23-2, 22-1',
+    frequency: '24-3, 23-2, 22-1, 18-2',
     keyword: '임금 하방경직성 원인',
     answer: `<h4>의미</h4>
 <p>임금의 하방경직성이란 한번 인상된 임금이 경기 침체 등 경제 상황이 악화되더라도 쉽게 하락하지 않고 현재 수준을 유지하려는 현상을 말한다.</p>
@@ -1973,7 +1974,7 @@ export const SILGI_FREQUENT = [
   {
     num: 155, category: 'labor_market',
     title: '노동수요의 탄력성을 크게 하는 요인(마샬의 파생수요 법칙) 4가지를 쓰시오.',
-    frequency: '22-1, 21-2',
+    frequency: '25-2, 22-1, 21-2',
     keyword: '마샬 파생수요 법칙(힉스-마샬)',
     answer: `<ol>
 <li><strong>생산물 수요의 탄력성이 클수록</strong> : 생산물 가격 변화에 수요가 민감하게 반응할수록 노동수요의 탄력성도 크다.</li>
@@ -1985,7 +1986,7 @@ export const SILGI_FREQUENT = [
   {
     num: 156, category: 'labor_market',
     title: '개별 노동공급곡선이 후방굴절(backward-bending)하는 이유를 설명하시오.',
-    frequency: '22-2, 20-4',
+    frequency: '25-3, 22-2, 20-4',
     keyword: '노동공급곡선 후방굴절',
     answer: `<p>개별 노동공급곡선은 일정 임금 수준까지는 우상향하다가, 임금이 충분히 높아지면 뒤로 굽어지는(후방굴절) 형태를 보인다.</p>
 <h4>원인: 대체효과와 소득효과</h4>
@@ -2122,7 +2123,7 @@ export const SILGI_FREQUENT = [
   {
     num: 177, category: 'labor_market',
     title: '던롭(Dunlop)의 노사관계 시스템 이론의 구성요소 3가지를 쓰고 설명하시오.',
-    frequency: '22-2, 21-1',
+    frequency: '24-2, 22-2, 21-1',
     keyword: '던롭 노사관계 시스템',
     answer: `<p>던롭은 노사관계를 하나의 시스템으로 보고, 이 시스템이 <strong>행위자(actors)</strong>, <strong>환경(contexts)</strong>, <strong>이데올로기(ideology)</strong>, <strong>규칙(rules)</strong>으로 구성된다고 보았다.</p>
 <h4>3대 행위자</h4>
@@ -2133,6 +2134,298 @@ export const SILGI_FREQUENT = [
 </ol>
 <h4>환경(맥락)</h4>
 <p>기술적 특성, 시장·예산 제약, 권력 관계의 3가지 환경이 노사관계에 영향을 미친다.</p>`,
+  },
+
+  /* ===================================================================
+     추가 문항 178~201 (2018, 2024, 2025 확장)
+     =================================================================== */
+
+  /* ---------- 직업상담학 (counseling) 2025/2024/2018 추가 ---------- */
+  {
+    num: 178, category: 'counseling',
+    title: '하렌(Harren)의 의사결정 유형 3가지를 쓰고 설명하시오.',
+    frequency: '25-2',
+    keyword: '하렌(Harren) 의사결정 유형',
+    answer: `<ol>
+<li><strong>합리적 유형</strong> : 정보를 체계적으로 수집하고 논리적으로 분석하여 신중하게 의사결정을 내리는 유형이다.</li>
+<li><strong>직관적 유형</strong> : 감정이나 느낌에 기반하여 빠르게 의사결정을 내리는 유형이다. 결정 과정에서 상상력과 감각을 활용한다.</li>
+<li><strong>의존적 유형</strong> : 타인의 기대나 의견에 의존하여 의사결정을 내리는 유형이다. 책임을 타인에게 전가하려는 경향이 있다.</li>
+</ol>`,
+  },
+  {
+    num: 179, category: 'counseling',
+    title: '톨버트(Tolbert)가 제시한 집단직업상담의 핵심요소 6가지를 쓰시오.',
+    frequency: '25-3',
+    keyword: '톨버트(Tolbert) 집단직업상담 핵심요소',
+    answer: `<ol>
+<li>구성원 간의 상호작용</li>
+<li>집단 목표의 명확한 설정</li>
+<li>구성원 간의 신뢰와 응집력</li>
+<li>집단 규범의 형성</li>
+<li>구성원 개인의 목표와 집단 목표의 통합</li>
+<li>집단 경험의 일반화 및 적용</li>
+</ol>`,
+  },
+  {
+    num: 180, category: 'counseling',
+    title: '특성-요인 상담의 3가지 기본가정(기본전제)을 쓰고 설명하시오.',
+    frequency: '25-3',
+    keyword: '특성-요인 상담 기본가정',
+    answer: `<ol>
+<li><strong>개인차의 가정</strong> : 각 개인은 고유한 특성(흥미, 적성, 능력 등)을 가지고 있으며, 이러한 특성은 측정 가능하다.</li>
+<li><strong>직업차의 가정</strong> : 각 직업은 고유한 요구 조건(요인)이 있으며, 직업마다 필요한 능력과 특성이 다르다.</li>
+<li><strong>매칭의 가정</strong> : 개인의 특성과 직업의 요인을 합리적으로 연결(매칭)하면 직업 만족과 성공을 높일 수 있다.</li>
+</ol>`,
+  },
+  {
+    num: 181, category: 'counseling',
+    title: '아들러(Adler)가 주장한 열등감 콤플렉스의 원인 3가지를 쓰시오.',
+    frequency: '18-1',
+    keyword: '아들러 열등감 콤플렉스 원인',
+    answer: `<ol>
+<li><strong>기관 열등감</strong> : 선천적으로 신체적 결함이나 약점을 가진 경우 열등감이 형성된다.</li>
+<li><strong>과잉보호(응석받이)</strong> : 과잉보호를 받고 자란 아이는 독립심이 부족하여 사회에 나갔을 때 열등감을 느끼게 된다.</li>
+<li><strong>양육태만(무시)</strong> : 부모로부터 무시당하거나 방치된 아이는 자신이 무가치하다고 느끼며 열등감이 형성된다.</li>
+</ol>`,
+  },
+  {
+    num: 182, category: 'counseling',
+    title: '의사교류분석 상담(TA)의 제한점 3가지를 쓰시오.',
+    frequency: '18-1',
+    keyword: '교류분석(TA) 제한점',
+    answer: `<ol>
+<li>이론의 단순화로 인해 인간의 복잡한 심리를 충분히 설명하지 못할 수 있다.</li>
+<li>자아상태 분석이 지나치게 도식적이어서 개인의 독특한 경험을 간과할 수 있다.</li>
+<li>상담자의 주관적 판단에 의존하여 분석의 객관성이 떨어질 수 있다.</li>
+</ol>`,
+  },
+
+  /* ---------- 직업심리학 (psychology) 2025/2024/2018 추가 ---------- */
+  {
+    num: 183, category: 'psychology',
+    title: '규준의 종류 중 발달규준 3가지를 쓰고 각각에 대해 설명하시오.',
+    frequency: '25-1',
+    keyword: '발달규준',
+    answer: `<ol>
+<li><strong>연령규준</strong> : 특정 연령 집단의 평균 수행 수준을 기준으로 개인의 점수를 해석하는 규준이다. 같은 연령대의 평균과 비교하여 발달 수준을 파악한다.</li>
+<li><strong>학년규준</strong> : 특정 학년 집단의 평균 수행 수준을 기준으로 하는 규준이다. 학업 성취도검사 등에서 주로 사용된다.</li>
+<li><strong>서열규준</strong> : 발달 단계에서 특정 과제를 수행할 수 있는 순서를 기준으로 하는 규준이다. 발달의 순서성을 반영한다.</li>
+</ol>`,
+  },
+  {
+    num: 184, category: 'psychology',
+    title: '개념준거와 실제준거의 의미를 각각 설명하시오.',
+    frequency: '25-1',
+    keyword: '개념준거 / 실제준거',
+    answer: `<ol>
+<li><strong>개념준거(궁극적 준거)</strong> : 측정하고자 하는 이상적이고 추상적인 개념으로, 실제로는 완벽하게 측정할 수 없는 이론적 준거이다. 예) 직무 수행 능력의 이상적 정의</li>
+<li><strong>실제준거(조작적 준거)</strong> : 개념준거를 실제로 측정할 수 있도록 조작적으로 정의한 것으로, 현실적으로 사용 가능한 측정치이다. 예) 상사 평가, 생산량, 매출액 등</li>
+</ol>`,
+  },
+  {
+    num: 185, category: 'psychology',
+    title: '심리검사 점수의 분산 정도를 판단하기 위해 사용되는 기준 2가지를 쓰시오.',
+    frequency: '25-3',
+    keyword: '분산 판단 기준 (범위/표준편차)',
+    answer: `<ol>
+<li><strong>범위(Range)</strong> : 검사 점수의 최대값에서 최소값을 뺀 값으로, 점수가 퍼져 있는 전체 폭을 나타낸다. 계산이 간편하지만 극단값에 영향을 받는다.</li>
+<li><strong>표준편차(Standard Deviation)</strong> : 각 점수가 평균으로부터 떨어져 있는 정도의 평균으로, 점수의 산포도를 가장 정확하게 나타내는 지표이다. 분산의 제곱근이다.</li>
+</ol>`,
+  },
+  {
+    num: 186, category: 'psychology',
+    title: '비확률표집방법 3가지를 쓰고 각각에 대해 설명하시오.',
+    frequency: '24-2',
+    keyword: '비확률표집방법',
+    answer: `<ol>
+<li><strong>편의표집(우연적 표집)</strong> : 조사자가 접근하기 쉬운 대상을 임의로 선택하는 방법이다. 가장 간편하지만 대표성이 낮다.</li>
+<li><strong>유의표집(판단표집)</strong> : 조사자가 연구 목적에 적합하다고 판단되는 대상을 의도적으로 선택하는 방법이다.</li>
+<li><strong>할당표집</strong> : 모집단의 특성(성별, 연령 등)에 따라 할당량을 정한 후, 각 할당량에 맞게 편의적으로 표본을 추출하는 방법이다.</li>
+</ol>`,
+  },
+  {
+    num: 187, category: 'psychology',
+    title: '코틀(Cottle)의 원형검사에서 원의 의미 3가지를 쓰시오.',
+    frequency: '25-1',
+    keyword: '코틀(Cottle) 원형검사',
+    answer: `<ol>
+<li><strong>원의 크기</strong> : 과거, 현재, 미래 각 시간 영역에 대해 개인이 부여하는 중요성 또는 비중을 나타낸다. 원이 클수록 해당 시간 영역을 중요하게 인식한다.</li>
+<li><strong>원의 위치(거리)</strong> : 각 시간 영역 간의 심리적 거리를 나타낸다. 원이 가까울수록 시간 영역 간 연결성이 높다고 인식한다.</li>
+<li><strong>원의 겹침 정도</strong> : 시간 영역 간의 통합 정도를 나타낸다. 겹치는 부분이 클수록 과거-현재-미래가 통합적으로 연결되어 있다고 인식한다.</li>
+</ol>`,
+  },
+  {
+    num: 188, category: 'psychology',
+    title: '긴즈버그(Ginzberg)의 직업선택 현실기의 3가지 하위단계를 쓰고 설명하시오.',
+    frequency: '24-3, 18-2',
+    keyword: '긴즈버그(Ginzberg) 현실기 하위단계',
+    answer: `<ol>
+<li><strong>탐색단계</strong> : 자신의 흥미, 능력, 가치관 등을 고려하여 가능한 직업 대안을 탐색하는 단계이다. 다양한 직업 정보를 수집하고 비교한다.</li>
+<li><strong>구체화단계(결정화)</strong> : 탐색한 직업 대안 중에서 구체적인 진로 방향을 설정하는 단계이다. 특정 직업 분야로 범위를 좁혀간다.</li>
+<li><strong>실행단계(특수화)</strong> : 최종적으로 선택한 직업을 실현하기 위해 구체적인 행동을 취하는 단계이다. 교육이나 훈련을 받고 취업 활동을 시작한다.</li>
+</ol>`,
+  },
+  {
+    num: 189, category: 'psychology',
+    title: '실존주의 상담에서 인간 본성에 대한 기본 가정 4가지를 쓰시오.',
+    frequency: '24-2',
+    keyword: '실존주의 인간본성 가정',
+    answer: `<ol>
+<li><strong>인간은 자유로운 존재이다</strong> : 인간은 자유롭게 선택할 수 있으며, 그 선택에 대한 책임을 진다.</li>
+<li><strong>인간은 유한한 존재이다</strong> : 죽음은 피할 수 없으며, 이를 인식함으로써 삶의 의미를 추구하게 된다.</li>
+<li><strong>인간은 고독한 존재이다</strong> : 궁극적으로 인간은 혼자이며, 이 고독을 수용해야 한다.</li>
+<li><strong>인간은 의미를 추구하는 존재이다</strong> : 인간은 삶의 의미를 스스로 창조하고 발견해야 한다.</li>
+</ol>`,
+  },
+
+  /* ---------- 직업정보론 (jobinfo) 2025/2024/2018 추가 ---------- */
+  {
+    num: 190, category: 'jobinfo',
+    title: '민간직업정보의 특성을 3가지 쓰시오.',
+    frequency: '25-2',
+    keyword: '민간직업정보 특성',
+    answer: `<ol>
+<li><strong>상업성</strong> : 민간이 제작하여 유료로 판매하므로 수익 창출이 목적이다.</li>
+<li><strong>전문성</strong> : 특정 분야나 산업에 대해 심층적이고 전문적인 정보를 제공한다.</li>
+<li><strong>신속성</strong> : 시장 변화에 빠르게 대응하여 최신 정보를 제공할 수 있다.</li>
+<li><strong>편향 가능성</strong> : 특정 기업이나 집단의 이해관계가 반영될 수 있어 객관성이 떨어질 수 있다.</li>
+</ol>`,
+  },
+  {
+    num: 191, category: 'jobinfo',
+    title: '직업정보 가공 시 유의사항 6가지를 쓰시오.',
+    frequency: '25-3',
+    keyword: '직업정보 가공 유의사항',
+    answer: `<ol>
+<li>직업정보의 정확성과 최신성을 확인해야 한다.</li>
+<li>정보의 출처를 명확히 밝혀야 한다.</li>
+<li>이용자가 이해하기 쉬운 용어와 형식을 사용해야 한다.</li>
+<li>편견이나 고정관념이 반영되지 않도록 주의해야 한다.</li>
+<li>관련 법규를 준수해야 한다.</li>
+<li>직업에 대한 긍정적·부정적 측면을 균형 있게 제시해야 한다.</li>
+</ol>`,
+  },
+  {
+    num: 192, category: 'jobinfo',
+    title: '한국표준직업분류에서 직업분류의 일반원칙 2가지를 쓰고 설명하시오.',
+    frequency: '25-1',
+    keyword: 'KSCO 직업분류 일반원칙',
+    answer: `<ol>
+<li><strong>포괄성의 원칙</strong> : 모든 직업 활동을 직업분류 체계 내에 포함시켜야 한다. 어떠한 직업도 분류 체계에서 누락되어서는 안 된다.</li>
+<li><strong>배타성의 원칙</strong> : 하나의 직업 활동은 분류 체계 내 하나의 항목에만 분류되어야 한다. 동일한 직업이 두 개 이상의 항목에 중복 분류되어서는 안 된다.</li>
+</ol>`,
+  },
+  {
+    num: 193, category: 'jobinfo',
+    title: '한국표준산업분류 11차 개정의 특징 3가지를 쓰시오.',
+    frequency: '25-3',
+    keyword: 'KSIC 11차 개정 특징',
+    answer: `<ol>
+<li>디지털 경제와 플랫폼 산업 등 신산업 환경을 반영하여 분류체계를 개편하였다.</li>
+<li>국제표준산업분류(ISIC Rev.5)와의 비교가능성을 높였다.</li>
+<li>산업구조 변화에 따라 서비스업 분야의 세분류를 확대하였다.</li>
+</ol>`,
+  },
+  {
+    num: 194, category: 'jobinfo',
+    title: '한국표준직업분류에서 "직업"으로 규정하기 위한 4가지 요건을 쓰고 설명하시오.',
+    frequency: '24-1',
+    keyword: 'KSCO 직업 규정 요건',
+    answer: `<ol>
+<li><strong>경제성</strong> : 경제적 보수(수입)를 목적으로 하는 활동이어야 한다.</li>
+<li><strong>계속성</strong> : 일시적인 활동이 아니라 계속적으로 수행하는 활동이어야 한다.</li>
+<li><strong>사회성</strong> : 사회적으로 유용하고 사회에 기여하는 활동이어야 한다.</li>
+<li><strong>윤리성</strong> : 법률이나 사회 윤리에 위배되지 않는 활동이어야 한다.</li>
+</ol>`,
+  },
+  {
+    num: 195, category: 'jobinfo',
+    title: '경력개발 프로그램의 초기·중기·말기 단계별 예시를 쓰시오.',
+    frequency: '24-1',
+    keyword: '경력개발 프로그램 단계별',
+    answer: `<ol>
+<li><strong>초기 단계</strong> : 자기이해 활동(흥미검사, 적성검사), 직업세계 탐색, 직업 정보 수집, 진로 목표 설정 등</li>
+<li><strong>중기 단계</strong> : 경력 계획 수립, 필요한 교육·훈련 이수, 인턴십·현장실습, 멘토링 프로그램 참여 등</li>
+<li><strong>말기 단계</strong> : 이력서·자기소개서 작성, 면접 기술 훈련, 구직 활동, 취업 후 적응 지원, 추수지도 등</li>
+</ol>`,
+  },
+  {
+    num: 196, category: 'jobinfo',
+    title: '입직률(accession rate)을 계산하시오.',
+    frequency: '25-1',
+    keyword: '입직률 계산',
+    answer: `<h4>공식</h4>
+<p><strong>입직률 = (입직자 수 / 전월 말 사원 수) × 100</strong></p>
+<p>입직자 = 신규채용 인원 + 전입 인원</p>
+<h4>풀이 예시</h4>
+<p>조건: 9월 말 사원 수 = 2,000명, 신규채용 = 200명, 전입 = 100명</p>
+<p>입직자 = 200 + 100 = 300명</p>
+<p>10월 입직률 = (300 / 2,000) × 100 = <strong>15%</strong></p>`,
+  },
+
+  /* ---------- 노동시장론 (labor_market) 2025/2024/2018 추가 ---------- */
+  {
+    num: 197, category: 'labor_market',
+    title: '행동주의 상담에서 노출치료법의 3가지 방법을 쓰고 설명하시오.',
+    frequency: '18-2',
+    keyword: '노출치료법 3가지',
+    answer: `<ol>
+<li><strong>실제적 노출(in vivo exposure)</strong> : 불안을 유발하는 실제 자극이나 상황에 직접 노출시키는 방법이다.</li>
+<li><strong>상상적 노출(imaginal exposure)</strong> : 불안을 유발하는 장면을 상상하게 하여 간접적으로 노출시키는 방법이다.</li>
+<li><strong>체계적 둔감법(systematic desensitization)</strong> : 이완 상태에서 불안 위계에 따라 점진적으로 노출시키는 방법이다.</li>
+</ol>`,
+  },
+  {
+    num: 198, category: 'labor_market',
+    title: '노동공급의 결정요인 5가지를 쓰시오.',
+    frequency: '18-3',
+    keyword: '노동공급 결정요인',
+    answer: `<ol>
+<li><strong>임금 수준</strong> : 임금이 높을수록 노동공급이 증가하는 경향이 있다.</li>
+<li><strong>인구 규모</strong> : 생산가능인구가 많을수록 잠재적 노동공급이 증가한다.</li>
+<li><strong>비근로소득</strong> : 이자, 배당, 임대료 등 비근로소득이 높으면 노동공급이 감소한다.</li>
+<li><strong>사회·문화적 요인</strong> : 여성의 경제활동 참여에 대한 사회적 인식, 교육 수준 등이 영향을 미친다.</li>
+<li><strong>제도적 요인</strong> : 세금, 사회보장제도, 보육지원 등 정부 정책이 노동공급에 영향을 미친다.</li>
+</ol>`,
+  },
+  {
+    num: 199, category: 'labor_market',
+    title: '노동조합의 임금효과 중 이전효과(spillover effect)와 위협효과(threat effect)를 설명하시오.',
+    frequency: '18-3',
+    keyword: '노동조합 이전효과/위협효과',
+    answer: `<ol>
+<li><strong>이전효과(spillover effect)</strong> : 노동조합이 조직된 기업에서 임금을 인상하면, 해당 기업에서 해고된 근로자들이 비조직 부문으로 이동하여 비조직 부문의 노동공급이 증가하고, 결과적으로 비조직 부문의 임금이 하락하는 효과이다.</li>
+<li><strong>위협효과(threat effect)</strong> : 비조직 기업의 사용자가 자사 근로자의 노동조합 결성을 막기 위해 선제적으로 임금을 인상하는 효과이다. 노동조합의 존재 자체가 비조직 부문의 임금을 상승시키는 간접적 효과를 가진다.</li>
+</ol>`,
+  },
+  {
+    num: 200, category: 'labor_market',
+    title: '부가급여의 의미와 사용자·근로자가 부가급여를 선호하는 이유를 각각 쓰시오.',
+    frequency: '18-1',
+    keyword: '부가급여 선호 이유',
+    answer: `<h4>의미</h4>
+<p>부가급여(fringe benefits)란 기본급 외에 사용자가 근로자에게 제공하는 각종 비임금적 보상을 말한다. 예) 건강보험, 퇴직연금, 유급휴가, 식비 지원 등</p>
+<h4>사용자가 선호하는 이유</h4>
+<ol>
+<li>세금 혜택을 받을 수 있어 비용을 절감할 수 있다.</li>
+<li>우수 인력의 이직을 방지하고 근로자의 충성도를 높일 수 있다.</li>
+</ol>
+<h4>근로자가 선호하는 이유</h4>
+<ol>
+<li>현금 임금보다 세금 부담이 적어 실질적 혜택이 크다.</li>
+<li>건강보험 등 개인이 직접 가입하기 어려운 혜택을 받을 수 있다.</li>
+</ol>`,
+  },
+  {
+    num: 201, category: 'labor_market',
+    title: '직무스트레스의 조절변인 3가지를 쓰고 설명하시오.',
+    frequency: '18-2',
+    keyword: '직무스트레스 조절변인',
+    answer: `<ol>
+<li><strong>사회적 지지</strong> : 가족, 동료, 상사 등으로부터 받는 정서적·물질적 지원으로, 사회적 지지가 높을수록 스트레스의 부정적 영향이 완화된다.</li>
+<li><strong>자기효능감</strong> : 특정 상황에서 필요한 행동을 성공적으로 수행할 수 있다는 개인의 믿음으로, 자기효능감이 높을수록 스트레스에 대한 대처 능력이 향상된다.</li>
+<li><strong>통제감(통제 소재)</strong> : 자신의 삶과 환경을 통제할 수 있다고 느끼는 정도로, 내적 통제 소재를 가진 사람이 스트레스에 더 효과적으로 대처한다.</li>
+</ol>`,
   },
 ];
 

@@ -93,17 +93,17 @@ export default function SilgiFrequent() {
   return (
     <>
       <SEOHead
-        title="5개년 빈출 기출정리"
-        description="직업상담사 2급 실기 2019~2023 5개년 빈출 기출문제 177문항 상세 해설"
+        title="8개년 빈출 기출정리"
+        description="직업상담사 2급 실기 2018~2025 8개년 빈출 기출문제 상세 해설"
       />
       <div className="page-header">
         <div className="container">
           <Link to="/silgi" className="sq-back-link">
             <i className="fa-solid fa-arrow-left" /> 실기 시험
           </Link>
-          <h1>5개년 빈출 기출정리</h1>
+          <h1>8개년 빈출 기출정리</h1>
           <p className="page-desc">
-            2019~2023 실기 빈출문제 {SILGI_FREQUENT.length}문항 · 과목별 상세 해설
+            2018~2025 실기 빈출문제 {SILGI_FREQUENT.length}문항 · 과목별 상세 해설
           </p>
         </div>
       </div>
