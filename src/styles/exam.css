@@ -444,6 +444,105 @@
     line-height: 1.7;
     margin-bottom: 24px;
 }
+
+/* ===== 보기 박스 ===== */
+.bogi-box {
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 14px 0 8px;
+}
+.bogi-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1B3A6B;
+    background: #E8EEF6;
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+.bogi-content {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+.bogi-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.bogi-list li {
+    padding: 3px 0;
+    border-bottom: 1px solid #EEF2F7;
+}
+.bogi-list li:last-child {
+    border-bottom: none;
+}
+
+/* ===== 지문 블록 ===== */
+.passage-block {
+    background: #FFFBEB;
+    border: 1.5px solid #F59E0B;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 14px 0 8px;
+}
+.passage-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #92400E;
+    margin-bottom: 10px;
+}
+.passage-content {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+/* ===== 보기 내 표 ===== */
+.q-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    font-weight: 500;
+}
+.q-table th,
+.q-table td {
+    padding: 8px 12px;
+    border: 1px solid #CBD5E1;
+    text-align: left;
+}
+.q-table-header th {
+    background: #E8EEF6;
+    font-weight: 700;
+    color: #1B3A6B;
+    font-size: 13px;
+}
+.q-table td {
+    background: #FFFFFF;
+}
+
+/* ===== Size variants for bogi/passage ===== */
+.size-sm .bogi-box,
+.size-sm .passage-block { padding: 12px 14px; margin: 10px 0 6px; }
+.size-sm .bogi-content,
+.size-sm .passage-content { font-size: 13px; }
+.size-sm .q-table { font-size: 12px; }
+.size-sm .q-table th,
+.size-sm .q-table td { padding: 5px 8px; }
+
+.size-lg .bogi-box,
+.size-lg .passage-block { padding: 20px 24px; margin: 16px 0 10px; }
+.size-lg .bogi-content,
+.size-lg .passage-content { font-size: 17px; }
+.size-lg .q-table { font-size: 16px; }
+.size-lg .q-table th,
+.size-lg .q-table td { padding: 10px 14px; }
+
 .question-image {
     max-width: 100%;
     border-radius: var(--radius-md);
