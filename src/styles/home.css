@@ -495,6 +495,15 @@
     font-weight: 600;
     white-space: nowrap;
 }
+.ph-dday-type {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.2);
+    color: #FCD34D;
+    letter-spacing: 0.03em;
+}
 .ph-dday-num {
     font-size: 20px;
     font-weight: 900;

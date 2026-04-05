@@ -6,17 +6,17 @@ import { useAuth } from '../contexts/AuthContext';
 import { supabase, TABLES } from '../lib/supabase';
 
 /* ───────── D-day helper ───────── */
-function getDday(): { label: string; days: number } | null {
+function getDday(): { label: string; type: string; days: number } | null {
   const exams = [
-    { label: '2회 필기시험', date: new Date(2026, 4, 9) },
-    { label: '3회 필기 접수', date: new Date(2026, 6, 20) },
-    { label: '3회 필기시험', date: new Date(2026, 7, 7) },
+    { label: '2회 필기시험', type: '시험일', date: new Date(2026, 4, 9) },
+    { label: '3회 필기 접수', type: '접수일', date: new Date(2026, 6, 20) },
+    { label: '3회 필기시험', type: '시험일', date: new Date(2026, 7, 7) },
   ];
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   for (const exam of exams) {
     const diff = Math.ceil((exam.date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-    if (diff >= 0) return { label: exam.label, days: diff };
+    if (diff >= 0) return { label: exam.label, type: exam.type, days: diff };
   }
   return null;
 }
@@ -113,6 +113,7 @@ function LoggedInHome({ user }: { user: any }) {
           {dday && (
             <div className="ph-dday">
               <i className="fa-solid fa-calendar-check" />
+              <span className="ph-dday-type">{dday.type}</span>
               <span className="ph-dday-label">{dday.label}</span>
               <span className="ph-dday-num">D-{dday.days === 0 ? 'Day' : dday.days}</span>
             </div>
