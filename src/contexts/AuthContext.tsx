@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
 import { useToast } from './ToastContext';
 import { ADMIN_EMAILS } from '../config/admin';
 
@@ -14,7 +14,10 @@ export function AuthProvider({ children }) {
   const { showToast } = useToast();
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (session?.refresh_token) setSharedSession(session.refresh_token);
+      if (event === 'SIGNED_OUT') clearSharedSession();
+
       const currentUser = session?.user ?? null;
       setUser(currentUser);
 
@@ -29,6 +32,15 @@ export function AuthProvider({ children }) {
       }
 
       if (event === 'INITIAL_SESSION') {
+        if (!currentUser) {
+          const rt = getSharedSession();
+          if (rt) {
+            try {
+              const { data } = await supabase.auth.refreshSession({ refresh_token: rt });
+              if (!data.session) clearSharedSession();
+            } catch { clearSharedSession(); }
+          }
+        }
         setLoading(false);
       }
       if (event === 'SIGNED_IN') {
