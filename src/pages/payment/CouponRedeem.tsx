@@ -15,6 +15,7 @@ function CouponRedeemContent() {
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [couponDays, setCouponDays] = useState(1);
 
   const handleRedeem = async () => {
     const trimmed = code.trim().toUpperCase();
@@ -90,16 +91,18 @@ function CouponRedeemContent() {
       .update({ used_count: coupon.used_count + 1 })
       .eq('id', coupon.id);
 
-    // 6. Create order for 1-day trial
+    // 6. Create order with coupon duration
+    const couponDays = coupon.days || 1;
     const now = new Date();
-    const expiresAt = new Date(now.getTime() + coupon.days * 24 * 60 * 60 * 1000);
+    const expiresAt = new Date(now.getTime() + couponDays * 24 * 60 * 60 * 1000);
     const orderNumber = `CP-${Date.now()}`;
+    const planType = couponDays === 1 ? '1day_trial' : `${couponDays}day`;
 
     await supabase.from(TABLES.ORDERS).insert({
       user_id: user!.id,
       user_email: user!.email || user!.user_metadata?.email || '',
       order_number: orderNumber,
-      plan_type: '1day_trial',
+      plan_type: planType,
       total_amount: 0,
       payment_method: 'coupon',
       payment_status: 'paid',
@@ -109,8 +112,9 @@ function CouponRedeemContent() {
     // 7. Refresh subscription
     await refresh();
 
-    showToast('쿠폰이 등록되었습니다! 1일 이용권이 활성화되었습니다.', 'success');
+    showToast(`쿠폰이 등록되었습니다! ${couponDays}일 이용권이 활성화되었습니다.`, 'success');
     setSuccess(true);
+    setCouponDays(couponDays);
     setLoading(false);
   };
 
@@ -131,7 +135,7 @@ function CouponRedeemContent() {
             <div className="coupon-success">
               <i className="fa-solid fa-circle-check" />
               <h2>쿠폰 등록 완료!</h2>
-              <p>1일 체험 이용권이 활성화되었습니다.</p>
+              <p>{couponDays}일 이용권이 활성화되었습니다.</p>
               <div className="coupon-success-actions">
                 <Link to="/pilgi/select" className="btn btn-primary">필기 CBT 시작</Link>
                 <Link to="/orders" className="btn btn-secondary">주문 내역 확인</Link>

@@ -37,13 +37,18 @@ export function AuthProvider({ children }) {
           if (rt) {
             try {
               const { data } = await supabase.auth.refreshSession({ refresh_token: rt });
-              if (!data.session) clearSharedSession();
+              if (!data.session) {
+                clearSharedSession();
+              } else {
+                // refreshSession 성공 → TOKEN_REFRESHED 이벤트에서 loading 해제
+                return;
+              }
             } catch { clearSharedSession(); }
           }
         }
         setLoading(false);
       }
-      if (event === 'SIGNED_IN') {
+      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
         setLoading(false);
       }
       if (event === 'SIGNED_OUT') {

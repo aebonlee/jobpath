@@ -29,6 +29,12 @@ export default function PaidGuard({ children, allowFreeTrial = false }: PaidGuar
     );
   }
 
+  // 최고관리자 바이패스
+  const email = (user.email || '').toLowerCase();
+  if (email === 'aebon@kakao.com' || email === 'aebon@kyonggi.ac.kr') {
+    return <>{children}</>;
+  }
+
   // 유료 접근 권한 있음
   if (hasAccess) {
     return <>{children}</>;

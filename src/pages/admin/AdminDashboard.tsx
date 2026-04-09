@@ -22,6 +22,7 @@ export default function AdminDashboard() {
   const [coupons, setCoupons] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [couponQty, setCouponQty] = useState(10);
+  const [couponDays, setCouponDays] = useState(1);
   const [generating, setGenerating] = useState(false);
 
   useEffect(() => {
@@ -53,13 +54,17 @@ export default function AdminDashboard() {
       return;
     }
     setGenerating(true);
+    const planType = couponDays === 1 ? '1day_trial' : `${couponDays}day`;
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + 90); // 쿠폰 자체 유효기한 90일
     const newCoupons = Array.from({ length: couponQty }, () => ({
       code: generateCouponCode(),
-      plan_type: '1day_trial',
-      days: 1,
+      plan_type: planType,
+      days: couponDays,
       max_uses: 1,
       used_count: 0,
       is_active: true,
+      expires_at: expiresAt.toISOString().split('T')[0],
       created_by: 'admin',
     }));
 
@@ -109,6 +114,13 @@ export default function AdminDashboard() {
     '90day': '90일 이용권',
     'lifetime': '평생 이용권',
     '1day_trial': '1일 체험 이용권',
+    '1day': '1일 이용권',
+    '3day': '3일 이용권',
+    '7day': '7일 이용권',
+    '10day': '10일 이용권',
+    '14day': '14일 이용권',
+    '60day': '60일 이용권',
+    '365day': '365일 이용권',
   };
 
   if (loading) {
@@ -257,6 +269,22 @@ export default function AdminDashboard() {
             <div className="admin-coupon-form">
               <h3><i className="fa-solid fa-plus" /> 쿠폰 발행</h3>
               <div className="coupon-form-row">
+                <label>이용 기간:</label>
+                <select
+                  value={couponDays}
+                  onChange={e => setCouponDays(Number(e.target.value))}
+                  style={{ padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--border-color)', fontSize: '14px' }}
+                >
+                  <option value={1}>1일</option>
+                  <option value={3}>3일</option>
+                  <option value={7}>7일</option>
+                  <option value={10}>10일</option>
+                  <option value={14}>14일</option>
+                  <option value={30}>30일</option>
+                  <option value={60}>60일</option>
+                  <option value={90}>90일</option>
+                  <option value={365}>365일</option>
+                </select>
                 <label>발행 수량:</label>
                 <input
                   type="number"
@@ -273,7 +301,7 @@ export default function AdminDashboard() {
                   <i className="fa-solid fa-copy" /> 활성 코드 복사
                 </button>
               </div>
-              <p className="coupon-form-note">1일 체험 이용권 (1회용) 쿠폰이 생성됩니다.</p>
+              <p className="coupon-form-note">{couponDays}일 이용권 (1회용) 쿠폰이 생성됩니다.</p>
             </div>
 
             {coupons.length === 0 ? (
@@ -284,6 +312,7 @@ export default function AdminDashboard() {
                   <thead>
                     <tr>
                       <th>코드</th>
+                      <th>이용기간</th>
                       <th>사용/최대</th>
                       <th>상태</th>
                       <th>생성일</th>
@@ -294,6 +323,7 @@ export default function AdminDashboard() {
                     {coupons.map(coupon => (
                       <tr key={coupon.id}>
                         <td className="coupon-code-cell">{coupon.code}</td>
+                        <td>{coupon.days || 1}일</td>
                         <td>{coupon.used_count}/{coupon.max_uses}</td>
                         <td>
                           <span className={`table-badge ${coupon.is_active && coupon.used_count < coupon.max_uses ? 'pass' : 'fail'}`}>
