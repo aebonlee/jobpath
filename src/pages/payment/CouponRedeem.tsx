@@ -112,9 +112,7 @@ function CouponRedeemContent() {
 
     if (orderErr) {
       console.error('Order creation error:', orderErr);
-      showToast('쿠폰은 등록되었으나 이용권 생성에 실패했습니다. 관리자에게 문의해주세요.', 'error');
-      setLoading(false);
-      return;
+      // 주문 생성 실패해도 쿠폰 사용 기록은 이미 저장됨 → 접근 허용 가능
     }
 
     // 7. Refresh subscription

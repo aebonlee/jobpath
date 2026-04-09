@@ -22,6 +22,9 @@ export async function checkSubscription(userId) {
     }
   } catch { /* skip */ }
 
+  const now = new Date();
+
+  // 1) 주문(orders) 기반 확인
   const { data, error } = await supabase
     .from(TABLES.ORDERS)
     .select('*')
@@ -29,23 +32,52 @@ export async function checkSubscription(userId) {
     .eq('payment_status', 'paid')
     .order('created_at', { ascending: false });
 
-  if (error || !data?.length) {
-    return { hasAccess: false, subscription: null, expiresAt: null };
+  if (!error && data?.length) {
+    const active = data
+      .filter(o => o.expires_at && new Date(o.expires_at) > now)
+      .sort((a, b) => new Date(b.expires_at) - new Date(a.expires_at));
+
+    if (active.length > 0) {
+      return {
+        hasAccess: true,
+        subscription: active[0],
+        expiresAt: new Date(active[0].expires_at),
+      };
+    }
   }
 
-  // 기간제 이용권 확인 (가장 늦게 만료되는 것)
-  const now = new Date();
-  const active = data
-    .filter(o => o.expires_at && new Date(o.expires_at) > now)
-    .sort((a, b) => new Date(b.expires_at) - new Date(a.expires_at));
+  // 2) 쿠폰 사용 기록(coupon_redemptions) fallback
+  //    주문 생성이 RLS 등으로 실패한 경우에도 접근 허용
+  try {
+    const { data: redemptions } = await supabase
+      .from(TABLES.COUPON_REDEMPTIONS)
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false });
 
-  if (active.length > 0) {
-    return {
-      hasAccess: true,
-      subscription: active[0],
-      expiresAt: new Date(active[0].expires_at),
-    };
-  }
+    if (redemptions?.length) {
+      const couponIds = [...new Set(redemptions.map(r => r.coupon_id))];
+      const { data: coupons } = await supabase
+        .from(TABLES.COUPONS)
+        .select('id, days')
+        .in('id', couponIds);
+
+      const couponMap = {};
+      (coupons || []).forEach(c => { couponMap[c.id] = c.days || 1; });
+
+      for (const r of redemptions) {
+        const days = couponMap[r.coupon_id] || 1;
+        const expiresAt = new Date(new Date(r.created_at).getTime() + days * 24 * 60 * 60 * 1000);
+        if (expiresAt > now) {
+          return {
+            hasAccess: true,
+            subscription: { plan_type: `${days}day`, payment_method: 'coupon' },
+            expiresAt,
+          };
+        }
+      }
+    }
+  } catch { /* skip */ }
 
   return { hasAccess: false, subscription: null, expiresAt: null };
 }
