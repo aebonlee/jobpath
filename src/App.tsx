@@ -7,7 +7,6 @@ import { SubscriptionProvider } from './contexts/SubscriptionContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import SubscriptionBanner from './components/SubscriptionBanner';
-import CouponTooltip from './components/CouponTooltip';
 import PaidGuard from './components/PaidGuard';
 
 import Home from './pages/Home';
@@ -62,7 +61,6 @@ function AppLayout() {
     <div className="app-layout">
       <Navbar />
       <SubscriptionBanner />
-      <CouponTooltip />
       <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />

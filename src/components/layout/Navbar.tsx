@@ -2,11 +2,15 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
+import { useSubscription } from '../../contexts/SubscriptionContext';
 import { NAV_ITEMS } from '../../config/site';
+
+const TOOLTIP_KEY = 'jp_coupon_tooltip_dismissed';
 
 export default function Navbar() {
   const { mode, toggleTheme, colorTheme, setColorTheme, COLOR_OPTIONS } = useTheme();
   const { user, signOut, isAdmin } = useAuth();
+  const { hasAccess, loading: subLoading } = useSubscription();
   const location = useLocation();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,6 +18,7 @@ export default function Navbar() {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showMobileColorPicker, setShowMobileColorPicker] = useState(false);
   const [mobileSubnavOpen, setMobileSubnavOpen] = useState({});
+  const [showCouponTip, setShowCouponTip] = useState(false);
   const colorPickerRef = useRef(null);
   const mobileColorPickerRef = useRef(null);
 
@@ -36,6 +41,19 @@ export default function Navbar() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // 쿠폰 풍선 도움말: 로그인 + 구독없음 + 세션 미닫힘
+  useEffect(() => {
+    if (subLoading || !user || hasAccess) return;
+    if (sessionStorage.getItem(TOOLTIP_KEY)) return;
+    const t = setTimeout(() => setShowCouponTip(true), 1500);
+    return () => clearTimeout(t);
+  }, [user, hasAccess, subLoading]);
+
+  const dismissCouponTip = () => {
+    setShowCouponTip(false);
+    sessionStorage.setItem(TOOLTIP_KEY, '1');
+  };
 
   const themeIcon = mode === 'auto' ? '\u25D1' : mode === 'light' ? '\u2600\uFE0F' : '\uD83C\uDF19';
 
@@ -117,6 +135,21 @@ export default function Navbar() {
                   <img src={user.user_metadata.avatar_url} alt="" className="user-avatar" />
                 )}
                 <button className="logout-btn" onClick={signOut}>로그아웃</button>
+                {showCouponTip && (
+                  <div className="coupon-tooltip">
+                    <button className="coupon-tooltip-close" onClick={dismissCouponTip} aria-label="닫기">&times;</button>
+                    <div className="coupon-tooltip-icon">
+                      <i className="fa-solid fa-ticket" />
+                    </div>
+                    <p className="coupon-tooltip-msg">
+                      쿠폰이 있으신가요?<br />
+                      <strong>쿠폰 등록</strong>으로 바로 이용하세요!
+                    </p>
+                    <Link to="/coupon" className="coupon-tooltip-btn" onClick={dismissCouponTip}>
+                      쿠폰 등록하기 <i className="fa-solid fa-arrow-right" />
+                    </Link>
+                  </div>
+                )}
               </div>
             ) : (
               <Link to="/login" className="login-link">
