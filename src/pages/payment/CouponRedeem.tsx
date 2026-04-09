@@ -98,7 +98,7 @@ function CouponRedeemContent() {
     const orderNumber = `CP-${Date.now()}`;
     const planType = couponDays === 1 ? '1day_trial' : `${couponDays}day`;
 
-    await supabase.from(TABLES.ORDERS).insert({
+    const { error: orderErr } = await supabase.from(TABLES.ORDERS).insert({
       user_id: user!.id,
       user_email: user!.email || user!.user_metadata?.email || '',
       order_number: orderNumber,
@@ -106,8 +106,16 @@ function CouponRedeemContent() {
       total_amount: 0,
       payment_method: 'coupon',
       payment_status: 'paid',
+      paid_at: now.toISOString(),
       expires_at: expiresAt.toISOString(),
     });
+
+    if (orderErr) {
+      console.error('Order creation error:', orderErr);
+      showToast('쿠폰은 등록되었으나 이용권 생성에 실패했습니다. 관리자에게 문의해주세요.', 'error');
+      setLoading(false);
+      return;
+    }
 
     // 7. Refresh subscription
     await refresh();

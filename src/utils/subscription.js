@@ -12,12 +12,22 @@ import { supabase, TABLES } from '../lib/supabase';
 export async function checkSubscription(userId) {
   if (!userId) return { hasAccess: false, subscription: null, expiresAt: null };
 
+  // 최고관리자 바이패스: 이메일 확인
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    const email = (user?.email || '').toLowerCase();
+    if (email === 'aebon@kakao.com' || email === 'aebon@kyonggi.ac.kr') {
+      const farFuture = new Date('2099-12-31');
+      return { hasAccess: true, subscription: { plan_type: 'admin' }, expiresAt: farFuture };
+    }
+  } catch { /* skip */ }
+
   const { data, error } = await supabase
     .from(TABLES.ORDERS)
     .select('*')
     .eq('user_id', userId)
     .eq('payment_status', 'paid')
-    .order('paid_at', { ascending: false });
+    .order('created_at', { ascending: false });
 
   if (error || !data?.length) {
     return { hasAccess: false, subscription: null, expiresAt: null };
