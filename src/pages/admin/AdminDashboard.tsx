@@ -39,6 +39,11 @@ export default function AdminDashboard() {
       supabase.from(TABLES.PROFILES).select('*').order('created_at', { ascending: false }),
       supabase.from(TABLES.COUPON_REDEMPTIONS).select('*').order('created_at', { ascending: false }),
     ]);
+    if (ordersRes.error) console.error('[Admin] orders 조회 오류:', ordersRes.error.message);
+    if (couponsRes.error) console.error('[Admin] coupons 조회 오류:', couponsRes.error.message);
+    if (profilesRes.error) console.error('[Admin] profiles 조회 오류:', profilesRes.error.message);
+    if (redemptionsRes.error) console.error('[Admin] redemptions 조회 오류:', redemptionsRes.error.message);
+
     if (ordersRes.data) setOrders(ordersRes.data);
     if (couponsRes.data) setCoupons(couponsRes.data);
     if (redemptionsRes.data) setRedemptions(redemptionsRes.data);

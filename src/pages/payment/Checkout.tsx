@@ -69,12 +69,13 @@ function CheckoutContent() {
 
       // Supabase에 주문 저장
       const now = new Date();
+      let insertFailed = false;
       for (const item of items) {
         const expiresAt = item.days
           ? new Date(now.getTime() + item.days * 24 * 60 * 60 * 1000).toISOString()
           : null;
 
-        await supabase.from(TABLES.ORDERS).insert({
+        const { error: insertError } = await supabase.from(TABLES.ORDERS).insert({
           order_number: orderNumber,
           user_id: user!.id,
           user_email: email,
@@ -88,11 +89,20 @@ function CheckoutContent() {
           paid_at: now.toISOString(),
           expires_at: expiresAt,
         });
+
+        if (insertError) {
+          console.error('주문 저장 실패:', insertError);
+          insertFailed = true;
+        }
       }
 
       clearCart();
       await refresh();
-      showToast('결제가 완료되었습니다!', 'success');
+      if (insertFailed) {
+        showToast('결제는 완료되었으나 주문 기록 저장에 문제가 발생했습니다. 관리자에게 문의해주세요.', 'error');
+      } else {
+        showToast('결제가 완료되었습니다!', 'success');
+      }
       navigate('/confirmation', { state: { orderNumber, items, total: cartTotal, paidAt: now.toISOString() } });
     } catch (err: any) {
       console.error(err);

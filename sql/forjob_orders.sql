@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS forjob_orders (
   user_email TEXT,
   user_name TEXT,
   user_phone TEXT,
-  plan_type TEXT NOT NULL CHECK (plan_type IN ('30day','90day','lifetime')),
+  plan_type TEXT NOT NULL CHECK (plan_type IN ('3month','6month','12month','30day','90day','lifetime','1day_trial','1day','3day','7day','10day','14day','60day','365day')),
   total_amount INTEGER NOT NULL,
   payment_method TEXT DEFAULT 'card',
   payment_status TEXT DEFAULT 'pending'
