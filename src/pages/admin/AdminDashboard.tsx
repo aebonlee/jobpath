@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import SEOHead from '../../components/SEOHead';
 import { supabase, TABLES } from '../../lib/supabase';
 import { useToast } from '../../contexts/ToastContext';
@@ -26,6 +26,11 @@ export default function AdminDashboard() {
   const [couponQty, setCouponQty] = useState(10);
   const [couponDays, setCouponDays] = useState(1);
   const [generating, setGenerating] = useState(false);
+  const [orderFilter, setOrderFilter] = useState('all');
+  const [orderSearch, setOrderSearch] = useState('');
+  const [expandedOrder, setExpandedOrder] = useState<string | null>(null);
+  const [cancelMemo, setCancelMemo] = useState('');
+  const [updatingOrder, setUpdatingOrder] = useState(false);
 
   useEffect(() => {
     loadData();
@@ -123,6 +128,56 @@ export default function AdminDashboard() {
     navigator.clipboard.writeText(activeCodes.join('\n'));
     showToast(`${activeCodes.length}개 쿠폰 코드가 복사되었습니다.`, 'success');
   };
+
+  // 주문 관리 함수
+  const handleOrderStatusChange = async (orderId: string, newStatus: string, reason = '') => {
+    setUpdatingOrder(true);
+    try {
+      const updatePayload: any = { payment_status: newStatus };
+      if (newStatus === 'paid') updatePayload.paid_at = new Date().toISOString();
+      if (newStatus === 'cancelled' || newStatus === 'refunded') {
+        updatePayload.cancelled_at = new Date().toISOString();
+        if (reason) updatePayload.cancel_reason = reason;
+      }
+      const { error } = await supabase.from(TABLES.ORDERS).update(updatePayload).eq('id', orderId);
+      if (error) throw error;
+      showToast('주문 상태가 변경되었습니다.', 'success');
+      setExpandedOrder(null);
+      setCancelMemo('');
+      loadData();
+    } catch (err: any) {
+      showToast(`상태 변경 실패: ${err?.message || '알 수 없는 오류'}`, 'error');
+      console.error('Order status update error:', err);
+    }
+    setUpdatingOrder(false);
+  };
+
+  const orderSummary = useMemo(() => {
+    const paid = orders.filter(o => o.payment_status === 'paid');
+    const cancelled = orders.filter(o => o.payment_status === 'cancelled');
+    const refunded = orders.filter(o => o.payment_status === 'refunded');
+    return {
+      total: orders.length,
+      paidCount: paid.length,
+      paidAmount: paid.reduce((s, o) => s + (o.total_amount || 0), 0),
+      cancelledCount: cancelled.length,
+      refundedCount: refunded.length,
+    };
+  }, [orders]);
+
+  const filteredOrders = useMemo(() => {
+    let list = orders;
+    if (orderFilter !== 'all') list = list.filter(o => (o.payment_status || 'pending') === orderFilter);
+    if (orderSearch.trim()) {
+      const q = orderSearch.toLowerCase();
+      list = list.filter(o =>
+        (o.order_number || '').toLowerCase().includes(q) ||
+        (o.user_email || '').toLowerCase().includes(q) ||
+        (o.user_name || '').toLowerCase().includes(q)
+      );
+    }
+    return list;
+  }, [orders, orderFilter, orderSearch]);
 
   const STATUS_LABELS: Record<string, { text: string; cls: string }> = {
     paid: { text: '결제완료', cls: 'pass' },
@@ -268,34 +323,156 @@ export default function AdminDashboard() {
         {/* Orders Tab */}
         {activeTab === 'orders' && (
           <div className="admin-panel">
-            <h2>주문 목록</h2>
-            {orders.length === 0 ? (
-              <p className="admin-empty">주문이 없습니다.</p>
+            {/* 주문 요약 */}
+            <div className="admin-order-summary">
+              <div className="admin-order-summary-card">
+                <span className="admin-order-summary-label">전체 주문</span>
+                <span className="admin-order-summary-value">{orderSummary.total}건</span>
+              </div>
+              <div className="admin-order-summary-card paid">
+                <span className="admin-order-summary-label">결제완료</span>
+                <span className="admin-order-summary-value">{orderSummary.paidCount}건 / {orderSummary.paidAmount.toLocaleString()}원</span>
+              </div>
+              <div className="admin-order-summary-card cancelled">
+                <span className="admin-order-summary-label">취소/환불</span>
+                <span className="admin-order-summary-value">{orderSummary.cancelledCount + orderSummary.refundedCount}건</span>
+              </div>
+            </div>
+
+            {/* 필터 + 검색 */}
+            <div className="admin-order-toolbar">
+              <div className="admin-order-filters">
+                {['all', 'paid', 'pending', 'cancelled', 'refunded', 'failed'].map(f => {
+                  const count = f === 'all' ? orders.length : orders.filter(o => (o.payment_status || 'pending') === f).length;
+                  if (f !== 'all' && count === 0) return null;
+                  const label = f === 'all' ? '전체' : (STATUS_LABELS[f]?.text || f);
+                  return (
+                    <button key={f} className={`admin-order-filter-btn ${orderFilter === f ? 'active' : ''}`} onClick={() => setOrderFilter(f)}>
+                      {label} ({count})
+                    </button>
+                  );
+                })}
+              </div>
+              <input
+                type="text"
+                className="admin-order-search"
+                placeholder="주문번호, 이메일, 이름 검색..."
+                value={orderSearch}
+                onChange={e => setOrderSearch(e.target.value)}
+              />
+            </div>
+
+            {filteredOrders.length === 0 ? (
+              <p className="admin-empty">해당 조건의 주문이 없습니다.</p>
             ) : (
               <div className="admin-table-wrap">
                 <table className="admin-table">
                   <thead>
                     <tr>
                       <th>주문번호</th>
-                      <th>이메일</th>
+                      <th>주문자</th>
                       <th>플랜</th>
                       <th>금액</th>
                       <th>상태</th>
+                      <th>만료일</th>
                       <th>결제일</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {orders.map(order => {
+                    {filteredOrders.map(order => {
                       const status = STATUS_LABELS[order.payment_status] || { text: order.payment_status, cls: '' };
+                      const isExpanded = expandedOrder === order.id;
+                      const isExpired = order.expires_at && new Date(order.expires_at) < new Date();
                       return (
-                        <tr key={order.id}>
-                          <td className="order-num-cell">{order.order_number}</td>
-                          <td>{order.user_email || '-'}</td>
-                          <td>{PLAN_LABELS[order.plan_type] || order.plan_type}</td>
-                          <td>{(order.total_amount || 0).toLocaleString()}원</td>
-                          <td><span className={`table-badge ${status.cls}`}>{status.text}</span></td>
-                          <td>{new Date(order.created_at).toLocaleDateString('ko-KR')}</td>
-                        </tr>
+                        <>
+                          <tr key={order.id} className={`admin-order-row ${isExpanded ? 'expanded' : ''}`} onClick={() => setExpandedOrder(isExpanded ? null : order.id)} style={{ cursor: 'pointer' }}>
+                            <td className="order-num-cell">{order.order_number}</td>
+                            <td>{order.user_name || order.user_email?.split('@')[0] || '-'}<br /><small style={{ color: 'var(--text-light)', fontSize: '11px' }}>{order.user_email}</small></td>
+                            <td>{PLAN_LABELS[order.plan_type] || order.plan_type}</td>
+                            <td style={{ fontWeight: 700 }}>{(order.total_amount || 0).toLocaleString()}원</td>
+                            <td><span className={`table-badge ${status.cls}`}>{status.text}</span></td>
+                            <td>
+                              {order.expires_at ? (
+                                <span style={{ color: isExpired ? '#DC2626' : '#059669', fontWeight: 600, fontSize: '13px' }}>
+                                  {new Date(order.expires_at).toLocaleDateString('ko-KR')}
+                                  {isExpired ? ' (만료)' : ''}
+                                </span>
+                              ) : '-'}
+                            </td>
+                            <td>{new Date(order.created_at).toLocaleDateString('ko-KR')}</td>
+                          </tr>
+                          {isExpanded && (
+                            <tr key={`${order.id}-detail`}>
+                              <td colSpan={7} style={{ padding: 0 }}>
+                                <div className="admin-order-detail">
+                                  <div className="admin-order-detail-info">
+                                    <dl>
+                                      <dt>주문번호</dt><dd>{order.order_number}</dd>
+                                      <dt>이메일</dt><dd>{order.user_email || '-'}</dd>
+                                      <dt>전화번호</dt><dd>{order.user_phone || '-'}</dd>
+                                      <dt>결제수단</dt><dd>{order.payment_method || 'card'}</dd>
+                                      {order.portone_payment_id && <><dt>결제 ID</dt><dd style={{ fontFamily: 'monospace', fontSize: '12px' }}>{order.portone_payment_id}</dd></>}
+                                      {order.paid_at && <><dt>결제일시</dt><dd>{new Date(order.paid_at).toLocaleString('ko-KR')}</dd></>}
+                                      {order.cancelled_at && <><dt>취소일시</dt><dd style={{ color: '#DC2626' }}>{new Date(order.cancelled_at).toLocaleString('ko-KR')}</dd></>}
+                                      {order.cancel_reason && <><dt>취소사유</dt><dd style={{ color: '#DC2626' }}>{order.cancel_reason}</dd></>}
+                                    </dl>
+                                  </div>
+                                  <div className="admin-order-actions">
+                                    <span style={{ fontSize: '13px', fontWeight: 600 }}>상태 변경:</span>
+                                    {['pending', 'paid', 'cancelled', 'refunded'].map(s => (
+                                      <button
+                                        key={s}
+                                        className={`btn-sm ${order.payment_status === s ? 'active' : ''}`}
+                                        disabled={order.payment_status === s || updatingOrder}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          if (s === 'cancelled' || s === 'refunded') {
+                                            setCancelMemo('');
+                                          } else {
+                                            handleOrderStatusChange(order.id, s);
+                                          }
+                                        }}
+                                        style={{
+                                          background: order.payment_status === s ? 'var(--primary-blue)' : 'rgba(27,58,107,0.08)',
+                                          color: order.payment_status === s ? '#fff' : 'var(--text-primary)',
+                                          opacity: order.payment_status === s ? 0.6 : 1,
+                                        }}
+                                      >
+                                        {STATUS_LABELS[s]?.text || s}
+                                      </button>
+                                    ))}
+                                  </div>
+                                  {(order.payment_status !== 'cancelled' && order.payment_status !== 'refunded') && (
+                                    <div className="admin-order-cancel-form" onClick={e => e.stopPropagation()}>
+                                      <input
+                                        type="text"
+                                        placeholder="취소/환불 사유를 입력하세요..."
+                                        value={cancelMemo}
+                                        onChange={e => setCancelMemo(e.target.value)}
+                                        style={{ flex: 1, padding: '8px 12px', border: '1px solid var(--border-light)', borderRadius: '8px', fontSize: '13px' }}
+                                      />
+                                      <button
+                                        className="btn-sm btn-danger"
+                                        disabled={updatingOrder || !cancelMemo.trim()}
+                                        onClick={() => handleOrderStatusChange(order.id, 'cancelled', cancelMemo.trim())}
+                                      >
+                                        취소 확정
+                                      </button>
+                                      <button
+                                        className="btn-sm"
+                                        disabled={updatingOrder || !cancelMemo.trim()}
+                                        onClick={() => handleOrderStatusChange(order.id, 'refunded', cancelMemo.trim())}
+                                        style={{ background: 'rgba(139,92,246,0.1)', color: '#7C3AED' }}
+                                      >
+                                        환불 처리
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          )}
+                        </>
                       );
                     })}
                   </tbody>
