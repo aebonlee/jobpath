@@ -53,19 +53,31 @@ export default function AdminDashboard() {
     if (couponsRes.data) setCoupons(couponsRes.data);
     if (redemptionsRes.data) setRedemptions(redemptionsRes.data);
 
-    // 회원 목록: 프로필 + 주문 + 쿠폰 사용 기록에서 통합
-    const emailMap: Record<string, { email: string; firstSeen: string; source: string }> = {};
+    // 회원 목록: 주문 + 쿠폰 사용 기록에서만 통합 (jobpath 활동이 있는 회원만)
+    // 프로필은 이름 조회용으로만 사용
+    const profileNameMap: Record<string, string> = {};
     (profilesRes.data || []).forEach((p: any) => {
       const e = (p.email || '').toLowerCase();
-      if (e && !emailMap[e]) emailMap[e] = { email: e, firstSeen: p.created_at, source: '가입' };
+      if (e && p.name) profileNameMap[e] = p.name;
     });
+
+    const emailMap: Record<string, { email: string; name: string; firstSeen: string; source: string }> = {};
     (ordersRes.data || []).forEach((o: any) => {
       const e = (o.user_email || '').toLowerCase();
-      if (e && !emailMap[e]) emailMap[e] = { email: e, firstSeen: o.created_at, source: '주문' };
+      if (!e) return;
+      if (!emailMap[e]) {
+        emailMap[e] = { email: e, name: o.user_name || profileNameMap[e] || '', firstSeen: o.created_at, source: '주문' };
+      } else if (!emailMap[e].name && o.user_name) {
+        emailMap[e].name = o.user_name;
+      }
     });
     (redemptionsRes.data || []).forEach((r: any) => {
       const e = (r.user_email || '').toLowerCase();
-      if (e && !emailMap[e]) emailMap[e] = { email: e, firstSeen: r.created_at, source: '쿠폰' };
+      if (e && !emailMap[e]) emailMap[e] = { email: e, name: profileNameMap[e] || '', firstSeen: r.created_at, source: '쿠폰' };
+    });
+    // 프로필에서 이름 보완
+    Object.values(emailMap).forEach((m: any) => {
+      if (!m.name && profileNameMap[m.email]) m.name = profileNameMap[m.email];
     });
     setMembers(Object.values(emailMap).sort((a, b) => new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime()));
     setLoading(false);
@@ -270,6 +282,7 @@ export default function AdminDashboard() {
                 <table className="admin-table">
                   <thead>
                     <tr>
+                      <th>이름</th>
                       <th>이메일</th>
                       <th>가입경로</th>
                       <th>주문수</th>
@@ -300,6 +313,7 @@ export default function AdminDashboard() {
                       const isActive = orderActive || couponActive;
                       return (
                         <tr key={email}>
+                          <td style={{ fontWeight: 600 }}>{member.name || '-'}</td>
                           <td>{email}</td>
                           <td><span className="table-badge">{member.source}</span></td>
                           <td>{userOrders.length}</td>
