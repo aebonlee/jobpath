@@ -45,7 +45,7 @@ function loadAccessLocal(userId: string) {
 const SubscriptionContext = createContext<SubscriptionState | null>(null);
 
 export function SubscriptionProvider({ children }: { children: ReactNode }) {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const [hasAccess, setHasAccess] = useState(false);
   const [subscription, setSubscription] = useState<any>(null);
   const [expiresAt, setExpiresAt] = useState<Date | null>(null);
@@ -74,7 +74,7 @@ export function SubscriptionProvider({ children }: { children: ReactNode }) {
     setLoading(true);
     try {
       const [subResult, trialResult] = await Promise.all([
-        checkSubscription(user.id),
+        checkSubscription(user.id, { isAdmin }),
         checkFreeTrial(user.id),
       ]);
 
@@ -107,7 +107,7 @@ export function SubscriptionProvider({ children }: { children: ReactNode }) {
       }
     }
     setLoading(false);
-  }, [user]);
+  }, [user, isAdmin]);
 
   useEffect(() => {
     refresh();

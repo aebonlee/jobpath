@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
+import { supabase, setSharedSession, getSharedSession, clearSharedSession, TABLES } from '../lib/supabase';
 import { useToast } from './ToastContext';
-import { ADMIN_EMAILS } from '../config/admin';
 
 const AuthContext = createContext({});
 
@@ -22,11 +21,16 @@ export function AuthProvider({ children }) {
       setUser(currentUser);
 
       if (currentUser) {
-        const allEmails = [
-          session?.user?.email,
-          session?.user?.user_metadata?.email,
-        ].filter(Boolean).map(e => (e as string).toLowerCase());
-        setIsAdmin(allEmails.some(e => ADMIN_EMAILS.includes(e)));
+        try {
+          const { data } = await supabase
+            .from(TABLES.PROFILES)
+            .select('role')
+            .eq('id', currentUser.id)
+            .single();
+          setIsAdmin(data?.role === 'admin' || data?.role === 'superadmin');
+        } catch {
+          setIsAdmin(false);
+        }
       } else {
         setIsAdmin(false);
       }

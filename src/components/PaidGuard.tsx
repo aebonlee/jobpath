@@ -9,7 +9,7 @@ interface PaidGuardProps {
 }
 
 export default function PaidGuard({ children, allowFreeTrial = false }: PaidGuardProps) {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, isAdmin } = useAuth();
   const { hasAccess, freeTrialRemaining, loading: subLoading } = useSubscription();
 
   if (authLoading || subLoading) {
@@ -29,9 +29,8 @@ export default function PaidGuard({ children, allowFreeTrial = false }: PaidGuar
     );
   }
 
-  // 최고관리자 바이패스
-  const email = (user.email || '').toLowerCase();
-  if (email === 'aebon@kakao.com' || email === 'aebon@kyonggi.ac.kr') {
+  // 관리자 바이패스
+  if (isAdmin) {
     return <>{children}</>;
   }
 
