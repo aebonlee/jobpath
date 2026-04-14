@@ -5,6 +5,23 @@
 const IMP_CODE = import.meta.env.VITE_IMP_CODE || '';
 const PG_PROVIDER = import.meta.env.VITE_PG_PROVIDER || '';
 
+/** SDK 로드 대기 (최대 10초) */
+function waitForIMP(timeout = 10000) {
+  if (window.IMP) return Promise.resolve(window.IMP);
+  return new Promise((resolve, reject) => {
+    const start = Date.now();
+    const check = setInterval(() => {
+      if (window.IMP) {
+        clearInterval(check);
+        resolve(window.IMP);
+      } else if (Date.now() - start > timeout) {
+        clearInterval(check);
+        reject(new Error('PortOne SDK 로드 시간 초과'));
+      }
+    }, 200);
+  });
+}
+
 export function initPortOne() {
   if (!window.IMP) {
     console.warn('PortOne SDK not loaded');
@@ -30,16 +47,11 @@ export function initPortOne() {
  * @param {'card'|'trans'} params.payMethod - 결제수단
  * @returns {Promise<{success: boolean, paymentId?: string, txId?: string, error?: string}>}
  */
-export function requestPayment({ orderNumber, name, amount, buyerName, buyerEmail, buyerTel, payMethod = 'card' }) {
-  return new Promise((resolve) => {
-    if (!window.IMP) {
-      resolve({ success: false, error: 'PortOne SDK가 로드되지 않았습니다.' });
-      return;
-    }
-
-    if (!IMP_CODE || !PG_PROVIDER) {
-      // Demo mode
-      console.log('[PortOne Demo]', { orderNumber, name, amount });
+export async function requestPayment({ orderNumber, name, amount, buyerName, buyerEmail, buyerTel, payMethod = 'card' }) {
+  if (!IMP_CODE || !PG_PROVIDER) {
+    // Demo mode
+    console.log('[PortOne Demo]', { orderNumber, name, amount });
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
           success: true,
@@ -47,11 +59,21 @@ export function requestPayment({ orderNumber, name, amount, buyerName, buyerEmai
           txId: `demo_tx_${Date.now()}`,
         });
       }, 1000);
-      return;
-    }
+    });
+  }
 
-    window.IMP.init(IMP_CODE);
-    window.IMP.request_pay(
+  // SDK 로드 대기
+  let IMP;
+  try {
+    IMP = await waitForIMP();
+  } catch {
+    return { success: false, error: 'PortOne 결제 모듈을 불러오지 못했습니다. 페이지를 새로고침 해주세요.' };
+  }
+
+  IMP.init(IMP_CODE);
+
+  return new Promise((resolve) => {
+    IMP.request_pay(
       {
         pg: PG_PROVIDER,
         pay_method: payMethod,
