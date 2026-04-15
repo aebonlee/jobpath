@@ -70,13 +70,15 @@ function CheckoutContent() {
       // Supabase에 주문 저장
       const now = new Date();
       let insertFailed = false;
-      for (const item of items) {
+      for (let idx = 0; idx < items.length; idx++) {
+        const item = items[idx];
+        const itemOrderNumber = items.length > 1 ? `${orderNumber}-${idx + 1}` : orderNumber;
         const expiresAt = item.days
           ? new Date(now.getTime() + item.days * 24 * 60 * 60 * 1000).toISOString()
           : null;
 
         const { error: insertError } = await supabase.from(TABLES.ORDERS).insert({
-          order_number: orderNumber,
+          order_number: itemOrderNumber,
           user_id: user!.id,
           user_email: email,
           user_name: name,

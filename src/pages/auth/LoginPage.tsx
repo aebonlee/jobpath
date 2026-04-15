@@ -69,7 +69,7 @@ export default function LoginPage() {
           </div>
 
           <p className="login-terms">
-            로그인 시 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 동의하게 됩니다.
+            로그인 시 <a href="/terms">이용약관</a> 및 <a href="/privacy">개인정보처리방침</a>에 동의하게 됩니다.
           </p>
 
           <div className="login-footer">
