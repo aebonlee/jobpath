@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { supabase, setSharedSession, getSharedSession, clearSharedSession, TABLES } from '../lib/supabase';
 import { useToast } from './ToastContext';
+import { useIdleTimeout } from '../hooks/useIdleTimeout';
 import { SUPERADMIN_EMAILS } from '../config/admin';
 
 const AuthContext = createContext({});
@@ -119,6 +120,7 @@ export function AuthProvider({ children }) {
   const signOut = async () => {
     try {
       const { error } = await supabase.auth.signOut();
+      clearSharedSession();
       if (error) {
         console.error('Logout error:', error.message);
         showToast('로그아웃에 실패했습니다.', 'error');
@@ -127,9 +129,19 @@ export function AuthProvider({ children }) {
       }
     } catch (err: any) {
       console.error('Logout error:', err);
+      clearSharedSession();
       showToast('로그아웃에 실패했습니다.', 'error');
     }
   };
+
+  // 10분 무동작 세션 타임아웃
+  useIdleTimeout({
+    enabled: !!user,
+    onTimeout: () => {
+      supabase.auth.signOut();
+      clearSharedSession();
+    },
+  });
 
   return (
     <AuthContext.Provider value={{ user, loading, isAdmin, signInWithGoogle, signInWithKakao, signOut }}>
