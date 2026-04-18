@@ -1,8 +1,9 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { supabase, setSharedSession, getSharedSession, clearSharedSession, TABLES } from '../lib/supabase';
 import { useToast } from './ToastContext';
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
 import { SUPERADMIN_EMAILS } from '../config/admin';
+import ProfileCompleteModal from '../components/ProfileCompleteModal';
 
 const AuthContext = createContext({});
 
@@ -12,7 +13,16 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [_userProfile, _setUserProfile] = useState<any>(null);
   const { showToast } = useToast();
+
+  // user_profiles 프로필 로드 (프로필 완성 체크용)
+  const _loadUserProfile = useCallback(async (uid: string) => {
+    try {
+      const { data } = await supabase.from('user_profiles').select('name,phone').eq('id', uid).maybeSingle();
+      _setUserProfile(data);
+    } catch { _setUserProfile(null); }
+  }, []);
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
@@ -23,6 +33,46 @@ export function AuthProvider({ children }) {
       setUser(currentUser);
 
       if (currentUser) {
+        const email = (currentUser.email || currentUser.user_metadata?.email || '').toLowerCase();
+        const name = currentUser.user_metadata?.full_name || currentUser.user_metadata?.name || '';
+
+        // 프로필 자동 생성/업데이트 (회원목록 정확성 보장)
+        if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') {
+          try {
+            const provider = currentUser.app_metadata?.provider || 'email';
+            await supabase.from(TABLES.PROFILES).upsert({
+              id: currentUser.id,
+              email,
+              name: name || undefined,
+              provider,
+              role: 'member',
+              created_at: currentUser.created_at || new Date().toISOString(),
+            }, {
+              onConflict: 'id',
+              ignoreDuplicates: false,
+            });
+          } catch (err) {
+            console.warn('forjob_profiles upsert 실패:', err);
+          }
+
+          // user_profiles 이중 기록 (글로벌 회원 가시성)
+          try {
+            await supabase.from('user_profiles').upsert({
+              id: currentUser.id,
+              email,
+              name: name || '',
+              display_name: name || '',
+              provider: currentUser.app_metadata?.provider || 'email',
+              signup_domain: window.location.hostname,
+              visited_sites: [window.location.hostname],
+              role: 'member',
+            }, { onConflict: 'id' });
+            await _loadUserProfile(currentUser.id);
+          } catch (err) {
+            console.warn('user_profiles upsert 실패:', err);
+          }
+        }
+
         // 최고관리자 이메일 fallback (DB 장애 시에도 접근 보장)
         const allEmails = [
           currentUser.email,
@@ -138,14 +188,22 @@ export function AuthProvider({ children }) {
   useIdleTimeout({
     enabled: !!user,
     onTimeout: () => {
-      supabase.auth.signOut();
+      supabase?.auth.signOut();
       clearSharedSession();
     },
   });
 
+  const refreshProfile = useCallback(async () => {
+    if (user) await _loadUserProfile(user.id);
+  }, [user, _loadUserProfile]);
+  const needsProfileCompletion = !!user && !!_userProfile && (!_userProfile.name || !_userProfile.phone);
+
   return (
     <AuthContext.Provider value={{ user, loading, isAdmin, signInWithGoogle, signInWithKakao, signOut }}>
       {children}
+      {needsProfileCompletion && (
+        <ProfileCompleteModal user={user} onComplete={refreshProfile} />
+      )}
     </AuthContext.Provider>
   );
 }
