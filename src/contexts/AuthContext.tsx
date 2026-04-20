@@ -8,12 +8,16 @@ import ProfileCompleteModal from '../components/ProfileCompleteModal';
 const AuthContext = createContext({});
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || window.location.origin;
+const DISMISS_KEY = 'jp_profile_modal_dismissed';
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [_userProfile, _setUserProfile] = useState<any>(null);
+  const [_profileDismissed, _setProfileDismissed] = useState(
+    () => typeof window !== 'undefined' && sessionStorage.getItem(DISMISS_KEY) === '1'
+  );
   const { showToast } = useToast();
 
   // user_profiles 프로필 로드 (프로필 완성 체크용)
@@ -54,16 +58,17 @@ export function AuthProvider({ children }) {
 
           // user_profiles 이중 기록 (글로벌 회원 가시성)
           try {
-            await supabase.from('user_profiles').upsert({
+            const upsertData: Record<string, unknown> = {
               id: currentUser.id,
               email,
-              name: name || '',
               display_name: name || '',
               provider: currentUser.app_metadata?.provider || 'email',
               signup_domain: window.location.hostname,
               visited_sites: [window.location.hostname],
-              role: 'member',
-            }, { onConflict: 'id' });
+            };
+            // OAuth에서 이름이 제공된 경우에만 name 설정 (기존 사용자 입력값 보존)
+            if (name) upsertData.name = name;
+            await supabase.from('user_profiles').upsert(upsertData, { onConflict: 'id' });
             await _loadUserProfile(currentUser.id);
           } catch (err) {
             console.warn('user_profiles upsert 실패:', err);
@@ -152,7 +157,10 @@ export function AuthProvider({ children }) {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'kakao',
-        options: { redirectTo: SITE_URL },
+        options: {
+          redirectTo: SITE_URL,
+          scopes: 'profile_nickname profile_image account_email',
+        },
       });
       if (error) {
         console.error('Kakao login error:', error.message);
@@ -193,13 +201,18 @@ export function AuthProvider({ children }) {
   const refreshProfile = useCallback(async () => {
     if (user) await _loadUserProfile(user.id);
   }, [user, _loadUserProfile]);
-  const needsProfileCompletion = !!user && !!_userProfile && !_userProfile.name;
+  const needsProfileCompletion = !!user && !!_userProfile && !_userProfile.name && !_profileDismissed;
+
+  const dismissProfileModal = useCallback(() => {
+    sessionStorage.setItem(DISMISS_KEY, '1');
+    _setProfileDismissed(true);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, loading, isAdmin, signInWithGoogle, signInWithKakao, signOut }}>
       {children}
       {needsProfileCompletion && (
-        <ProfileCompleteModal user={user} onComplete={refreshProfile} />
+        <ProfileCompleteModal user={user} onComplete={refreshProfile} onDismiss={dismissProfileModal} />
       )}
     </AuthContext.Provider>
   );
