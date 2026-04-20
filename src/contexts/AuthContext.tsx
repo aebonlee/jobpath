@@ -39,13 +39,10 @@ export function AuthProvider({ children }) {
         // 프로필 자동 생성/업데이트 (회원목록 정확성 보장)
         if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') {
           try {
-            const provider = currentUser.app_metadata?.provider || 'email';
             await supabase.from(TABLES.PROFILES).upsert({
               id: currentUser.id,
               email,
               name: name || undefined,
-              provider,
-              role: 'member',
               created_at: currentUser.created_at || new Date().toISOString(),
             }, {
               onConflict: 'id',
