@@ -223,7 +223,7 @@ export function AuthProvider({ children }) {
       {needsProfileCompletion && (
         <ProfileCompleteModal user={user} onComplete={refreshProfile} onDismiss={dismissProfileModal} />
       )}
-    {isLoggedIn && user && !needsProfileCompletion && (
+    {!!user && !needsProfileCompletion && (
       <PaymentNudgePopup user={user} siteSlug="jobpath" />
     )}
     </AuthContext.Provider>
