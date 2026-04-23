@@ -139,14 +139,6 @@ export default function ExamMode() {
     }
   }, [user, bookmarkedIds, showToast]);
 
-  const handleSubmitRef = useRef(handleSubmit);
-  handleSubmitRef.current = handleSubmit;
-
-  const handleTimeUp = useCallback(() => {
-    showToast('시간이 종료되었습니다. 자동 제출합니다.', 'info');
-    handleSubmitRef.current();
-  }, [showToast]);
-
   const handleSubmit = async () => {
     setSubmitting(true);
     const timeSpent = Math.floor((Date.now() - startTime) / 1000);
@@ -224,6 +216,14 @@ export default function ExamMode() {
     }
     setSubmitting(false);
   };
+
+  const handleSubmitRef = useRef(handleSubmit);
+  handleSubmitRef.current = handleSubmit;
+
+  const handleTimeUp = useCallback(() => {
+    showToast('시간이 종료되었습니다. 자동 제출합니다.', 'info');
+    handleSubmitRef.current();
+  }, [showToast]);
 
   if (!questions.length) return null;
 
